@@ -3,16 +3,186 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>H7 NEO</title>
+  <title>H7 NEO | Boutique</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #111;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 32px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: white;
+    }
+
+    .hero h2 {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #111;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .products {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .products h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    }
+
+    .product-image {
+      height: 250px;
+      background: #eee;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    .product h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .order {
+      background: white;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px 20px;
+      border-radius: 12px;
+    }
+
+    .order h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      background: #111;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      background: #111;
+      color: white;
+      padding: 25px;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>H7 NEO</h1>
+  <header>
+    <h1>H7 NEO</h1>
+  </header>
 
-  <p>Bienvenue dans notre boutique</p>
+  <section class="hero">
+    <h2>Bienvenue chez H7 NEO</h2>
+    <p>Découvrez nos produits et commandez facilement.</p>
+    <a href="#commander" class="btn">Commander</a>
+  </section>
 
-  <button>Commander</button>
+  <section class="products">
+    <h2>Nos produits</h2>
+
+    <div class="product">
+      <div class="product-image">
+        Photo du produit
+      </div>
+
+      <h3>Produit H7 NEO</h3>
+      <div class="price">299 DH</div>
+
+      <a href="#commander" class="btn">Commander maintenant</a>
+    </div>
+  </section>
+
+  <section class="order" id="commander">
+    <h2>Passer commande</h2>
+
+    <input type="text" placeholder="Votre nom">
+    <input type="tel" placeholder="Votre téléphone">
+    <input type="text" placeholder="Votre ville">
+    <input type="text" placeholder="Votre adresse">
+
+    <button>Commander avec paiement à la livraison</button>
+  </section>
+
+  <footer>
+    <p>© 2026 H7 NEO — Tous droits réservés</p>
+  </footer>
 
 </body>
 </html>
