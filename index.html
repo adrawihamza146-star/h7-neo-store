@@ -129,4 +129,310 @@
       padding: 12px;
       border-radius: 8px;
       margin-bottom: 15px;
-      font-size:
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .order {
+      background: white;
+      max-width: 650px;
+      margin: 20px auto 50px;
+      padding: 30px 20px;
+      border-radius: 14px;
+      box-shadow: 0 3px 15px rgba(0,0,0,.08);
+    }
+
+    .order h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      background: white;
+    }
+
+    .whatsapp {
+      margin-top: 12px;
+      background: #25D366;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: block;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+      line-height: 2;
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 27px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>H7 NEO</h1>
+  <p>متجر الأزياء والمنتجات</p>
+</header>
+
+<section class="hero">
+  <h2>مرحبا بكم في H7 NEO</h2>
+  <p>اختاري المنتج ديالك وطلبي بسهولة عبر WhatsApp</p>
+  <a href="#products" class="btn">شوفي المنتجات</a>
+</section>
+
+<section class="container" id="products">
+
+  <h2 class="section-title">منتجاتنا</h2>
+
+  <div class="products">
+
+    <!-- حجاب أنغام -->
+    <div class="product">
+      <div class="product-image">صورة حجاب أنغام</div>
+
+      <div class="product-content">
+        <h3>✨ حجاب أنغام</h3>
+        <div class="category">ملابس محجبات</div>
+
+        <div class="price">250 درهم</div>
+
+        <div class="info">
+          المقاسات: M / L / XL<br>
+          الألوان: بلومارين / أسود / بني / أزرق فاتح
+        </div>
+
+        <a class="btn" href="#order">Commander</a>
+      </div>
+    </div>
+
+    <!-- حجاب نديم -->
+    <div class="product">
+      <div class="product-image">صورة حجاب نديم</div>
+
+      <div class="product-content">
+        <h3>✨ حجاب نديم</h3>
+        <div class="category">ملابس محجبات</div>
+
+        <div class="price">250 درهم</div>
+
+        <div class="info">
+          المقاسات: M / L / XL / XXL<br>
+          الألوان: بني / بيج / كاشيري داكن / بلومارين / أسود
+        </div>
+
+        <a class="btn" href="#order">Commander</a>
+      </div>
+    </div>
+
+    <!-- حجاب هجار -->
+    <div class="product">
+      <div class="product-image">صورة حجاب هجار</div>
+
+      <div class="product-content">
+        <h3>✨ حجاب هجار</h3>
+        <div class="category">ملابس محجبات</div>
+
+        <div class="price">250 درهم</div>
+
+        <div class="info">
+          المقاسات: S / M / L / XL<br>
+          الألوان: أحمر / بنفسجي / بيج / بني / كاشيري داكن
+        </div>
+
+        <a class="btn" href="#order">Commander</a>
+      </div>
+    </div>
+
+    <!-- بالغينة -->
+    <div class="product">
+      <div class="product-image">صورة بالغينة صيفية</div>
+
+      <div class="product-content">
+        <h3>✨ بالغينة صيفية</h3>
+        <div class="category">أحدية رجالية</div>
+
+        <div class="price">250 درهم</div>
+
+        <div class="info">
+          المقاسات: 39 / 40 / 41 / 42 / 43 / 44<br>
+          الألوان: أسود / بلومارين / بيج / بني / رمادي
+        </div>
+
+        <a class="btn" href="#order">Commander</a>
+      </div>
+    </div>
+
+    <!-- Radgo -->
+    <div class="product">
+      <div class="product-image">صورة Radgo</div>
+
+      <div class="product-content">
+        <h3>✨ Radgo</h3>
+        <div class="category">أحدية رجالية</div>
+
+        <div class="price">300 درهم</div>
+
+        <div class="info">
+          المقاسات: 7 / 8 / 9
+        </div>
+
+        <a class="btn" href="#order">Commander</a>
+      </div>
+    </div>
+
+    <!-- صندالة -->
+    <div class="product">
+      <div class="product-image">صورة صندالة نسائية</div>
+
+      <div class="product-content">
+        <h3>✨ صندالة نسائية صيفية</h3>
+        <div class="category">أحدية نسائية</div>
+
+        <div class="price">150 درهم</div>
+
+        <div class="info">
+          المقاسات: 37 / 38 / 39 / 40 / 41<br>
+          الألوان: أسود / بيج / كريمي / بني
+        </div>
+
+        <a class="btn" href="#order">Commander</a>
+      </div>
+    </div>
+
+    <!-- Air Force -->
+    <div class="product">
+      <div class="product-image">صورة سبرديلا Air Force</div>
+
+      <div class="product-content">
+        <h3>✨ سبرديلا Air Force</h3>
+        <div class="category">أحدية رجالية</div>
+
+        <div class="price">200 درهم</div>
+
+        <div class="info">
+          المقاسات: 40 / 41 / 42 / 43
+        </div>
+
+        <a class="btn" href="#order">Commander</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="order" id="order">
+
+  <h2>🛍️ تأكيد الطلب</h2>
+
+  <label>الاسم الكامل</label>
+  <input id="name" type="text" placeholder="كتب الاسم ديالك">
+
+  <label>رقم الهاتف</label>
+  <input id="phone" type="tel" placeholder="06XXXXXXXX">
+
+  <label>المدينة</label>
+  <input id="city" type="text" placeholder="مثلاً الدار البيضاء">
+
+  <label>العنوان</label>
+  <input id="address" type="text" placeholder="العنوان بالتفصيل">
+
+  <label>المنتج</label>
+  <select id="product">
+    <option>حجاب أنغام - 250 DH</option>
+    <option>حجاب نديم - 250 DH</option>
+    <option>حجاب هجار - 250 DH</option>
+    <option>بالغينة صيفية - 250 DH</option>
+    <option>Radgo - 300 DH</option>
+    <option>صندالة نسائية صيفية - 150 DH</option>
+    <option>سبرديلا Air Force - 200 DH</option>
+  </select>
+
+  <label>الكمية</label>
+  <input id="quantity" type="number" min="1" value="1">
+
+  <button class="btn" onclick="sendOrder()">
+    تأكيد الطلب
+  </button>
+
+  <a
+    class="whatsapp"
+    href="https://wa.me/212640419454"
+    target="_blank">
+    💬 تواصل معنا عبر WhatsApp
+  </a>
+
+  <p style="text-align:center; margin-top:15px; color:#777;">
+    💵 الدفع عند الاستلام
+  </p>
+
+</section>
+
+<footer>
+  <strong>H7 NEO</strong><br>
+  شكراً لثقتكم بنا ❤️<br>
+  WhatsApp: 0640419454
+</footer>
+
+<script>
+  function sendOrder() {
+
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const city = document.getElementById("city").value;
+    const address = document.getElementById("address").value;
+    const product = document.getElementById("product").value;
+    const quantity = document.getElementById("quantity").value;
+
+    if (!name || !phone || !city || !address) {
+      alert("عافاك عمر جميع المعلومات ديال الطلب.");
+      return;
+    }
+
+    const message =
+      "🛍️ طلب جديد من H7 NEO%0A%0A" +
+      "👤 الاسم: " + encodeURIComponent(name) + "%0A" +
+      "📱 الهاتف: " + encodeURIComponent(phone) + "%0A" +
+      "📍 المدينة: " + encodeURIComponent(city) + "%0A" +
+      "🏠 العنوان: " + encodeURIComponent(address) + "%0A" +
+      "📦 المنتج: " + encodeURIComponent(product) + "%0A" +
+      "🔢 الكمية: " + encodeURIComponent(quantity) + "%0A%0A" +
+      "💵 الدفع عند الاستلام";
+
+    window.open(
+      "https://wa.me/212640419454?text=" + message,
+      "_blank"
+    );
+  }
+</script>
+
+</body>
+</html>
