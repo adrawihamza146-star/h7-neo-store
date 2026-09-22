@@ -235,22 +235,84 @@
     </div>
 
     <!-- حجاب نديم -->
-    <div class="product">
-      <div class="product-image">صورة حجاب نديم</div>
-
-      <div class="product-content">
-        <h3>✨ حجاب نديم</h3>
-        <div class="category">ملابس محجبات</div>
-
-        <div class="price">250 درهم</div>
-
-        <div class="info">
-          المقاسات: M / L / XL / XXL<br>
-          الألوان: بني / بيج / كاشيري داكن / بلومارين / أسود
+    <!-- حجاب نديم -->
+    <div class="product" style="display: flex; flex-direction: column; position: relative; overflow: hidden; background: #fff; border-radius: 8px;">
+        
+        <!-- الصورة الرئيسية -->
+        <div class="product-image" style="position: relative; width: 100%; height: 350px; overflow: hidden;">
+            <img id="main-nadeem-img" src="69222.jpg" alt="حجاب نديم" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.4s ease;">
         </div>
 
-        <a class="btn" href="#order">Commander</a>
-      </div>
+        <!-- معرض الصور المصغرة -->
+        <div class="product-gallery-thumbs" style="display: flex; gap: 6px; padding: 8px; overflow-x: auto; background: #f8f8f8; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
+            <img src="69222.jpg" onclick="selectNadeemImage(0)" class="nadeem-thumb" style="width: 45px; height: 55px; object-fit: cover; cursor: pointer; border: 2px solid #b89756; border-radius: 4px;" alt="أسود">
+            <img src="69218.jpg" onclick="selectNadeemImage(1)" class="nadeem-thumb" style="width: 45px; height: 55px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;" alt="كحلي">
+            <img src="69214.jpg" onclick="selectNadeemImage(2)" class="nadeem-thumb" style="width: 45px; height: 55px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;" alt="وردي">
+            <img src="69210.jpg" onclick="selectNadeemImage(3)" class="nadeem-thumb" style="width: 45px; height: 55px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;" alt="بيج">
+            <img src="69206.jpg" onclick="selectNadeemImage(4)" class="nadeem-thumb" style="width: 45px; height: 55px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;" alt="بني">
+            <img src="69202.jpg" onclick="selectNadeemImage(5)" class="nadeem-thumb" style="width: 45px; height: 55px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;" alt="كاشيري">
+        </div>
+
+        <!-- تفاصيل المنتج -->
+        <div class="product-content" style="position: relative; z-index: 2; background: #ffffff; padding: 15px;">
+            <h3>✨ حجاب نديم</h3>
+            <div class="category">ملابس محجبات</div>
+            <div class="price">250 درهم</div>
+
+            <div class="info">
+                <strong>المقاسات:</strong> M / L / XL / XXL<br>
+                <strong>الألوان:</strong> أسود / كحلي / وردي / بيج / بني / كاشيري
+            </div>
+
+            <a class="btn" href="#order" style="display: block; text-align: center; margin-top: 10px;">Commander</a>
+        </div>
+
+        <!-- كود التمرير التلقائي والتفاعل -->
+        <script>
+          (function() {
+            var nadeemImages = [
+              "69222.jpg",
+              "69218.jpg",
+              "69214.jpg",
+              "69210.jpg",
+              "69206.jpg",
+              "69202.jpg"
+            ];
+            var currentNadeemIndex = 0;
+            var nadeemSlideTimer = null;
+
+            function updateNadeemDisplay(index) {
+              currentNadeemIndex = index;
+              var mainImg = document.getElementById('main-nadeem-img');
+              if (mainImg) {
+                mainImg.src = nadeemImages[currentNadeemIndex];
+              }
+              var thumbs = document.querySelectorAll('.nadeem-thumb');
+              thumbs.forEach(function(thumb, i) {
+                if (i === currentNadeemIndex) {
+                  thumb.style.borderColor = '#b89756';
+                  thumb.style.borderWidth = '2px';
+                } else {
+                  thumb.style.borderColor = '#ccc';
+                  thumb.style.borderWidth = '1px';
+                }
+              });
+            }
+
+            window.selectNadeemImage = function(index) {
+              updateNadeemDisplay(index);
+              clearInterval(nadeemSlideTimer);
+              nadeemSlideTimer = setInterval(autoRotateNadeem, 3000);
+            };
+
+            function autoRotateNadeem() {
+              currentNadeemIndex = (currentNadeemIndex + 1) % nadeemImages.length;
+              updateNadeemDisplay(currentNadeemIndex);
+            }
+
+            nadeemSlideTimer = setInterval(autoRotateNadeem, 3000);
+          })();
+        </script>
     </div>
 
  <!-- حجاب هجار -->
