@@ -253,24 +253,89 @@
       </div>
     </div>
 
-    <!-- حجاب هجار -->
+ <!-- حجاب هجار -->
     <div class="product" style="display: flex; flex-direction: column; position: relative; overflow: hidden; background: #fff; border-radius: 8px;">
         
         <!-- الصورة الرئيسية -->
         <div class="product-image" style="position: relative; width: 100%; height: 350px; overflow: hidden;">
-            <img id="main-hijab-img" src="حجاب هجار_1.jpg" alt="حجاب هجار" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            <img id="main-hijab-img" src="حجاب هجار_1.jpg" alt="حجاب هجار" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.4s ease;">
         </div>
 
-        <!-- معرض الصور المصغرة لباقي الموديلات والألوان -->
+        <!-- معرض الصور المصغرة -->
         <div class="product-gallery-thumbs" style="display: flex; gap: 6px; padding: 8px; overflow-x: auto; background: #f8f8f8; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
-            <img src="حجاب هجار_1.jpg" onclick="document.getElementById('main-hijab-img').src='حجاب هجار_1.jpg'" style="width: 45px; height: 55px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;" alt="موديل 1">
-            <img src="حجاب هجار_2.jpg" onclick="document.getElementById('main-hijab-img').src='حجاب هجار_2.jpg'" style="width: 45px; height: 55px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;" alt="موديل 2">
-            <img src="حجاب هجار_3.jpg" onclick="document.getElementById('main-hijab-img').src='حجاب هجار_3.jpg'" style="width: 45px; height: 55px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;" alt="موديل 3">
-            <img src="حجاب هجار_6.jpg" onclick="document.getElementById('main-hijab-img').src='حجاب هجار_6.jpg'" style="width: 45px; height: 55px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;" alt="موديل 4">
-            <img src="حجاب هجار_10.jpg" onclick="document.getElementById('main-hijab-img').src='حجاب هجار_10.jpg'" style="width: 45px; height: 55px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;" alt="موديل 5">
-            <img src="حجاب هجار_14.jpg" onclick="document.getElementById('main-hijab-img').src='حجاب هجار_14.jpg'" style="width: 45px; height: 55px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;" alt="موديل 6">
-            <img src="حجاب هجار_18.jpg" onclick="document.getElementById('main-hijab-img').src='حجاب هجار_18.jpg'" style="width: 45px; height: 55px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;" alt="موديل 7">
+            <img src="حجاب هجار_1.jpg" onclick="selectHijabImage(0)" class="hajar-thumb" style="width: 45px; height: 55px; object-fit: cover; cursor: pointer; border: 2px solid #b89756; border-radius: 4px;" alt="1">
+            <img src="حجاب هجار_2.jpg" onclick="selectHijabImage(1)" class="hajar-thumb" style="width: 45px; height: 55px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;" alt="2">
+            <img src="حجاب هجار_3.jpg" onclick="selectHijabImage(2)" class="hajar-thumb" style="width: 45px; height: 55px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;" alt="3">
+            <img src="حجاب هجار_6.jpg" onclick="selectHijabImage(3)" class="hajar-thumb" style="width: 45px; height: 55px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;" alt="4">
+            <img src="حجاب هجار_10.jpg" onclick="selectHijabImage(4)" class="hajar-thumb" style="width: 45px; height: 55px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;" alt="5">
+            <img src="حجاب هجار_14.jpg" onclick="selectHijabImage(5)" class="hajar-thumb" style="width: 45px; height: 55px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;" alt="6">
+            <img src="حجاب هجار_18.jpg" onclick="selectHijabImage(6)" class="hajar-thumb" style="width: 45px; height: 55px; object-fit: cover; cursor: pointer; border: 1px solid #ccc; border-radius: 4px;" alt="7">
         </div>
+
+        <!-- تفاصيل المنتج -->
+        <div class="product-content" style="position: relative; z-index: 2; background: #ffffff; padding: 15px;">
+            <h3>✨ حجاب هجار</h3>
+            <div class="category">ملابس محجبات</div>
+            <div class="price">250 درهم</div>
+
+            <div class="info">
+                <strong>المقاسات:</strong> S / M / L / XL<br>
+                <strong>الألوان:</strong> أحمر / بنفسجي / بيج / بني / كاشيري داكن
+            </div>
+
+            <a class="btn" href="#order" style="display: block; text-align: center; margin-top: 10px;">Commander</a>
+        </div>
+
+        <!-- كود التمرير التلقائي والتفاعل -->
+        <script>
+          (function() {
+            var hajarImages = [
+              "حجاب هجار_1.jpg",
+              "حجاب هجار_2.jpg",
+              "حجاب هجار_3.jpg",
+              "حجاب هجار_6.jpg",
+              "حجاب هجار_10.jpg",
+              "حجاب هجار_14.jpg",
+              "حجاب هجار_18.jpg"
+            ];
+            var currentHajarIndex = 0;
+            var slideTimer = null;
+
+            function updateDisplay(index) {
+              currentHajarIndex = index;
+              var mainImg = document.getElementById('main-hijab-img');
+              if (mainImg) {
+                mainImg.src = hajarImages[currentHajarIndex];
+              }
+              var thumbs = document.querySelectorAll('.hajar-thumb');
+              thumbs.forEach(function(thumb, i) {
+                if (i === currentHajarIndex) {
+                  thumb.style.borderColor = '#b89756';
+                  thumb.style.borderWidth = '2px';
+                } else {
+                  thumb.style.borderColor = '#ccc';
+                  thumb.style.borderWidth = '1px';
+                }
+              });
+            }
+
+            window.selectHijabImage = function(index) {
+              updateDisplay(index);
+              // إعادة ضبط المؤقت عند النقر اليدوي
+              clearInterval(slideTimer);
+              slideTimer = setInterval(autoRotate, 3000);
+            };
+
+            function autoRotate() {
+              currentHajarIndex = (currentHajarIndex + 1) % hajarImages.length;
+              updateDisplay(currentHajarIndex);
+            }
+
+            // تشغيل التبديل التلقائي كل 3 ثوانٍ
+            slideTimer = setInterval(autoRotate, 3000);
+          })();
+        </script>
+    </div>
 
         <!-- تفاصيل المنتج -->
         <div class="product-content" style="position: relative; z-index: 2; background: #ffffff; padding: 15px;">
