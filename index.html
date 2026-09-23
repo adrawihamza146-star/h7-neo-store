@@ -3,495 +3,524 @@
 
 <head>
 
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<title>H7 NEO</title>
+  <!-- SEO -->
+  <title>H7 NEO | متجر الأزياء والملابس والأحذية</title>
 
+  <meta name="description"
+        content="H7 NEO - متجر الأزياء والملابس والأحذية في المغرب. منتجات مختارة بعناية والدفع عند الاستلام.">
 
-<style>
+  <meta name="keywords"
+        content="H7 NEO, متجر H7 NEO, ملابس, أحذية, ملابس محجبات, أحذية رجالية, أحذية نسائية, المغرب">
 
-/* ========================= GENERAL ========================= */
+  <meta name="author"
+        content="H7 NEO">
 
-* {
-  box-sizing: border-box;
-}
+  <meta name="robots"
+        content="index, follow">
 
-html {
-  scroll-behavior: smooth;
-}
+  <meta name="theme-color"
+        content="#111111">
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-  color: #111;
-}
 
+  <style>
 
-/* ========================= HEADER ========================= */
+    * {
+      box-sizing: border-box;
+    }
 
-header {
-  background: #111;
-  color: white;
-  text-align: center;
-  padding: 25px 15px;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-header h1 {
-  margin: 0 0 8px;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #111;
+    }
 
-header p {
-  margin: 0;
-}
 
+    /* ========================= HEADER ========================= */
 
-/* ========================= HERO ========================= */
+    header {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+    }
 
-.hero {
-  background: white;
-  text-align: center;
-  padding: 45px 20px;
-}
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 32px;
+    }
 
-.hero h2 {
-  font-size: 30px;
-  margin-top: 0;
-}
+    header p {
+      margin: 0;
+    }
 
 
-/* ========================= CONTAINER ========================= */
+    /* ========================= HERO ========================= */
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 30px 15px;
-}
+    .hero {
+      background: white;
+      text-align: center;
+      padding: 45px 20px;
+    }
 
-.container > h2 {
-  text-align: center;
-  margin-bottom: 25px;
-}
+    .hero h2 {
+      font-size: 30px;
+      margin-top: 0;
+    }
 
 
-/* ========================= PRODUCTS ========================= */
+    /* ========================= CONTAINER ========================= */
 
-.products {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(260px, 1fr)
-  );
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 15px;
+    }
 
-  gap: 20px;
-}
+    .container > h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
 
 
-/* ========================= PRODUCT ========================= */
+    /* ========================= PRODUCTS ========================= */
 
-.product {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
+    .products {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(260px, 1fr)
+      );
 
-  box-shadow: 0 3px 12px #ddd;
+      gap: 20px;
+    }
 
-  text-align: center;
-}
 
+    /* ========================= PRODUCT ========================= */
 
-/* ========================= PRODUCT MAIN IMAGE ========================= */
+    .product {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
 
-.product-main-image {
-  position: relative;
+      box-shadow: 0 3px 12px #ddd;
 
-  width: 100%;
-  height: 350px;
+      text-align: center;
+    }
 
-  overflow: hidden;
 
-  background: #eee;
-}
+    /* ========================= PRODUCT IMAGE ========================= */
 
-.product-main-image > img {
-  width: 100%;
-  height: 100%;
+    .product-main-image {
+      position: relative;
 
-  object-fit: cover;
+      width: 100%;
+      height: 350px;
 
-  display: block;
+      overflow: hidden;
 
-  cursor: zoom-in;
+      background: #eee;
+    }
 
-  transition: opacity .25s ease;
-}
+    .product-main-image > img {
+      width: 100%;
+      height: 100%;
 
+      object-fit: cover;
 
-/* ========================= ARROWS ========================= */
+      display: block;
 
-.gallery-arrow {
-  position: absolute;
+      cursor: zoom-in;
 
-  top: 50%;
+      transition: opacity .25s ease;
+    }
 
-  transform: translateY(-50%);
 
-  width: 42px;
-  height: 42px;
+    /* ========================= ARROWS ========================= */
 
-  border: none;
+    .gallery-arrow {
+      position: absolute;
 
-  border-radius: 50%;
+      top: 50%;
 
-  background: rgba(0,0,0,.55);
+      transform: translateY(-50%);
 
-  color: white;
+      width: 42px;
+      height: 42px;
 
-  font-size: 21px;
+      border: none;
 
-  cursor: pointer;
+      border-radius: 50%;
 
-  z-index: 5;
+      background: rgba(0,0,0,.55);
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+      color: white;
 
-.gallery-arrow:hover {
-  background: rgba(0,0,0,.85);
-}
+      font-size: 21px;
 
-.gallery-prev {
-  left: 10px;
-}
+      cursor: pointer;
 
-.gallery-next {
-  right: 10px;
-}
+      z-index: 5;
 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-/* ========================= COUNTER ========================= */
+    .gallery-arrow:hover {
+      background: rgba(0,0,0,.85);
+    }
 
-.gallery-counter {
-  position: absolute;
+    .gallery-prev {
+      left: 10px;
+    }
 
-  bottom: 10px;
+    .gallery-next {
+      right: 10px;
+    }
 
-  left: 50%;
 
-  transform: translateX(-50%);
+    /* ========================= COUNTER ========================= */
 
-  background: rgba(0,0,0,.65);
+    .gallery-counter {
+      position: absolute;
 
-  color: white;
+      bottom: 10px;
 
-  padding: 6px 13px;
+      left: 50%;
 
-  border-radius: 20px;
+      transform: translateX(-50%);
 
-  font-size: 13px;
+      background: rgba(0,0,0,.65);
 
-  z-index: 5;
-}
+      color: white;
 
+      padding: 6px 13px;
 
-/* ========================= THUMBNAILS ========================= */
+      border-radius: 20px;
 
-.gallery-thumbs {
-  display: flex;
+      font-size: 13px;
 
-  gap: 7px;
+      z-index: 5;
+    }
 
-  padding: 9px;
 
-  overflow-x: auto;
+    /* ========================= THUMBNAILS ========================= */
 
-  background: #f8f8f8;
+    .gallery-thumbs {
+      display: flex;
 
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+      gap: 7px;
 
-  direction: ltr;
-}
+      padding: 9px;
 
-.gallery-thumb {
-  flex: 0 0 auto;
+      overflow-x: auto;
 
-  width: 58px;
-  height: 68px;
+      background: #f8f8f8;
 
-  object-fit: cover;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
 
-  border: 2px solid #ccc;
+      direction: ltr;
+    }
 
-  border-radius: 7px;
+    .gallery-thumb {
+      flex: 0 0 auto;
 
-  cursor: pointer;
+      width: 58px;
+      height: 68px;
 
-  transition: .2s;
-}
+      object-fit: cover;
 
-.gallery-thumb:hover {
-  transform: scale(1.05);
-}
+      border: 2px solid #ccc;
 
-.gallery-thumb.active {
-  border-color: #b89756;
+      border-radius: 7px;
 
-  box-shadow:
-    0 0 0 1px #b89756;
-}
+      cursor: pointer;
 
+      transition: .2s;
+    }
 
-/* ========================= PRODUCT CONTENT ========================= */
+    .gallery-thumb:hover {
+      transform: scale(1.05);
+    }
 
-.product-content {
-  padding: 16px;
-}
+    .gallery-thumb.active {
+      border-color: #b89756;
 
-.product-content h3 {
-  margin-top: 0;
-  margin-bottom: 8px;
-}
+      box-shadow:
+        0 0 0 1px #b89756;
+    }
 
-.category {
-  color: #777;
 
-  margin-bottom: 8px;
-}
+    /* ========================= PRODUCT CONTENT ========================= */
 
-.price {
-  font-size: 23px;
+    .product-content {
+      padding: 16px;
+    }
 
-  font-weight: bold;
+    .product-content h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
 
-  margin: 12px 0;
-}
+    .category {
+      color: #777;
+      margin-bottom: 8px;
+    }
 
-.info {
-  line-height: 1.9;
+    .price {
+      font-size: 23px;
 
-  color: #333;
-}
+      font-weight: bold;
 
+      margin: 12px 0;
+    }
 
-/* ========================= COMMANDER ========================= */
+    .info {
+      line-height: 1.9;
 
-.btn {
-  display: block;
+      color: #333;
+    }
 
-  width: 100%;
 
-  background: #111;
+    /* ========================= BUTTON ========================= */
 
-  color: white;
+    .btn {
+      display: block;
 
-  text-decoration: none;
+      width: 100%;
 
-  padding: 13px;
+      background: #111;
 
-  border-radius: 7px;
+      color: white;
 
-  margin-top: 15px;
+      text-decoration: none;
 
-  cursor: pointer;
+      padding: 13px;
 
-  border: none;
+      border-radius: 7px;
 
-  font-size: 16px;
-}
+      margin-top: 15px;
 
+      cursor: pointer;
 
-/* ========================= ORDER ========================= */
+      border: none;
 
-.order {
-  background: white;
+      font-size: 16px;
+    }
 
-  max-width: 650px;
+    .btn:hover {
+      background: #333;
+    }
 
-  margin: 40px auto;
 
-  padding: 25px;
+    /* ========================= ORDER ========================= */
 
-  border-radius: 12px;
+    .order {
+      background: white;
 
-  box-shadow: 0 3px 12px #ddd;
-}
+      max-width: 650px;
 
-.order h2 {
-  text-align: center;
+      margin: 40px auto;
 
-  margin-top: 0;
-}
+      padding: 25px;
 
-.order label {
-  display: block;
+      border-radius: 12px;
 
-  font-weight: bold;
+      box-shadow: 0 3px 12px #ddd;
+    }
 
-  margin-top: 8px;
+    .order h2 {
+      text-align: center;
 
-  margin-bottom: 5px;
-}
+      margin-top: 0;
+    }
 
-.order input,
-.order select {
-  width: 100%;
+    .order label {
+      display: block;
 
-  padding: 13px;
+      font-weight: bold;
 
-  margin-bottom: 12px;
+      margin-top: 8px;
 
-  border-radius: 7px;
+      margin-bottom: 5px;
+    }
 
-  border: 1px solid #ddd;
+    .order input,
+    .order select {
+      width: 100%;
 
-  font-size: 16px;
+      padding: 13px;
 
-  background: white;
-}
+      margin-bottom: 12px;
 
-.order button {
-  width: 100%;
+      border-radius: 7px;
 
-  padding: 14px;
+      border: 1px solid #ddd;
 
-  border: none;
+      font-size: 16px;
 
-  border-radius: 7px;
+      background: white;
+    }
 
-  background: #111;
+    .order button {
+      width: 100%;
 
-  color: white;
+      padding: 14px;
 
-  font-size: 17px;
+      border: none;
 
-  cursor: pointer;
+      border-radius: 7px;
 
-  margin-top: 5px;
-}
+      background: #111;
 
-.whatsapp-button {
-  display: block;
+      color: white;
 
-  width: 100%;
+      font-size: 17px;
 
-  padding: 14px;
+      cursor: pointer;
 
-  margin-top: 10px;
+      margin-top: 5px;
+    }
 
-  border-radius: 7px;
+    .order button:hover {
+      background: #333;
+    }
 
-  background: #25D366;
 
-  color: white;
+    /* ========================= WHATSAPP ========================= */
 
-  text-decoration: none;
+    .whatsapp-button {
+      display: block;
 
-  text-align: center;
+      width: 100%;
 
-  font-size: 17px;
-}
+      padding: 14px;
 
+      margin-top: 10px;
 
-/* ========================= MODAL ========================= */
+      border-radius: 7px;
 
-.image-modal {
-  display: none;
+      background: #25D366;
 
-  position: fixed;
+      color: white;
 
-  z-index: 99999;
+      text-decoration: none;
 
-  inset: 0;
+      text-align: center;
 
-  background: rgba(0,0,0,.94);
+      font-size: 17px;
+    }
 
-  align-items: center;
 
-  justify-content: center;
+    /* ========================= MODAL ========================= */
 
-  padding: 20px;
-}
+    .image-modal {
+      display: none;
 
-.image-modal img {
-  max-width: 95%;
+      position: fixed;
 
-  max-height: 90%;
+      z-index: 99999;
 
-  object-fit: contain;
+      inset: 0;
 
-  border-radius: 8px;
-}
+      background: rgba(0,0,0,.94);
 
-.modal-close {
-  position: absolute;
+      align-items: center;
 
-  top: 10px;
+      justify-content: center;
 
-  right: 20px;
+      padding: 20px;
+    }
 
-  color: white;
+    .image-modal img {
+      max-width: 95%;
 
-  font-size: 45px;
+      max-height: 90%;
 
-  cursor: pointer;
-}
+      object-fit: contain;
 
+      border-radius: 8px;
+    }
 
-/* ========================= FOOTER ========================= */
+    .modal-close {
+      position: absolute;
 
-footer {
-  background: #111;
+      top: 10px;
 
-  color: white;
+      right: 20px;
 
-  text-align: center;
+      color: white;
 
-  padding: 25px;
+      font-size: 45px;
 
-  margin-top: 40px;
-}
+      cursor: pointer;
+    }
 
 
-/* ========================= MOBILE ========================= */
+    /* ========================= FOOTER ========================= */
 
-@media (max-width: 600px) {
+    footer {
+      background: #111;
 
-  .hero h2 {
-    font-size: 25px;
-  }
+      color: white;
 
-  .product-main-image {
-    height: 330px;
-  }
+      text-align: center;
 
-  .gallery-arrow {
-    width: 36px;
-    height: 36px;
+      padding: 25px;
 
-    font-size: 18px;
-  }
+      margin-top: 40px;
+    }
 
-  .gallery-thumb {
-    width: 50px;
-    height: 60px;
-  }
 
-  .order {
-    margin-left: 12px;
-    margin-right: 12px;
+    /* ========================= MOBILE ========================= */
 
-    padding: 20px 15px;
-  }
+    @media (max-width: 600px) {
 
-}
+      header h1 {
+        font-size: 28px;
+      }
 
-</style>
+      .hero h2 {
+        font-size: 25px;
+      }
+
+      .product-main-image {
+        height: 330px;
+      }
+
+      .gallery-arrow {
+        width: 36px;
+        height: 36px;
+
+        font-size: 18px;
+      }
+
+      .gallery-thumb {
+        width: 50px;
+        height: 60px;
+      }
+
+      .order {
+        margin-left: 12px;
+        margin-right: 12px;
+
+        padding: 20px 15px;
+      }
+
+    }
+
+  </style>
 
 </head>
 
@@ -529,13 +558,10 @@ footer {
 
   <h2>🛍️ منتجاتنا</h2>
 
-
   <div class="products">
 
 
-    <!-- ===================================================== -->
-    <!-- ========================= حجاب أنغام ================= -->
-    <!-- ===================================================== -->
+    <!-- ========================= حجاب أنغام ========================= -->
 
     <div class="product">
 
@@ -545,8 +571,10 @@ footer {
           1 / 1
         </div>
 
-        <img src="حجاب أنغام.jpg"
-             alt="حجاب أنغام">
+        <img
+          src="حجاب أنغام.jpg"
+          alt="حجاب أنغام - H7 NEO"
+          loading="lazy">
 
       </div>
 
@@ -562,9 +590,13 @@ footer {
           250 درهم
         </div>
 
-        <button class="btn"
-                onclick="chooseProduct('حجاب أنغام - 250 درهم')">
+        <button
+          class="btn"
+          type="button"
+          onclick="chooseProduct('حجاب أنغام - 250 درهم')">
+
           Commander
+
         </button>
 
       </div>
@@ -572,31 +604,41 @@ footer {
     </div>
 
 
+    <!-- ========================= حجاب نديم ========================= -->
 
-    <!-- ===================================================== -->
-    <!-- ========================= حجاب نديم ================== -->
-    <!-- ===================================================== -->
-
-    <div class="product nadeem-product">
+    <div class="product">
 
       <div class="product-main-image">
 
-        <img id="nadeem-main-img"
-             src="حجاب نديم_1.jpg"
-             alt="حجاب نديم">
+        <img
+          id="nadeem-main-img"
+          src="حجاب نديم_1.jpg"
+          alt="حجاب نديم - H7 NEO">
 
-        <button class="gallery-arrow gallery-prev"
-                onclick="selectNadeemImage(currentNadeemIndex - 1)">
+        <button
+          class="gallery-arrow gallery-prev"
+          type="button"
+          aria-label="الصورة السابقة"
+          onclick="selectNadeemImage(currentNadeemIndex - 1)">
+
           ❮
+
         </button>
 
-        <button class="gallery-arrow gallery-next"
-                onclick="selectNadeemImage(currentNadeemIndex + 1)">
+        <button
+          class="gallery-arrow gallery-next"
+          type="button"
+          aria-label="الصورة التالية"
+          onclick="selectNadeemImage(currentNadeemIndex + 1)">
+
           ❯
+
         </button>
 
         <div class="gallery-counter">
+
           <span id="nadeem-number">1</span> / 6
+
         </div>
 
       </div>
@@ -604,35 +646,41 @@ footer {
 
       <div class="gallery-thumbs">
 
-        <img src="حجاب نديم_1.jpg"
-             class="gallery-thumb nadeem-thumb active"
-             onclick="selectNadeemImage(0)"
-             alt="حجاب نديم 1">
+        <img
+          src="حجاب نديم_1.jpg"
+          class="gallery-thumb nadeem-thumb active"
+          onclick="selectNadeemImage(0)"
+          alt="حجاب نديم صورة 1">
 
-        <img src="حجاب نديم_5.jpg"
-             class="gallery-thumb nadeem-thumb"
-             onclick="selectNadeemImage(1)"
-             alt="حجاب نديم 2">
+        <img
+          src="حجاب نديم_5.jpg"
+          class="gallery-thumb nadeem-thumb"
+          onclick="selectNadeemImage(1)"
+          alt="حجاب نديم صورة 2">
 
-        <img src="حجاب نديم_9.jpg"
-             class="gallery-thumb nadeem-thumb"
-             onclick="selectNadeemImage(2)"
-             alt="حجاب نديم 3">
+        <img
+          src="حجاب نديم_9.jpg"
+          class="gallery-thumb nadeem-thumb"
+          onclick="selectNadeemImage(2)"
+          alt="حجاب نديم صورة 3">
 
-        <img src="حجاب نديم_13.jpg"
-             class="gallery-thumb nadeem-thumb"
-             onclick="selectNadeemImage(3)"
-             alt="حجاب نديم 4">
+        <img
+          src="حجاب نديم_13.jpg"
+          class="gallery-thumb nadeem-thumb"
+          onclick="selectNadeemImage(3)"
+          alt="حجاب نديم صورة 4">
 
-        <img src="حجاب نديم_17.jpg"
-             class="gallery-thumb nadeem-thumb"
-             onclick="selectNadeemImage(4)"
-             alt="حجاب نديم 5">
+        <img
+          src="حجاب نديم_17.jpg"
+          class="gallery-thumb nadeem-thumb"
+          onclick="selectNadeemImage(4)"
+          alt="حجاب نديم صورة 5">
 
-        <img src="حجاب نديم_21.jpg"
-             class="gallery-thumb nadeem-thumb"
-             onclick="selectNadeemImage(5)"
-             alt="حجاب نديم 6">
+        <img
+          src="حجاب نديم_21.jpg"
+          class="gallery-thumb nadeem-thumb"
+          onclick="selectNadeemImage(5)"
+          alt="حجاب نديم صورة 6">
 
       </div>
 
@@ -661,9 +709,13 @@ footer {
 
         </div>
 
-        <button class="btn"
-                onclick="chooseProduct('حجاب نديم - 250 درهم')">
+        <button
+          class="btn"
+          type="button"
+          onclick="chooseProduct('حجاب نديم - 250 درهم')">
+
           Commander
+
         </button>
 
       </div>
@@ -671,31 +723,41 @@ footer {
     </div>
 
 
+    <!-- ========================= حجاب هجار ========================= -->
 
-    <!-- ===================================================== -->
-    <!-- ========================= حجاب هجار ================== -->
-    <!-- ===================================================== -->
-
-    <div class="product hajar-product">
+    <div class="product">
 
       <div class="product-main-image">
 
-        <img id="hajar-main-img"
-             src="حجاب هجار_1.jpg"
-             alt="حجاب هجار">
+        <img
+          id="hajar-main-img"
+          src="حجاب هجار_1.jpg"
+          alt="حجاب هجار - H7 NEO">
 
-        <button class="gallery-arrow gallery-prev"
-                onclick="selectHajarImage(currentHajarIndex - 1)">
+        <button
+          class="gallery-arrow gallery-prev"
+          type="button"
+          aria-label="الصورة السابقة"
+          onclick="selectHajarImage(currentHajarIndex - 1)">
+
           ❮
+
         </button>
 
-        <button class="gallery-arrow gallery-next"
-                onclick="selectHajarImage(currentHajarIndex + 1)">
+        <button
+          class="gallery-arrow gallery-next"
+          type="button"
+          aria-label="الصورة التالية"
+          onclick="selectHajarImage(currentHajarIndex + 1)">
+
           ❯
+
         </button>
 
         <div class="gallery-counter">
+
           <span id="hajar-number">1</span> / 7
+
         </div>
 
       </div>
@@ -703,40 +765,47 @@ footer {
 
       <div class="gallery-thumbs">
 
-        <img src="حجاب هجار_1.jpg"
-             class="gallery-thumb hajar-thumb active"
-             onclick="selectHajarImage(0)"
-             alt="حجاب هجار 1">
+        <img
+          src="حجاب هجار_1.jpg"
+          class="gallery-thumb hajar-thumb active"
+          onclick="selectHajarImage(0)"
+          alt="حجاب هجار صورة 1">
 
-        <img src="حجاب هجار_2.jpg"
-             class="gallery-thumb hajar-thumb"
-             onclick="selectHajarImage(1)"
-             alt="حجاب هجار 2">
+        <img
+          src="حجاب هجار_2.jpg"
+          class="gallery-thumb hajar-thumb"
+          onclick="selectHajarImage(1)"
+          alt="حجاب هجار صورة 2">
 
-        <img src="حجاب هجار_3.jpg"
-             class="gallery-thumb hajar-thumb"
-             onclick="selectHajarImage(2)"
-             alt="حجاب هجار 3">
+        <img
+          src="حجاب هجار_3.jpg"
+          class="gallery-thumb hajar-thumb"
+          onclick="selectHajarImage(2)"
+          alt="حجاب هجار صورة 3">
 
-        <img src="حجاب هجار_6.jpg"
-             class="gallery-thumb hajar-thumb"
-             onclick="selectHajarImage(3)"
-             alt="حجاب هجار 4">
+        <img
+          src="حجاب هجار_6.jpg"
+          class="gallery-thumb hajar-thumb"
+          onclick="selectHajarImage(3)"
+          alt="حجاب هجار صورة 4">
 
-        <img src="حجاب هجار_10.jpg"
-             class="gallery-thumb hajar-thumb"
-             onclick="selectHajarImage(4)"
-             alt="حجاب هجار 5">
+        <img
+          src="حجاب هجار_10.jpg"
+          class="gallery-thumb hajar-thumb"
+          onclick="selectHajarImage(4)"
+          alt="حجاب هجار صورة 5">
 
-        <img src="حجاب هجار_14.jpg"
-             class="gallery-thumb hajar-thumb"
-             onclick="selectHajarImage(5)"
-             alt="حجاب هجار 6">
+        <img
+          src="حجاب هجار_14.jpg"
+          class="gallery-thumb hajar-thumb"
+          onclick="selectHajarImage(5)"
+          alt="حجاب هجار صورة 6">
 
-        <img src="حجاب هجار_18.jpg"
-             class="gallery-thumb hajar-thumb"
-             onclick="selectHajarImage(6)"
-             alt="حجاب هجار 7">
+        <img
+          src="حجاب هجار_18.jpg"
+          class="gallery-thumb hajar-thumb"
+          onclick="selectHajarImage(6)"
+          alt="حجاب هجار صورة 7">
 
       </div>
 
@@ -753,9 +822,13 @@ footer {
           250 درهم
         </div>
 
-        <button class="btn"
-                onclick="chooseProduct('حجاب هجار - 250 درهم')">
+        <button
+          class="btn"
+          type="button"
+          onclick="chooseProduct('حجاب هجار - 250 درهم')">
+
           Commander
+
         </button>
 
       </div>
@@ -763,17 +836,16 @@ footer {
     </div>
 
 
-
-    <!-- ===================================================== -->
-    <!-- ========================= بالغينة صيفية ============== -->
-    <!-- ===================================================== -->
+    <!-- ========================= بالغينة صيفية ========================= -->
 
     <div class="product">
 
       <div class="product-main-image">
 
-        <img src="بالغينة صيفية.jpg"
-             alt="بالغينة صيفية">
+        <img
+          src="بالغينة صيفية.jpg"
+          alt="بالغينة صيفية - H7 NEO"
+          loading="lazy">
 
       </div>
 
@@ -789,9 +861,13 @@ footer {
           250 درهم
         </div>
 
-        <button class="btn"
-                onclick="chooseProduct('بالغينة صيفية - 250 درهم')">
+        <button
+          class="btn"
+          type="button"
+          onclick="chooseProduct('بالغينة صيفية - 250 درهم')">
+
           Commander
+
         </button>
 
       </div>
@@ -799,17 +875,16 @@ footer {
     </div>
 
 
-
-    <!-- ===================================================== -->
-    <!-- ========================= Radgo ====================== -->
-    <!-- ===================================================== -->
+    <!-- ========================= Radgo ========================= -->
 
     <div class="product">
 
       <div class="product-main-image">
 
-        <img src="Radgo.jpg"
-             alt="Radgo">
+        <img
+          src="Radgo.jpg"
+          alt="Radgo - H7 NEO"
+          loading="lazy">
 
       </div>
 
@@ -825,9 +900,13 @@ footer {
           300 درهم
         </div>
 
-        <button class="btn"
-                onclick="chooseProduct('Radgo - 300 درهم')">
+        <button
+          class="btn"
+          type="button"
+          onclick="chooseProduct('Radgo - 300 درهم')">
+
           Commander
+
         </button>
 
       </div>
@@ -835,17 +914,16 @@ footer {
     </div>
 
 
-
-    <!-- ===================================================== -->
-    <!-- ========================= صندالة نسائية =============== -->
-    <!-- ===================================================== -->
+    <!-- ========================= صندالة نسائية ========================= -->
 
     <div class="product">
 
       <div class="product-main-image">
 
-        <img src="صندالة نسائية.jpg"
-             alt="صندالة نسائية">
+        <img
+          src="صندالة نسائية.jpg"
+          alt="صندالة نسائية صيفية - H7 NEO"
+          loading="lazy">
 
       </div>
 
@@ -861,9 +939,13 @@ footer {
           150 درهم
         </div>
 
-        <button class="btn"
-                onclick="chooseProduct('صندالة نسائية صيفية - 150 درهم')">
+        <button
+          class="btn"
+          type="button"
+          onclick="chooseProduct('صندالة نسائية صيفية - 150 درهم')">
+
           Commander
+
         </button>
 
       </div>
@@ -871,17 +953,16 @@ footer {
     </div>
 
 
-
-    <!-- ===================================================== -->
-    <!-- ========================= Air Force =================== -->
-    <!-- ===================================================== -->
+    <!-- ========================= Air Force ========================= -->
 
     <div class="product">
 
       <div class="product-main-image">
 
-        <img src="Air Force.jpg"
-             alt="Air Force">
+        <img
+          src="Air Force.jpg"
+          alt="سبرديلا Air Force - H7 NEO"
+          loading="lazy">
 
       </div>
 
@@ -897,9 +978,13 @@ footer {
           200 درهم
         </div>
 
-        <button class="btn"
-                onclick="chooseProduct('سبرديلا Air Force - 200 درهم')">
+        <button
+          class="btn"
+          type="button"
+          onclick="chooseProduct('سبرديلا Air Force - 200 درهم')">
+
           Commander
+
         </button>
 
       </div>
@@ -912,18 +997,13 @@ footer {
 </div>
 
 
-
-<!-- ========================================================= -->
-<!-- ========================= ORDER ========================== -->
-<!-- ========================================================= -->
+<!-- ========================= ORDER ========================= -->
 
 <div class="order" id="order">
 
   <h2>🛍️ تأكيد الطلب</h2>
 
-
   <form id="orderForm">
-
 
     <label for="customerName">
       الاسم الكامل
@@ -933,8 +1013,8 @@ footer {
       id="customerName"
       type="text"
       placeholder="أدخل الاسم الكامل"
-      required
-    >
+      autocomplete="name"
+      required>
 
 
     <label for="customerPhone">
@@ -945,8 +1025,8 @@ footer {
       id="customerPhone"
       type="tel"
       placeholder="06XXXXXXXX"
-      required
-    >
+      autocomplete="tel"
+      required>
 
 
     <label for="customerCity">
@@ -957,8 +1037,8 @@ footer {
       id="customerCity"
       type="text"
       placeholder="مثال: الدار البيضاء"
-      required
-    >
+      autocomplete="address-level2"
+      required>
 
 
     <label for="customerAddress">
@@ -969,8 +1049,8 @@ footer {
       id="customerAddress"
       type="text"
       placeholder="العنوان بالتفصيل"
-      required
-    >
+      autocomplete="street-address"
+      required>
 
 
     <label for="productSelect">
@@ -999,477 +1079,4 @@ footer {
         بالغينة صيفية - 250 درهم
       </option>
 
-      <option value="Radgo - 300 درهم">
-        Radgo - 300 درهم
-      </option>
-
-      <option value="صندالة نسائية صيفية - 150 درهم">
-        صندالة نسائية صيفية - 150 درهم
-      </option>
-
-      <option value="سبرديلا Air Force - 200 درهم">
-        سبرديلا Air Force - 200 درهم
-      </option>
-
-    </select>
-
-
-    <button type="submit">
-      📦 طلب بالدفع عند الاستلام
-    </button>
-
-
-  </form>
-
-
-  <a
-    class="whatsapp-button"
-    href="https://wa.me/212640419454"
-    target="_blank"
-    rel="noopener">
-    💬 تواصل معنا عبر WhatsApp
-  </a>
-
-</div>
-
-
-
-<!-- ========================= MODAL ========================= -->
-
-<div id="imageModal"
-     class="image-modal"
-     onclick="closeImageModal()">
-
-  <span class="modal-close">
-    &times;
-  </span>
-
-  <img id="modalImage"
-       src=""
-       alt="صورة المنتج">
-
-</div>
-
-
-
-<!-- ========================= FOOTER ========================= -->
-
-<footer>
-
-  H7 NEO © 2026
-
-</footer>
-
-
-
-<script>
-
-/* ========================================================= */
-/* ========================= نديم =========================== */
-/* ========================================================= */
-
-const nadeemImages = [
-
-  "حجاب نديم_1.jpg",
-  "حجاب نديم_5.jpg",
-  "حجاب نديم_9.jpg",
-  "حجاب نديم_13.jpg",
-  "حجاب نديم_17.jpg",
-  "حجاب نديم_21.jpg"
-
-];
-
-let currentNadeemIndex = 0;
-
-
-function selectNadeemImage(index) {
-
-  if (index >= nadeemImages.length) {
-    index = 0;
-  }
-
-  if (index < 0) {
-    index = nadeemImages.length - 1;
-  }
-
-  currentNadeemIndex = index;
-
-  const image =
-    document.getElementById("nadeem-main-img");
-
-  if (!image) return;
-
-  image.style.opacity = "0.3";
-
-  setTimeout(function() {
-
-    image.src =
-      nadeemImages[currentNadeemIndex];
-
-    image.style.opacity = "1";
-
-  }, 120);
-
-
-  const thumbs =
-    document.querySelectorAll(".nadeem-thumb");
-
-  thumbs.forEach(function(thumb, i) {
-
-    thumb.classList.toggle(
-      "active",
-      i === currentNadeemIndex
-    );
-
-  });
-
-
-  const number =
-    document.getElementById("nadeem-number");
-
-  if (number) {
-
-    number.textContent =
-      currentNadeemIndex + 1;
-
-  }
-
-}
-
-
-/* ========================= AUTO Nadeem ========================= */
-
-setInterval(function() {
-
-  selectNadeemImage(
-    currentNadeemIndex + 1
-  );
-
-}, 4000);
-
-
-
-/* ========================================================= */
-/* ========================= هجار =========================== */
-/* ========================================================= */
-
-const hajarImages = [
-
-  "حجاب هجار_1.jpg",
-  "حجاب هجار_2.jpg",
-  "حجاب هجار_3.jpg",
-  "حجاب هجار_6.jpg",
-  "حجاب هجار_10.jpg",
-  "حجاب هجار_14.jpg",
-  "حجاب هجار_18.jpg"
-
-];
-
-let currentHajarIndex = 0;
-
-
-function selectHajarImage(index) {
-
-  if (index >= hajarImages.length) {
-    index = 0;
-  }
-
-  if (index < 0) {
-    index = hajarImages.length - 1;
-  }
-
-  currentHajarIndex = index;
-
-  const image =
-    document.getElementById("hajar-main-img");
-
-  if (!image) return;
-
-  image.style.opacity = "0.3";
-
-  setTimeout(function() {
-
-    image.src =
-      hajarImages[currentHajarIndex];
-
-    image.style.opacity = "1";
-
-  }, 120);
-
-
-  const thumbs =
-    document.querySelectorAll(".hajar-thumb");
-
-  thumbs.forEach(function(thumb, i) {
-
-    thumb.classList.toggle(
-      "active",
-      i === currentHajarIndex
-    );
-
-  });
-
-
-  const number =
-    document.getElementById("hajar-number");
-
-  if (number) {
-
-    number.textContent =
-      currentHajarIndex + 1;
-
-  }
-
-}
-
-
-/* ========================= AUTO Hajar ========================= */
-
-setInterval(function() {
-
-  selectHajarImage(
-    currentHajarIndex + 1
-  );
-
-}, 4000);
-
-
-
-/* ========================================================= */
-/* ========================= اختيار المنتج ================== */
-/* ========================================================= */
-
-function chooseProduct(productName) {
-
-  const select =
-    document.getElementById("productSelect");
-
-  if (select) {
-
-    select.value = productName;
-
-  }
-
-
-  const order =
-    document.getElementById("order");
-
-  if (order) {
-
-    order.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-
-  }
-
-}
-
-
-
-/* ========================================================= */
-/* ========================= إرسال الطلب =================== */
-/* ========================================================= */
-
-const orderForm =
-  document.getElementById("orderForm");
-
-
-if (orderForm) {
-
-  orderForm.addEventListener(
-    "submit",
-    function(event) {
-
-      /* منع Reload */
-      event.preventDefault();
-
-
-      const name =
-        document.getElementById(
-          "customerName"
-        ).value.trim();
-
-
-      const phone =
-        document.getElementById(
-          "customerPhone"
-        ).value.trim();
-
-
-      const city =
-        document.getElementById(
-          "customerCity"
-        ).value.trim();
-
-
-      const address =
-        document.getElementById(
-          "customerAddress"
-        ).value.trim();
-
-
-      const product =
-        document.getElementById(
-          "productSelect"
-        ).value;
-
-
-      if (
-        !name ||
-        !phone ||
-        !city ||
-        !address ||
-        !product
-      ) {
-
-        alert(
-          "⚠️ المرجو ملء جميع المعلومات"
-        );
-
-        return;
-
-      }
-
-
-      /* ========================= */
-      /* WhatsApp Message */
-      /* ========================= */
-
-      const message =
-
-        "🛍️ *طلب جديد من H7 NEO*%0A%0A" +
-
-        "👤 الاسم: " +
-        encodeURIComponent(name) +
-
-        "%0A📞 الهاتف: " +
-        encodeURIComponent(phone) +
-
-        "%0A🏙️ المدينة: " +
-        encodeURIComponent(city) +
-
-        "%0A📍 العنوان: " +
-        encodeURIComponent(address) +
-
-        "%0A🛒 المنتج: " +
-        encodeURIComponent(product) +
-
-        "%0A%0A💰 الدفع عند الاستلام";
-
-
-      const whatsappURL =
-        "https://wa.me/212640419454?text=" +
-        message;
-
-
-      window.open(
-        whatsappURL,
-        "_blank"
-      );
-
-    }
-  );
-
-}
-
-
-
-/* ========================================================= */
-/* ========================= الصور Full Screen ============== */
-/* ========================================================= */
-
-function openImageModal(src) {
-
-  const modal =
-    document.getElementById("imageModal");
-
-  const image =
-    document.getElementById("modalImage");
-
-  if (!modal || !image) return;
-
-  image.src = src;
-
-  modal.style.display = "flex";
-
-}
-
-
-function closeImageModal() {
-
-  const modal =
-    document.getElementById("imageModal");
-
-  if (modal) {
-
-    modal.style.display = "none";
-
-  }
-
-}
-
-
-/* ========================= نديم Full Screen ========================= */
-
-const nadeemMain =
-  document.getElementById("nadeem-main-img");
-
-if (nadeemMain) {
-
-  nadeemMain.addEventListener(
-    "click",
-    function() {
-
-      openImageModal(
-        nadeemImages[currentNadeemIndex]
-      );
-
-    }
-  );
-
-}
-
-
-/* ========================= هجار Full Screen ========================= */
-
-const hajarMain =
-  document.getElementById("hajar-main-img");
-
-if (hajarMain) {
-
-  hajarMain.addEventListener(
-    "click",
-    function() {
-
-      openImageModal(
-        hajarImages[currentHajarIndex]
-      );
-
-    }
-  );
-
-}
-
-
-/* ========================= إغلاق بالضغط على Escape ========================= */
-
-document.addEventListener(
-  "keydown",
-  function(event) {
-
-    if (event.key === "Escape") {
-
-      closeImageModal();
-
-    }
-
-  }
-);
-
-</script>
-
-
-</body>
-
-</html>
+      <option value="Radgo - 300 درهم
