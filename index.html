@@ -3,3503 +3,2515 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>H7 NEO | متجر الأزياء والأحذية</title>
-<meta name="description" content="H7 NEO — أزياء محجبة وأحذية رجالية ونسائية بتصميم عصري وأناقة مميزة.">
+<meta name="description" content="H7 NEO — متجر الأزياء المحجبة والأحذية الرجالية والنسائية.">
 <meta name="theme-color" content="#080808">
-
+<link rel="canonical" href="https://adrawihamza146-star.github.io/h7-neo-store/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#070707;
-  --bg2:#0d0d0d;
-  --card:#111;
-  --card2:#161616;
-  --gold:#d6ad58;
-  --gold2:#f0cf82;
-  --white:#fff;
-  --muted:#a8a8a8;
-  --line:rgba(255,255,255,.09);
-  --danger:#e45c5c;
-  --shadow:0 25px 80px rgba(0,0,0,.45);
+--bg:#080808;
+--card:#111;
+--card2:#171717;
+--text:#fff;
+--muted:#999;
+--gold:#c7a66a;
+--gold2:#e0c38a;
+--cream:#f4efe6;
+--line:rgba(255,255,255,.1);
+--green:#25d366;
+--r:22px;
+--shadow:0 25px 70px rgba(0,0,0,.5)
 }
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-  background:
-    radial-gradient(circle at 10% 10%,rgba(214,173,88,.06),transparent 25%),
-    radial-gradient(circle at 90% 30%,rgba(214,173,88,.04),transparent 25%),
-    var(--bg);
-  color:var(--white);
-  font-family:"Cairo",sans-serif;
-  overflow-x:hidden;
+background:radial-gradient(circle at 15% 10%,rgba(199,166,106,.08),transparent 28%),var(--bg);
+color:var(--text);
+font-family:Cairo,sans-serif;
+overflow-x:hidden
+}
+body.lock{overflow:hidden}
+button,input,textarea{font:inherit}
+button{cursor:pointer;border:0}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+#progress{
+position:fixed;
+top:0;
+right:0;
+width:0;
+height:3px;
+background:linear-gradient(90deg,var(--gold),var(--cream));
+z-index:99999
 }
 
-body.no-scroll{
-  overflow:hidden;
+#loader{
+position:fixed;
+inset:0;
+background:#050505;
+display:grid;
+place-items:center;
+z-index:99998;
+transition:.6s
+}
+.hide{
+opacity:0!important;
+visibility:hidden!important;
+pointer-events:none!important
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
+.loader-brand{text-align:center}
+.loader-brand b{
+font:600 64px/1 "Playfair Display";
+letter-spacing:6px
 }
-
-button,
-input,
-textarea,
-select{
-  font-family:inherit;
+.loader-brand small{
+display:block;
+color:var(--gold2);
+font:10px "Playfair Display";
+letter-spacing:5px;
+margin-top:12px
 }
-
-button{
-  cursor:pointer;
-}
-
-img{
-  display:block;
-  max-width:100%;
-}
-
-::-webkit-scrollbar{
-  width:8px;
-}
-
-::-webkit-scrollbar-track{
-  background:#080808;
-}
-
-::-webkit-scrollbar-thumb{
-  background:#333;
-  border-radius:20px;
-}
-
-::-webkit-scrollbar-thumb:hover{
-  background:var(--gold);
-}
-
-/* =========================
-   LOADER
-========================= */
-
-.loader{
-  position:fixed;
-  inset:0;
-  background:#050505;
-  z-index:99999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:.6s ease;
-}
-
-.loader.hide{
-  opacity:0;
-  visibility:hidden;
-}
-
-.loader-box{
-  text-align:center;
-}
-
-.loader-logo{
-  font-family:"Playfair Display",serif;
-  font-size:48px;
-  font-weight:800;
-  letter-spacing:7px;
-  color:var(--gold);
-}
-
 .loader-line{
-  width:140px;
-  height:2px;
-  background:#222;
-  margin:18px auto 0;
-  overflow:hidden;
-  position:relative;
+width:100px;
+height:1px;
+background:var(--gold);
+margin:24px auto 12px
+}
+.loader-text{
+color:#666;
+font-size:8px;
+letter-spacing:3px
 }
 
-.loader-line:after{
-  content:"";
-  position:absolute;
-  left:-100%;
-  top:0;
-  width:100%;
-  height:100%;
-  background:var(--gold);
-  animation:loading 1.2s infinite;
+.announce{
+height:38px;
+background:var(--cream);
+color:#000;
+display:grid;
+place-items:center;
+font-size:10px;
+font-weight:900;
+text-align:center
 }
 
-@keyframes loading{
-  to{left:100%}
-}
-
-/* =========================
-   TOP BAR
-========================= */
-
-.topbar{
-  min-height:36px;
-  background:linear-gradient(90deg,#b48a3d,#e2c171,#b48a3d);
-  color:#090909;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:7px 15px;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:.4px;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-.header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  height:82px;
-  background:rgba(7,7,7,.88);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--line);
+header{
+position:sticky;
+top:0;
+z-index:5000;
+background:rgba(8,8,8,.82);
+backdrop-filter:blur(18px);
+border-bottom:1px solid var(--line)
 }
 
 .nav{
-  max-width:1250px;
-  height:100%;
-  margin:auto;
-  padding:0 22px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:25px;
+width:min(1400px,92%);
+min-height:80px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px
 }
 
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  min-width:max-content;
+.logo{text-align:center;line-height:1}
+.logo b{
+font:600 30px "Playfair Display";
+letter-spacing:4px
+}
+.logo small{
+display:block;
+color:var(--gold2);
+font:8px "Playfair Display";
+letter-spacing:4px;
+margin-top:6px
+}
+.logo em{
+display:block;
+color:#666;
+font-style:normal;
+font-size:7px;
+letter-spacing:4px;
+margin-top:5px
 }
 
-.logo-main{
-  font-family:"Playfair Display",serif;
-  font-size:29px;
-  font-weight:800;
-  letter-spacing:4px;
+.navlinks{
+display:flex;
+gap:30px;
+font-size:12px;
+font-weight:800
 }
+.navlinks a:hover{color:var(--gold2)}
 
-.logo-sub{
-  color:var(--gold);
-  font-size:9px;
-  letter-spacing:2px;
-  margin-top:5px;
+.actions{display:flex;gap:7px}
+.icon{
+width:43px;
+height:43px;
+border-radius:50%;
+background:#151515;
+color:#fff;
+border:1px solid var(--line);
+display:grid;
+place-items:center;
+position:relative
 }
-
-.nav-links{
-  display:flex;
-  align-items:center;
-  gap:30px;
-  font-size:13px;
-  font-weight:700;
-}
-
-.nav-links a{
-  position:relative;
-  color:#ddd;
-  transition:.3s;
-}
-
-.nav-links a:hover{
-  color:var(--gold2);
-}
-
-.nav-links a:after{
-  content:"";
-  position:absolute;
-  right:0;
-  bottom:-8px;
-  width:0;
-  height:1px;
-  background:var(--gold);
-  transition:.3s;
-}
-
-.nav-links a:hover:after{
-  width:100%;
-}
-
-.nav-actions{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-.icon-btn{
-  width:43px;
-  height:43px;
-  border:1px solid var(--line);
-  border-radius:50%;
-  background:#101010;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:17px;
-  transition:.3s;
-  position:relative;
-}
-
-.icon-btn:hover{
-  border-color:var(--gold);
-  color:var(--gold);
-  transform:translateY(-2px);
-}
-
 .badge{
-  position:absolute;
-  top:-3px;
-  left:-2px;
-  min-width:18px;
-  height:18px;
-  padding:0 5px;
-  border-radius:20px;
-  background:var(--gold);
-  color:#080808;
-  font-size:10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:900;
+position:absolute;
+top:-3px;
+left:-3px;
+min-width:18px;
+height:18px;
+border-radius:20px;
+background:var(--gold);
+color:#000;
+font-size:9px;
+font-weight:900;
+display:grid;
+place-items:center
 }
+.mobile{display:none}
 
-.menu-btn{
-  display:none;
+.mobile-panel{
+display:none;
+position:fixed;
+top:125px;
+right:15px;
+left:15px;
+background:#111;
+border:1px solid var(--line);
+border-radius:18px;
+padding:10px;
+z-index:6000;
+box-shadow:var(--shadow)
 }
-
-/* =========================
-   HERO
-========================= */
+.mobile-panel a{
+display:block;
+padding:14px;
+border-bottom:1px solid var(--line);
+font-weight:800;
+font-size:12px
+}
+.mobile-panel a:last-child{border:0}
 
 .hero{
-  min-height:700px;
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  background:
-    linear-gradient(90deg,rgba(4,4,4,.98) 0%,rgba(4,4,4,.88) 35%,rgba(4,4,4,.35) 72%,rgba(4,4,4,.15)),
-    url("حجاب هجار_14.jpg") center/cover no-repeat;
+min-height:720px;
+display:flex;
+align-items:center;
+position:relative;
+overflow:hidden;
+background:
+linear-gradient(90deg,rgba(8,8,8,.97),rgba(8,8,8,.7) 48%,rgba(8,8,8,.25)),
+url("1789675720039.png") center/cover no-repeat
 }
-
-.hero:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(180deg,rgba(0,0,0,.2),transparent 40%,rgba(0,0,0,.75)),
-    radial-gradient(circle at 75% 45%,rgba(214,173,88,.15),transparent 25%);
+.hero:after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.7));
+pointer-events:none
 }
-
-.hero-content{
-  max-width:1250px;
-  width:100%;
-  margin:auto;
-  padding:100px 22px;
-  position:relative;
-  z-index:2;
+.hero-inner{
+width:min(1400px,92%);
+margin:auto;
+position:relative;
+z-index:2
 }
-
-.hero-kicker{
-  color:var(--gold);
-  font-size:12px;
-  letter-spacing:5px;
-  font-weight:800;
-  margin-bottom:18px;
+.eyebrow{
+color:var(--gold2);
+font-size:10px;
+letter-spacing:3px;
+font-weight:900;
+margin-bottom:22px
 }
-
 .hero h1{
-  max-width:720px;
-  font-family:"Playfair Display","Cairo",serif;
-  font-size:clamp(55px,8vw,105px);
-  line-height:.95;
-  letter-spacing:-2px;
-  margin-bottom:30px;
+font-size:clamp(55px,9vw,120px);
+line-height:.9;
+letter-spacing:-6px
 }
-
 .hero h1 span{
-  color:var(--gold);
+display:block;
+color:var(--gold2);
+font:italic 500 .55em "Playfair Display";
+letter-spacing:-2px;
+margin-top:15px
 }
-
-.hero-text{
-  max-width:530px;
-  color:#ccc;
-  font-size:16px;
-  line-height:2;
-  margin-bottom:35px;
+.hero p{
+max-width:560px;
+color:#ccc;
+line-height:2;
+font-size:14px;
+margin:30px 0
 }
-
-.hero-buttons{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
+.buttons{
+display:flex;
+gap:10px;
+flex-wrap:wrap
 }
-
 .btn{
-  min-height:50px;
-  padding:0 27px;
-  border-radius:3px;
-  border:1px solid var(--gold);
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:9px;
-  font-weight:800;
-  font-size:13px;
-  transition:.35s;
+min-height:50px;
+padding:0 24px;
+border-radius:999px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+font-size:12px;
+font-weight:900;
+transition:.3s
 }
-
-.btn-gold{
-  background:var(--gold);
-  color:#090909;
+.primary{
+background:var(--cream);
+color:#000
 }
-
-.btn-gold:hover{
-  background:var(--gold2);
-  transform:translateY(-3px);
-  box-shadow:0 15px 35px rgba(214,173,88,.2);
+.primary:hover{
+background:var(--gold2);
+transform:translateY(-2px)
 }
-
-.btn-outline{
-  background:rgba(0,0,0,.2);
-  color:#fff;
+.outline{
+border:1px solid #444;
+background:#ffffff08;
+color:#fff
 }
-
-.btn-outline:hover{
-  background:var(--gold);
-  color:#090909;
-  transform:translateY(-3px);
+.outline:hover{
+border-color:var(--gold);
+color:var(--gold2)
 }
-
-.hero-side{
-  position:absolute;
-  left:30px;
-  bottom:35px;
-  z-index:3;
-  writing-mode:vertical-rl;
-  color:#777;
-  font-size:10px;
-  letter-spacing:3px;
-}
-
-/* =========================
-   MARQUEE
-========================= */
 
 .marquee{
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  background:#0a0a0a;
-  overflow:hidden;
-  white-space:nowrap;
+overflow:hidden;
+border-block:1px solid var(--line);
+background:#101010;
+white-space:nowrap
 }
-
-.marquee-track{
-  display:inline-flex;
-  min-width:100%;
-  justify-content:space-around;
-  padding:17px 0;
-  animation:marquee 28s linear infinite;
+.track{
+width:max-content;
+display:flex;
+animation:marquee 25s linear infinite
 }
-
-.marquee span{
-  margin:0 35px;
-  color:#999;
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:2px;
+.mi{
+padding:17px 35px;
+font-size:10px;
+font-weight:900;
+letter-spacing:2px
 }
-
-.marquee b{
-  color:var(--gold);
+.mi span{
+color:var(--gold);
+margin:0 20px
 }
-
 @keyframes marquee{
-  to{transform:translateX(-50%)}
-}
-
-/* =========================
-   GENERAL
-========================= */
-
-.container{
-  max-width:1250px;
-  margin:auto;
-  padding:0 22px;
+to{transform:translateX(-50%)}
 }
 
 .section{
-  padding:110px 0;
+width:min(1400px,92%);
+margin:auto;
+padding:100px 0
 }
-
-.section-head{
-  display:flex;
-  align-items:end;
-  justify-content:space-between;
-  gap:30px;
-  margin-bottom:45px;
+.head{
+display:flex;
+justify-content:space-between;
+align-items:end;
+gap:20px;
+margin-bottom:40px
 }
-
 .kicker{
-  color:var(--gold);
-  font-size:11px;
-  letter-spacing:4px;
-  font-weight:800;
-  margin-bottom:10px;
+color:var(--gold2);
+font-size:10px;
+letter-spacing:3px;
+font-weight:900;
+margin-bottom:10px
 }
-
 .title{
-  font-family:"Playfair Display","Cairo",serif;
-  font-size:clamp(35px,5vw,60px);
-  line-height:1;
+font-size:clamp(34px,5vw,62px);
+line-height:1;
+font-weight:900;
+letter-spacing:-2px
 }
-
 .desc{
-  color:#999;
-  max-width:450px;
-  font-size:13px;
-  line-height:2;
+max-width:430px;
+color:var(--muted);
+font-size:12px;
+line-height:2
 }
-
-.gold{
-  color:var(--gold);
-}
-
-/* =========================
-   COLLECTIONS
-========================= */
 
 .collections{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
+display:grid;
+grid-template-columns:1.4fr 1fr 1fr;
+gap:14px
 }
-
 .collection{
-  min-height:480px;
-  position:relative;
-  overflow:hidden;
-  background-image:
-    linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.9)),
-    var(--bgimg);
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  align-items:end;
-  transition:.5s;
+height:350px;
+border-radius:var(--r);
+overflow:hidden;
+position:relative;
+border:1px solid var(--line);
+background:#111
 }
-
-.collection:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(214,173,88,0);
-  transition:.5s;
+.collection:first-child{height:520px}
+.collection:before{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(to top,rgba(0,0,0,.94),rgba(0,0,0,.08) 70%),
+var(--bgimg) center/cover;
+transition:.6s
 }
-
-.collection:hover{
-  transform:translateY(-7px);
-}
-
-.collection:hover:after{
-  background:rgba(214,173,88,.08);
-}
-
+.collection:hover:before{transform:scale(1.06)}
 .collection-content{
-  position:relative;
-  z-index:2;
-  padding:30px;
+position:absolute;
+right:24px;
+bottom:24px
 }
-
 .collection-content small{
-  color:var(--gold);
-  letter-spacing:2px;
-  font-size:10px;
-  font-weight:800;
+color:var(--gold2);
+font-size:9px;
+letter-spacing:2px
 }
-
 .collection h3{
-  font-size:29px;
-  margin:8px 0;
+font-size:25px;
+margin:5px 0
 }
-
 .collection p{
-  color:#bbb;
-  font-size:12px;
+font-size:10px;
+color:#bbb
 }
 
-/* =========================
-   SHOP
-========================= */
-
-.shop-toolbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  margin-bottom:30px;
-  flex-wrap:wrap;
+.toolbar{
+display:flex;
+justify-content:space-between;
+gap:15px;
+flex-wrap:wrap;
+margin-bottom:25px
 }
-
 .filters{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
+display:flex;
+gap:7px;
+flex-wrap:wrap
 }
-
 .filter{
-  background:#111;
-  border:1px solid var(--line);
-  color:#aaa;
-  padding:10px 17px;
-  border-radius:30px;
-  font-size:11px;
-  font-weight:800;
-  transition:.3s;
+padding:9px 15px;
+border-radius:999px;
+border:1px solid var(--line);
+background:transparent;
+color:#aaa;
+font-size:10px;
+font-weight:900
+}
+.filter.active,
+.filter:hover{
+background:var(--cream);
+color:#000;
+border-color:var(--cream)
 }
 
-.filter:hover,
-.filter.active{
-  background:var(--gold);
-  color:#090909;
-  border-color:var(--gold);
+.search{
+width:270px;
+height:44px;
+border:1px solid var(--line);
+border-radius:999px;
+background:#ffffff05;
+display:flex;
+align-items:center;
+padding:0 14px;
+gap:8px
+}
+.search input{
+width:100%;
+border:0;
+outline:0;
+background:transparent;
+color:#fff;
+font-size:11px
 }
 
-.search-box{
-  height:43px;
-  width:250px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-  background:#111;
-  border:1px solid var(--line);
-  padding:0 13px;
+.grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px
 }
-
-.search-box input{
-  width:100%;
-  background:transparent;
-  border:0;
-  outline:0;
-  color:#fff;
-  font-size:12px;
+.card{
+background:#111;
+border:1px solid var(--line);
+border-radius:var(--r);
+overflow:hidden;
+transition:.35s
 }
-
-.search-box input::placeholder{
-  color:#666;
+.card:hover{
+transform:translateY(-7px);
+border-color:#c7a66a55;
+box-shadow:var(--shadow)
 }
-
-.products-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
+.photo{
+aspect-ratio:.83;
+position:relative;
+background:#191919;
+overflow:hidden
 }
-
-.product-card{
-  background:linear-gradient(145deg,#141414,#0c0c0c);
-  border:1px solid var(--line);
-  overflow:hidden;
-  position:relative;
-  transition:.4s;
+.photo img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.6s
 }
-
-.product-card:hover{
-  transform:translateY(-7px);
-  border-color:rgba(214,173,88,.35);
-  box-shadow:var(--shadow);
+.card:hover .photo img{transform:scale(1.05)}
+.wish{
+position:absolute;
+top:12px;
+left:12px;
+width:37px;
+height:37px;
+border-radius:50%;
+background:#000a;
+color:#fff;
+border:1px solid #fff2;
+display:grid;
+place-items:center;
+z-index:2
 }
-
-.product-image{
-  height:390px;
-  background:#171717;
-  overflow:hidden;
-  position:relative;
+.wish.liked{
+color:var(--gold2);
+border-color:#c7a66a66
 }
-
-.product-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:.6s;
+.tag{
+position:absolute;
+right:12px;
+bottom:12px;
+background:#000b;
+padding:5px 9px;
+border-radius:99px;
+font-size:8px;
+color:#ddd
 }
-
-.product-card:hover .product-image img{
-  transform:scale(1.05);
+.info{padding:17px}
+.cat{
+color:var(--gold);
+font-size:9px;
+font-weight:900;
+margin-bottom:6px
 }
-
-.product-tag{
-  position:absolute;
-  top:13px;
-  right:13px;
-  background:var(--gold);
-  color:#090909;
-  padding:6px 10px;
-  font-size:9px;
-  font-weight:900;
-  z-index:2;
+.name{
+font-size:15px;
+font-weight:900;
+margin-bottom:12px
 }
-
-.product-wish{
-  position:absolute;
-  top:13px;
-  left:13px;
-  width:39px;
-  height:39px;
-  border-radius:50%;
-  background:rgba(0,0,0,.7);
-  border:1px solid rgba(255,255,255,.12);
-  color:#fff;
-  z-index:3;
-  font-size:16px;
+.bottom{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:8px
 }
-
-.product-wish.active{
-  color:#e45c78;
-}
-
-.product-info{
-  padding:20px;
-}
-
-.product-category{
-  color:var(--gold);
-  font-size:9px;
-  font-weight:800;
-  letter-spacing:1px;
-}
-
-.product-name{
-  font-size:19px;
-  margin:6px 0 9px;
-}
-
-.product-description{
-  color:#777;
-  font-size:11px;
-  line-height:1.8;
-  min-height:40px;
-}
-
-.product-bottom{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin-top:17px;
-}
-
 .price{
-  color:var(--gold2);
-  font-size:18px;
-  font-weight:900;
+font-size:16px;
+font-weight:900
 }
-
-.add-btn{
-  height:40px;
-  padding:0 14px;
-  border:1px solid var(--line);
-  background:#191919;
-  color:#fff;
-  font-size:11px;
-  font-weight:800;
-  transition:.3s;
+.price small{
+color:#777;
+font-size:8px
 }
-
-.add-btn:hover{
-  background:var(--gold);
-  color:#090909;
-  border-color:var(--gold);
+.details{
+height:34px;
+padding:0 12px;
+border-radius:99px;
+background:#fff0;
+color:#eee;
+border:1px solid var(--line);
+font-size:9px;
+font-weight:900
 }
-
+.details:hover{
+background:var(--cream);
+color:#000
+}
 .empty{
-  grid-column:1/-1;
-  text-align:center;
-  padding:80px 20px;
-  color:#777;
-  border:1px dashed var(--line);
+display:none;
+text-align:center;
+padding:50px;
+border:1px dashed var(--line);
+border-radius:var(--r);
+color:#777
 }
-
-/* =========================
-   FEATURED
-========================= */
 
 .featured{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  min-height:580px;
-  background:#0d0d0d;
+min-height:550px;
+border-radius:32px;
+border:1px solid var(--line);
+overflow:hidden;
+display:flex;
+align-items:center;
+background:
+linear-gradient(90deg,rgba(0,0,0,.96),rgba(0,0,0,.25)),
+url("حجاب هجار_14.jpg") center/cover
 }
-
-.featured-image{
-  min-height:580px;
-  background:url("حجاب هجار_14.jpg") center/cover;
-}
-
 .featured-content{
-  padding:70px;
-  display:flex;
-  justify-content:center;
-  flex-direction:column;
+padding:55px;
+width:min(620px,100%)
+}
+.featured h2{
+font-size:clamp(42px,6vw,72px);
+line-height:.95;
+margin-bottom:20px
+}
+.featured p{
+color:#bbb;
+line-height:2;
+font-size:12px;
+margin-bottom:25px
 }
 
-.featured-content h2{
-  font-family:"Playfair Display","Cairo",serif;
-  font-size:55px;
-  line-height:1;
-  margin-bottom:20px;
+.story{
+display:grid;
+grid-template-columns:.9fr 1.1fr;
+gap:65px;
+align-items:center
+}
+.story-img{
+height:600px;
+border-radius:30px;
+overflow:hidden;
+border:1px solid var(--line);
+position:relative
+}
+.story-img img{
+width:100%;
+height:100%;
+object-fit:cover
+}
+.story-img b{
+position:absolute;
+bottom:15px;
+left:18px;
+font:90px "Playfair Display";
+color:#fff2
+}
+.story p{
+color:#aaa;
+line-height:2.1;
+font-size:13px;
+margin:18px 0
+}
+.points{
+display:grid;
+gap:12px;
+margin-top:28px
+}
+.point{
+display:flex;
+align-items:center;
+gap:12px;
+font-size:11px;
+font-weight:800
+}
+.point i{
+width:33px;
+height:33px;
+border:1px solid #c7a66a55;
+border-radius:50%;
+display:grid;
+place-items:center;
+color:var(--gold2);
+font-style:normal
 }
 
-.featured-content p{
-  color:#999;
-  line-height:2;
-  max-width:480px;
-  font-size:14px;
-  margin-bottom:28px;
+.why{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px
 }
-
-/* =========================
-   ABOUT
-========================= */
-
-.about-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:70px;
-  align-items:center;
-}
-
-.about-image{
-  min-height:580px;
-  background:
-    linear-gradient(180deg,transparent,rgba(0,0,0,.55)),
-    url("حجاب هجار_14.jpg") center/cover;
-}
-
-.about-text h2{
-  font-family:"Playfair Display","Cairo",serif;
-  font-size:55px;
-  line-height:1;
-  margin-bottom:25px;
-}
-
-.about-text p{
-  color:#999;
-  line-height:2.1;
-  font-size:14px;
-  margin-bottom:18px;
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin-top:35px;
-}
-
-.stat{
-  border-top:1px solid var(--line);
-  padding-top:15px;
-}
-
-.stat strong{
-  display:block;
-  color:var(--gold);
-  font-size:26px;
-}
-
-.stat span{
-  color:#777;
-  font-size:10px;
-}
-
-/* =========================
-   WHY
-========================= */
-
-.why-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:13px;
-}
-
 .why-card{
-  border:1px solid var(--line);
-  padding:35px 25px;
-  background:linear-gradient(145deg,#121212,#0b0b0b);
-  transition:.35s;
+min-height:220px;
+padding:30px;
+border:1px solid var(--line);
+border-radius:var(--r);
+background:#ffffff05
 }
-
-.why-card:hover{
-  border-color:rgba(214,173,88,.4);
-  transform:translateY(-5px);
-}
-
 .why-icon{
-  width:50px;
-  height:50px;
-  border:1px solid rgba(214,173,88,.3);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--gold);
-  font-size:20px;
-  margin-bottom:25px;
+width:43px;
+height:43px;
+border:1px solid #c7a66a44;
+border-radius:13px;
+color:var(--gold2);
+display:grid;
+place-items:center;
+margin-bottom:25px
 }
-
 .why-card h3{
-  font-size:16px;
-  margin-bottom:10px;
+font-size:16px;
+margin-bottom:8px
 }
-
 .why-card p{
-  color:#777;
-  font-size:11px;
-  line-height:2;
+color:#888;
+font-size:10px;
+line-height:2
 }
-
-/* =========================
-   FAQ
-========================= */
 
 .faq{
-  max-width:850px;
-  margin:auto;
+max-width:850px;
+margin:auto
 }
-
 .faq-item{
-  border-top:1px solid var(--line);
+border-top:1px solid var(--line)
 }
-
 .faq-item:last-child{
-  border-bottom:1px solid var(--line);
+border-bottom:1px solid var(--line)
 }
-
-.faq-question{
-  width:100%;
-  background:transparent;
-  border:0;
-  color:#fff;
-  padding:23px 5px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  text-align:right;
-  font-size:14px;
-  font-weight:800;
+.question{
+width:100%;
+background:none;
+color:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:22px 0;
+font-size:12px;
+font-weight:900;
+text-align:right
 }
-
-.faq-plus{
-  color:var(--gold);
-  font-size:22px;
-  transition:.3s;
+.question span{
+font-size:20px;
+color:var(--gold);
+transition:.3s
 }
-
-.faq-answer{
-  max-height:0;
-  overflow:hidden;
-  transition:.4s;
+.answer{
+max-height:0;
+overflow:hidden;
+color:#888;
+font-size:11px;
+line-height:2;
+transition:.3s
 }
-
-.faq-answer p{
-  color:#888;
-  font-size:12px;
-  line-height:2;
-  padding:0 5px 22px;
+.faq-item.open .answer{
+max-height:150px;
+padding-bottom:20px
 }
-
-.faq-item.open .faq-answer{
-  max-height:250px;
+.faq-item.open .question span{
+transform:rotate(45deg)
 }
-
-.faq-item.open .faq-plus{
-  transform:rotate(45deg);
-}
-
-/* =========================
-   CTA
-========================= */
 
 .cta{
-  position:relative;
-  overflow:hidden;
-  padding:100px 30px;
-  text-align:center;
-  background:
-    linear-gradient(rgba(7,7,7,.85),rgba(7,7,7,.94)),
-    url("radgo_1.jpg") center/cover;
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
+text-align:center;
+padding:90px 25px;
+border-radius:32px;
+border:1px solid var(--line);
+background:radial-gradient(circle,rgba(199,166,106,.12),transparent 55%),#111
 }
-
 .cta h2{
-  font-family:"Playfair Display","Cairo",serif;
-  font-size:clamp(40px,6vw,75px);
-  margin-bottom:15px;
+font-size:clamp(38px,6vw,68px);
+margin:15px 0
 }
-
 .cta p{
-  color:#999;
-  max-width:550px;
-  margin:0 auto 28px;
-  line-height:2;
+color:#888;
+font-size:12px;
+margin-bottom:25px
 }
 
-/* =========================
-   FOOTER
-========================= */
-
-.footer{
-  background:#050505;
-  padding:70px 0 25px;
+footer{
+border-top:1px solid var(--line);
+background:#060606;
+padding:65px 0 25px
 }
-
 .footer-grid{
-  display:grid;
-  grid-template-columns:1.5fr 1fr 1fr 1.2fr;
-  gap:50px;
-  padding-bottom:55px;
-  border-bottom:1px solid var(--line);
+width:min(1400px,92%);
+margin:auto;
+display:grid;
+grid-template-columns:1.5fr 1fr 1fr 1fr;
+gap:35px;
+padding-bottom:50px
 }
-
+.footer-grid h4{
+font-size:12px;
+margin-bottom:18px
+}
+.footer-grid ul{
+list-style:none;
+display:grid;
+gap:10px
+}
+.footer-grid li,
+.footer-grid a,
 .footer-brand p{
-  color:#777;
-  font-size:12px;
-  line-height:2;
-  max-width:300px;
-  margin-top:18px;
+color:#777;
+font-size:10px;
+line-height:2
+}
+.footer-brand p{
+max-width:300px
 }
 
-.footer h4{
-  font-size:13px;
-  margin-bottom:18px;
+/* لوغوهات التواصل */
+.social-links{
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:14px
+}
+.social-link{
+width:42px;
+height:42px;
+border:1px solid var(--line);
+display:grid;
+place-items:center;
+border-radius:50%;
+transition:.25s;
+color:#fff
+}
+.social-link:hover{
+transform:translateY(-3px);
+border-color:var(--gold);
+color:var(--gold)
+}
+.social-link svg{
+width:21px;
+height:21px;
+fill:currentColor
 }
 
-.footer-links{
-  display:flex;
-  flex-direction:column;
-  gap:11px;
+.copy{
+width:min(1400px,92%);
+margin:auto;
+border-top:1px solid var(--line);
+padding-top:22px;
+color:#555;
+font-size:9px;
+display:flex;
+justify-content:space-between
 }
 
-.footer-links a{
-  color:#777;
-  font-size:11px;
-  transition:.3s;
+.wa{
+position:fixed;
+left:20px;
+bottom:20px;
+width:57px;
+height:57px;
+border-radius:50%;
+background:var(--green);
+display:grid;
+place-items:center;
+z-index:4000;
+box-shadow:0 10px 30px #25d36644
+}
+.wa svg{
+width:30px;
+fill:#fff
 }
 
-.footer-links a:hover{
-  color:var(--gold);
-  padding-right:5px;
+.overlay,
+.modal,
+.lightbox{
+position:fixed;
+inset:0;
+background:#000d;
+backdrop-filter:blur(8px);
+opacity:0;
+visibility:hidden;
+transition:.3s;
+z-index:8000
+}
+.overlay.show,
+.modal.show,
+.lightbox.show{
+opacity:1;
+visibility:visible
 }
 
-.socials{
-  display:flex;
-  gap:8px;
-  margin-top:20px;
+.drawer{
+position:fixed;
+top:0;
+right:0;
+width:min(440px,94vw);
+height:100vh;
+background:#0d0d0d;
+z-index:9001;
+transform:translateX(105%);
+transition:.4s;
+display:flex;
+flex-direction:column;
+border-left:1px solid var(--line)
 }
+.drawer.show{transform:translateX(0)}
 
-.social{
-  width:43px;
-  height:43px;
-  border:1px solid var(--line);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:16px;
-  transition:.3s;
+.drawer-head{
+height:80px;
+padding:0 20px;
+border-bottom:1px solid var(--line);
+display:flex;
+align-items:center;
+justify-content:space-between
 }
-
-.social:hover{
-  color:#090909;
-  background:var(--gold);
-  border-color:var(--gold);
-  transform:translateY(-3px);
-}
-
-.footer-bottom{
-  padding-top:23px;
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  color:#555;
-  font-size:10px;
-}
-
-/* =========================
-   WHATSAPP
-========================= */
-
-.whatsapp{
-  position:fixed;
-  left:20px;
-  bottom:20px;
-  width:58px;
-  height:58px;
-  border-radius:50%;
-  background:#25d366;
-  color:#fff;
-  z-index:800;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:26px;
-  box-shadow:0 10px 35px rgba(37,211,102,.25);
-  transition:.3s;
-}
-
-.whatsapp:hover{
-  transform:scale(1.08);
-}
-
-/* =========================
-   CART
-========================= */
-
-.overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.75);
-  backdrop-filter:blur(5px);
-  z-index:2000;
-  opacity:0;
-  visibility:hidden;
-  transition:.3s;
-}
-
-.overlay.show{
-  opacity:1;
-  visibility:visible;
-}
-
-.cart{
-  position:fixed;
-  top:0;
-  left:0;
-  width:min(430px,94vw);
-  height:100%;
-  background:#0d0d0d;
-  border-right:1px solid var(--line);
-  z-index:2100;
-  transform:translateX(-100%);
-  transition:.45s cubic-bezier(.77,0,.18,1);
-  display:flex;
-  flex-direction:column;
-}
-
-.cart.open{
-  transform:translateX(0);
-}
-
-.cart-head{
-  padding:25px;
-  border-bottom:1px solid var(--line);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.cart-head h3{
-  font-family:"Playfair Display","Cairo",serif;
-  font-size:25px;
-}
-
 .close{
-  width:40px;
-  height:40px;
-  border:1px solid var(--line);
-  background:#151515;
-  color:#fff;
-  border-radius:50%;
+width:39px;
+height:39px;
+border-radius:50%;
+background:#ffffff08;
+color:#fff;
+border:1px solid var(--line);
+font-size:20px
 }
-
 .cart-list{
-  flex:1;
-  overflow:auto;
-  padding:15px;
+flex:1;
+overflow:auto;
+padding:18px
 }
-
 .cart-empty{
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#666;
+height:300px;
+display:grid;
+place-items:center;
+color:#666;
+font-size:12px
 }
-
 .cart-item{
-  display:grid;
-  grid-template-columns:72px 1fr 25px;
-  gap:12px;
-  padding:13px 0;
-  border-bottom:1px solid var(--line);
+display:grid;
+grid-template-columns:70px 1fr auto;
+gap:10px;
+padding:14px 0;
+border-bottom:1px solid var(--line)
 }
-
 .cart-item img{
-  width:72px;
-  height:85px;
-  object-fit:cover;
+width:70px;
+height:80px;
+object-fit:cover;
+border-radius:12px
 }
-
 .cart-item h4{
-  font-size:12px;
-  margin-bottom:4px;
+font-size:11px;
+margin-bottom:5px
 }
-
-.cart-price{
-  color:var(--gold);
-  font-size:12px;
-  font-weight:800;
+.cp{
+color:var(--gold);
+font-size:10px
 }
-
 .qty{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-top:9px;
+display:flex;
+align-items:center;
+gap:8px;
+margin-top:10px
 }
-
 .qty button{
-  width:25px;
-  height:25px;
-  background:#191919;
-  border:1px solid var(--line);
-  color:#fff;
+width:26px;
+height:26px;
+border-radius:50%;
+background:#fff1;
+color:#fff
 }
-
-.qty span{
-  font-size:11px;
-}
-
 .remove{
-  border:0;
-  background:transparent;
-  color:#777;
-  font-size:18px;
+background:none;
+color:#777;
+font-size:20px
 }
-
-.remove:hover{
-  color:var(--danger);
+.drawer-foot{
+padding:20px;
+border-top:1px solid var(--line)
 }
-
-.cart-footer{
-  padding:20px;
-  border-top:1px solid var(--line);
-}
-
 .total-row{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:15px;
-  font-size:13px;
+display:flex;
+justify-content:space-between;
+margin-bottom:15px;
+font-size:12px
 }
-
 .total-row strong{
-  color:var(--gold);
-  font-size:18px;
-}
-
-/* =========================
-   MODAL
-========================= */
-
-.modal-wrap{
-  position:fixed;
-  inset:0;
-  z-index:3000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  background:rgba(0,0,0,.82);
-  backdrop-filter:blur(8px);
-  opacity:0;
-  visibility:hidden;
-  transition:.3s;
-}
-
-.modal-wrap.show{
-  opacity:1;
-  visibility:visible;
+color:var(--gold2)
 }
 
 .modal{
-  width:min(1050px,100%);
-  max-height:92vh;
-  overflow:auto;
-  background:#0d0d0d;
-  border:1px solid var(--line);
-  position:relative;
-  transform:translateY(30px) scale(.97);
-  transition:.35s;
+display:grid;
+place-items:center;
+padding:20px
 }
-
-.modal-wrap.show .modal{
-  transform:none;
+.modal-box{
+width:min(900px,100%);
+max-height:90vh;
+overflow:auto;
+background:#111;
+border:1px solid var(--line);
+border-radius:28px;
+padding:25px;
+position:relative
 }
-
 .modal-close{
-  position:absolute;
-  top:15px;
-  left:15px;
-  z-index:10;
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  background:rgba(0,0,0,.7);
-  border:1px solid var(--line);
-  color:#fff;
+position:absolute;
+top:15px;
+left:15px;
+width:40px;
+height:40px;
+border-radius:50%;
+background:#fff1;
+color:#fff;
+font-size:20px
 }
-
 .product-modal-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px
 }
-
-.gallery{
-  background:#111;
-  padding:18px;
+.main-image{
+aspect-ratio:.9;
+border-radius:20px;
+overflow:hidden;
+background:#181818
 }
-
-.gallery-main{
-  height:580px;
-  position:relative;
-  background:#181818;
-  overflow:hidden;
-  cursor:zoom-in;
+.main-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+cursor:zoom-in
 }
-
-.gallery-main img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+.thumbs{
+display:flex;
+gap:8px;
+overflow:auto;
+margin-top:10px
 }
-
-.gallery-thumbs{
-  display:flex;
-  gap:8px;
-  margin-top:10px;
-  overflow:auto;
-  padding-bottom:5px;
-}
-
 .thumb{
-  width:70px;
-  height:80px;
-  flex:0 0 auto;
-  border:1px solid var(--line);
-  background:#151515;
-  padding:0;
+width:70px;
+height:80px;
+border-radius:10px;
+overflow:hidden;
+border:2px solid transparent;
+background:#111;
+flex-shrink:0
 }
-
 .thumb.active{
-  border-color:var(--gold);
+border-color:var(--gold)
 }
-
 .thumb img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+width:100%;
+height:100%;
+object-fit:cover
 }
-
-.modal-info{
-  padding:55px 45px;
-  display:flex;
-  justify-content:center;
-  flex-direction:column;
+.m-cat{
+color:var(--gold);
+font-size:10px;
+font-weight:900;
+margin-bottom:8px
 }
-
-.modal-category{
-  color:var(--gold);
-  font-size:10px;
-  letter-spacing:2px;
-  font-weight:800;
+.m-name{
+font-size:32px;
+font-weight:900;
+margin-bottom:10px
 }
-
-.modal-info h2{
-  font-family:"Playfair Display","Cairo",serif;
-  font-size:45px;
-  margin:10px 0;
+.m-price{
+font-size:22px;
+font-weight:900;
+color:var(--gold2);
+margin-bottom:20px
 }
-
-.modal-info .modal-price{
-  color:var(--gold2);
-  font-size:24px;
-  font-weight:900;
-  margin-bottom:20px;
+.m-desc{
+color:#999;
+font-size:12px;
+line-height:2;
+margin-bottom:25px
 }
-
-.modal-info p{
-  color:#888;
-  font-size:13px;
-  line-height:2;
-  margin-bottom:25px;
-}
-
-.modal-actions{
-  display:flex;
-  gap:8px;
-}
-
-/* =========================
-   CHECKOUT
-========================= */
 
 .checkout{
-  width:min(600px,100%);
-  padding:35px;
+max-width:600px
 }
-
 .checkout h2{
-  font-family:"Playfair Display","Cairo",serif;
-  font-size:36px;
-  margin-bottom:7px;
+font-size:30px;
+margin-bottom:7px
 }
-
-.checkout-sub{
-  color:#777;
-  font-size:11px;
-  margin-bottom:25px;
+.sub{
+color:#888;
+font-size:11px;
+margin-bottom:25px
 }
-
 .form{
-  display:grid;
-  gap:12px;
+display:grid;
+gap:15px
 }
-
-.form input,
-.form textarea{
-  width:100%;
-  background:#151515;
-  border:1px solid var(--line);
-  outline:none;
-  color:#fff;
-  padding:14px;
-  font-size:12px;
+.field{
+display:grid;
+gap:7px
 }
-
-.form textarea{
-  min-height:100px;
-  resize:vertical;
+.field label{
+font-size:10px;
+font-weight:900
 }
-
-.form input:focus,
-.form textarea:focus{
-  border-color:var(--gold);
+.field input,
+.field textarea{
+width:100%;
+background:#ffffff05;
+border:1px solid var(--line);
+border-radius:12px;
+padding:13px;
+color:#fff;
+outline:none;
+font-size:11px
 }
-
-.order-summary{
-  margin:20px 0;
-  padding:15px;
-  background:#151515;
-  border:1px solid var(--line);
-  color:#aaa;
-  font-size:12px;
-  line-height:2;
+.field textarea{
+min-height:100px;
+resize:vertical
 }
-
-/* =========================
-   LIGHTBOX
-========================= */
+.summary{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:5px
+}
+.summary>div{
+padding:15px;
+border:1px solid var(--line);
+border-radius:14px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-size:10px
+}
+.summary strong{
+color:var(--gold2)
+}
 
 .lightbox{
-  position:fixed;
-  inset:0;
-  z-index:5000;
-  background:rgba(0,0,0,.95);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:30px;
-  opacity:0;
-  visibility:hidden;
-  transition:.3s;
+display:grid;
+place-items:center;
+padding:25px;
+z-index:10000
 }
-
-.lightbox.show{
-  opacity:1;
-  visibility:visible;
-}
-
 .lightbox img{
-  max-width:90vw;
-  max-height:88vh;
-  object-fit:contain;
+max-width:min(900px,95vw);
+max-height:90vh;
+object-fit:contain;
+border-radius:15px
 }
-
-.lightbox-close{
-  position:absolute;
-  top:20px;
-  left:20px;
-  width:45px;
-  height:45px;
-  border-radius:50%;
-  border:1px solid #333;
-  background:#111;
-  color:#fff;
-  font-size:20px;
+.lbclose{
+position:absolute;
+top:20px;
+left:20px;
+width:45px;
+height:45px;
+border-radius:50%;
+background:#fff1;
+color:#fff;
+font-size:25px
 }
-
-/* =========================
-   TOAST
-========================= */
 
 .toast{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  background:#161616;
-  border:1px solid var(--gold);
-  color:#fff;
-  padding:14px 18px;
-  z-index:6000;
-  font-size:12px;
-  transform:translateY(30px);
-  opacity:0;
-  visibility:hidden;
-  transition:.35s;
+position:fixed;
+bottom:25px;
+right:50%;
+transform:translateX(50%) translateY(30px);
+background:#f4efe6;
+color:#000;
+padding:12px 20px;
+border-radius:999px;
+font-size:11px;
+font-weight:900;
+opacity:0;
+visibility:hidden;
+transition:.3s;
+z-index:11000
 }
-
 .toast.show{
-  transform:none;
-  opacity:1;
-  visibility:visible;
+opacity:1;
+visibility:visible;
+transform:translateX(50%) translateY(0)
 }
-
-/* =========================
-   MOBILE MENU
-========================= */
-
-.mobile-menu{
-  position:fixed;
-  inset:0;
-  z-index:1900;
-  background:#080808;
-  padding:100px 30px 30px;
-  transform:translateX(100%);
-  transition:.4s;
-}
-
-.mobile-menu.open{
-  transform:translateX(0);
-}
-
-.mobile-links{
-  display:flex;
-  flex-direction:column;
-  gap:5px;
-}
-
-.mobile-links a{
-  font-family:"Playfair Display","Cairo",serif;
-  font-size:35px;
-  padding:13px 0;
-  border-bottom:1px solid var(--line);
-}
-
-/* =========================
-   REVEAL
-========================= */
 
 .reveal{
-  opacity:0;
-  transform:translateY(35px);
-  transition:1s ease;
+opacity:0;
+transform:translateY(25px);
+transition:.7s
 }
-
 .reveal.visible{
-  opacity:1;
-  transform:none;
+opacity:1;
+transform:none
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:950px){
-  .nav-links{
-    display:none;
-  }
-
-  .menu-btn{
-    display:flex;
-  }
-
-  .collections{
-    grid-template-columns:1fr;
-  }
-
-  .collection{
-    min-height:420px;
-  }
-
-  .products-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .why-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .footer-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .featured,
-  .about-grid,
-  .product-modal-grid{
-    grid-template-columns:1fr;
-  }
-
-  .featured-image{
-    min-height:450px;
-  }
-
-  .about-image{
-    min-height:450px;
-  }
-
-  .gallery-main{
-    height:500px;
-  }
+@media(max-width:1000px){
+.navlinks{display:none}
+.mobile{display:grid}
+.grid{grid-template-columns:repeat(3,1fr)}
+.collections{grid-template-columns:1fr 1fr}
+.collection:first-child{
+height:350px;
+grid-column:1/-1
+}
+.story{
+grid-template-columns:1fr;
+gap:35px
+}
+.story-img{height:450px}
+.footer-grid{
+grid-template-columns:1fr 1fr
+}
 }
 
-@media(max-width:650px){
-  .header{
-    height:70px;
-  }
-
-  .nav{
-    padding:0 14px;
-  }
-
-  .logo-main{
-    font-size:23px;
-  }
-
-  .logo-sub{
-    display:none;
-  }
-
-  .nav-actions .icon-btn{
-    width:39px;
-    height:39px;
-  }
-
-  .hero{
-    min-height:680px;
-    background:
-      linear-gradient(180deg,rgba(4,4,4,.92),rgba(4,4,4,.6) 45%,rgba(4,4,4,.94)),
-      url("حجاب هجار_14.jpg") center/cover;
-  }
-
-  .hero-content{
-    padding:80px 18px;
-  }
-
-  .hero h1{
-    font-size:58px;
-  }
-
-  .hero-text{
-    font-size:13px;
-  }
-
-  .hero-side{
-    display:none;
-  }
-
-  .section{
-    padding:75px 0;
-  }
-
-  .section-head{
-    display:block;
-  }
-
-  .section-head .desc{
-    margin-top:15px;
-  }
-
-  .products-grid{
-    grid-template-columns:1fr 1fr;
-    gap:9px;
-  }
-
-  .product-image{
-    height:245px;
-  }
-
-  .product-info{
-    padding:13px;
-  }
-
-  .product-name{
-    font-size:14px;
-  }
-
-  .product-description{
-    display:none;
-  }
-
-  .product-bottom{
-    display:block;
-  }
-
-  .price{
-    font-size:15px;
-    display:block;
-    margin-bottom:9px;
-  }
-
-  .add-btn{
-    width:100%;
-  }
-
-  .search-box{
-    width:100%;
-  }
-
-  .shop-toolbar{
-    display:block;
-  }
-
-  .filters{
-    margin-bottom:12px;
-  }
-
-  .featured-content{
-    padding:45px 25px;
-  }
-
-  .featured-content h2,
-  .about-text h2{
-    font-size:43px;
-  }
-
-  .about-grid{
-    gap:30px;
-  }
-
-  .stats{
-    grid-template-columns:1fr 1fr 1fr;
-  }
-
-  .why-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .why-card{
-    padding:25px 16px;
-  }
-
-  .footer-grid{
-    grid-template-columns:1fr 1fr;
-    gap:35px 20px;
-  }
-
-  .footer-brand{
-    grid-column:1/-1;
-  }
-
-  .footer-bottom{
-    display:block;
-    line-height:2;
-  }
-
-  .product-modal-grid{
-    display:block;
-  }
-
-  .gallery-main{
-    height:420px;
-  }
-
-  .modal-info{
-    padding:30px 22px;
-  }
-
-  .modal-info h2{
-    font-size:35px;
-  }
-
-  .checkout{
-    padding:25px 20px;
-  }
-
-  .whatsapp{
-    width:53px;
-    height:53px;
-    left:15px;
-    bottom:15px;
-  }
+@media(max-width:700px){
+.section{
+padding:70px 0
+}
+.nav{
+min-height:70px
+}
+.logo b{
+font-size:25px
+}
+.head{
+display:block
+}
+.head .desc{
+margin-top:15px
+}
+.hero{
+min-height:620px
+}
+.hero h1{
+font-size:60px;
+letter-spacing:-4px
+}
+.grid{
+grid-template-columns:repeat(2,1fr);
+gap:10px
+}
+.card{
+border-radius:16px
+}
+.info{
+padding:12px
+}
+.name{
+font-size:13px
+}
+.collections{
+grid-template-columns:1fr
+}
+.collection,
+.collection:first-child{
+height:330px;
+grid-column:auto
+}
+.product-modal-grid{
+grid-template-columns:1fr
+}
+.modal-box{
+padding:18px
+}
+.footer-grid{
+grid-template-columns:1fr 1fr;
+gap:25px
+}
+.copy{
+display:block;
+line-height:2
+}
+.copy span{
+display:block
+}
+.search{
+width:100%
+}
+.toolbar{
+display:block
+}
+.filters{
+margin-bottom:12px
+}
 }
 
-@media(max-width:400px){
-  .products-grid{
-    grid-template-columns:1fr;
-  }
-
-  .product-image{
-    height:390px;
-  }
-
-  .why-grid{
-    grid-template-columns:1fr;
-  }
-
-  .hero h1{
-    font-size:51px;
-  }
+@media(max-width:430px){
+.grid{
+grid-template-columns:1fr 1fr
+}
+.hero h1{
+font-size:50px
+}
+.footer-grid{
+grid-template-columns:1fr
+}
+.social-links{
+margin-bottom:10px
+}
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOADER -->
-<div class="loader" id="loader">
-  <div class="loader-box">
-    <div class="loader-logo">H7 NEO</div>
-    <div class="loader-line"></div>
-  </div>
+<div id="progress"></div>
+
+<div id="loader">
+<div class="loader-brand">
+<b>H7 NEO</b>
+<small>EST. 2026 · COLLECTION</small>
+<div class="loader-line"></div>
+<div class="loader-text">LUXURY IN EVERY DETAIL</div>
+</div>
 </div>
 
-<!-- TOP BAR -->
-<div class="topbar">
-  ✦ توصيل لجميع المدن المغربية ✦ الدفع عند الاستلام ✦ H7 NEO ✦
+<div class="announce">
+✦ توصيل داخل المغرب ✦ الدفع عند الاستلام ✦ H7 NEO COLLECTION ✦
 </div>
 
-<!-- HEADER -->
-<header class="header">
-  <nav class="nav">
+<header>
+<nav class="nav">
 
-    <a href="#home" class="logo">
-      <div>
-        <div class="logo-main">H7 NEO</div>
-        <div class="logo-sub">STYLE • MODE • ESSENTIALS</div>
-      </div>
-    </a>
+<a class="logo" href="#home">
+<b>H7 NEO</b>
+<small>EST. 2026</small>
+<em>COLLECTION</em>
+</a>
 
-    <div class="nav-links">
-      <a href="#home">الرئيسية</a>
-      <a href="#collections">المجموعات</a>
-      <a href="#shop">المتجر</a>
-      <a href="#about">من نحن</a>
-      <a href="#faq">الأسئلة</a>
-    </div>
+<div class="navlinks">
+<a href="#home">الرئيسية</a>
+<a href="#collections">المجموعات</a>
+<a href="#shop">المتجر</a>
+<a href="#about">عن H7 NEO</a>
+<a href="#faq">الأسئلة</a>
+</div>
 
-    <div class="nav-actions">
-      <button class="icon-btn" onclick="focusSearch()" aria-label="بحث">⌕</button>
+<div class="actions">
+<button class="icon mobile" id="mobileBtn" aria-label="القائمة">☰</button>
+<button class="icon" id="searchBtn" aria-label="بحث">⌕</button>
+<button class="icon" id="cartBtn" aria-label="السلة">🛒<span class="badge" id="cartBadge">0</span></button>
+</div>
 
-      <button class="icon-btn" onclick="openWishlist()" aria-label="المفضلة">
-        ♡
-        <span class="badge" id="wishBadge">0</span>
-      </button>
-
-      <button class="icon-btn" onclick="openCart()" aria-label="السلة">
-        🛒
-        <span class="badge" id="cartBadge">0</span>
-      </button>
-
-      <button class="icon-btn menu-btn" onclick="toggleMobile()" aria-label="القائمة">☰</button>
-    </div>
-
-  </nav>
+</nav>
 </header>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-links">
-    <a href="#home" onclick="toggleMobile()">الرئيسية</a>
-    <a href="#collections" onclick="toggleMobile()">المجموعات</a>
-    <a href="#shop" onclick="toggleMobile()">المتجر</a>
-    <a href="#about" onclick="toggleMobile()">من نحن</a>
-    <a href="#faq" onclick="toggleMobile()">الأسئلة</a>
-    <a href="#contact" onclick="toggleMobile()">تواصل معنا</a>
-  </div>
+<div class="mobile-panel" id="mobilePanel">
+<a href="#home">الرئيسية</a>
+<a href="#collections">المجموعات</a>
+<a href="#shop">المتجر</a>
+<a href="#about">عن H7 NEO</a>
+<a href="#faq">الأسئلة</a>
 </div>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="hero-kicker">H7 NEO • EST. 2026</div>
+<main id="home">
 
-    <h1>
-      STYLE<br>
-      <span>WITHOUT</span><br>
-      LIMITS.
-    </h1>
-
-    <p class="hero-text">
-      مرحباً بك في H7 NEO — اختيارات مختارة بعناية من الأزياء
-      والأحذية، بتصميم عصري وأناقة كتليق بك.
-    </p>
-
-    <div class="hero-buttons">
-      <a href="#shop" class="btn btn-gold">اكتشف المتجر ↗</a>
-      <a href="#collections" class="btn btn-outline">شوف المجموعات</a>
-    </div>
-  </div>
-
-  <div class="hero-side">H7 NEO — MOROCCO</div>
+<section class="hero">
+<div class="hero-inner">
+<div class="eyebrow">H7 NEO COLLECTION</div>
+<h1>STYLE<span>WITHOUT LIMITS.</span></h1>
+<p>
+اكتشف اختيارات H7 NEO من الأزياء المحجبة والأحذية الرجالية والنسائية،
+بتفاصيل تجمع بين الأناقة والبساطة والطابع العصري.
+</p>
+<div class="buttons">
+<a class="btn primary" href="#shop">اكتشف المجموعة</a>
+<a class="btn outline" href="#about">اكتشف H7 NEO</a>
+</div>
+</div>
 </section>
 
-<!-- MARQUEE -->
 <div class="marquee">
-  <div class="marquee-track">
-    <span>H7 NEO <b>✦</b></span>
-    <span>NEW COLLECTION <b>✦</b></span>
-    <span>MODEST STYLE <b>✦</b></span>
-    <span>MEN'S SHOES <b>✦</b></span>
-    <span>WOMEN'S SHOES <b>✦</b></span>
-    <span>MADE FOR YOUR STYLE <b>✦</b></span>
-    <span>H7 NEO <b>✦</b></span>
-    <span>NEW COLLECTION <b>✦</b></span>
-  </div>
+<div class="track">
+<div class="mi">H7 NEO <span>✦</span> NEW COLLECTION <span>✦</span> PREMIUM STYLE <span>✦</span></div>
+<div class="mi">H7 NEO <span>✦</span> NEW COLLECTION <span>✦</span> PREMIUM STYLE <span>✦</span></div>
+<div class="mi">H7 NEO <span>✦</span> NEW COLLECTION <span>✦</span> PREMIUM STYLE <span>✦</span></div>
+</div>
 </div>
 
-<!-- COLLECTIONS -->
 <section class="section reveal" id="collections">
-  <div class="container">
 
-    <div class="section-head">
-      <div>
-        <div class="kicker">01 / COLLECTIONS</div>
-        <h2 class="title">اختياراتنا</h2>
-      </div>
+<div class="head">
+<div>
+<div class="kicker">COLLECTIONS</div>
+<h2 class="title">اختياراتنا</h2>
+</div>
 
-      <p class="desc">
-        اكتشف عالم H7 NEO من الأزياء المحجبة والأحذية الرجالية والنسائية.
-      </p>
-    </div>
+<p class="desc">
+قطع مختارة بعناية لتمنحك مظهراً أنيقاً وعصرياً في كل مناسبة.
+</p>
+</div>
 
-    <div class="collections">
+<div class="collections">
 
-      <a class="collection"
-         href="#shop"
-         onclick="setCategory('ملابس محجبات')"
-         style='--bgimg:url("حجاب هجار_14.jpg")'>
-        <div class="collection-content">
-          <small>01 / MODEST</small>
-          <h3>ملابس محجبات</h3>
-          <p>أناقة هادئة وتفاصيل عصرية.</p>
-        </div>
-      </a>
+<a class="collection" href="#shop" style='--bgimg:url("حجاب هجار_14.jpg")'>
+<div class="collection-content">
+<small>01 / MODEST</small>
+<h3>ملابس محجبات</h3>
+<p>أناقة هادئة وتفاصيل عصرية.</p>
+</div>
+</a>
 
-      <a class="collection"
-         href="#shop"
-         onclick="setCategory('أحذية رجالية')"
-         style='--bgimg:url("radgo_1.jpg")'>
-        <div class="collection-content">
-          <small>02 / MEN</small>
-          <h3>أحذية رجالية</h3>
-          <p>اختيارات يومية بطابع مميز.</p>
-        </div>
-      </a>
+<a class="collection" href="#shop" style='--bgimg:url("1789675720039.png")'>
+<div class="collection-content">
+<small>02 / MEN</small>
+<h3>أحذية رجالية</h3>
+<p>اختيارات يومية بطابع مميز.</p>
+</div>
+</a>
 
-      <a class="collection"
-         href="#shop"
-         onclick="setCategory('أحذية نسائية')"
-         style='--bgimg:url("صندالة نسائية صيفية_1.jpg")'>
-        <div class="collection-content">
-          <small>03 / WOMEN</small>
-          <h3>أحذية نسائية</h3>
-          <p>راحة وأناقة في كل خطوة.</p>
-        </div>
-      </a>
+<a class="collection" href="#shop" style='--bgimg:url("صندالة نسائية صيفية_1.jpg")'>
+<div class="collection-content">
+<small>03 / WOMEN</small>
+<h3>أحذية نسائية</h3>
+<p>راحة وأناقة في كل خطوة.</p>
+</div>
+</a>
 
-    </div>
-  </div>
+</div>
 </section>
 
-<!-- SHOP -->
 <section class="section reveal" id="shop">
-  <div class="container">
 
-    <div class="section-head">
-      <div>
-        <div class="kicker">02 / SHOP</div>
-        <h2 class="title">المتجر</h2>
-      </div>
+<div class="head">
+<div>
+<div class="kicker">SHOP H7 NEO</div>
+<h2 class="title">المتجر</h2>
+</div>
 
-      <p class="desc">
-        اختار المنتج اللي عجبك، شوف جميع الصور، وزيدو للسلة.
-      </p>
-    </div>
+<p class="desc">
+اختر المنتج، شاهد جميع صوره، أضفه إلى السلة ثم أرسل طلبك مباشرة عبر WhatsApp.
+</p>
+</div>
 
-    <div class="shop-toolbar">
+<div class="toolbar">
 
-      <div class="filters">
-        <button class="filter active" data-cat="all" onclick="setCategory('all')">الكل</button>
-        <button class="filter" data-cat="ملابس محجبات" onclick="setCategory('ملابس محجبات')">ملابس محجبات</button>
-        <button class="filter" data-cat="أحذية رجالية" onclick="setCategory('أحذية رجالية')">أحذية رجالية</button>
-        <button class="filter" data-cat="أحذية نسائية" onclick="setCategory('أحذية نسائية')">أحذية نسائية</button>
-      </div>
+<div class="filters">
 
-      <div class="search-box" id="searchBox">
-        <span>⌕</span>
-        <input
-          id="searchInput"
-          type="text"
-          placeholder="قلب على منتوج..."
-          oninput="renderProducts()"
-        >
-      </div>
+<button class="filter active" data-cat="all">الكل</button>
 
-    </div>
+<button class="filter" data-cat="ملابس محجبات">
+ملابس محجبات
+</button>
 
-    <div class="products-grid" id="productsGrid"></div>
+<button class="filter" data-cat="أحذية رجالية">
+أحذية رجالية
+</button>
 
-  </div>
+<button class="filter" data-cat="أحذية نسائية">
+أحذية نسائية
+</button>
+
+<button class="filter" data-cat="إكسسوارات">
+إكسسوارات
+</button>
+
+</div>
+
+<div class="search">
+<span>⌕</span>
+<input id="search" type="search" placeholder="ابحث عن منتج...">
+</div>
+
+</div>
+
+<div class="grid" id="grid"></div>
+
+<div class="empty" id="empty">
+لم نجد أي منتج مطابق لبحثك.
+</div>
+
 </section>
 
-<!-- FEATURED -->
 <section class="section reveal">
-  <div class="container">
 
-    <div class="featured">
+<div class="featured">
 
-      <div class="featured-image"></div>
+<div class="featured-content">
+<div class="kicker">FEATURED COLLECTION</div>
 
-      <div class="featured-content">
-        <div class="kicker">FEATURED PICK</div>
+<h2>
+حجاب<br>
+هجار
+</h2>
 
-        <h2>H7<br><span class="gold">SIGNATURE</span></h2>
+<p>
+شاهد معرض صور حجاب هجار واستعرض المنتج من زوايا مختلفة.
+</p>
 
-        <p>
-          تفاصيل كتفرق. جودة، أناقة، وحضور مختلف.
-          اكتشف اختيارات H7 NEO المصممة باش تزيد لمستك الخاصة.
-        </p>
+<button class="btn primary" onclick="openProduct('hajar')">
+مشاهدة المنتج
+</button>
 
-        <div>
-          <button class="btn btn-gold" onclick="openProduct('hajar')">
-            شوف المنتوج ↗
-          </button>
-        </div>
-      </div>
+</div>
 
-    </div>
+</div>
 
-  </div>
 </section>
 
-<!-- ABOUT -->
 <section class="section reveal" id="about">
-  <div class="container">
 
-    <div class="about-grid">
+<div class="story">
 
-      <div class="about-image"></div>
+<div class="story-img">
+<img src="حجاب هجار_14.jpg" alt="H7 NEO" loading="lazy">
+<b>H7</b>
+</div>
 
-      <div class="about-text">
-        <div class="kicker">03 / ABOUT H7 NEO</div>
+<div>
 
-        <h2>MORE THAN<br><span class="gold">A STORE.</span></h2>
+<div class="kicker">THE H7 NEO STORY</div>
 
-        <p>
-          H7 NEO ماشي غير متجر. هي مساحة كتجمع بين البساطة،
-          الأناقة، والاختيارات اللي كتخليك تعبر على الستايل ديالك.
-        </p>
+<h2 class="title">
+البساطة<br>
+تصنع الفرق.
+</h2>
 
-        <p>
-          كنختارو المنتجات بعناية ونحاولو نوفروا تجربة شراء سهلة،
-          واضحة ومناسبة للزبون المغربي.
-        </p>
+<p>
+H7 NEO هو متجر يهتم بالاختيارات الأنيقة والعملية،
+ويجمع بين الأزياء المحجبة والأحذية الرجالية والنسائية
+في تجربة بسيطة وسهلة.
+</p>
 
-        <div class="stats">
-          <div class="stat">
-            <strong>24/7</strong>
-            <span>ONLINE</span>
-          </div>
+<p>
+هدفنا تقديم منتجات مختارة بعناية مع تجربة شراء واضحة وسريعة،
+من اختيار المنتج إلى إرسال الطلب.
+</p>
 
-          <div class="stat">
-            <strong>MAR</strong>
-            <span>MOROCCO</span>
-          </div>
+<div class="points">
 
-          <div class="stat">
-            <strong>H7</strong>
-            <span>NEO STYLE</span>
-          </div>
-        </div>
-      </div>
+<div class="point">
+<i>✓</i>
+منتجات مختارة بعناية
+</div>
 
-    </div>
+<div class="point">
+<i>✓</i>
+معرض صور متعدد لكل منتج
+</div>
 
-  </div>
+<div class="point">
+<i>✓</i>
+طلب مباشر عبر WhatsApp
+</div>
+
+</div>
+
+</div>
+
+</div>
 </section>
 
-<!-- WHY -->
 <section class="section reveal">
-  <div class="container">
 
-    <div class="section-head">
-      <div>
-        <div class="kicker">04 / WHY H7 NEO</div>
-        <h2 class="title">علاش H7 NEO؟</h2>
-      </div>
-    </div>
+<div class="head">
+<div>
+<div class="kicker">WHY H7 NEO</div>
+<h2 class="title">لماذا نحن؟</h2>
+</div>
 
-    <div class="why-grid">
+<p class="desc">
+تجربة مصممة لتكون واضحة، أنيقة وسهلة.
+</p>
+</div>
 
-      <div class="why-card">
-        <div class="why-icon">✦</div>
-        <h3>اختيارات مميزة</h3>
-        <p>منتجات مختارة بعناية باش نعطيوك ستايل مختلف.</p>
-      </div>
+<div class="why">
 
-      <div class="why-card">
-        <div class="why-icon">◇</div>
-        <h3>تصميم عصري</h3>
-        <p>ستايل بسيط، نظيف وعصري مناسب للاستعمال اليومي.</p>
-      </div>
+<div class="why-card">
+<div class="why-icon">✓</div>
+<h3>اختيارات مختارة</h3>
+<p>
+مجموعة محددة من المنتجات مع صور متعددة لتسهيل الاختيار.
+</p>
+</div>
 
-      <div class="why-card">
-        <div class="why-icon">↗</div>
-        <h3>طلب سهل</h3>
-        <p>اختار، زيد للسلة، وصيفط الطلب مباشرة عبر WhatsApp.</p>
-      </div>
+<div class="why-card">
+<div class="why-icon">◇</div>
+<h3>تصميم أنيق</h3>
+<p>
+واجهة داكنة وفاخرة تساعدك على اكتشاف المنتجات بسهولة.
+</p>
+</div>
 
-      <div class="why-card">
-        <div class="why-icon">♡</div>
-        <h3>H7 NEO</h3>
-        <p>هدفنا هو نبنيو تجربة ومتجر عندو هوية خاصة.</p>
-      </div>
+<div class="why-card">
+<div class="why-icon">→</div>
+<h3>طلب سريع</h3>
+<p>
+أضف المنتجات إلى السلة وأرسل تفاصيل الطلب مباشرة عبر WhatsApp.
+</p>
+</div>
 
-    </div>
-  </div>
+</div>
 </section>
 
-<!-- FAQ -->
 <section class="section reveal" id="faq">
-  <div class="container">
 
-    <div class="section-head">
-      <div>
-        <div class="kicker">05 / FAQ</div>
-        <h2 class="title">أسئلة متكررة</h2>
-      </div>
-    </div>
+<div class="head">
+<div>
+<div class="kicker">FAQ</div>
+<h2 class="title">الأسئلة</h2>
+</div>
+</div>
 
-    <div class="faq">
+<div class="faq">
 
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          كيفاش نقدر نطلب؟
-          <span class="faq-plus">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>
-            اختار المنتوج، دخل للسلة، ومن بعد ضغط على "إتمام الطلب".
-            غادي يتحل WhatsApp بالطلب ديالك جاهز للإرسال.
-          </p>
-        </div>
-      </div>
+<div class="faq-item">
+<button class="question">
+هل يمكنني الطلب عبر WhatsApp؟
+<span>+</span>
+</button>
+<div class="answer">
+نعم، أضف المنتجات إلى السلة ثم أدخل معلوماتك وأرسل الطلب مباشرة عبر WhatsApp.
+</div>
+</div>
 
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          واش كاين التوصيل؟
-          <span class="faq-plus">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>
-            نعم، التوصيل متوفر للمدن المغربية. تفاصيل التوصيل يمكن تأكيدها
-            مباشرة معانا عبر WhatsApp.
-          </p>
-        </div>
-      </div>
+<div class="faq-item">
+<button class="question">
+هل كل منتج عنده أكثر من صورة؟
+<span>+</span>
+</button>
+<div class="answer">
+نعم، المنتجات التي لها صور متعددة تحتوي على معرض صور داخل صفحة التفاصيل.
+</div>
+</div>
 
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          واش نقدر نشوف جميع صور المنتوج؟
-          <span class="faq-plus">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>
-            أكيد. ضغط على المنتوج وغادي تلقى Gallery فيها جميع الصور المتوفرة.
-          </p>
-        </div>
-      </div>
+<div class="faq-item">
+<button class="question">
+هل يمكنني تغيير الكمية؟
+<span>+</span>
+</button>
+<div class="answer">
+نعم، يمكنك زيادة أو إنقاص الكمية مباشرة من السلة.
+</div>
+</div>
 
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          كيفاش نتواصل مع H7 NEO؟
-          <span class="faq-plus">+</span>
-        </button>
-        <div class="faq-answer">
-          <p>
-            تقدر تتواصل معانا مباشرة عبر WhatsApp أو Instagram أو Facebook.
-          </p>
-        </div>
-      </div>
+<div class="faq-item">
+<button class="question">
+هل الدفع عند الاستلام؟
+<span>+</span>
+</button>
+<div class="answer">
+الموقع يعرض خيار الدفع عند الاستلام ضمن معلومات المتجر،
+ويمكن تأكيد التفاصيل مع المتجر عبر WhatsApp.
+</div>
+</div>
 
-    </div>
-  </div>
+</div>
 </section>
 
-<!-- CTA -->
-<section class="cta reveal" id="contact">
+<section class="section reveal">
 
-  <div class="kicker">H7 NEO</div>
+<div class="cta">
 
-  <h2>FIND YOUR<br><span class="gold">STYLE.</span></h2>
+<div class="kicker">H7 NEO</div>
 
-  <p>
-    جاهز تختار اللوك ديالك؟ شوف المجموعة كاملة وخلي الباقي علينا.
-  </p>
+<h2>مستعد لاختيارك؟</h2>
 
-  <a href="#shop" class="btn btn-gold">تسوق الآن ↗</a>
+<p>
+تصفح المجموعة، اختر ما يناسبك، وأرسل طلبك بسهولة.
+</p>
+
+<a href="#shop" class="btn primary">
+تسوق الآن
+</a>
+
+</div>
 
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container">
+</main>
 
-    <div class="footer-grid">
+<footer>
 
-      <div class="footer-brand">
-        <div class="logo-main">H7 NEO</div>
-        <p>
-          متجر مغربي للأزياء والأحذية.
-          Style بسيط، عصري ومختلف.
-        </p>
+<div class="footer-grid">
 
-        <div class="socials">
+<div class="footer-brand">
 
-          <a
-            class="social"
-            href="https://www.instagram.com/h7_neo1?stkn=aDFua3E5anRtdjNh"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-          >◎</a>
+<div class="logo">
+<b>H7 NEO</b>
+<small>EST. 2026</small>
+<em>COLLECTION</em>
+</div>
 
-          <a
-            class="social"
-            href="https://www.facebook.com/share/18nKCuDD2k/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-          >f</a>
+<p>
+H7 NEO — اختيارات أنيقة من الأزياء المحجبة والأحذية الرجالية والنسائية.
+</p>
 
-          <a
-            class="social"
-            href="https://wa.me/212640419454"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp"
-          >◉</a>
+</div>
 
-        </div>
-      </div>
+<div>
 
-      <div>
-        <h4>المتجر</h4>
+<h4>المتجر</h4>
 
-        <div class="footer-links">
-          <a href="#shop">كل المنتجات</a>
-          <a href="#shop" onclick="setCategory('ملابس محجبات')">ملابس محجبات</a>
-          <a href="#shop" onclick="setCategory('أحذية رجالية')">أحذية رجالية</a>
-          <a href="#shop" onclick="setCategory('أحذية نسائية')">أحذية نسائية</a>
-        </div>
-      </div>
+<ul>
+<li><a href="#shop">جميع المنتجات</a></li>
+<li><a href="#shop">ملابس محجبات</a></li>
+<li><a href="#shop">أحذية رجالية</a></li>
+<li><a href="#shop">أحذية نسائية</a></li>
+<li><a href="#shop">إكسسوارات</a></li>
+</ul>
 
-      <div>
-        <h4>H7 NEO</h4>
+</div>
 
-        <div class="footer-links">
-          <a href="#about">من نحن</a>
-          <a href="#faq">الأسئلة المتكررة</a>
-          <a href="#contact">تواصل معنا</a>
-          <a href="https://www.instagram.com/h7_neo1?stkn=aDFua3E5anRtdjNh" target="_blank">Instagram</a>
-          <a href="https://www.facebook.com/share/18nKCuDD2k/" target="_blank">Facebook</a>
-        </div>
-      </div>
+<div>
 
-      <div>
-        <h4>تواصل معنا</h4>
+<h4>H7 NEO</h4>
 
-        <div class="footer-links">
-          <a href="https://wa.me/212640419454" target="_blank">WhatsApp</a>
-          <a href="https://www.instagram.com/h7_neo1?stkn=aDFua3E5anRtdjNh" target="_blank">Instagram: @h7_neo1</a>
-          <a href="https://www.facebook.com/share/18nKCuDD2k/" target="_blank">Facebook</a>
-        </div>
-      </div>
+<ul>
+<li><a href="#about">عن المتجر</a></li>
+<li><a href="#collections">المجموعات</a></li>
+<li><a href="#faq">الأسئلة</a></li>
+</ul>
 
-    </div>
+</div>
 
-    <div class="footer-bottom">
-      <span>© 2026 H7 NEO. جميع الحقوق محفوظة.</span>
-      <span>MADE WITH ✦ FOR H7 NEO</span>
-    </div>
+<div>
 
-  </div>
+<h4>تواصل</h4>
+
+<ul>
+<li>المغرب</li>
+</ul>
+
+<div class="social-links" aria-label="وسائل التواصل الاجتماعي">
+
+<!-- Instagram -->
+<a
+class="social-link instagram"
+href="https://www.instagram.com/h7_neo1?stkn=aDFua3E5anRtdjNh"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Instagram"
+title="Instagram"
+>
+
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm9.75 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0-3-3Z"/>
+</svg>
+
+</a>
+
+<!-- Facebook -->
+<a
+class="social-link facebook"
+href="https://www.facebook.com/share/18nKCuDD2k/"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Facebook"
+title="Facebook"
+>
+
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M13.5 22v-8h2.75l.5-3h-3.25V9.1c0-.87.28-1.6 1.65-1.6H17V4.82c-.32-.04-1.4-.14-2.67-.14-2.64 0-4.45 1.61-4.45 4.57V11H7v3h2.88v8h3.62Z"/>
+</svg>
+
+</a>
+
+<!-- WhatsApp -->
+<a
+class="social-link whatsapp"
+href="https://wa.me/212640419454"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="WhatsApp"
+title="WhatsApp"
+>
+
+<svg viewBox="0 0 32 32" aria-hidden="true">
+<path d="M16 3C8.8 3 3 8.6 3 15.6c0 2.5.7 4.8 2 6.7L3.7 28.5l6.4-2A13.2 13.2 0 0 0 16 28.1c7.2 0 13-5.6 13-12.5S23.2 3 16 3Zm0 22.7c-2.1 0-4.1-.6-5.7-1.7l-.4-.2-3.8 1.2 1.2-3.6-.3-.4a10.6 10.6 0 0 1-1.6-5.4C5.3 9.9 10.1 5.3 16 5.3s10.7 4.6 10.7 10.3c0 5.6-4.8 10.1-10.7 10.1Zm-3.7-12.9c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .6.5l.8 1.8c.1.3.1.5-.1.8l-.5.6c-.2.2-.2.4 0 .7.3.6 1.1 1.8 2.4 2.8 1.6 1.2 2.2 1.3 2.6 1.1.4-.2.8-.9 1-1.2.2-.3.4-.3.7-.2l1.9.9c.3.1.5.2.5.4 0 .2-.1 1.1-.5 1.5-.4.5-1.2.8-2 .8-.5 0-1.1-.1-1.8-.3-1.1-.4-2.4-1.1-3.8-2.4-2.1-1.9-3.5-4.2-3.5-5.7 0-.8.3-1.5.5-1.8Z"/>
+</svg>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="copy">
+<span>© 2026 H7 NEO. جميع الحقوق محفوظة.</span>
+<span>EST. 2026 · COLLECTION</span>
+</div>
+
 </footer>
 
-<!-- WHATSAPP -->
 <a
-  class="whatsapp"
-  href="https://wa.me/212640419454"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="WhatsApp"
->◉</a>
+class="wa"
+href="https://wa.me/212640419454"
+target="_blank"
+rel="noopener"
+aria-label="WhatsApp"
+>
+<svg viewBox="0 0 32 32">
+<path d="M16 3C8.8 3 3 8.6 3 15.6c0 2.5.7 4.8 2 6.7L3.7 28.5l6.4-2A13.2 13.2 0 0 0 16 28.1c7.2 0 13-5.6 13-12.5S23.2 3 16 3Zm0 22.7c-2.1 0-4.1-.6-5.7-1.7l-.4-.2-3.8 1.2 1.2-3.6-.3-.4a10.6 10.6 0 0 1-1.6-5.4C5.3 9.9 10.1 5.3 16 5.3s10.7 4.6 10.7 10.3c0 5.6-4.8 10.1-10.7 10.1Z"/>
+</svg>
+</a>
 
-<!-- OVERLAY -->
-<div class="overlay" id="overlay" onclick="closeAll()"></div>
+<div class="overlay" id="overlay"></div>
 
-<!-- CART -->
-<aside class="cart" id="cart">
+<aside class="drawer" id="drawer">
 
-  <div class="cart-head">
-    <h3>السلة</h3>
-    <button class="close" onclick="closeCart()">×</button>
-  </div>
+<div class="drawer-head">
+<h3>سلة المشتريات</h3>
+<button class="close" id="closeCart">×</button>
+</div>
 
-  <div class="cart-list" id="cartList"></div>
+<div class="cart-list" id="cartList"></div>
 
-  <div class="cart-footer">
+<div class="drawer-foot">
 
-    <div class="total-row">
-      <span>المجموع</span>
-      <strong id="cartTotal">0 درهم</strong>
-    </div>
+<div class="total-row">
+<span>المجموع</span>
+<strong id="total">0 درهم</strong>
+</div>
 
-    <button
-      class="btn btn-gold"
-      style="width:100%"
-      onclick="openCheckout()"
-    >
-      إتمام الطلب عبر WhatsApp ↗
-    </button>
+<button class="btn primary" id="checkoutBtn" style="width:100%">
+إتمام الطلب
+</button>
 
-  </div>
+</div>
+
 </aside>
 
-<!-- PRODUCT MODAL -->
-<div class="modal-wrap" id="productModal">
+<div class="modal" id="productModal">
 
-  <div class="modal">
+<div class="modal-box">
 
-    <button class="modal-close" onclick="closeProduct()">×</button>
+<button class="modal-close" onclick="closeProduct()">×</button>
 
-    <div class="product-modal-grid">
+<div class="product-modal-grid">
 
-      <div class="gallery">
+<div>
 
-        <div class="gallery-main" onclick="openLightbox()">
-          <img id="modalMainImage" src="" alt="">
-        </div>
-
-        <div class="gallery-thumbs" id="galleryThumbs"></div>
-
-      </div>
-
-      <div class="modal-info">
-
-        <div class="modal-category" id="modalCategory"></div>
-
-        <h2 id="modalName"></h2>
-
-        <div class="modal-price" id="modalPrice"></div>
-
-        <p id="modalDescription"></p>
-
-        <div class="modal-actions">
-
-          <button
-            class="btn btn-gold"
-            onclick="addCurrentToCart()"
-          >
-            أضف للسلة 🛒
-          </button>
-
-          <button
-            class="btn btn-outline"
-            onclick="buyCurrentNow()"
-          >
-            شراء الآن
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
+<div class="main-image">
+<img id="mainImg" src="" alt="">
 </div>
 
-<!-- CHECKOUT -->
-<div class="modal-wrap" id="checkoutModal">
-
-  <div class="modal checkout">
-
-    <button class="modal-close" onclick="closeCheckout()">×</button>
-
-    <div class="kicker">CHECKOUT</div>
-
-    <h2>تأكيد الطلب</h2>
-
-    <p class="checkout-sub">
-      عمر المعلومات التالية وغادي نصيفطو الطلب مباشرة عبر WhatsApp.
-    </p>
-
-    <div class="order-summary" id="orderSummary"></div>
-
-    <div class="form">
-
-      <input id="customerName" type="text" placeholder="الاسم الكامل">
-
-      <input id="customerPhone" type="tel" placeholder="رقم الهاتف">
-
-      <input id="customerCity" type="text" placeholder="المدينة">
-
-      <textarea
-        id="customerAddress"
-        placeholder="العنوان بالتفصيل"
-      ></textarea>
-
-      <button class="btn btn-gold" onclick="sendOrder()">
-        إرسال الطلب عبر WhatsApp ↗
-      </button>
-
-    </div>
-
-  </div>
-</div>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-
-  <button class="lightbox-close" onclick="closeLightbox()">×</button>
-
-  <img id="lightboxImage" src="" alt="">
+<div class="thumbs" id="thumbs"></div>
 
 </div>
 
-<!-- TOAST -->
+<div>
+
+<div class="m-cat" id="mCat"></div>
+
+<h2 class="m-name" id="mName"></h2>
+
+<div class="m-price" id="mPrice"></div>
+
+<p class="m-desc" id="mDesc"></p>
+
+<button class="btn primary" id="addBtn">
+أضف إلى السلة
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="modal" id="checkoutModal">
+
+<div class="modal-box checkout">
+
+<button class="modal-close" onclick="closeCheckout()">×</button>
+
+<h2>إتمام الطلب</h2>
+
+<div class="sub">
+أدخل معلوماتك لإرسال الطلب عبر WhatsApp.
+</div>
+
+<form class="form" id="form">
+
+<div class="field">
+<label>الاسم الكامل</label>
+<input id="name" required placeholder="مثال: محمد العلوي">
+</div>
+
+<div class="field">
+<label>رقم الهاتف</label>
+<input id="phone" type="tel" required placeholder="06XXXXXXXX">
+</div>
+
+<div class="field">
+<label>المدينة</label>
+<input id="city" required placeholder="مثال: الدار البيضاء">
+</div>
+
+<div class="field">
+<label>العنوان</label>
+<textarea id="address" required placeholder="الحي، الشارع، رقم المنزل..."></textarea>
+</div>
+
+<div class="summary">
+
+<div>
+<span>عدد القطع</span>
+<strong id="sCount">0</strong>
+</div>
+
+<div class="st">
+<span>المجموع النهائي</span>
+<strong id="sTotal">0 درهم</strong>
+</div>
+
+</div>
+
+<button class="btn primary" style="width:100%" type="submit">
+إرسال الطلب عبر WhatsApp
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<div class="lightbox" id="lightbox">
+<button class="lbclose" id="lbClose">×</button>
+<img id="lbImg" src="" alt="">
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
 
-/* =====================================================
-   PRODUCTS
-===================================================== */
+const products=[
 
-const products = [
+{
+id:"angham",
+name:"حجاب أنغام",
+category:"ملابس محجبات",
+price:250,
+image:"حجاب أنغام_1.jpg",
+images:[
+"حجاب أنغام_1.jpg",
+"حجاب أنغام_2.jpg",
+"حجاب أنغام_8.jpg",
+"حجاب أنغام_10.jpg",
+"حجاب أنغام_11.jpg",
+"حجاب أنغام_13.jpg",
+"حجاب أنغام_15.jpg"
+],
+description:"اختيار أنيق من مجموعة H7 NEO للأزياء المحجبة، بتصميم عملي ومظهر عصري."
+},
 
-  {
-    id:"angham",
-    name:"حجاب أنغام",
-    category:"ملابس محجبات",
-    price:250,
-    image:"حجاب أنغام_1.jpg",
-    images:[
-      "حجاب أنغام_1.jpg",
-      "حجاب أنغام_2.jpg",
-      "حجاب أنغام_8.jpg",
-      "حجاب أنغام_10.jpg",
-      "حجاب أنغام_11.jpg",
-      "حجاب أنغام_13.jpg",
-      "حجاب أنغام_15.jpg"
-    ],
-    description:"اختيار أنيق من مجموعة H7 NEO للأزياء المحجبة، بتصميم عملي ومظهر عصري."
-  },
+{
+id:"nadeem",
+name:"حجاب نديم",
+category:"ملابس محجبات",
+price:250,
+image:"حجاب نديم_1.jpg",
+images:[
+"حجاب نديم_1.jpg",
+"حجاب نديم_5.jpg",
+"حجاب نديم_9.jpg",
+"حجاب نديم_13.jpg",
+"حجاب نديم_17.jpg",
+"حجاب نديم_21.jpg"
+],
+description:"تشكيلة حجاب نديم ضمن اختيارات H7 NEO، مع معرض صور متعدد لمشاهدة التفاصيل."
+},
 
-  {
-    id:"nadeem",
-    name:"حجاب نديم",
-    category:"ملابس محجبات",
-    price:250,
-    image:"حجاب نديم_1.jpg",
-    images:[
-      "حجاب نديم_1.jpg",
-      "حجاب نديم_5.jpg",
-      "حجاب نديم_9.jpg",
-      "حجاب نديم_13.jpg",
-      "حجاب نديم_17.jpg",
-      "حجاب نديم_21.jpg"
-    ],
-    description:"تشكيلة حجاب نديم ضمن اختيارات H7 NEO، مع معرض صور متعدد لمشاهدة التفاصيل."
-  },
+{
+id:"hajar",
+name:"حجاب هجار",
+category:"ملابس محجبات",
+price:250,
+image:"حجاب هجار_1.jpg",
+images:[
+"حجاب هجار_1.jpg",
+"حجاب هجار_2.jpg",
+"حجاب هجار_3.jpg",
+"حجاب هجار_6.jpg",
+"حجاب هجار_10.jpg",
+"حجاب هجار_14.jpg",
+"حجاب هجار_18.jpg"
+],
+description:"حجاب هجار من اختيارات H7 NEO، مع مجموعة صور متعددة لاستعراض المنتج."
+},
 
-  {
-    id:"hajar",
-    name:"حجاب هجار",
-    category:"ملابس محجبات",
-    price:250,
-    image:"حجاب هجار_1.jpg",
-    images:[
-      "حجاب هجار_1.jpg",
-      "حجاب هجار_2.jpg",
-      "حجاب هجار_3.jpg",
-      "حجاب هجار_6.jpg",
-      "حجاب هجار_10.jpg",
-      "حجاب هجار_14.jpg",
-      "حجاب هجار_18.jpg"
-    ],
-    description:"حجاب هجار من اختيارات H7 NEO، مع مجموعة صور متعددة لاستعراض المنتج."
-  },
+{
+id:"balghina",
+name:"بالغينة صيفية",
+category:"أحذية رجالية",
+price:250,
+image:"بالغينة صيفية_1.jpg",
+images:[
+"بالغينة صيفية_1.jpg",
+"بالغينة صيفية_2.jpg",
+"بالغينة صيفية_3.jpg",
+"بالغينة صيفية_4.jpg",
+"بالغينة صيفية_5.jpg",
+"بالغينة صيفية_6.jpg"
+],
+description:"اختيار صيفي من مجموعة الأحذية الرجالية في H7 NEO."
+},
 
-  {
-    id:"balghina",
-    name:"بالغينة صيفية",
-    category:"أحذية رجالية",
-    price:250,
-    image:"بالغينة صيفية_1.jpg",
-    images:[
-      "بالغينة صيفية_1.jpg",
-      "بالغينة صيفية_2.jpg",
-      "بالغينة صيفية_3.jpg",
-      "بالغينة صيفية_4.jpg",
-      "بالغينة صيفية_5.jpg",
-      "بالغينة صيفية_6.jpg"
-    ],
-    description:"اختيار صيفي من مجموعة الأحذية الرجالية في H7 NEO."
-  },
+{
+id:"radgo",
+name:"Radgo",
+category:"إكسسوارات",
+price:300,
+image:"radgo_1.jpg",
+images:[
+"radgo_1.jpg",
+"radgo_2.jpg",
+"radgo_3.jpg"
+],
+description:"Radgo — إكسسوار من اختيارات H7 NEO."
+},
 
-  {
-    id:"radgo",
-    name:"Radgo",
-    category:"أحذية رجالية",
-    price:300,
-    image:"radgo_1.jpg",
-    images:[
-      "radgo_1.jpg",
-      "radgo_2.jpg",
-      "radgo_3.jpg"
-    ],
-    description:"Radgo — اختيار من مجموعة H7 NEO للأحذية الرجالية."
-  },
+{
+id:"sandala",
+name:"صندالة نسائية صيفية",
+category:"أحذية نسائية",
+price:150,
+image:"صندالة نسائية صيفية_1.jpg",
+images:[
+"صندالة نسائية صيفية_1.jpg",
+"صندالة نسائية صيفية_2.jpg",
+"صندالة نسائية صيفية_3.jpg",
+"صندالة نسائية صيفية_4.jpg",
+"صندالة نسائية صيفية_5.jpg",
+"صندالة نسائية صيفية_6.jpg",
+"صندالة نسائية صيفية_7.jpg",
+"صندالة نسائية صيفية_8.jpg",
+"صندالة نسائية صيفية_9.jpg",
+"صندالة نسائية صيفية_10.jpg"
+],
+description:"صندالة نسائية صيفية ضمن مجموعة H7 NEO."
+},
 
-  {
-    id:"sandala",
-    name:"صندالة نسائية صيفية",
-    category:"أحذية نسائية",
-    price:150,
-    image:"صندالة نسائية صيفية_1.jpg",
-    images:[
-      "صندالة نسائية صيفية_1.jpg",
-      "صندالة نسائية صيفية_2.jpg",
-      "صندالة نسائية صيفية_3.jpg",
-      "صندالة نسائية صيفية_4.jpg",
-      "صندالة نسائية صيفية_5.jpg",
-      "صندالة نسائية صيفية_6.jpg",
-      "صندالة نسائية صيفية_7.jpg",
-      "صندالة نسائية صيفية_8.jpg",
-      "صندالة نسائية صيفية_9.jpg",
-      "صندالة نسائية صيفية_10.jpg"
-    ],
-    description:"صندالة نسائية صيفية ضمن مجموعة H7 NEO."
-  },
-
-  /* AIR FORCE */
-
-  {
-    id:"airforce",
-    name:"سبرديلا Air Force",
-    category:"أحذية رجالية",
-    price:200,
-    image:"1789675720039.png",
-    images:[
-      "1789675720039.png",
-      "1789675893444.png",
-      "24fcbcfe0a9a54f89414414487d571c7.jpg",
-      "1adbe810923baaa774adb4da071932a0.jpg",
-      "8033a49a1af88a4e4b3e22abd2795173.jpg",
-      "d27af3511fab2326625da83965b654c6.jpg",
-      "fdb69aaf227b89c5f3b93161b6dd823e.jpg"
-    ],
-    description:"سبرديلا Air Force من اختيارات H7 NEO للأحذية الرجالية."
-  }
+{
+id:"airforce",
+name:"سبرديلا Air Force",
+category:"أحذية رجالية",
+price:200,
+image:"24fcbcfe0a9a54f89414414487d571c7.jpg",
+images:[
+"24fcbcfe0a9a54f89414414487d571c7.jpg",
+"1adbe810923baaa774adb4da071932a0.jpg",
+"8033a49a1af88a4e4b3e22abd2795173.jpg",
+"d27af3511fab2326625da83965b654c6.jpg",
+"fdb69aaf227b89c5f3b93161b6dd823e.jpg"
+],
+description:"سبرديلا Air Force من اختيارات H7 NEO للأحذية الرجالية."
+}
 
 ];
 
+let cart=JSON.parse(localStorage.getItem("h7neo_cart")||"[]");
+let wishlist=JSON.parse(localStorage.getItem("h7neo_wishlist")||"[]");
 
-/* =====================================================
-   STATE
-===================================================== */
+let category="all";
+let current=null;
+let imgIndex=0;
 
-let cart = JSON.parse(localStorage.getItem("h7neo_cart") || "[]");
+const $=id=>document.getElementById(id);
 
-let wishlist = JSON.parse(
-  localStorage.getItem("h7neo_wishlist") || "[]"
+const get=id=>products.find(p=>p.id===id);
+
+const count=()=>cart.reduce((n,i)=>n+i.quantity,0);
+
+const total=()=>cart.reduce((n,i)=>{
+let p=get(i.id);
+return n+(p?p.price*i.quantity:0)
+},0);
+
+function save(){
+localStorage.setItem("h7neo_cart",JSON.stringify(cart));
+localStorage.setItem("h7neo_wishlist",JSON.stringify(wishlist))
+}
+
+function toast(t){
+$("toast").textContent=t;
+$("toast").classList.add("show");
+clearTimeout(window._toast);
+window._toast=setTimeout(()=>$("toast").classList.remove("show"),2200)
+}
+
+function render(){
+
+const q=$("search").value.trim().toLowerCase();
+
+const list=products.filter(p=>
+(category==="all"||p.category===category)&&
+(!q||
+p.name.toLowerCase().includes(q)||
+p.category.toLowerCase().includes(q))
 );
 
-let currentCategory = "all";
-let currentProduct = null;
-let currentImageIndex = 0;
+$("grid").innerHTML="";
+$("empty").style.display=list.length?"none":"block";
 
+list.forEach(p=>{
 
-/* =====================================================
-   HELPERS
-===================================================== */
+const liked=wishlist.includes(p.id);
 
-function $(id){
-  return document.getElementById(id);
+const el=document.createElement("article");
+el.className="card";
+
+el.innerHTML=`
+<div class="photo">
+
+<img
+src="${p.image}"
+alt="${p.name}"
+loading="lazy"
+>
+
+<button
+class="wish ${liked?"liked":""}"
+onclick="toggleWish('${p.id}')"
+>
+${liked?"♥":"♡"}
+</button>
+
+<div class="tag">H7 NEO</div>
+
+</div>
+
+<div class="info">
+
+<div class="cat">${p.category}</div>
+
+<div class="name">${p.name}</div>
+
+<div class="bottom">
+
+<div class="price">
+${p.price}
+<small>درهم</small>
+</div>
+
+<button
+class="details"
+onclick="openProduct('${p.id}')"
+>
+التفاصيل
+</button>
+
+</div>
+
+</div>
+`;
+
+$("grid").appendChild(el);
+
+});
+
 }
 
-function getProduct(id){
-  return products.find(p => p.id === id);
+function toggleWish(id){
+
+wishlist.includes(id)
+?wishlist=wishlist.filter(x=>x!==id)
+:wishlist.push(id);
+
+save();
+render();
+
+toast(
+wishlist.includes(id)
+?"تمت إضافة المنتج إلى المفضلة"
+:"تمت إزالة المنتج من المفضلة"
+)
+
 }
 
-function saveCart(){
-  localStorage.setItem(
-    "h7neo_cart",
-    JSON.stringify(cart)
-  );
+function add(id){
+
+let i=cart.find(x=>x.id===id);
+
+i
+?i.quantity++
+:cart.push({id,quantity:1});
+
+save();
+updateCart();
+
+toast("تمت إضافة المنتج إلى السلة");
+
+closeProduct()
 }
 
-function saveWishlist(){
-  localStorage.setItem(
-    "h7neo_wishlist",
-    JSON.stringify(wishlist)
-  );
+function change(id,d){
+
+let i=cart.find(x=>x.id===id);
+
+if(!i)return;
+
+i.quantity+=d;
+
+if(i.quantity<1){
+cart=cart.filter(x=>x.id!==id)
 }
 
-function showToast(message){
-
-  const toast = $("toast");
-
-  toast.textContent = message;
-  toast.classList.add("show");
-
-  clearTimeout(window.toastTimer);
-
-  window.toastTimer = setTimeout(() => {
-    toast.classList.remove("show");
-  },2200);
+save();
+updateCart()
 }
 
+function removeItem(id){
 
-/* =====================================================
-   PRODUCTS RENDER
-===================================================== */
+cart=cart.filter(x=>x.id!==id);
 
-function renderProducts(){
-
-  const grid = $("productsGrid");
-
-  const search =
-    $("searchInput").value
-      .trim()
-      .toLowerCase();
-
-  let list = products.filter(product => {
-
-    const categoryMatch =
-      currentCategory === "all" ||
-      product.category === currentCategory;
-
-    const searchMatch =
-      !search ||
-      product.name.toLowerCase().includes(search) ||
-      product.category.toLowerCase().includes(search);
-
-    return categoryMatch && searchMatch;
-  });
-
-  if(!list.length){
-
-    grid.innerHTML = `
-      <div class="empty">
-        <div style="font-size:30px;margin-bottom:10px">⌕</div>
-        ما لقينا حتى منتوج بهاد البحث.
-      </div>
-    `;
-
-    return;
-  }
-
-  grid.innerHTML = list.map(product => {
-
-    const wished =
-      wishlist.includes(product.id);
-
-    return `
-
-      <article class="product-card">
-
-        <div
-          class="product-image"
-          onclick="openProduct('${product.id}')"
-          style="cursor:pointer"
-        >
-
-          <img
-            src="${product.image}"
-            alt="${product.name}"
-            loading="lazy"
-          >
-
-          <div class="product-tag">
-            ${product.category}
-          </div>
-
-          <button
-            class="product-wish ${wished ? "active" : ""}"
-            onclick="event.stopPropagation();toggleWishlist('${product.id}')"
-            aria-label="المفضلة"
-          >
-            ${wished ? "♥" : "♡"}
-          </button>
-
-        </div>
-
-        <div class="product-info">
-
-          <div class="product-category">
-            H7 NEO
-          </div>
-
-          <h3 class="product-name">
-            ${product.name}
-          </h3>
-
-          <p class="product-description">
-            ${product.description}
-          </p>
-
-          <div class="product-bottom">
-
-            <div class="price">
-              ${product.price} درهم
-            </div>
-
-            <button
-              class="add-btn"
-              onclick="addToCart('${product.id}')"
-            >
-              + أضف للسلة
-            </button>
-
-          </div>
-
-        </div>
-
-      </article>
-
-    `;
-  }).join("");
-}
-
-
-/* =====================================================
-   CATEGORY
-===================================================== */
-
-function setCategory(category){
-
-  currentCategory = category;
-
-  document.querySelectorAll(".filter")
-    .forEach(button => {
-
-      button.classList.toggle(
-        "active",
-        button.dataset.cat === category
-      );
-
-    });
-
-  renderProducts();
-
-  const shop = $("shop");
-
-  if(
-    category !== "all" &&
-    shop &&
-    location.hash !== "#shop"
-  ){
-    setTimeout(() => {
-      shop.scrollIntoView({
-        behavior:"smooth"
-      });
-    },50);
-  }
-}
-
-
-/* =====================================================
-   SEARCH
-===================================================== */
-
-function focusSearch(){
-
-  document
-    .getElementById("shop")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
-
-  setTimeout(() => {
-
-    $("searchInput").focus();
-
-  },500);
-}
-
-
-/* =====================================================
-   CART
-===================================================== */
-
-function addToCart(id){
-
-  const product = getProduct(id);
-
-  if(!product) return;
-
-  const existing =
-    cart.find(item => item.id === id);
-
-  if(existing){
-    existing.quantity++;
-  }else{
-    cart.push({
-      id:id,
-      quantity:1
-    });
-  }
-
-  saveCart();
-  updateCart();
-
-  showToast("تمت إضافة " + product.name + " للسلة ✓");
-}
-
-function changeQuantity(id, amount){
-
-  const item =
-    cart.find(item => item.id === id);
-
-  if(!item) return;
-
-  item.quantity += amount;
-
-  if(item.quantity <= 0){
-    cart = cart.filter(
-      item => item.id !== id
-    );
-  }
-
-  saveCart();
-  updateCart();
-}
-
-function removeFromCart(id){
-
-  cart = cart.filter(
-    item => item.id !== id
-  );
-
-  saveCart();
-  updateCart();
-}
-
-function cartCount(){
-
-  return cart.reduce(
-    (sum,item) => sum + item.quantity,
-    0
-  );
-}
-
-function cartTotal(){
-
-  return cart.reduce((sum,item) => {
-
-    const product = getProduct(item.id);
-
-    if(!product) return sum;
-
-    return sum +
-      product.price * item.quantity;
-
-  },0);
+save();
+updateCart()
 }
 
 function updateCart(){
 
-  /*
-    تنظيف أي منتوج قديم ما بقاش موجود
-    باش ما يوقع حتى Error.
-  */
+$("cartBadge").textContent=count();
+$("total").textContent=total()+" درهم";
+$("sCount").textContent=count();
+$("sTotal").textContent=total()+" درهم";
 
-  cart = cart.filter(
-    item => getProduct(item.id)
-  );
+if(!cart.length){
 
-  saveCart();
+$("cartList").innerHTML=
+'<div class="cart-empty">السلة فارغة حالياً</div>';
 
-  $("cartBadge").textContent =
-    cartCount();
+return
+}
 
-  $("wishBadge").textContent =
-    wishlist.length;
+$("cartList").innerHTML=cart.map(i=>{
 
-  $("cartTotal").textContent =
-    cartTotal() + " درهم";
+let p=get(i.id);
 
-  if(!cart.length){
+return `
 
-    $("cartList").innerHTML = `
-      <div class="cart-empty">
-        السلة فارغة حالياً 🛒
-      </div>
-    `;
+<div class="cart-item">
 
-    return;
-  }
+<img src="${p.image}" alt="${p.name}">
 
-  $("cartList").innerHTML =
-    cart.map(item => {
+<div>
 
-      const product =
-        getProduct(item.id);
+<h4>${p.name}</h4>
 
-      return `
+<div class="cp">
+${p.price} درهم
+</div>
 
-        <div class="cart-item">
+<div class="qty">
 
-          <img
-            src="${product.image}"
-            alt="${product.name}"
-          >
+<button onclick="change('${p.id}',-1)">
+−
+</button>
 
-          <div>
+<span>${i.quantity}</span>
 
-            <h4>${product.name}</h4>
+<button onclick="change('${p.id}',1)">
++
+</button>
 
-            <div class="cart-price">
-              ${product.price} درهم
-            </div>
+</div>
 
-            <div class="qty">
+</div>
 
-              <button
-                onclick="changeQuantity('${product.id}',-1)"
-              >
-                −
-              </button>
+<button
+class="remove"
+onclick="removeItem('${p.id}')"
+>
+×
+</button>
 
-              <span>
-                ${item.quantity}
-              </span>
+</div>
 
-              <button
-                onclick="changeQuantity('${product.id}',1)"
-              >
-                +
-              </button>
+`
 
-            </div>
+}).join("");
 
-          </div>
-
-          <button
-            class="remove"
-            onclick="removeFromCart('${product.id}')"
-          >
-            ×
-          </button>
-
-        </div>
-
-      `;
-
-    }).join("");
 }
 
 function openCart(){
 
-  $("cart").classList.add("open");
-  $("overlay").classList.add("show");
+$("drawer").classList.add("show");
+$("overlay").classList.add("show");
+document.body.classList.add("lock")
 
-  document.body.classList.add("no-scroll");
 }
 
 function closeCart(){
 
-  $("cart").classList.remove("open");
+$("drawer").classList.remove("show");
+$("overlay").classList.remove("show");
+document.body.classList.remove("lock")
 
-  if(
-    !$("productModal").classList.contains("show") &&
-    !$("checkoutModal").classList.contains("show")
-  ){
-    $("overlay").classList.remove("show");
-    document.body.classList.remove("no-scroll");
-  }
 }
-
-
-/* =====================================================
-   WISHLIST
-===================================================== */
-
-function toggleWishlist(id){
-
-  if(wishlist.includes(id)){
-
-    wishlist =
-      wishlist.filter(item => item !== id);
-
-    showToast("تحيد من المفضلة");
-
-  }else{
-
-    wishlist.push(id);
-
-    showToast("تزاد للمفضلة ♥");
-  }
-
-  saveWishlist();
-  updateCart();
-  renderProducts();
-}
-
-function openWishlist(){
-
-  const wishedProducts =
-    products.filter(p =>
-      wishlist.includes(p.id)
-    );
-
-  if(!wishedProducts.length){
-
-    showToast("المفضلة فارغة حالياً ♡");
-
-    return;
-  }
-
-  $("searchInput").value = "";
-
-  currentCategory = "all";
-
-  document
-    .querySelectorAll(".filter")
-    .forEach(btn =>
-      btn.classList.toggle(
-        "active",
-        btn.dataset.cat === "all"
-      )
-    );
-
-  $("productsGrid").innerHTML =
-    wishedProducts.map(product => {
-
-      return `
-
-        <article class="product-card">
-
-          <div
-            class="product-image"
-            onclick="openProduct('${product.id}')"
-            style="cursor:pointer"
-          >
-
-            <img
-              src="${product.image}"
-              alt="${product.name}"
-            >
-
-            <button
-              class="product-wish active"
-              onclick="event.stopPropagation();toggleWishlist('${product.id}')"
-            >
-              ♥
-            </button>
-
-          </div>
-
-          <div class="product-info">
-
-            <div class="product-category">
-              ${product.category}
-            </div>
-
-            <h3 class="product-name">
-              ${product.name}
-            </h3>
-
-            <div class="product-bottom">
-
-              <div class="price">
-                ${product.price} درهم
-              </div>
-
-              <button
-                class="add-btn"
-                onclick="addToCart('${product.id}')"
-              >
-                + أضف للسلة
-              </button>
-
-            </div>
-
-          </div>
-
-        </article>
-
-      `;
-
-    }).join("");
-
-  $("shop").scrollIntoView({
-    behavior:"smooth"
-  });
-}
-
-
-/* =====================================================
-   PRODUCT MODAL
-===================================================== */
 
 function openProduct(id){
 
-  const product =
-    getProduct(id);
+current=get(id);
 
-  if(!product) return;
+if(!current)return;
 
-  currentProduct = product;
-  currentImageIndex = 0;
+imgIndex=0;
 
-  $("modalCategory").textContent =
-    product.category;
+$("mCat").textContent=current.category;
+$("mName").textContent=current.name;
+$("mPrice").textContent=current.price+" درهم";
+$("mDesc").textContent=current.description;
 
-  $("modalName").textContent =
-    product.name;
+$("mainImg").src=current.images[0];
+$("mainImg").alt=current.name;
 
-  $("modalPrice").textContent =
-    product.price + " درهم";
+renderThumbs();
 
-  $("modalDescription").textContent =
-    product.description;
+$("productModal").classList.add("show");
 
-  renderGallery();
+document.body.classList.add("lock")
 
-  $("productModal").classList.add("show");
-  $("overlay").classList.add("show");
-
-  document.body.classList.add("no-scroll");
 }
 
-function renderGallery(){
+function renderThumbs(){
 
-  if(!currentProduct) return;
+$("thumbs").innerHTML=current.images.map((src,i)=>`
 
-  const images =
-    currentProduct.images;
+<button
+class="thumb ${i===imgIndex?"active":""}"
+onclick="setImage(${i})"
+>
 
-  $("modalMainImage").src =
-    images[currentImageIndex];
+<img src="${src}" alt="">
 
-  $("modalMainImage").alt =
-    currentProduct.name;
+</button>
 
-  $("galleryThumbs").innerHTML =
-    images.map((image,index) => {
+`).join("")
 
-      return `
-
-        <button
-          class="thumb ${index === currentImageIndex ? "active" : ""}"
-          onclick="changeGalleryImage(${index})"
-        >
-
-          <img
-            src="${image}"
-            alt="${currentProduct.name}"
-            loading="lazy"
-          >
-
-        </button>
-
-      `;
-
-    }).join("");
 }
 
-function changeGalleryImage(index){
+function setImage(i){
 
-  currentImageIndex = index;
+imgIndex=i;
 
-  renderGallery();
+$("mainImg").src=current.images[i];
+
+renderThumbs()
+
 }
 
 function closeProduct(){
 
-  $("productModal").classList.remove("show");
+$("productModal").classList.remove("show");
+document.body.classList.remove("lock")
 
-  if(!$("cart").classList.contains("open")){
-
-    $("overlay").classList.remove("show");
-    document.body.classList.remove("no-scroll");
-
-  }
 }
-
-function addCurrentToCart(){
-
-  if(!currentProduct) return;
-
-  addToCart(currentProduct.id);
-
-  closeProduct();
-
-  openCart();
-}
-
-function buyCurrentNow(){
-
-  if(!currentProduct) return;
-
-  cart = [
-    {
-      id:currentProduct.id,
-      quantity:1
-    }
-  ];
-
-  saveCart();
-  updateCart();
-
-  closeProduct();
-  openCheckout();
-}
-
-
-/* =====================================================
-   LIGHTBOX
-===================================================== */
-
-function openLightbox(){
-
-  if(!currentProduct) return;
-
-  $("lightboxImage").src =
-    currentProduct.images[currentImageIndex];
-
-  $("lightbox").classList.add("show");
-}
-
-function closeLightbox(){
-
-  $("lightbox").classList.remove("show");
-}
-
-
-/* =====================================================
-   CHECKOUT
-===================================================== */
 
 function openCheckout(){
 
-  if(!cart.length){
+if(!cart.length){
+toast("السلة فارغة");
+return
+}
 
-    showToast("السلة فارغة 🛒");
+updateCart();
+closeCart();
 
-    return;
-  }
+$("checkoutModal").classList.add("show");
 
-  let html = "";
+document.body.classList.add("lock")
 
-  cart.forEach(item => {
-
-    const product =
-      getProduct(item.id);
-
-    if(!product) return;
-
-    html += `
-      ${product.name}
-      × ${item.quantity}
-      — ${product.price * item.quantity} درهم<br>
-    `;
-
-  });
-
-  html += `
-    <br>
-    <strong style="color:#d6ad58">
-      المجموع: ${cartTotal()} درهم
-    </strong>
-  `;
-
-  $("orderSummary").innerHTML = html;
-
-  $("checkoutModal").classList.add("show");
-  $("overlay").classList.add("show");
-
-  document.body.classList.add("no-scroll");
 }
 
 function closeCheckout(){
 
-  $("checkoutModal").classList.remove("show");
+$("checkoutModal").classList.remove("show");
+document.body.classList.remove("lock")
 
-  if(!$("cart").classList.contains("open")){
-
-    $("overlay").classList.remove("show");
-    document.body.classList.remove("no-scroll");
-
-  }
 }
 
-function sendOrder(){
+$("addBtn").onclick=()=>current&&add(current.id);
 
-  if(!cart.length){
+$("cartBtn").onclick=openCart;
 
-    showToast("السلة فارغة");
+$("closeCart").onclick=closeCart;
 
-    return;
-  }
+$("overlay").onclick=closeCart;
 
-  const name =
-    $("customerName").value.trim();
+$("checkoutBtn").onclick=openCheckout;
 
-  const phone =
-    $("customerPhone").value.trim();
+$("mainImg").onclick=()=>{
 
-  const city =
-    $("customerCity").value.trim();
+if(!current)return;
 
-  const address =
-    $("customerAddress").value.trim();
+$("lbImg").src=current.images[imgIndex];
 
-  if(!name || !phone || !city || !address){
+$("lightbox").classList.add("show")
 
-    showToast("عمر جميع المعلومات من فضلك");
+};
 
-    return;
-  }
+$("lbClose").onclick=()=>
+$("lightbox").classList.remove("show");
 
-  let message =
-    "السلام عليكم H7 NEO 👋%0A%0A";
+$("lightbox").onclick=e=>{
 
-  message +=
-    "بغيت ندير هاد الطلب:%0A%0A";
+if(e.target.id==="lightbox")
+e.currentTarget.classList.remove("show")
 
-  cart.forEach(item => {
+};
 
-    const product =
-      getProduct(item.id);
+$("form").onsubmit=e=>{
 
-    if(!product) return;
+e.preventDefault();
 
-    message +=
-      "• " +
-      product.name +
-      " × " +
-      item.quantity +
-      " = " +
-      (product.price * item.quantity) +
-      " درهم%0A";
+if(!cart.length)return;
 
-  });
+let now=new Date();
 
-  message +=
-    "%0Aالمجموع: " +
-    cartTotal() +
-    " درهم%0A%0A";
+let order=
+"H7-"+
+now.getFullYear()+
+String(now.getMonth()+1).padStart(2,"0")+
+String(now.getDate()).padStart(2,"0")+
+"-"+
+Math.random().toString(36).slice(2,6).toUpperCase();
 
-  message +=
-    "الاسم: " +
-    encodeURIComponent(name) +
-    "%0A";
+let lines=cart.map((i,n)=>{
 
-  message +=
-    "الهاتف: " +
-    encodeURIComponent(phone) +
-    "%0A";
+let p=get(i.id);
 
-  message +=
-    "المدينة: " +
-    encodeURIComponent(city) +
-    "%0A";
+return `${n+1}. ${p.name}
+   الكمية: ${i.quantity}
+   ثمن الوحدة: ${p.price} درهم
+   المجموع: ${p.price*i.quantity} درهم`
 
-  message +=
-    "العنوان: " +
-    encodeURIComponent(address);
+}).join("\n\n");
 
-  const whatsapp =
-    "https://wa.me/212640419454?text=" +
-    message;
+let msg=`━━━━━━━━━━━━━━━━━━━━
+H7 NEO | طلب جديد
+━━━━━━━━━━━━━━━━━━━━
+🔖 رقم الطلب: ${order}
+📅 التاريخ: ${now.toLocaleDateString("fr-MA")}
+🕐 الوقت: ${now.toLocaleTimeString("fr-MA",{hour:"2-digit",minute:"2-digit"})}
 
-  window.open(
-    whatsapp,
-    "_blank"
-  );
-}
+👤 معلومات الزبون
+الاسم: ${$("name").value.trim()}
+الهاتف: ${$("phone").value.trim()}
+المدينة: ${$("city").value.trim()}
+العنوان: ${$("address").value.trim()}
 
+🛒 المنتجات
+━━━━━━━━━━━━━━━━━━━━
+${lines}
 
-/* =====================================================
-   FAQ
-===================================================== */
+━━━━━━━━━━━━━━━━━━━━
+🧾 عدد القطع: ${count()}
+💰 المجموع النهائي: ${total()} درهم
+━━━━━━━━━━━━━━━━━━━━
+H7 NEO`;
 
-function toggleFaq(button){
+window.open(
+"https://wa.me/212640419454?text="+encodeURIComponent(msg),
+"_blank"
+);
 
-  const item =
-    button.parentElement;
+cart=[];
 
-  const all =
-    document.querySelectorAll(".faq-item");
+save();
+updateCart();
+closeCheckout();
 
-  all.forEach(other => {
+e.target.reset();
 
-    if(other !== item){
-      other.classList.remove("open");
-    }
+toast("تم تجهيز الطلب عبر WhatsApp")
 
-  });
+};
 
-  item.classList.toggle("open");
-}
+document.querySelectorAll(".filter").forEach(b=>
 
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-function toggleMobile(){
-
-  $("mobileMenu")
-    .classList
-    .toggle("open");
-
-  document.body.classList.toggle(
-    "no-scroll"
-  );
-}
-
-
-/* =====================================================
-   CLOSE ALL
-===================================================== */
-
-function closeAll(){
-
-  $("cart").classList.remove("open");
-  $("productModal").classList.remove("show");
-  $("checkoutModal").classList.remove("show");
-
-  $("overlay").classList.remove("show");
-
-  document.body.classList.remove("no-scroll");
-}
-
-
-/* =====================================================
-   ESC KEY
-===================================================== */
-
-document.addEventListener("keydown",event => {
-
-  if(event.key === "Escape"){
-
-    closeAll();
-    closeLightbox();
-
-  }
-
-});
-
-
-/* =====================================================
-   REVEAL ANIMATION
-===================================================== */
-
-const observer =
-  new IntersectionObserver(
-    entries => {
-
-      entries.forEach(entry => {
-
-        if(entry.isIntersecting){
-
-          entry.target.classList.add("visible");
-
-          observer.unobserve(entry.target);
-
-        }
-
-      });
-
-    },
-    {
-      threshold:.08
-    }
-  );
+b.onclick=()=>{
 
 document
-  .querySelectorAll(".reveal")
-  .forEach(el => observer.observe(el));
+.querySelectorAll(".filter")
+.forEach(x=>x.classList.remove("active"));
 
+b.classList.add("active");
 
-/* =====================================================
-   INIT
-===================================================== */
+category=b.dataset.cat;
 
-window.addEventListener("load",() => {
+render()
 
-  setTimeout(() => {
+}
 
-    $("loader")
-      .classList
-      .add("hide");
+);
 
-  },500);
+$("search").oninput=render;
 
-  renderProducts();
-  updateCart();
+$("searchBtn").onclick=()=>{
 
-});
+$("shop").scrollIntoView({behavior:"smooth"});
 
+setTimeout(
+()=>$("search").focus(),
+500
+)
 
-/* =====================================================
-   IMAGE ERROR HANDLER
-===================================================== */
+};
+
+$("mobileBtn").onclick=()=>{
+
+$("mobilePanel").style.display=
+$("mobilePanel").style.display==="block"
+?"none"
+:"block"
+
+};
+
+document
+.querySelectorAll(".mobile-panel a")
+.forEach(a=>
+a.onclick=()=>
+$("mobilePanel").style.display="none"
+);
+
+document
+.querySelectorAll(".question")
+.forEach(q=>
+q.onclick=()=>
+q.parentElement.classList.toggle("open")
+);
+
+window.addEventListener(
+"scroll",
+()=>{
+
+let h=document.documentElement.scrollHeight-innerHeight;
+
+$("progress").style.width=
+(h?scrollY/h*100:0)+"%"
+
+},
+{passive:true}
+);
+
+const io=new IntersectionObserver(
+es=>es.forEach(e=>{
+
+if(e.isIntersecting){
+
+e.target.classList.add("visible");
+
+io.unobserve(e.target)
+
+}
+
+}),
+{threshold:.12}
+);
+
+document
+.querySelectorAll(".reveal")
+.forEach(e=>io.observe(e));
 
 document.addEventListener(
-  "error",
-  function(event){
+"keydown",
+e=>{
 
-    if(
-      event.target &&
-      event.target.tagName === "IMG"
-    ){
+if(e.key==="Escape"){
 
-      event.target.style.opacity = ".25";
+closeCart();
+closeProduct();
+closeCheckout();
 
-    }
+$("lightbox").classList.remove("show")
 
-  },
-  true
+}
+
+}
 );
+
+window.addEventListener(
+"load",
+()=>setTimeout(
+()=>$("loader").classList.add("hide"),
+700
+)
+);
+
+render();
+updateCart();
 
 </script>
 
