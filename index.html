@@ -136,13 +136,567 @@
       <a class="button" href="#order">Commander</a>
     </div>
 
-    <div class="product">
-      <div class="photo">صورة حجاب نديم</div>
-      <h3>حجاب نديم</h3>
-      <p>ملابس محجبات</p>
-      <div class="price">250 DH</div>
-      <a class="button" href="#order">Commander</a>
+    <!-- ========================= حجاب نديم ========================= -->
+<div class="product nadeem-product">
+
+  <!-- الصورة الرئيسية -->
+  <div class="nadeem-main-image">
+    <img id="main-nadeem-img" src="70161.jpg" alt="حجاب نديم">
+
+    <!-- السابق -->
+    <button
+      class="nadeem-arrow nadeem-prev"
+      onclick="selectNadeemImage(currentNadeemIndex - 1)">
+      ❮
+    </button>
+
+    <!-- التالي -->
+    <button
+      class="nadeem-arrow nadeem-next"
+      onclick="selectNadeemImage(currentNadeemIndex + 1)">
+      ❯
+    </button>
+
+    <!-- العداد -->
+    <div class="nadeem-counter">
+      <span id="nadeem-current-number">1</span> / 6
     </div>
+  </div>
+
+  <!-- ========================= الصور المصغرة ========================= -->
+  <div class="nadeem-gallery">
+
+    <img src="70161.jpg"
+         class="nadeem-thumb active"
+         onclick="selectNadeemImage(0)"
+         alt="حجاب نديم 1">
+
+    <img src="70160.jpg"
+         class="nadeem-thumb"
+         onclick="selectNadeemImage(1)"
+         alt="حجاب نديم 2">
+
+    <img src="70158.jpg"
+         class="nadeem-thumb"
+         onclick="selectNadeemImage(2)"
+         alt="حجاب نديم 3">
+
+    <img src="70157.jpg"
+         class="nadeem-thumb"
+         onclick="selectNadeemImage(3)"
+         alt="حجاب نديم 4">
+
+    <img src="70159.jpg"
+         class="nadeem-thumb"
+         onclick="selectNadeemImage(4)"
+         alt="حجاب نديم 5">
+
+    <img src="70156.jpg"
+         class="nadeem-thumb"
+         onclick="selectNadeemImage(5)"
+         alt="حجاب نديم 6">
+
+  </div>
+
+  <!-- ========================= تفاصيل المنتج ========================= -->
+  <div class="product-content">
+
+    <h3>✨ حجاب نديم</h3>
+
+    <div class="category">
+      ملابس محجبات
+    </div>
+
+    <div class="price">
+      250 درهم
+    </div>
+
+    <div class="info">
+      <strong>المقاسات:</strong>
+      M / L / XL / XXL
+      <br>
+
+      <strong>الألوان:</strong>
+      أسود / كحلي / بيج / كراميل / وردي / كاشيري
+    </div>
+
+    <a class="btn" href="#order">
+      Commander
+    </a>
+
+  </div>
+
+</div>
+
+
+<!-- ========================= نافذة تكبير الصورة ========================= -->
+
+<div id="nadeem-modal"
+     class="nadeem-modal"
+     onclick="closeNadeemModal()">
+
+  <span class="nadeem-close">&times;</span>
+
+  <img id="nadeem-modal-img"
+       src=""
+       alt="حجاب نديم">
+
+</div>
+
+
+<style>
+
+/* ========================= المنتج ========================= */
+
+.nadeem-product {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 12px;
+}
+
+
+/* ========================= الصورة الرئيسية ========================= */
+
+.nadeem-main-image {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  background: #eee;
+}
+
+.nadeem-main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: zoom-in;
+  transition: opacity 0.25s ease;
+}
+
+
+/* ========================= الأسهم ========================= */
+
+.nadeem-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 44px;
+  height: 44px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(0,0,0,0.55);
+  color: white;
+
+  font-size: 22px;
+
+  cursor: pointer;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.2s;
+}
+
+.nadeem-arrow:hover {
+  background: rgba(0,0,0,0.85);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.nadeem-prev {
+  left: 10px;
+}
+
+.nadeem-next {
+  right: 10px;
+}
+
+
+/* ========================= العداد ========================= */
+
+.nadeem-counter {
+  position: absolute;
+
+  bottom: 10px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background: rgba(0,0,0,0.65);
+
+  color: white;
+
+  padding: 6px 13px;
+
+  border-radius: 20px;
+
+  font-size: 13px;
+
+  z-index: 5;
+}
+
+
+/* ========================= الصور المصغرة ========================= */
+
+.nadeem-gallery {
+
+  display: flex;
+
+  gap: 8px;
+
+  padding: 10px;
+
+  overflow-x: auto;
+
+  background: #f8f8f8;
+
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+
+  scrollbar-width: thin;
+
+  direction: ltr;
+}
+
+.nadeem-thumb {
+
+  flex: 0 0 auto;
+
+  width: 58px;
+  height: 68px;
+
+  object-fit: cover;
+
+  cursor: pointer;
+
+  border: 2px solid #ccc;
+
+  border-radius: 7px;
+
+  transition: 0.25s;
+}
+
+.nadeem-thumb:hover {
+
+  transform: scale(1.06);
+
+}
+
+.nadeem-thumb.active {
+
+  border-color: #b89756;
+
+  box-shadow: 0 0 0 1px #b89756;
+
+}
+
+
+/* ========================= التفاصيل ========================= */
+
+.nadeem-product .product-content {
+
+  background: white;
+
+  padding: 16px;
+
+}
+
+.nadeem-product .product-content h3 {
+
+  margin-top: 0;
+
+  margin-bottom: 8px;
+
+}
+
+.nadeem-product .category {
+
+  color: #777;
+
+  margin-bottom: 8px;
+
+}
+
+.nadeem-product .price {
+
+  font-size: 23px;
+
+  font-weight: bold;
+
+  margin: 12px 0;
+
+}
+
+.nadeem-product .info {
+
+  line-height: 1.9;
+
+  color: #333;
+
+}
+
+
+/* ========================= زر Commander ========================= */
+
+.nadeem-product .btn {
+
+  display: block;
+
+  text-align: center;
+
+  margin-top: 15px;
+
+}
+
+
+/* ========================= Full Screen ========================= */
+
+.nadeem-modal {
+
+  display: none;
+
+  position: fixed;
+
+  z-index: 99999;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.94);
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+}
+
+.nadeem-modal img {
+
+  max-width: 95%;
+
+  max-height: 90%;
+
+  object-fit: contain;
+
+  border-radius: 8px;
+
+}
+
+.nadeem-close {
+
+  position: absolute;
+
+  top: 12px;
+  right: 22px;
+
+  color: white;
+
+  font-size: 45px;
+
+  cursor: pointer;
+
+  z-index: 10;
+}
+
+
+/* ========================= الهاتف ========================= */
+
+@media (max-width: 600px) {
+
+  .nadeem-main-image {
+    height: 330px;
+  }
+
+  .nadeem-arrow {
+
+    width: 38px;
+    height: 38px;
+
+    font-size: 18px;
+
+  }
+
+  .nadeem-thumb {
+
+    width: 52px;
+    height: 62px;
+
+  }
+
+}
+
+</style>
+
+
+<script>
+
+/* ========================= صور حجاب نديم ========================= */
+
+const nadeemImages = [
+
+  "70161.jpg",
+  "70160.jpg",
+  "70158.jpg",
+  "70157.jpg",
+  "70159.jpg",
+  "70156.jpg"
+
+];
+
+let currentNadeemIndex = 0;
+
+
+/* ========================= تغيير الصورة ========================= */
+
+function selectNadeemImage(index) {
+
+  if (index >= nadeemImages.length) {
+    index = 0;
+  }
+
+  if (index < 0) {
+    index = nadeemImages.length - 1;
+  }
+
+  currentNadeemIndex = index;
+
+  const mainImg =
+    document.getElementById("main-nadeem-img");
+
+  if (mainImg) {
+
+    mainImg.style.opacity = "0.3";
+
+    setTimeout(function() {
+
+      mainImg.src =
+        nadeemImages[currentNadeemIndex];
+
+      mainImg.style.opacity = "1";
+
+    }, 120);
+
+  }
+
+
+  /* تحديث الصور المصغرة */
+
+  const thumbs =
+    document.querySelectorAll(".nadeem-thumb");
+
+  thumbs.forEach(function(thumb, i) {
+
+    thumb.classList.remove("active");
+
+    if (i === currentNadeemIndex) {
+
+      thumb.classList.add("active");
+
+      thumb.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center"
+      });
+
+    }
+
+  });
+
+
+  /* تحديث العداد */
+
+  const numSpan =
+    document.getElementById("nadeem-current-number");
+
+  if (numSpan) {
+
+    numSpan.textContent =
+      currentNadeemIndex + 1;
+
+  }
+
+}
+
+
+/* ========================= التبديل التلقائي ========================= */
+
+let nadeemSlideTimer =
+  setInterval(function() {
+
+    selectNadeemImage(
+      currentNadeemIndex + 1
+    );
+
+  }, 4000);
+
+
+/* ========================= فتح Full Screen ========================= */
+
+const mainNadeemImg =
+  document.getElementById("main-nadeem-img");
+
+if (mainNadeemImg) {
+
+  mainNadeemImg.addEventListener(
+    "click",
+    function() {
+
+      document.getElementById(
+        "nadeem-modal-img"
+      ).src =
+        nadeemImages[currentNadeemIndex];
+
+      document.getElementById(
+        "nadeem-modal"
+      ).style.display = "flex";
+
+    }
+  );
+
+}
+
+
+/* ========================= إغلاق Full Screen ========================= */
+
+function closeNadeemModal() {
+
+  document.getElementById(
+    "nadeem-modal"
+  ).style.display = "none";
+
+}
+
+
+/* منع إغلاق النافذة عند الضغط على الصورة */
+
+const nadeemModalImg =
+  document.getElementById("nadeem-modal-img");
+
+if (nadeemModalImg) {
+
+  nadeemModalImg.addEventListener(
+    "click",
+    function(event) {
+
+      event.stopPropagation();
+
+    }
+  );
+
+}
+
+</script>
 
     <!-- =========================
      حجاب هجار
