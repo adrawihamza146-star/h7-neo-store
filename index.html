@@ -145,8 +145,7 @@
       font-weight:600;
       letter-spacing:7px;
       color:var(--cream);
-      text-shadow:
-        0 0 35px rgba(199,166,106,.12);
+      text-shadow:0 0 35px rgba(199,166,106,.12);
     }
 
     .loader-brand-est{
@@ -169,12 +168,7 @@
     .loader-line{
       width:110px;
       height:1px;
-      background:linear-gradient(
-        90deg,
-        transparent,
-        var(--gold),
-        transparent
-      );
+      background:linear-gradient(90deg,transparent,var(--gold),transparent);
       margin:27px auto 14px;
       animation:lineGrow 1.3s ease both;
     }
@@ -1400,6 +1394,7 @@
       width:100%;
       height:100%;
       object-fit:cover;
+      cursor:zoom-in;
     }
 
     .gallery-thumbs{
@@ -1615,6 +1610,23 @@
     .reveal.visible{
       opacity:1;
       transform:translateY(0);
+    }
+
+    .mobile-link{
+      display:block;
+      padding:14px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      color:#ddd;
+      font-size:12px;
+      font-weight:800;
+    }
+
+    .mobile-link:last-child{
+      border-bottom:0;
+    }
+
+    .mobile-link:hover{
+      color:var(--gold2);
     }
 
     @media(max-width:1000px){
@@ -1844,6 +1856,7 @@
     }
 
     @media(prefers-reduced-motion:reduce){
+
       *,
       *::before,
       *::after{
@@ -1851,6 +1864,7 @@
         animation:none !important;
         transition:none !important;
       }
+
     }
   </style>
 </head>
@@ -1903,16 +1917,20 @@
       <div class="nav-actions">
 
         <button class="icon-btn mobile-menu" id="mobileMenuBtn" aria-label="القائمة">
+
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <path d="M4 7h16M4 12h16M4 17h16"/>
           </svg>
+
         </button>
 
         <button class="icon-btn" id="searchFocusBtn" aria-label="بحث">
+
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <circle cx="11" cy="11" r="6.5"/>
             <path d="m16 16 5 5"/>
           </svg>
+
         </button>
 
         <button class="icon-btn" id="cartBtn" aria-label="السلة">
@@ -1933,19 +1951,23 @@
 
   </header>
 
-  <div class="mobile-panel" id="mobilePanel" style="
-    position:fixed;
-    top:120px;
-    right:15px;
-    left:15px;
-    background:#111;
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:20px;
-    padding:15px;
-    z-index:6000;
-    display:none;
-    box-shadow:0 20px 60px rgba(0,0,0,.5);
-  ">
+  <div
+    class="mobile-panel"
+    id="mobilePanel"
+    style="
+      position:fixed;
+      top:120px;
+      right:15px;
+      left:15px;
+      background:#111;
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:20px;
+      padding:15px;
+      z-index:6000;
+      display:none;
+      box-shadow:0 20px 60px rgba(0,0,0,.5);
+    "
+  >
 
     <a href="#home" class="mobile-link">الرئيسية</a>
     <a href="#collections" class="mobile-link">المجموعات</a>
@@ -1954,25 +1976,6 @@
     <a href="#faq" class="mobile-link">الأسئلة</a>
 
   </div>
-
-  <style>
-    .mobile-link{
-      display:block;
-      padding:14px;
-      border-bottom:1px solid rgba(255,255,255,.06);
-      color:#ddd;
-      font-size:12px;
-      font-weight:800;
-    }
-
-    .mobile-link:last-child{
-      border-bottom:0;
-    }
-
-    .mobile-link:hover{
-      color:var(--gold2);
-    }
-  </style>
 
   <main id="home">
 
@@ -2046,8 +2049,15 @@
       <div class="section-head">
 
         <div>
-          <div class="section-kicker">COLLECTIONS</div>
-          <h2 class="section-title">اختياراتنا</h2>
+
+          <div class="section-kicker">
+            COLLECTIONS
+          </div>
+
+          <h2 class="section-title">
+            اختياراتنا
+          </h2>
+
         </div>
 
         <p class="section-description">
@@ -2066,9 +2076,13 @@
 
           <div class="collection-content">
 
-            <div class="collection-number">01 / MODEST</div>
+            <div class="collection-number">
+              01 / MODEST
+            </div>
 
-            <h3>ملابس محجبات</h3>
+            <h3>
+              ملابس محجبات
+            </h3>
 
             <p>
               أناقة هادئة وتفاصيل عصرية.
@@ -2081,14 +2095,18 @@
         <a
           href="#shop"
           class="collection-card"
-          style='--collection-bg:url("Air Force.jpg")'
+          style='--collection-bg:url("1789675720039.png")'
         >
 
           <div class="collection-content">
 
-            <div class="collection-number">02 / MEN</div>
+            <div class="collection-number">
+              02 / MEN
+            </div>
 
-            <h3>أحذية رجالية</h3>
+            <h3>
+              أحذية رجالية
+            </h3>
 
             <p>
               اختيارات يومية بطابع مميز.
@@ -2101,14 +2119,18 @@
         <a
           href="#shop"
           class="collection-card"
-          style='--collection-bg:url("صندالة نسائية.jpg")'
+          style='--collection-bg:url("صندالة نسائية صيفية_1.jpg")'
         >
 
           <div class="collection-content">
 
-            <div class="collection-number">03 / WOMEN</div>
+            <div class="collection-number">
+              03 / WOMEN
+            </div>
 
-            <h3>أحذية نسائية</h3>
+            <h3>
+              أحذية نسائية
+            </h3>
 
             <p>
               راحة وأناقة في كل خطوة.
@@ -2127,8 +2149,15 @@
       <div class="section-head">
 
         <div>
-          <div class="section-kicker">SHOP H7 NEO</div>
-          <h2 class="section-title">المتجر</h2>
+
+          <div class="section-kicker">
+            SHOP H7 NEO
+          </div>
+
+          <h2 class="section-title">
+            المتجر
+          </h2>
+
         </div>
 
         <p class="section-description">
@@ -2483,9 +2512,17 @@
 
         <div class="footer-brand-logo brand-logo">
 
-          <div class="brand-main">H7 NEO</div>
-          <div class="brand-est">EST. 2026</div>
-          <div class="brand-collection">COLLECTION</div>
+          <div class="brand-main">
+            H7 NEO
+          </div>
+
+          <div class="brand-est">
+            EST. 2026
+          </div>
+
+          <div class="brand-collection">
+            COLLECTION
+          </div>
 
         </div>
 
@@ -2610,7 +2647,9 @@
   >
 
     <svg viewBox="0 0 32 32">
+
       <path d="M16 3C8.82 3 3 8.62 3 15.55c0 2.48.74 4.78 2.02 6.71L3.7 28.5l6.43-1.99A13.2 13.2 0 0 0 16 28.1c7.18 0 13-5.62 13-12.55S23.18 3 16 3Zm0 22.72c-2.1 0-4.08-.61-5.74-1.66l-.41-.26-3.82 1.18 1.16-3.62-.27-.4a10.58 10.58 0 0 1-1.62-5.41C5.3 9.88 10.1 5.3 16 5.3c5.9 0 10.7 4.58 10.7 10.25 0 5.66-4.8 10.17-10.7 10.17Zm5.87-7.65c-.32-.16-1.9-.91-2.2-1.01-.3-.11-.52-.16-.74.16-.22.32-.85 1.01-1.04 1.22-.19.22-.38.24-.7.08-.32-.16-1.36-.49-2.59-1.55-.96-.82-1.61-1.83-1.8-2.14-.19-.32-.02-.49.14-.65.15-.15.32-.38.48-.57.16-.19.22-.32.32-.54.11-.22.05-.4-.03-.57-.08-.16-.74-1.76-1.01-2.41-.27-.65-.54-.55-.74-.56h-.63c-.22 0-.57.08-.87.4-.3.32-1.14 1.11-1.14 2.7s1.17 3.13 1.33 3.35c.16.22 2.3 3.51 5.57 4.92.78.34 1.39.54 1.87.69.79.25 1.51.21 2.08.13.64-.1 1.9-.78 2.17-1.54.27-.76.27-1.41.19-1.54-.08-.13-.3-.21-.62-.37Z"/>
+
     </svg>
 
   </a>
@@ -2662,7 +2701,10 @@
 
     <div class="modal-box">
 
-      <button class="modal-close" onclick="closeProductModal()">
+      <button
+        class="modal-close"
+        onclick="closeProductModal()"
+      >
         ×
       </button>
 
@@ -2680,19 +2722,31 @@
 
           </div>
 
-          <div class="gallery-thumbs" id="galleryThumbs"></div>
+          <div
+            class="gallery-thumbs"
+            id="galleryThumbs"
+          ></div>
 
         </div>
 
         <div class="product-modal-info">
 
-          <div class="category" id="modalCategory"></div>
+          <div
+            class="category"
+            id="modalCategory"
+          ></div>
 
           <h2 id="modalName"></h2>
 
-          <div class="modal-price" id="modalPrice"></div>
+          <div
+            class="modal-price"
+            id="modalPrice"
+          ></div>
 
-          <p class="modal-description" id="modalDescription"></p>
+          <p
+            class="modal-description"
+            id="modalDescription"
+          ></p>
 
           <button
             class="btn btn-primary"
@@ -2713,7 +2767,10 @@
 
     <div class="modal-box checkout-box">
 
-      <button class="modal-close" onclick="closeCheckout()">
+      <button
+        class="modal-close"
+        onclick="closeCheckout()"
+      >
         ×
       </button>
 
@@ -2725,7 +2782,10 @@
         أدخل معلوماتك لإرسال الطلب عبر WhatsApp.
       </div>
 
-      <form class="checkout-form" id="checkoutForm">
+      <form
+        class="checkout-form"
+        id="checkoutForm"
+      >
 
         <div class="field">
 
@@ -2789,13 +2849,27 @@
         <div class="checkout-summary">
 
           <div class="summary-row">
-            <span>عدد القطع</span>
-            <strong id="summaryCount">0</strong>
+
+            <span>
+              عدد القطع
+            </span>
+
+            <strong id="summaryCount">
+              0
+            </strong>
+
           </div>
 
           <div class="summary-row total">
-            <span>المجموع النهائي</span>
-            <strong id="summaryTotal">0 درهم</strong>
+
+            <span>
+              المجموع النهائي
+            </span>
+
+            <strong id="summaryTotal">
+              0 درهم
+            </strong>
+
           </div>
 
         </div>
@@ -2815,7 +2889,10 @@
 
   <div class="lightbox" id="lightbox">
 
-    <button class="lightbox-close" id="lightboxClose">
+    <button
+      class="lightbox-close"
+      id="lightboxClose"
+    >
       ×
     </button>
 
@@ -2833,6 +2910,10 @@
 
   <script>
 
+    /* =========================
+       PRODUCTS
+    ========================= */
+
     const products = [
 
       {
@@ -2840,9 +2921,15 @@
         name:"حجاب أنغام",
         category:"ملابس محجبات",
         price:250,
-        image:"حجاب أنغام.jpg",
+        image:"حجاب أنغام_1.jpg",
         images:[
-          "حجاب أنغام.jpg"
+          "حجاب أنغام_1.jpg",
+          "حجاب أنغام_2.jpg",
+          "حجاب أنغام_8.jpg",
+          "حجاب أنغام_10.jpg",
+          "حجاب أنغام_11.jpg",
+          "حجاب أنغام_13.jpg",
+          "حجاب أنغام_15.jpg"
         ],
         description:
           "اختيار أنيق من مجموعة H7 NEO للأزياء المحجبة، بتصميم عملي ومظهر عصري."
@@ -2890,9 +2977,14 @@
         name:"بالغينة صيفية",
         category:"أحذية رجالية",
         price:250,
-        image:"بالغينة صيفية.jpg",
+        image:"بالغينة صيفية_1.jpg",
         images:[
-          "بالغينة صيفية.jpg"
+          "بالغينة صيفية_1.jpg",
+          "بالغينة صيفية_2.jpg",
+          "بالغينة صيفية_3.jpg",
+          "بالغينة صيفية_4.jpg",
+          "بالغينة صيفية_5.jpg",
+          "بالغينة صيفية_6.jpg"
         ],
         description:
           "اختيار صيفي من مجموعة الأحذية الرجالية في H7 NEO."
@@ -2903,9 +2995,11 @@
         name:"Radgo",
         category:"أحذية رجالية",
         price:300,
-        image:"Radgo.jpg",
+        image:"radgo_1.jpg",
         images:[
-          "Radgo.jpg"
+          "radgo_1.jpg",
+          "radgo_2.jpg",
+          "radgo_3.jpg"
         ],
         description:
           "Radgo — اختيار من مجموعة H7 NEO للأحذية الرجالية."
@@ -2916,9 +3010,18 @@
         name:"صندالة نسائية صيفية",
         category:"أحذية نسائية",
         price:150,
-        image:"صندالة نسائية.jpg",
+        image:"صندالة نسائية صيفية_1.jpg",
         images:[
-          "صندالة نسائية.jpg"
+          "صندالة نسائية صيفية_1.jpg",
+          "صندالة نسائية صيفية_2.jpg",
+          "صندالة نسائية صيفية_3.jpg",
+          "صندالة نسائية صيفية_4.jpg",
+          "صندالة نسائية صيفية_5.jpg",
+          "صندالة نسائية صيفية_6.jpg",
+          "صندالة نسائية صيفية_7.jpg",
+          "صندالة نسائية صيفية_8.jpg",
+          "صندالة نسائية صيفية_9.jpg",
+          "صندالة نسائية صيفية_10.jpg"
         ],
         description:
           "صندالة نسائية صيفية ضمن مجموعة H7 NEO."
@@ -2928,139 +3031,26 @@
         id:"airforce",
         name:"سبرديلا Air Force",
         category:"أحذية رجالية",
-const products = [
+        price:200,
+        image:"1789675720039.png",
+        images:[
+          "1789675720039.png",
+          "1789675893444.png",
+          "24fcbcfe0a9a54f89414414487d571c7.jpg",
+          "1adbe810923baaa774adb4da071932a0.jpg",
+          "8033a49a1af88a4e4b3e22abd2795173.jpg",
+          "d27af3511fab2326625da83965b654c6.jpg",
+          "fdb69aaf227b89c5f3b93161b6dd823e.jpg"
+        ],
+        description:
+          "سبرديلا Air Force من اختيارات H7 NEO للأحذية الرجالية."
+      }
 
-  {
-    id:"angham",
-    name:"حجاب أنغام",
-    category:"ملابس محجبات",
-    price:250,
-    image:"حجاب أنغام_1.jpg",
-    images:[
-      "حجاب أنغام_1.jpg",
-      "حجاب أنغام_2.jpg",
-      "حجاب أنغام_8.jpg",
-      "حجاب أنغام_10.jpg",
-      "حجاب أنغام_11.jpg",
-      "حجاب أنغام_13.jpg",
-      "حجاب أنغام_15.jpg"
-    ],
-    description:
-      "اختيار أنيق من مجموعة H7 NEO للأزياء المحجبة، بتصميم عملي ومظهر عصري."
-  },
+    ];
 
-  {
-    id:"nadeem",
-    name:"حجاب نديم",
-    category:"ملابس محجبات",
-    price:250,
-    image:"حجاب نديم_1.jpg",
-    images:[
-      "حجاب نديم_1.jpg",
-      "حجاب نديم_5.jpg",
-      "حجاب نديم_9.jpg",
-      "حجاب نديم_13.jpg",
-      "حجاب نديم_17.jpg",
-      "حجاب نديم_21.jpg"
-    ],
-    description:
-      "تشكيلة حجاب نديم ضمن اختيارات H7 NEO، مع معرض صور متعدد لمشاهدة التفاصيل."
-  },
-
-  {
-    id:"hajar",
-    name:"حجاب هجار",
-    category:"ملابس محجبات",
-    price:250,
-    image:"حجاب هجار_1.jpg",
-    images:[
-      "حجاب هجار_1.jpg",
-      "حجاب هجار_2.jpg",
-      "حجاب هجار_3.jpg",
-      "حجاب هجار_6.jpg",
-      "حجاب هجار_10.jpg",
-      "حجاب هجار_14.jpg",
-      "حجاب هجار_18.jpg"
-    ],
-    description:
-      "حجاب هجار من اختيارات H7 NEO، مع مجموعة صور متعددة لاستعراض المنتج."
-  },
-
-  {
-    id:"balghina",
-    name:"بالغينة صيفية",
-    category:"أحذية رجالية",
-    price:250,
-    image:"بالغينة صيفية_1.jpg",
-    images:[
-      "بالغينة صيفية_1.jpg",
-      "بالغينة صيفية_2.jpg",
-      "بالغينة صيفية_3.jpg",
-      "بالغينة صيفية_4.jpg",
-      "بالغينة صيفية_5.jpg",
-      "بالغينة صيفية_6.jpg"
-    ],
-    description:
-      "اختيار صيفي من مجموعة الأحذية الرجالية في H7 NEO."
-  },
-
-  {
-    id:"radgo",
-    name:"Radgo",
-    category:"أحذية رجالية",
-    price:300,
-    image:"radgo_1.jpg",
-    images:[
-      "radgo_1.jpg",
-      "radgo_2.jpg",
-      "radgo_3.jpg"
-    ],
-    description:
-      "Radgo — اختيار من مجموعة H7 NEO للأحذية الرجالية."
-  },
-
-  {
-    id:"sandala",
-    name:"صندالة نسائية صيفية",
-    category:"أحذية نسائية",
-    price:150,
-    image:"صندالة نسائية صيفية_1.jpg",
-    images:[
-      "صندالة نسائية صيفية_1.jpg",
-      "صندالة نسائية صيفية_2.jpg",
-      "صندالة نسائية صيفية_3.jpg",
-      "صندالة نسائية صيفية_4.jpg",
-      "صندالة نسائية صيفية_5.jpg",
-      "صندالة نسائية صيفية_6.jpg",
-      "صندالة نسائية صيفية_7.jpg",
-      "صندالة نسائية صيفية_8.jpg",
-      "صندالة نسائية صيفية_9.jpg",
-      "صندالة نسائية صيفية_10.jpg"
-    ],
-    description:
-      "صندالة نسائية صيفية ضمن مجموعة H7 NEO."
-  },
-
-  {
-    id:"airforce",
-    name:"سبرديلا Air Force",
-    category:"أحذية رجالية",
-    price:200,
-    image:"1789675720039.png",
-    images:[
-      "1789675720039.png",
-      "1789675893444.png",
-      "24fcbcfe0a9a54f89414414487d571c7.jpg",
-      "1adbe810923baaa774adb4da071932a0.jpg",
-      "8033a49a1af88a4e4b3e22abd2795173.jpg",
-      "d27af3511fab2326625da83965b654c6.jpg",
-      "fdb69aaf227b89c5f3b93161b6dd823e.jpg"
-    ],
-    description:
-      "سبرديلا Air Force من اختيارات H7 NEO للأحذية الرجالية."
-  }
-
-];
+    /* =========================
+       CART / WISHLIST
+    ========================= */
 
     let cart =
       JSON.parse(
@@ -3087,7 +3077,8 @@ const products = [
     function getCartCount(){
 
       return cart.reduce(
-        (total,item) => total + item.quantity,
+        (total,item) =>
+          total + item.quantity,
         0
       );
 
@@ -3102,9 +3093,11 @@ const products = [
             getProduct(item.id);
 
           return total +
-            (product
-              ? product.price * item.quantity
-              : 0);
+            (
+              product
+                ? product.price * item.quantity
+                : 0
+            );
 
         },
         0
@@ -3140,11 +3133,16 @@ const products = [
       toast.classList.add("show");
 
       setTimeout(
-        () => toast.classList.remove("show"),
+        () =>
+          toast.classList.remove("show"),
         2200
       );
 
     }
+
+    /* =========================
+       PRODUCTS RENDER
+    ========================= */
 
     function renderProducts(){
 
@@ -3155,7 +3153,8 @@ const products = [
         document.getElementById("emptyProducts");
 
       const search =
-        document.getElementById("searchInput")
+        document
+          .getElementById("searchInput")
           .value
           .trim()
           .toLowerCase();
@@ -3181,6 +3180,7 @@ const products = [
       if(!filtered.length){
 
         empty.style.display = "block";
+
         return;
 
       }
@@ -3214,14 +3214,18 @@ const products = [
                 onclick="toggleWishlist('${product.id}')"
                 aria-label="المفضلة"
               >
+
                 <svg
                   viewBox="0 0 24 24"
                   fill="${liked ? "currentColor" : "none"}"
                   stroke="currentColor"
                   stroke-width="1.8"
                 >
+
                   <path d="M20.8 8.9c0 5.5-8.8 10.1-8.8 10.1S3.2 14.4 3.2 8.9A4.9 4.9 0 0 1 8.1 4c1.7 0 3.1.9 3.9 2.1C12.9 4.9 14.3 4 16 4a4.9 4.9 0 0 1 4.8 4.9Z"/>
+
                 </svg>
+
               </button>
 
             </div>
@@ -3267,6 +3271,10 @@ const products = [
       });
 
     }
+
+    /* =========================
+       FILTERS
+    ========================= */
 
     document
       .querySelectorAll(".filter-btn")
@@ -3324,6 +3332,10 @@ const products = [
         }
       );
 
+    /* =========================
+       WISHLIST
+    ========================= */
+
     function toggleWishlist(id){
 
       if(wishlist.includes(id)){
@@ -3333,25 +3345,36 @@ const products = [
             item => item !== id
           );
 
-        showToast("تمت إزالة المنتج من المفضلة");
+        showToast(
+          "تمت إزالة المنتج من المفضلة"
+        );
 
       }else{
 
         wishlist.push(id);
 
-        showToast("تمت إضافة المنتج إلى المفضلة");
+        showToast(
+          "تمت إضافة المنتج إلى المفضلة"
+        );
 
       }
 
       saveWishlist();
+
       renderProducts();
 
     }
 
+    /* =========================
+       CART
+    ========================= */
+
     function addToCart(id){
 
       const existing =
-        cart.find(item => item.id === id);
+        cart.find(
+          item => item.id === id
+        );
 
       if(existing){
 
@@ -3367,9 +3390,12 @@ const products = [
       }
 
       saveCart();
+
       updateCartUI();
 
-      showToast("تمت إضافة المنتج إلى السلة");
+      showToast(
+        "تمت إضافة المنتج إلى السلة"
+      );
 
       closeProductModal();
 
@@ -3378,7 +3404,9 @@ const products = [
     function changeQuantity(id,delta){
 
       const item =
-        cart.find(item => item.id === id);
+        cart.find(
+          item => item.id === id
+        );
 
       if(!item) return;
 
@@ -3394,6 +3422,7 @@ const products = [
       }
 
       saveCart();
+
       updateCartUI();
 
     }
@@ -3406,6 +3435,7 @@ const products = [
         );
 
       saveCart();
+
       updateCartUI();
 
     }
@@ -3414,7 +3444,8 @@ const products = [
 
       document
         .getElementById("cartBadge")
-        .textContent = getCartCount();
+        .textContent =
+          getCartCount();
 
       document
         .getElementById("cartTotal")
@@ -3460,7 +3491,8 @@ const products = [
         const element =
           document.createElement("div");
 
-        element.className = "cart-item";
+        element.className =
+          "cart-item";
 
         element.innerHTML = `
 
@@ -3517,6 +3549,10 @@ const products = [
 
     }
 
+    /* =========================
+       CART DRAWER
+    ========================= */
+
     function openCart(){
 
       document
@@ -3527,7 +3563,8 @@ const products = [
         .getElementById("cartOverlay")
         .classList.add("show");
 
-      document.body.classList.add("modal-open");
+      document.body
+        .classList.add("modal-open");
 
     }
 
@@ -3541,7 +3578,8 @@ const products = [
         .getElementById("cartOverlay")
         .classList.remove("show");
 
-      document.body.classList.remove("modal-open");
+      document.body
+        .classList.remove("modal-open");
 
     }
 
@@ -3566,6 +3604,10 @@ const products = [
         closeCart
       );
 
+    /* =========================
+       PRODUCT MODAL
+    ========================= */
+
     function openProduct(id){
 
       const product =
@@ -3574,6 +3616,7 @@ const products = [
       if(!product) return;
 
       currentProduct = product;
+
       currentImageIndex = 0;
 
       document
@@ -3612,7 +3655,8 @@ const products = [
         .getElementById("productModal")
         .classList.add("show");
 
-      document.body.classList.add("modal-open");
+      document.body
+        .classList.add("modal-open");
 
     }
 
@@ -3633,9 +3677,11 @@ const products = [
 
           button.className =
             "gallery-thumb" +
-            (index === currentImageIndex
-              ? " active"
-              : "");
+            (
+              index === currentImageIndex
+                ? " active"
+                : ""
+            );
 
           button.innerHTML =
             `<img src="${image}" alt="">`;
@@ -3644,11 +3690,13 @@ const products = [
             "click",
             () => {
 
-              currentImageIndex = index;
+              currentImageIndex =
+                index;
 
               document
                 .getElementById("galleryMain")
-                .src = image;
+                .src =
+                  image;
 
               renderGalleryThumbs();
 
@@ -3668,7 +3716,8 @@ const products = [
         .getElementById("productModal")
         .classList.remove("show");
 
-      document.body.classList.remove("modal-open");
+      document.body
+        .classList.remove("modal-open");
 
     }
 
@@ -3688,6 +3737,10 @@ const products = [
 
         }
       );
+
+    /* =========================
+       LIGHTBOX
+    ========================= */
 
     document
       .getElementById("galleryMain")
@@ -3742,6 +3795,10 @@ const products = [
         }
       );
 
+    /* =========================
+       CHECKOUT
+    ========================= */
+
     function openCheckout(){
 
       if(!cart.length){
@@ -3758,7 +3815,8 @@ const products = [
         .getElementById("checkoutModal")
         .classList.add("show");
 
-      document.body.classList.add("modal-open");
+      document.body
+        .classList.add("modal-open");
 
       closeCart();
 
@@ -3770,7 +3828,8 @@ const products = [
         .getElementById("checkoutModal")
         .classList.remove("show");
 
-      document.body.classList.remove("modal-open");
+      document.body
+        .classList.remove("modal-open");
 
     }
 
@@ -3791,7 +3850,9 @@ const products = [
 
           if(!cart.length){
 
-            showToast("السلة فارغة");
+            showToast(
+              "السلة فارغة"
+            );
 
             return;
 
@@ -3947,10 +4008,16 @@ const products = [
 
           event.target.reset();
 
-          showToast("تم إرسال الطلب");
+          showToast(
+            "تم إرسال الطلب"
+          );
 
         }
       );
+
+    /* =========================
+       FAQ
+    ========================= */
 
     document
       .querySelectorAll(".faq-question")
@@ -3969,6 +4036,10 @@ const products = [
         );
 
       });
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
 
     document
       .getElementById("mobileMenuBtn")
@@ -3999,12 +4070,17 @@ const products = [
 
             document
               .getElementById("mobilePanel")
-              .style.display = "none";
+              .style.display =
+                "none";
 
           }
         );
 
       });
+
+    /* =========================
+       SCROLL PROGRESS
+    ========================= */
 
     window.addEventListener(
       "scroll",
@@ -4033,6 +4109,10 @@ const products = [
       }
     );
 
+    /* =========================
+       REVEAL ANIMATION
+    ========================= */
+
     const revealObserver =
       new IntersectionObserver(
         entries => {
@@ -4046,7 +4126,9 @@ const products = [
                 .add("visible");
 
               revealObserver
-                .unobserve(entry.target);
+                .unobserve(
+                  entry.target
+                );
 
             }
 
@@ -4061,25 +4143,39 @@ const products = [
     document
       .querySelectorAll(".reveal")
       .forEach(element =>
-        revealObserver.observe(element)
+        revealObserver.observe(
+          element
+        )
       );
+
+    /* =========================
+       ESCAPE KEY
+    ========================= */
 
     document.addEventListener(
       "keydown",
       event => {
 
-        if(event.key !== "Escape") return;
+        if(event.key !== "Escape")
+          return;
 
         closeCart();
+
         closeProductModal();
+
         closeCheckout();
 
         document
           .getElementById("lightbox")
-          .classList.remove("show");
+          .classList
+          .remove("show");
 
       }
     );
+
+    /* =========================
+       LOADER
+    ========================= */
 
     window.addEventListener(
       "load",
@@ -4090,7 +4186,8 @@ const products = [
 
             document
               .getElementById("loader")
-              .classList.add("hide");
+              .classList
+              .add("hide");
 
           },
           900
@@ -4099,7 +4196,12 @@ const products = [
       }
     );
 
+    /* =========================
+       START
+    ========================= */
+
     renderProducts();
+
     updateCartUI();
 
   </script>
