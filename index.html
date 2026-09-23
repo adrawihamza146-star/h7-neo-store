@@ -635,13 +635,454 @@ let nadeemSlideTimer =
   setInterval(function() {
 
     selectNadeemImage(
+<!-- ========================= حجاب نديم ========================= -->
+<div class="product nadeem-product">
+
+  <!-- الصورة الرئيسية -->
+  <div class="nadeem-main-image">
+    <img id="main-nadeem-img"
+         src="حجاب نديم_1.jpg"
+         alt="حجاب نديم">
+
+    <button class="nadeem-arrow nadeem-prev"
+            onclick="selectNadeemImage(currentNadeemIndex - 1)">
+      ❮
+    </button>
+
+    <button class="nadeem-arrow nadeem-next"
+            onclick="selectNadeemImage(currentNadeemIndex + 1)">
+      ❯
+    </button>
+
+    <div class="nadeem-counter">
+      <span id="nadeem-current-number">1</span> / 6
+    </div>
+  </div>
+
+
+  <!-- الصور المصغرة -->
+  <div class="nadeem-gallery">
+
+    <img src="حجاب نديم_1.jpg"
+         class="nadeem-thumb active"
+         onclick="selectNadeemImage(0)"
+         alt="حجاب نديم 1">
+
+    <img src="حجاب نديم_5.jpg"
+         class="nadeem-thumb"
+         onclick="selectNadeemImage(1)"
+         alt="حجاب نديم 2">
+
+    <img src="حجاب نديم_9.jpg"
+         class="nadeem-thumb"
+         onclick="selectNadeemImage(2)"
+         alt="حجاب نديم 3">
+
+    <img src="حجاب نديم_13.jpg"
+         class="nadeem-thumb"
+         onclick="selectNadeemImage(3)"
+         alt="حجاب نديم 4">
+
+    <img src="حجاب نديم_17.jpg"
+         class="nadeem-thumb"
+         onclick="selectNadeemImage(4)"
+         alt="حجاب نديم 5">
+
+    <img src="حجاب نديم_21.jpg"
+         class="nadeem-thumb"
+         onclick="selectNadeemImage(5)"
+         alt="حجاب نديم 6">
+
+  </div>
+
+
+  <!-- تفاصيل المنتج -->
+  <div class="product-content">
+
+    <h3>✨ حجاب نديم</h3>
+
+    <div class="category">
+      ملابس محجبات
+    </div>
+
+    <div class="price">
+      250 درهم
+    </div>
+
+    <div class="info">
+      <strong>المقاسات:</strong>
+      M / L / XL / XXL
+      <br>
+
+      <strong>الألوان:</strong>
+      أسود / كحلي / بيج / كراميل / وردي / كاشيري
+    </div>
+
+    <a class="btn" href="#order">
+      Commander
+    </a>
+
+  </div>
+
+</div>
+
+
+<!-- ========================= تكبير الصورة ========================= -->
+
+<div id="nadeem-modal"
+     class="nadeem-modal"
+     onclick="closeNadeemModal()">
+
+  <span class="nadeem-close">&times;</span>
+
+  <img id="nadeem-modal-img"
+       src=""
+       alt="حجاب نديم">
+
+</div>
+
+
+<style>
+
+/* ========================= المنتج ========================= */
+
+.nadeem-product {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 12px;
+}
+
+
+/* ========================= الصورة الرئيسية ========================= */
+
+.nadeem-main-image {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  background: #eee;
+}
+
+.nadeem-main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: zoom-in;
+  transition: opacity .25s ease;
+}
+
+
+/* ========================= الأسهم ========================= */
+
+.nadeem-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(0,0,0,.55);
+  color: white;
+
+  font-size: 22px;
+  cursor: pointer;
+
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: .2s;
+}
+
+.nadeem-arrow:hover {
+  background: rgba(0,0,0,.85);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.nadeem-prev {
+  left: 10px;
+}
+
+.nadeem-next {
+  right: 10px;
+}
+
+
+/* ========================= العداد ========================= */
+
+.nadeem-counter {
+  position: absolute;
+
+  bottom: 10px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background: rgba(0,0,0,.65);
+
+  color: white;
+
+  padding: 6px 13px;
+
+  border-radius: 20px;
+
+  font-size: 13px;
+
+  z-index: 5;
+}
+
+
+/* ========================= الصور المصغرة ========================= */
+
+.nadeem-gallery {
+  display: flex;
+  gap: 7px;
+
+  padding: 9px;
+
+  overflow-x: auto;
+
+  background: #f8f8f8;
+
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+
+  scrollbar-width: thin;
+}
+
+.nadeem-thumb {
+  flex: 0 0 auto;
+
+  width: 55px;
+  height: 65px;
+
+  object-fit: cover;
+
+  cursor: pointer;
+
+  border: 2px solid #ccc;
+  border-radius: 6px;
+
+  transition: .25s;
+}
+
+.nadeem-thumb:hover {
+  transform: scale(1.06);
+}
+
+.nadeem-thumb.active {
+  border-color: #b89756;
+
+  box-shadow:
+    0 0 0 1px #b89756;
+}
+
+
+/* ========================= التفاصيل ========================= */
+
+.nadeem-product .product-content {
+  background: #fff;
+  padding: 15px;
+}
+
+.nadeem-product .product-content h3 {
+  margin-top: 0;
+}
+
+
+/* ========================= الزر ========================= */
+
+.nadeem-product .btn {
+  display: block;
+  text-align: center;
+  margin-top: 12px;
+}
+
+
+/* ========================= Full Screen ========================= */
+
+.nadeem-modal {
+  display: none;
+
+  position: fixed;
+
+  z-index: 99999;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,.94);
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+}
+
+.nadeem-modal img {
+  max-width: 95%;
+  max-height: 90%;
+
+  object-fit: contain;
+
+  border-radius: 8px;
+}
+
+.nadeem-close {
+  position: absolute;
+
+  top: 15px;
+  right: 25px;
+
+  color: white;
+
+  font-size: 45px;
+
+  cursor: pointer;
+
+  z-index: 10;
+}
+
+
+/* ========================= الهاتف ========================= */
+
+@media (max-width: 600px) {
+
+  .nadeem-main-image {
+    height: 330px;
+  }
+
+  .nadeem-arrow {
+    width: 36px;
+    height: 36px;
+
+    font-size: 18px;
+  }
+
+  .nadeem-thumb {
+    width: 50px;
+    height: 60px;
+  }
+
+}
+
+</style>
+
+
+<script>
+
+/* ========================= صور نديم ========================= */
+
+const nadeemImages = [
+  "حجاب نديم_1.jpg",
+  "حجاب نديم_5.jpg",
+  "حجاب نديم_9.jpg",
+  "حجاب نديم_13.jpg",
+  "حجاب نديم_17.jpg",
+  "حجاب نديم_21.jpg"
+];
+
+let currentNadeemIndex = 0;
+
+
+/* ========================= تغيير الصورة ========================= */
+
+function selectNadeemImage(index) {
+
+  if (index >= nadeemImages.length) {
+    index = 0;
+  }
+
+  if (index < 0) {
+    index = nadeemImages.length - 1;
+  }
+
+  currentNadeemIndex = index;
+
+  const mainImg =
+    document.getElementById("main-nadeem-img");
+
+  if (mainImg) {
+
+    mainImg.style.opacity = "0.3";
+
+    setTimeout(function() {
+
+      mainImg.src =
+        nadeemImages[currentNadeemIndex];
+
+      mainImg.style.opacity = "1";
+
+    }, 120);
+
+  }
+
+
+  /* تحديث المصغرات */
+
+  const thumbs =
+    document.querySelectorAll(".nadeem-thumb");
+
+  thumbs.forEach(function(thumb, i) {
+
+    thumb.classList.remove("active");
+
+    if (i === currentNadeemIndex) {
+
+      thumb.classList.add("active");
+
+      thumb.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center"
+      });
+
+    }
+
+  });
+
+
+  /* تحديث العداد */
+
+  const numSpan =
+    document.getElementById("nadeem-current-number");
+
+  if (numSpan) {
+
+    numSpan.textContent =
+      currentNadeemIndex + 1;
+
+  }
+
+}
+
+
+/* ========================= التبديل التلقائي ========================= */
+
+let nadeemSlideTimer =
+  setInterval(function() {
+
+    selectNadeemImage(
       currentNadeemIndex + 1
     );
 
   }, 4000);
 
 
-/* ========================= فتح Full Screen ========================= */
+/* ========================= فتح الصورة ========================= */
 
 const mainNadeemImg =
   document.getElementById("main-nadeem-img");
@@ -667,7 +1108,7 @@ if (mainNadeemImg) {
 }
 
 
-/* ========================= إغلاق Full Screen ========================= */
+/* ========================= إغلاق الصورة ========================= */
 
 function closeNadeemModal() {
 
@@ -678,7 +1119,7 @@ function closeNadeemModal() {
 }
 
 
-/* منع إغلاق النافذة عند الضغط على الصورة */
+/* منع الإغلاق عند الضغط على الصورة */
 
 const nadeemModalImg =
   document.getElementById("nadeem-modal-img");
