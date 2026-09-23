@@ -144,13 +144,677 @@
       <a class="button" href="#order">Commander</a>
     </div>
 
-    <div class="product">
-      <div class="photo">صورة حجاب هجار</div>
-      <h3>حجاب هجار</h3>
-      <p>ملابس محجبات</p>
-      <div class="price">250 DH</div>
-      <a class="button" href="#order">Commander</a>
+    <!-- =========================
+     حجاب هجار
+========================= -->
+
+<div class="product hajar-product">
+
+    <!-- الصورة الرئيسية -->
+    <div class="hajar-main-image">
+
+        <img id="main-hijab-img"
+             src="حجاب هجار_1.jpg"
+             alt="حجاب هجار">
+
+        <!-- السهم السابق -->
+        <button class="hajar-arrow hajar-prev"
+                onclick="selectHijabImage(currentHajarIndex - 1)">
+            ❮
+        </button>
+
+        <!-- السهم التالي -->
+        <button class="hajar-arrow hajar-next"
+                onclick="selectHijabImage(currentHajarIndex + 1)">
+            ❯
+        </button>
+
+        <!-- رقم الصورة -->
+        <div class="hajar-counter">
+            <span id="hajar-current-number">1</span>
+            /
+            <span>7</span>
+        </div>
+
     </div>
+
+
+    <!-- الصور المصغرة -->
+    <div class="product-gallery-thumbs">
+
+        <img src="حجاب هجار_1.jpg"
+             onclick="selectHijabImage(0)"
+             class="hajar-thumb active"
+             alt="حجاب هجار 1">
+
+        <img src="حجاب هجار_2.jpg"
+             onclick="selectHijabImage(1)"
+             class="hajar-thumb"
+             alt="حجاب هجار 2">
+
+        <img src="حجاب هجار_3.jpg"
+             onclick="selectHijabImage(2)"
+             class="hajar-thumb"
+             alt="حجاب هجار 3">
+
+        <img src="حجاب هجار_6.jpg"
+             onclick="selectHijabImage(3)"
+             class="hajar-thumb"
+             alt="حجاب هجار 4">
+
+        <img src="حجاب هجار_10.jpg"
+             onclick="selectHijabImage(4)"
+             class="hajar-thumb"
+             alt="حجاب هجار 5">
+
+        <img src="حجاب هجار_14.jpg"
+             onclick="selectHijabImage(5)"
+             class="hajar-thumb"
+             alt="حجاب هجار 6">
+
+        <img src="حجاب هجار_18.jpg"
+             onclick="selectHijabImage(6)"
+             class="hajar-thumb"
+             alt="حجاب هجار 7">
+
+    </div>
+
+
+    <!-- تفاصيل المنتج -->
+    <div class="product-content">
+
+        <h3>✨ حجاب هجار</h3>
+
+        <div class="category">
+            ملابس محجبات
+        </div>
+
+        <div class="price">
+            250 درهم
+        </div>
+
+        <div class="info">
+
+            <strong>المقاسات:</strong>
+            S / M / L / XL
+
+            <br>
+
+            <strong>الألوان:</strong>
+            أحمر / بنفسجي / بيج / بني / كاشيري داكن
+
+        </div>
+
+        <a class="btn"
+           href="#order">
+            Commander
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     نافذة تكبير الصورة
+========================= -->
+
+<div id="hajar-modal"
+     class="hajar-modal"
+     onclick="closeHajarModal()">
+
+    <span class="hajar-close">
+        &times;
+    </span>
+
+    <img id="hajar-modal-img"
+         src=""
+         alt="حجاب هجار">
+
+</div>
+
+
+<style>
+
+/* =========================
+   المنتج
+========================= */
+
+.hajar-product {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 12px;
+}
+
+
+/* =========================
+   الصورة الرئيسية
+========================= */
+
+.hajar-main-image {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    background: #eee;
+}
+
+.hajar-main-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    cursor: zoom-in;
+
+    transition: opacity 0.25s ease;
+}
+
+
+/* =========================
+   الأسهم
+========================= */
+
+.hajar-arrow {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(0,0,0,0.55);
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: 0.2s;
+}
+
+.hajar-arrow:hover {
+    background: rgba(0,0,0,0.85);
+
+    transform: translateY(-50%) scale(1.08);
+}
+
+.hajar-prev {
+    left: 10px;
+}
+
+.hajar-next {
+    right: 10px;
+}
+
+
+/* =========================
+   عداد الصور
+========================= */
+
+.hajar-counter {
+
+    position: absolute;
+
+    bottom: 10px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: rgba(0,0,0,0.6);
+
+    color: white;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================
+   الصور المصغرة
+========================= */
+
+.product-gallery-thumbs {
+
+    display: flex;
+
+    gap: 7px;
+
+    padding: 9px;
+
+    overflow-x: auto;
+
+    background: #f8f8f8;
+
+    border-top: 1px solid #eee;
+
+    border-bottom: 1px solid #eee;
+
+    scrollbar-width: thin;
+}
+
+
+.hajar-thumb {
+
+    flex: 0 0 auto;
+
+    width: 55px;
+
+    height: 65px;
+
+    object-fit: cover;
+
+    cursor: pointer;
+
+    border: 2px solid #ccc;
+
+    border-radius: 6px;
+
+    transition: 0.25s;
+
+}
+
+
+.hajar-thumb:hover {
+
+    transform: scale(1.06);
+
+}
+
+
+.hajar-thumb.active {
+
+    border-color: #b89756;
+
+    box-shadow: 0 0 0 1px #b89756;
+
+}
+
+
+/* =========================
+   التفاصيل
+========================= */
+
+.hajar-product .product-content {
+
+    background: #fff;
+
+    padding: 15px;
+
+}
+
+
+.hajar-product .product-content h3 {
+
+    margin-top: 0;
+
+}
+
+
+/* =========================
+   زر Commander
+========================= */
+
+.hajar-product .btn {
+
+    display: block;
+
+    text-align: center;
+
+    margin-top: 12px;
+
+}
+
+
+/* =========================
+   Full Screen
+========================= */
+
+.hajar-modal {
+
+    display: none;
+
+    position: fixed;
+
+    z-index: 99999;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.93);
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+}
+
+
+.hajar-modal img {
+
+    max-width: 95%;
+
+    max-height: 90%;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+}
+
+
+.hajar-close {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 25px;
+
+    color: white;
+
+    font-size: 45px;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================
+   الهاتف
+========================= */
+
+@media (max-width: 600px) {
+
+    .hajar-main-image {
+
+        height: 330px;
+
+    }
+
+
+    .hajar-arrow {
+
+        width: 36px;
+
+        height: 36px;
+
+        font-size: 18px;
+
+    }
+
+
+    .hajar-thumb {
+
+        width: 50px;
+
+        height: 60px;
+
+    }
+
+}
+
+</style>
+
+
+<script>
+
+/* =========================
+   صور حجاب هجار
+========================= */
+
+const hajarImages = [
+
+    "حجاب هجار_1.jpg",
+
+    "حجاب هجار_2.jpg",
+
+    "حجاب هجار_3.jpg",
+
+    "حجاب هجار_6.jpg",
+
+    "حجاب هجار_10.jpg",
+
+    "حجاب هجار_14.jpg",
+
+    "حجاب هجار_18.jpg"
+
+];
+
+
+let currentHajarIndex = 0;
+
+
+/* =========================
+   تغيير الصورة
+========================= */
+
+function selectHijabImage(index) {
+
+    /*
+       إذا وصلنا لآخر صورة
+       نرجعو للأولى
+    */
+
+    if (index >= hajarImages.length) {
+
+        index = 0;
+
+    }
+
+
+    /*
+       إذا رجعنا قبل الصورة الأولى
+       نمشيو لآخر صورة
+    */
+
+    if (index < 0) {
+
+        index = hajarImages.length - 1;
+
+    }
+
+
+    currentHajarIndex = index;
+
+
+    const mainImg =
+        document.getElementById("main-hijab-img");
+
+
+    /*
+       تأثير خفيف عند تغيير الصورة
+    */
+
+    mainImg.style.opacity = "0.3";
+
+
+    setTimeout(function() {
+
+        mainImg.src =
+            hajarImages[currentHajarIndex];
+
+        mainImg.style.opacity = "1";
+
+    }, 120);
+
+
+    /*
+       تحديث الصور المصغرة
+    */
+
+    const thumbs =
+        document.querySelectorAll(".hajar-thumb");
+
+
+    thumbs.forEach(function(thumb, i) {
+
+        thumb.classList.remove("active");
+
+        if (i === currentHajarIndex) {
+
+            thumb.classList.add("active");
+
+            /*
+               تحريك الصور المصغرة
+               باش الصورة المختارة تبقى باينة
+            */
+
+            thumb.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "nearest",
+
+                inline: "center"
+
+            });
+
+        }
+
+    });
+
+
+    /*
+       تحديث العداد
+    */
+
+    document.getElementById(
+        "hajar-current-number"
+    ).textContent = currentHajarIndex + 1;
+
+}
+
+
+/* =========================
+   التبديل التلقائي
+========================= */
+
+let hajarSlideTimer =
+    setInterval(function() {
+
+        selectHijabImage(
+            currentHajarIndex + 1
+        );
+
+    }, 4000);
+
+
+/* =========================
+   إيقاف التبديل عند التفاعل
+========================= */
+
+const hajarProduct =
+    document.querySelector(".hajar-product");
+
+
+hajarProduct.addEventListener(
+    "mouseenter",
+    function() {
+
+        clearInterval(hajarSlideTimer);
+
+    }
+);
+
+
+hajarProduct.addEventListener(
+    "mouseleave",
+    function() {
+
+        hajarSlideTimer =
+            setInterval(function() {
+
+                selectHijabImage(
+                    currentHajarIndex + 1
+                );
+
+            }, 4000);
+
+    }
+);
+
+
+/* =========================
+   فتح الصورة Full Screen
+========================= */
+
+document.getElementById(
+    "main-hijab-img"
+).addEventListener(
+    "click",
+    function() {
+
+        document.getElementById(
+            "hajar-modal-img"
+        ).src = hajarImages[currentHajarIndex];
+
+
+        document.getElementById(
+            "hajar-modal"
+        ).style.display = "flex";
+
+    }
+);
+
+
+/* =========================
+   إغلاق Full Screen
+========================= */
+
+function closeHajarModal() {
+
+    document.getElementById(
+        "hajar-modal"
+    ).style.display = "none";
+
+}
+
+
+/* ما نسدوش النافذة
+   إلا ضغطنا على الصورة نفسها */
+
+document.getElementById(
+    "hajar-modal-img"
+).addEventListener(
+    "click",
+    function(event) {
+
+        event.stopPropagation();
+
+    }
+);
+
+</script>
 
     <div class="product">
       <div class="photo">صورة بالغينة صيفية</div>
