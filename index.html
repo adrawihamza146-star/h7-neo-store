@@ -1181,3 +1181,2028 @@
 </section>
 
 </main>
+<footer id="contact">
+
+  <div class="container footer-grid">
+
+    <div>
+      <div class="logo">H7 <span>NEO</span></div>
+
+      <p style="margin-top:14px;">
+        أناقة عصرية، اختيارات مميزة،
+        وتجربة شراء بسيطة وراقية.
+      </p>
+    </div>
+
+    <div>
+      <h3>روابط سريعة</h3>
+
+      <p>
+        <a href="#home">الرئيسية</a>
+      </p>
+
+      <p>
+        <a href="#shop">المتجر</a>
+      </p>
+
+      <p>
+        <a href="#about">من نحن</a>
+      </p>
+    </div>
+
+    <div>
+      <h3>تواصل معنا</h3>
+
+      <p>
+        WhatsApp:
+        <a
+          href="https://wa.me/212640419454"
+          target="_blank"
+        >
+          +212 640 419 454
+        </a>
+      </p>
+
+      <p>
+        Instagram:
+        <a
+          href="https://www.instagram.com/h7_neo1"
+          target="_blank"
+        >
+          @H7_NEO1
+        </a>
+      </p>
+
+      <p>
+        التوصيل لجميع مدن المغرب
+      </p>
+    </div>
+
+  </div>
+
+  <div class="container footer-bottom">
+    © 2026 H7 NEO — جميع الحقوق محفوظة
+  </div>
+
+</footer>
+
+
+<!-- OVERLAY -->
+
+<div
+  class="overlay"
+  id="overlay"
+></div>
+
+
+<!-- CART DRAWER -->
+
+<aside
+  class="cart-drawer"
+  id="cartDrawer"
+>
+
+  <div class="drawer-head">
+
+    <h3>
+      السلة
+    </h3>
+
+    <button
+      class="close-btn"
+      id="closeCart"
+      type="button"
+    >
+      ×
+    </button>
+
+  </div>
+
+  <div
+    class="cart-items"
+    id="cartItems"
+  >
+
+    <div class="empty-state">
+      السلة خاوية
+    </div>
+
+  </div>
+
+  <div class="cart-footer">
+
+    <div class="total-line">
+
+      <span>
+        المجموع
+      </span>
+
+      <span id="cartTotal">
+        0 DH
+      </span>
+
+    </div>
+
+    <button
+      class="btn btn-gold"
+      id="checkoutBtn"
+      type="button"
+      style="width:100%;"
+    >
+      تأكيد الطلب
+    </button>
+
+  </div>
+
+</aside>
+
+
+<!-- PRODUCT MODAL -->
+
+<div
+  class="modal"
+  id="productModal"
+>
+
+  <div class="modal-box">
+
+    <button
+      class="modal-close"
+      id="closeProductModal"
+      type="button"
+    >
+      ×
+    </button>
+
+    <div class="product-detail">
+
+      <div class="detail-image">
+
+        <img
+          id="detailImage"
+          src=""
+          alt=""
+        >
+
+      </div>
+
+      <div class="detail-info">
+
+        <div
+          class="product-category"
+          id="detailCategory"
+        ></div>
+
+        <h2
+          id="detailName"
+        ></h2>
+
+        <div
+          class="detail-price"
+          id="detailPrice"
+        >
+          0 DH
+        </div>
+
+        <p
+          class="detail-description"
+          id="detailDescription"
+        ></p>
+
+
+        <div
+          id="sizeSection"
+        >
+
+          <div class="option-title">
+            المقاس
+          </div>
+
+          <div
+            class="options"
+            id="sizeOptions"
+          ></div>
+
+        </div>
+
+
+        <div
+          id="colorSection"
+        >
+
+          <div class="option-title">
+            اللون
+          </div>
+
+          <div
+            class="options"
+            id="colorOptions"
+          ></div>
+
+        </div>
+
+
+        <button
+          class="btn btn-gold"
+          id="addToCartBtn"
+          type="button"
+          style="width:100%;margin-top:25px;"
+        >
+          زيد للسلة
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- CHECKOUT MODAL -->
+
+<div
+  class="modal"
+  id="checkoutModal"
+>
+
+  <div class="modal-box checkout-box">
+
+    <button
+      class="modal-close"
+      id="closeCheckoutModal"
+      type="button"
+    >
+      ×
+    </button>
+
+    <h2>
+      تأكيد الطلب
+    </h2>
+
+    <p
+      style="color:#777;margin-bottom:22px;"
+    >
+      دخل معلوماتك باش نأكدولك الطلبية.
+    </p>
+
+
+    <form
+      id="checkoutForm"
+    >
+
+      <div class="form-group">
+
+        <label>
+          الاسم الكامل
+        </label>
+
+        <input
+          type="text"
+          id="customerName"
+          required
+          placeholder="الاسم الكامل"
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          رقم الهاتف
+        </label>
+
+        <input
+          type="tel"
+          id="customerPhone"
+          required
+          placeholder="06XXXXXXXX"
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          المدينة
+        </label>
+
+        <input
+          type="text"
+          id="customerCity"
+          required
+          placeholder="المدينة"
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          العنوان
+        </label>
+
+        <textarea
+          id="customerAddress"
+          required
+          placeholder="العنوان بالتفصيل"
+        ></textarea>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          ملاحظات
+        </label>
+
+        <textarea
+          id="customerNotes"
+          placeholder="أي ملاحظة إضافية..."
+        ></textarea>
+
+      </div>
+
+
+      <div
+        style="
+          display:flex;
+          justify-content:space-between;
+          align-items:center;
+          background:#f7f1e7;
+          padding:15px;
+          border-radius:12px;
+          margin:20px 0;
+          font-weight:800;
+        "
+      >
+
+        <span>
+          المجموع
+        </span>
+
+        <span id="checkoutTotal">
+          0 DH
+        </span>
+
+      </div>
+
+
+      <button
+        type="submit"
+        class="btn btn-gold"
+        id="submitOrderBtn"
+        style="width:100%;"
+      >
+        تأكيد الطلب
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- SUCCESS MODAL -->
+
+<div
+  class="modal"
+  id="successModal"
+>
+
+  <div class="modal-box success-box">
+
+    <div class="success-icon">
+      ✓
+    </div>
+
+    <h2>
+      الطلبية تسجلات بنجاح
+    </h2>
+
+    <p>
+      شكراً على ثقتك فـ H7 NEO.
+    </p>
+
+    <div class="order-number">
+
+      رقم الطلبية:
+      <span id="successOrderNumber">
+        —
+      </span>
+
+    </div>
+
+    <p
+      id="successTotal"
+      style="font-weight:800;margin-bottom:20px;"
+    >
+      المجموع: 0 DH
+    </p>
+
+    <button
+      class="btn btn-gold"
+      id="whatsappBtn"
+      type="button"
+      style="width:100%;"
+    >
+      تأكيد عبر WhatsApp
+    </button>
+
+    <button
+      class="btn"
+      id="continueBtn"
+      type="button"
+      style="
+        width:100%;
+        margin-top:10px;
+        background:#eee;
+      "
+    >
+      كمل التسوق
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div
+  class="toast"
+  id="toast"
+></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+"use strict";
+
+/* =========================================================
+   H7 NEO — SUPABASE
+========================================================= */
+
+const SUPABASE_URL =
+  "https://bbfbqnebcivmghfnuqvn.supabase.co";
+
+const SUPABASE_ANON_KEY =
+  "sb_publishable_soH8I71YduMqDFWlK5jIZg_hXC5cUGj";
+
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+  );
+
+
+/* =========================================================
+   GLOBAL STATE
+========================================================= */
+
+let products = [];
+let filteredProducts = [];
+
+let currentCategory = "all";
+let searchTerm = "";
+
+let cart = JSON.parse(
+  localStorage.getItem("h7neo_cart") || "[]"
+);
+
+let selectedProduct = null;
+let selectedSize = "";
+let selectedColor = "";
+
+let lastOrder = null;
+
+
+/* =========================================================
+   DOM
+========================================================= */
+
+const productsGrid =
+  document.getElementById("productsGrid");
+
+const searchInput =
+  document.getElementById("searchInput");
+
+const filters =
+  document.getElementById("filters");
+
+const cartBtn =
+  document.getElementById("cartBtn");
+
+const cartDrawer =
+  document.getElementById("cartDrawer");
+
+const closeCart =
+  document.getElementById("closeCart");
+
+const overlay =
+  document.getElementById("overlay");
+
+const cartItems =
+  document.getElementById("cartItems");
+
+const cartCount =
+  document.getElementById("cartCount");
+
+const cartTotal =
+  document.getElementById("cartTotal");
+
+const checkoutBtn =
+  document.getElementById("checkoutBtn");
+
+const productModal =
+  document.getElementById("productModal");
+
+const closeProductModal =
+  document.getElementById("closeProductModal");
+
+const detailImage =
+  document.getElementById("detailImage");
+
+const detailCategory =
+  document.getElementById("detailCategory");
+
+const detailName =
+  document.getElementById("detailName");
+
+const detailPrice =
+  document.getElementById("detailPrice");
+
+const detailDescription =
+  document.getElementById("detailDescription");
+
+const sizeSection =
+  document.getElementById("sizeSection");
+
+const colorSection =
+  document.getElementById("colorSection");
+
+const sizeOptions =
+  document.getElementById("sizeOptions");
+
+const colorOptions =
+  document.getElementById("colorOptions");
+
+const addToCartBtn =
+  document.getElementById("addToCartBtn");
+
+const checkoutModal =
+  document.getElementById("checkoutModal");
+
+const closeCheckoutModal =
+  document.getElementById("closeCheckoutModal");
+
+const checkoutForm =
+  document.getElementById("checkoutForm");
+
+const checkoutTotal =
+  document.getElementById("checkoutTotal");
+
+const submitOrderBtn =
+  document.getElementById("submitOrderBtn");
+
+const successModal =
+  document.getElementById("successModal");
+
+const successOrderNumber =
+  document.getElementById("successOrderNumber");
+
+const successTotal =
+  document.getElementById("successTotal");
+
+const whatsappBtn =
+  document.getElementById("whatsappBtn");
+
+const continueBtn =
+  document.getElementById("continueBtn");
+
+const toast =
+  document.getElementById("toast");
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function money(value) {
+  return `${Number(value || 0).toFixed(0)} DH`;
+}
+
+
+function escapeHTML(value) {
+
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+
+}
+
+
+function showToast(message) {
+
+  toast.textContent = message;
+
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2500);
+
+}
+
+
+function getProductImage(product) {
+
+  if (
+    Array.isArray(product.images) &&
+    product.images.length > 0 &&
+    product.images[0]
+  ) {
+    return product.images[0];
+  }
+
+  return "https://placehold.co/700x850/f0ebe3/111111?text=H7+NEO";
+
+}
+
+
+/* =========================================================
+   LOAD PRODUCTS
+========================================================= */
+
+async function loadProducts() {
+
+  productsGrid.innerHTML = `
+    <div class="empty-state">
+      جاري تحميل المنتجات...
+    </div>
+  `;
+
+  const {
+    data,
+    error
+  } = await supabaseClient
+    .from("products")
+    .select("*")
+    .eq("visible", true)
+    .order("featured", {
+      ascending: false
+    })
+    .order("created_at", {
+      ascending: false
+    });
+
+
+  if (error) {
+
+    console.error(
+      "H7 NEO products error:",
+      error
+    );
+
+    products = [];
+
+    productsGrid.innerHTML = `
+      <div class="empty-state">
+        وقع مشكل فتحميل المنتجات.
+        حاول تعاود تحديث الصفحة.
+      </div>
+    `;
+
+    return;
+  }
+
+
+  products = Array.isArray(data)
+    ? data
+    : [];
+
+
+  applyFilters();
+
+}
+
+
+/* =========================================================
+   FILTER PRODUCTS
+========================================================= */
+
+function applyFilters() {
+
+  const term =
+    searchTerm
+      .trim()
+      .toLowerCase();
+
+
+  filteredProducts =
+    products.filter(product => {
+
+      const categoryMatch =
+        currentCategory === "all" ||
+        product.category === currentCategory;
+
+
+      const searchableText = [
+        product.name,
+        product.description,
+        product.category
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+
+
+      const searchMatch =
+        !term ||
+        searchableText.includes(term);
+
+
+      return (
+        categoryMatch &&
+        searchMatch
+      );
+
+    });
+
+
+  renderProducts(filteredProducts);
+
+}
+
+
+/* =========================================================
+   RENDER PRODUCTS
+========================================================= */
+
+function renderProducts(list) {
+
+  /*
+    مهم:
+    كنمسحو grid كامل قبل العرض.
+    هادي كتمنع المنتجات من التكرار.
+  */
+
+  productsGrid.innerHTML = "";
+
+
+  if (!list.length) {
+
+    productsGrid.innerHTML = `
+      <div class="empty-state">
+        ما لقيناش منتجات
+        <br>
+        جرب كلمة أخرى أو تصنيف آخر.
+      </div>
+    `;
+
+    return;
+  }
+
+
+  const fragment =
+    document.createDocumentFragment();
+
+
+  list.forEach(product => {
+
+    const card =
+      document.createElement("article");
+
+    card.className =
+      "product-card";
+
+
+    const image =
+      getProductImage(product);
+
+
+    card.innerHTML = `
+
+      <div class="product-image">
+
+        <img
+          src="${escapeHTML(image)}"
+          alt="${escapeHTML(product.name)}"
+          loading="lazy"
+        >
+
+        <button
+          class="wishlist"
+          type="button"
+          aria-label="المفضلة"
+          data-wishlist="${product.id}"
+        >
+          ♡
+        </button>
+
+      </div>
+
+
+      <div class="product-info">
+
+        <div class="product-category">
+          ${escapeHTML(product.category || "")}
+        </div>
+
+        <div class="product-name">
+          ${escapeHTML(product.name)}
+        </div>
+
+        <div class="product-price">
+          ${money(product.price)}
+        </div>
+
+        <button
+          class="product-btn"
+          type="button"
+          data-product="${product.id}"
+        >
+          شوف المنتج
+        </button>
+
+      </div>
+
+    `;
+
+
+    fragment.appendChild(card);
+
+  });
+
+
+  productsGrid.appendChild(fragment);
+
+}
+
+
+/* =========================================================
+   PRODUCT CLICK
+========================================================= */
+
+productsGrid.addEventListener(
+  "click",
+  event => {
+
+    const productButton =
+      event.target.closest(
+        "[data-product]"
+      );
+
+
+    if (productButton) {
+
+      const productId =
+        productButton.dataset.product;
+
+      const product =
+        products.find(
+          item =>
+            String(item.id) ===
+            String(productId)
+        );
+
+
+      if (product) {
+        openProductModal(product);
+      }
+
+      return;
+    }
+
+
+    const wishlistButton =
+      event.target.closest(
+        "[data-wishlist]"
+      );
+
+
+    if (wishlistButton) {
+
+      wishlistButton.textContent =
+        wishlistButton.textContent === "♡"
+          ? "♥"
+          : "♡";
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+searchInput.addEventListener(
+  "input",
+  event => {
+
+    searchTerm =
+      event.target.value || "";
+
+    applyFilters();
+
+  }
+);
+
+
+/* =========================================================
+   CATEGORY FILTER
+========================================================= */
+
+filters.addEventListener(
+  "click",
+  event => {
+
+    const button =
+      event.target.closest(
+        "[data-category]"
+      );
+
+
+    if (!button) {
+      return;
+    }
+
+
+    currentCategory =
+      button.dataset.category;
+
+
+    document
+      .querySelectorAll(".filter-btn")
+      .forEach(btn => {
+
+        btn.classList.toggle(
+          "active",
+          btn === button
+        );
+
+      });
+
+
+    applyFilters();
+
+  }
+);
+
+
+/* =========================================================
+   PRODUCT MODAL
+========================================================= */
+
+function openProductModal(product) {
+
+  selectedProduct = product;
+
+  selectedSize =
+    Array.isArray(product.sizes) &&
+    product.sizes.length
+      ? product.sizes[0]
+      : "";
+
+  selectedColor =
+    Array.isArray(product.colors) &&
+    product.colors.length
+      ? product.colors[0]
+      : "";
+
+
+  detailImage.src =
+    getProductImage(product);
+
+  detailImage.alt =
+    product.name || "H7 NEO";
+
+
+  detailCategory.textContent =
+    product.category || "";
+
+
+  detailName.textContent =
+    product.name || "";
+
+
+  detailPrice.textContent =
+    money(product.price);
+
+
+  detailDescription.textContent =
+    product.description ||
+    "منتج مختار بعناية من H7 NEO.";
+
+
+  renderOptions();
+
+
+  productModal.classList.add("show");
+
+  overlay.classList.add("show");
+
+}
+
+
+function renderOptions() {
+
+  if (
+    selectedProduct &&
+    Array.isArray(selectedProduct.sizes) &&
+    selectedProduct.sizes.length
+  ) {
+
+    sizeSection.style.display =
+      "block";
+
+    sizeOptions.innerHTML = "";
+
+    selectedProduct.sizes
+      .forEach(size => {
+
+        const button =
+          document.createElement("button");
+
+        button.type = "button";
+
+        button.className =
+          "option" +
+          (
+            size === selectedSize
+              ? " selected"
+              : ""
+          );
+
+        button.textContent = size;
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            selectedSize = size;
+
+            renderOptions();
+
+          }
+        );
+
+        sizeOptions.appendChild(
+          button
+        );
+
+      });
+
+  } else {
+
+    sizeSection.style.display =
+      "none";
+
+    sizeOptions.innerHTML = "";
+
+  }
+
+
+  if (
+    selectedProduct &&
+    Array.isArray(selectedProduct.colors) &&
+    selectedProduct.colors.length
+  ) {
+
+    colorSection.style.display =
+      "block";
+
+    colorOptions.innerHTML = "";
+
+    selectedProduct.colors
+      .forEach(color => {
+
+        const button =
+          document.createElement("button");
+
+        button.type = "button";
+
+        button.className =
+          "option" +
+          (
+            color === selectedColor
+              ? " selected"
+              : ""
+          );
+
+        button.textContent = color;
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            selectedColor = color;
+
+            renderOptions();
+
+          }
+        );
+
+        colorOptions.appendChild(
+          button
+        );
+
+      });
+
+  } else {
+
+    colorSection.style.display =
+      "none";
+
+    colorOptions.innerHTML = "";
+
+  }
+
+}
+
+
+/* =========================================================
+   CLOSE PRODUCT MODAL
+========================================================= */
+
+function closeProduct() {
+
+  productModal.classList.remove(
+    "show"
+  );
+
+  overlay.classList.remove(
+    "show"
+  );
+
+}
+
+
+closeProductModal.addEventListener(
+  "click",
+  closeProduct
+);
+
+
+/* =========================================================
+   CART
+========================================================= */
+
+function saveCart() {
+
+  localStorage.setItem(
+    "h7neo_cart",
+    JSON.stringify(cart)
+  );
+
+}
+
+
+function cartTotalValue() {
+
+  return cart.reduce(
+    (total, item) =>
+      total +
+      (
+        Number(item.price) *
+        Number(item.quantity)
+      ),
+    0
+  );
+
+}
+
+
+function cartItemsCount() {
+
+  return cart.reduce(
+    (total, item) =>
+      total +
+      Number(item.quantity),
+    0
+  );
+
+}
+
+
+function updateCartUI() {
+
+  const count =
+    cartItemsCount();
+
+
+  cartCount.textContent =
+    count;
+
+
+  cartTotal.textContent =
+    money(cartTotalValue());
+
+
+  checkoutTotal.textContent =
+    money(cartTotalValue());
+
+
+  renderCart();
+
+}
+
+
+function renderCart() {
+
+  if (!cart.length) {
+
+    cartItems.innerHTML = `
+      <div class="empty-state">
+        السلة خاوية
+      </div>
+    `;
+
+    return;
+  }
+
+
+  cartItems.innerHTML = "";
+
+
+  cart.forEach(item => {
+
+    const row =
+      document.createElement("div");
+
+    row.className =
+      "cart-item";
+
+
+    row.innerHTML = `
+
+      <img
+        src="${escapeHTML(item.image)}"
+        alt="${escapeHTML(item.name)}"
+      >
+
+      <div>
+
+        <h4>
+          ${escapeHTML(item.name)}
+        </h4>
+
+        ${
+          item.size
+            ? `<small>المقاس: ${escapeHTML(item.size)}</small>`
+            : ""
+        }
+
+        ${
+          item.color
+            ? `<small>اللون: ${escapeHTML(item.color)}</small>`
+            : ""
+        }
+
+        <small>
+          ${money(item.price)}
+        </small>
+
+        <div class="qty">
+
+          <button
+            type="button"
+            data-minus="${item.key}"
+          >
+            −
+          </button>
+
+          <strong>
+            ${item.quantity}
+          </strong>
+
+          <button
+            type="button"
+            data-plus="${item.key}"
+          >
+            +
+          </button>
+
+        </div>
+
+      </div>
+
+      <button
+        class="remove-item"
+        type="button"
+        data-remove="${item.key}"
+      >
+        ×
+      </button>
+
+    `;
+
+
+    cartItems.appendChild(row);
+
+  });
+
+}
+
+
+/* =========================================================
+   ADD TO CART
+========================================================= */
+
+addToCartBtn.addEventListener(
+  "click",
+  () => {
+
+    if (!selectedProduct) {
+      return;
+    }
+
+
+    const key =
+      [
+        selectedProduct.id,
+        selectedSize,
+        selectedColor
+      ].join("|");
+
+
+    const existing =
+      cart.find(
+        item =>
+          item.key === key
+      );
+
+
+    if (existing) {
+
+      existing.quantity += 1;
+
+    } else {
+
+      cart.push({
+
+        key,
+
+        productId:
+          selectedProduct.id,
+
+        name:
+          selectedProduct.name,
+
+        price:
+          Number(selectedProduct.price),
+
+        image:
+          getProductImage(selectedProduct),
+
+        quantity: 1,
+
+        size:
+          selectedSize,
+
+        color:
+          selectedColor
+
+      });
+
+    }
+
+
+    saveCart();
+
+    updateCartUI();
+
+    closeProduct();
+
+    openCart();
+
+    showToast(
+      "تزاد المنتج للسلة ✓"
+    );
+
+  }
+);
+
+
+/* =========================================================
+   CART ACTIONS
+========================================================= */
+
+cartItems.addEventListener(
+  "click",
+  event => {
+
+    const plus =
+      event.target.closest(
+        "[data-plus]"
+      );
+
+
+    const minus =
+      event.target.closest(
+        "[data-minus]"
+      );
+
+
+    const remove =
+      event.target.closest(
+        "[data-remove]"
+      );
+
+
+    if (plus) {
+
+      const item =
+        cart.find(
+          x =>
+            x.key ===
+            plus.dataset.plus
+        );
+
+      if (item) {
+        item.quantity += 1;
+      }
+
+    }
+
+
+    if (minus) {
+
+      const item =
+        cart.find(
+          x =>
+            x.key ===
+            minus.dataset.minus
+        );
+
+      if (item) {
+
+        item.quantity -= 1;
+
+        if (item.quantity <= 0) {
+
+          cart =
+            cart.filter(
+              x =>
+                x.key !==
+                item.key
+            );
+
+        }
+
+      }
+
+    }
+
+
+    if (remove) {
+
+      cart =
+        cart.filter(
+          x =>
+            x.key !==
+            remove.dataset.remove
+        );
+
+    }
+
+
+    saveCart();
+
+    updateCartUI();
+
+  }
+);
+
+
+/* =========================================================
+   CART OPEN / CLOSE
+========================================================= */
+
+function openCart() {
+
+  cartDrawer.classList.add(
+    "open"
+  );
+
+  overlay.classList.add(
+    "show"
+  );
+
+}
+
+
+function closeCartDrawer() {
+
+  cartDrawer.classList.remove(
+    "open"
+  );
+
+  overlay.classList.remove(
+    "show"
+  );
+
+}
+
+
+cartBtn.addEventListener(
+  "click",
+  openCart
+);
+
+
+closeCart.addEventListener(
+  "click",
+  closeCartDrawer
+);
+
+
+/* =========================================================
+   CHECKOUT
+========================================================= */
+
+checkoutBtn.addEventListener(
+  "click",
+  () => {
+
+    if (!cart.length) {
+
+      showToast(
+        "السلة خاوية"
+      );
+
+      return;
+    }
+
+
+    closeCartDrawer();
+
+    checkoutTotal.textContent =
+      money(cartTotalValue());
+
+    checkoutModal.classList.add(
+      "show"
+    );
+
+    overlay.classList.add(
+      "show"
+    );
+
+  }
+);
+
+
+closeCheckoutModal.addEventListener(
+  "click",
+  () => {
+
+    checkoutModal.classList.remove(
+      "show"
+    );
+
+    overlay.classList.remove(
+      "show"
+    );
+
+  }
+);
+
+
+/* =========================================================
+   CREATE ORDER NUMBER
+========================================================= */
+
+function createOrderNumber() {
+
+  const now =
+    new Date();
+
+  const date =
+    now
+      .toISOString()
+      .replace(/\D/g, "")
+      .slice(0, 14);
+
+
+  const random =
+    Math.floor(
+      100 + Math.random() * 900
+    );
+
+
+  return `H7-${date}-${random}`;
+
+}
+
+
+/* =========================================================
+   SUBMIT ORDER
+========================================================= */
+
+checkoutForm.addEventListener(
+  "submit",
+  async event => {
+
+    event.preventDefault();
+
+
+    if (!cart.length) {
+
+      showToast(
+        "السلة خاوية"
+      );
+
+      return;
+    }
+
+
+    submitOrderBtn.disabled =
+      true;
+
+    submitOrderBtn.textContent =
+      "جاري تسجيل الطلب...";
+
+
+    try {
+
+      const fullName =
+        document
+          .getElementById("customerName")
+          .value
+          .trim();
+
+
+      const phone =
+        document
+          .getElementById("customerPhone")
+          .value
+          .trim();
+
+
+      const city =
+        document
+          .getElementById("customerCity")
+          .value
+          .trim();
+
+
+      const address =
+        document
+          .getElementById("customerAddress")
+          .value
+          .trim();
+
+
+      const notes =
+        document
+          .getElementById("customerNotes")
+          .value
+          .trim();
+
+
+      const total =
+        cartTotalValue();
+
+
+      const orderNumber =
+        createOrderNumber();
+
+
+      /* CUSTOMER */
+
+      const {
+        data: customer,
+        error: customerError
+      } = await supabaseClient
+        .from("customers")
+        .insert({
+
+          full_name:
+            fullName,
+
+          phone:
+            phone,
+
+          city:
+            city,
+
+          address:
+            address
+
+        })
+        .select()
+        .single();
+
+
+      if (customerError) {
+        throw customerError;
+      }
+
+
+      /* ORDER */
+
+      const {
+        data: order,
+        error: orderError
+      } = await supabaseClient
+        .from("orders")
+        .insert({
+
+          order_number:
+            orderNumber,
+
+          customer_id:
+            customer.id,
+
+          total:
+            total,
+
+          status:
+            "new",
+
+          notes:
+            notes
+
+        })
+        .select()
+        .single();
+
+
+      if (orderError) {
+        throw orderError;
+      }
+
+
+      /* ORDER ITEMS */
+
+      const items =
+        cart.map(item => ({
+
+          order_id:
+            order.id,
+
+          product_id:
+            item.productId,
+
+          product_name:
+            item.name,
+
+          price:
+            Number(item.price),
+
+          quantity:
+            Number(item.quantity),
+
+          size:
+            item.size || null,
+
+          color:
+            item.color || null
+
+        }));
+
+
+      const {
+        error: itemsError
+      } = await supabaseClient
+        .from("order_items")
+        .insert(items);
+
+
+      if (itemsError) {
+        throw itemsError;
+      }
+
+
+      /* SUCCESS */
+
+      lastOrder = {
+
+        orderNumber,
+
+        total,
+
+        fullName,
+
+        phone,
+
+        city,
+
+        address,
+
+        notes,
+
+        items:
+          [...cart]
+
+      };
+
+
+      successOrderNumber.textContent =
+        orderNumber;
+
+
+      successTotal.textContent =
+        `المجموع: ${money(total)}`;
+
+
+      checkoutForm.reset();
+
+
+      cart = [];
+
+      saveCart();
+
+      updateCartUI();
+
+
+      checkoutModal.classList.remove(
+        "show"
+      );
+
+
+      successModal.classList.add(
+        "show"
+      );
+
+
+    } catch (error) {
+
+      console.error(
+        "H7 NEO order error:",
+        error
+      );
+
+
+      showToast(
+        "وقع مشكل فإرسال الطلب. حاول مرة أخرى."
+      );
+
+    } finally {
+
+      submitOrderBtn.disabled =
+        false;
+
+      submitOrderBtn.textContent =
+        "تأكيد الطلب";
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+whatsappBtn.addEventListener(
+  "click",
+  () => {
+
+    if (!lastOrder) {
+      return;
+    }
+
+
+    const itemsText =
+      lastOrder.items
+        .map(item => {
+
+          let line =
+            `• ${item.name} × ${item.quantity}`;
+
+          if (item.size) {
+            line +=
+              ` | المقاس: ${item.size}`;
+          }
+
+          if (item.color) {
+            line +=
+              ` | اللون: ${item.color}`;
+          }
+
+          return line;
+
+        })
+        .join("\n");
+
+
+    const message =
+
+`مرحبا H7 NEO 👋
+
+بغيت نأكد الطلبية ديالي:
+
+📦 رقم الطلبية:
+${lastOrder.orderNumber}
+
+👤 الاسم:
+${lastOrder.fullName}
+
+📱 الهاتف:
+${lastOrder.phone}
+
+📍 المدينة:
+${lastOrder.city}
+
+🏠 العنوان:
+${lastOrder.address}
+
+🛍️ المنتجات:
+${itemsText}
+
+💰 المجموع:
+${money(lastOrder.total)}
+
+شكراً H7 NEO ✨`;
+
+
+    const url =
+      `https://wa.me/212640419454?text=${encodeURIComponent(message)}`;
+
+
+    window.open(
+      url,
+      "_blank"
+    );
+
+  }
+);
+
+
+/* =========================================================
+   SUCCESS CLOSE
+========================================================= */
+
+continueBtn.addEventListener(
+  "click",
+  () => {
+
+    successModal.classList.remove(
+      "show"
+    );
+
+    overlay.classList.remove(
+      "show"
+    );
+
+  }
+);
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+overlay.addEventListener(
+  "click",
+  () => {
+
+    cartDrawer.classList.remove(
+      "open"
+    );
+
+    productModal.classList.remove(
+      "show"
+    );
+
+    checkoutModal.classList.remove(
+      "show"
+    );
+
+    successModal.classList.remove(
+      "show"
+    );
+
+    overlay.classList.remove(
+      "show"
+    );
+
+  }
+);
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+updateCartUI();
+
+  loadProducts();
+
+</script>
+
+</body>
+</html>
