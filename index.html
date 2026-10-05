@@ -1,22 +1,17 @@
-<!DOCTYPE html>  <html lang="ar" dir="rtl">  
+<!DOCTYPE html>  
+<html lang="ar" dir="rtl">  
 <head>  
   <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>H7 NEO | Luxe & Élégance</title>  <meta
-name="description"
-content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزياء المحجبة، الأحذية والإكسسوارات. التوصيل داخل المغرب والدفع عند الاستلام."
-> 
-
-  <meta name="theme-color" content="#080808">    <link rel="preconnect" href="https://fonts.googleapis.com">  
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    <link  
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"  
-    rel="stylesheet"  
-  >    <script  
-    src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"  
-    defer  
-  ></script>    <script  
-    src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"  
-    defer  
-  ></script>    <style>  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+  <title>H7 NEO | Luxe & Élégance</title>  
+  <meta name="description" content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزياء المحجبة، الأحذية والإكسسوارات. التوصيل داخل المغرب والدفع عند الاستلام."> 
+  <meta name="theme-color" content="#080808">    
+  <link rel="preconnect" href="https://fonts.googleapis.com">  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>    
+  <style>  
     :root{  
       --bg:#070707;  
       --bg2:#0d0d0d;  
@@ -751,3 +746,1900 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       transform:translateY(-5px);  
       border-color:rgba(200,169,107,.35);  
       box-shadow:0 20px 50px rgba(0,0,0,.3);  
+    }  
+  
+    .product-image{  
+      position:relative;  
+      aspect-ratio:1 / 1.08;  
+      overflow:hidden;  
+      background:#191919;  
+      cursor:pointer;  
+    }  
+  
+    .product-image img{  
+      width:100%;  
+      height:100%;  
+      object-fit:cover;  
+      transition:.45s;  
+    }  
+  
+    .product-card:hover .product-image img{  
+      transform:scale(1.035);  
+    }  
+  
+    .product-wish{  
+      position:absolute;  
+      top:12px;  
+      left:12px;  
+      width:37px;  
+      height:37px;  
+      border-radius:50%;  
+      border:1px solid rgba(255,255,255,.15);  
+      background:rgba(0,0,0,.5);  
+      color:#fff;  
+      display:flex;  
+      align-items:center;  
+      justify-content:center;  
+      z-index:2;  
+      backdrop-filter:blur(8px);  
+    }  
+  
+    .product-wish.active{  
+      color:#ff6d6d;  
+      border-color:rgba(255,109,109,.35);  
+    }  
+  
+    .product-tag{  
+      position:absolute;  
+      top:12px;  
+      right:12px;  
+      background:var(--gold);  
+      color:#000;  
+      padding:5px 9px;  
+      border-radius:8px;  
+      font-size:9px;  
+      font-weight:800;  
+      z-index:2;  
+    }  
+  
+    .product-body{  
+      padding:16px;  
+    }  
+  
+    .product-category{  
+      color:var(--gold);  
+      font-size:9px;  
+      margin-bottom:7px;  
+    }  
+  
+    .product-name{  
+      font-size:14px;  
+      font-weight:700;  
+      white-space:nowrap;  
+      overflow:hidden;  
+      text-overflow:ellipsis;  
+      margin-bottom:8px;  
+    }  
+  
+    .product-bottom{  
+      display:flex;  
+      align-items:center;  
+      justify-content:space-between;  
+      gap:8px;  
+    }  
+  
+    .product-price{  
+      color:var(--gold2);  
+      font-size:16px;  
+      font-weight:800;  
+    }  
+  
+    .product-price small{  
+      color:#888;  
+      font-size:9px;  
+      font-weight:500;  
+    }  
+  
+    .add-btn{  
+      width:40px;  
+      height:40px;  
+      border-radius:11px;  
+      border:1px solid var(--line2);  
+      background:rgba(200,169,107,.08);  
+      color:var(--gold2);  
+      font-size:18px;  
+      transition:.2s;  
+    }  
+  
+    .add-btn:hover{  
+      background:var(--gold);  
+      color:#000;  
+    }  
+  
+    .empty-products{  
+      grid-column:1/-1;  
+      padding:70px 20px;  
+      text-align:center;  
+      border:1px dashed var(--line);  
+      border-radius:20px;  
+      color:#777;  
+    }  
+  
+    /* =========================  
+       FEATURE BANNER  
+    ========================== */  
+  
+    .feature{  
+      display:grid;  
+      grid-template-columns:1fr 1fr;  
+      min-height:480px;  
+      border-radius:25px;  
+      overflow:hidden;  
+      border:1px solid var(--line);  
+      background:#101010;  
+    }  
+  
+    .feature-image{  
+      min-height:480px;  
+      background:url("حجاب هجار_14.jpg") center/cover no-repeat;  
+    }  
+  
+    .feature-content{  
+      display:flex;  
+      flex-direction:column;  
+      justify-content:center;  
+      padding:65px;  
+    }  
+  
+    .feature-content .eyebrow{  
+      margin-bottom:15px;  
+    }  
+  
+    .feature-content h2{  
+      font-family:"Playfair Display",serif;  
+      font-size:clamp(35px,4vw,58px);  
+      line-height:1.05;  
+      margin-bottom:20px;  
+    }  
+  
+    .feature-content p{  
+      color:#aaa;  
+      line-height:2;  
+      font-size:13px;  
+      margin-bottom:25px;  
+      max-width:500px;  
+    }  
+  
+    /* =========================  
+       ABOUT  
+    ========================== */  
+  
+    .about{  
+      display:grid;  
+      grid-template-columns:1fr 1fr;  
+      gap:18px;  
+    }  
+  
+    .about-card{  
+      border:1px solid var(--line);  
+      border-radius:22px;  
+      padding:45px;  
+      background:linear-gradient(145deg,#111,#0b0b0b);  
+    }  
+  
+    .about-card h3{  
+      font-family:"Playfair Display",serif;  
+      font-size:32px;  
+      margin-bottom:17px;  
+    }  
+  
+    .about-card p{  
+      color:#aaa;  
+      line-height:2;  
+      font-size:13px;  
+    }  
+  
+    .values{  
+      display:grid;  
+      grid-template-columns:1fr 1fr;  
+      gap:12px;  
+    }  
+  
+    .value{  
+      padding:22px;  
+      border:1px solid var(--line);  
+      border-radius:17px;  
+      background:#101010;  
+    }  
+  
+    .value-icon{  
+      color:var(--gold);  
+      font-size:22px;  
+      margin-bottom:12px;  
+    }  
+  
+    .value strong{  
+      display:block;  
+      font-size:13px;  
+      margin-bottom:6px;  
+    }  
+  
+    .value span{  
+      color:#888;  
+      font-size:10px;  
+      line-height:1.8;  
+    }  
+  
+    /* =========================  
+       FAQ  
+    ========================== */  
+  
+    .faq{  
+      max-width:900px;  
+      margin:auto;  
+    }  
+  
+    .faq-item{  
+      border-bottom:1px solid var(--line);  
+    }  
+  
+    .faq-question{  
+      width:100%;  
+      min-height:65px;  
+      background:none;  
+      border:0;  
+      color:#eee;  
+      display:flex;  
+      align-items:center;  
+      justify-content:space-between;  
+      text-align:right;  
+      font-size:13px;  
+      gap:20px;  
+    }  
+  
+    .faq-question span:last-child{  
+      color:var(--gold);  
+      font-size:20px;  
+      transition:.3s;  
+    }  
+  
+    .faq-item.open .faq-question span:last-child{  
+      transform:rotate(45deg);  
+    }  
+  
+    .faq-answer{  
+      max-height:0;  
+      overflow:hidden;  
+      transition:.3s ease;  
+      color:#8f8f8f;  
+      font-size:11px;  
+      line-height:2;  
+    }  
+  
+    .faq-item.open .faq-answer{  
+      max-height:200px;  
+      padding-bottom:18px;  
+    }  
+  
+    /* =========================  
+       CTA  
+    ========================== */  
+  
+    .cta{  
+      margin-top:100px;  
+      width:min(var(--max),calc(100% - 36px));  
+      margin-left:auto;  
+      margin-right:auto;  
+      padding:70px 30px;  
+      border:1px solid var(--line2);  
+      border-radius:28px;  
+      text-align:center;  
+      background:  
+        radial-gradient(circle at center,rgba(200,169,107,.13),transparent 55%),  
+        #0c0c0c;  
+    }  
+  
+    .cta h2{  
+      font-family:"Playfair Display",serif;  
+      font-size:clamp(35px,5vw,62px);  
+      margin-bottom:13px;  
+    }  
+  
+    .cta p{  
+      color:#999;  
+      font-size:12px;  
+      margin-bottom:25px;  
+    }  
+  
+    /* =========================  
+       FOOTER  
+    ========================== */  
+  
+    footer{  
+      margin-top:100px;  
+      border-top:1px solid var(--line);  
+      padding:60px 0 25px;  
+      background:#050505;  
+    }  
+  
+    .footer-inner{  
+      width:min(var(--max),calc(100% - 36px));  
+      margin:auto;  
+    }  
+  
+    .footer-grid{  
+      display:grid;  
+      grid-template-columns:1.4fr 1fr 1fr 1fr;  
+      gap:40px;  
+      padding-bottom:45px;  
+    }  
+  
+    .footer-brand p{  
+      color:#777;  
+      font-size:11px;  
+      line-height:2;  
+      margin-top:15px;  
+      max-width:300px;  
+    }  
+  
+    .footer-title{  
+      color:#eee;  
+      font-size:12px;  
+      margin-bottom:18px;  
+      font-weight:700;  
+    }  
+  
+    .footer-links{  
+      display:flex;  
+      flex-direction:column;  
+      gap:10px;  
+    }  
+  
+    .footer-links a{  
+      color:#777;  
+      font-size:10px;  
+      transition:.2s;  
+    }  
+  
+    .footer-links a:hover{  
+      color:var(--gold2);  
+    }  
+  
+    .socials{  
+      display:flex;  
+      gap:8px;  
+      margin-top:20px;  
+    }  
+  
+    .social{  
+      width:38px;  
+      height:38px;  
+      border:1px solid var(--line);  
+      border-radius:11px;  
+      display:flex;  
+      align-items:center;  
+      justify-content:center;  
+      font-size:11px;  
+      transition:.2s;  
+    }  
+  
+    .social:hover{  
+      border-color:var(--gold);  
+      color:var(--gold2);  
+    }  
+  
+    .footer-bottom{  
+      border-top:1px solid var(--line);  
+      padding-top:22px;  
+      display:flex;  
+      justify-content:space-between;  
+      gap:15px;  
+      color:#555;  
+      font-size:9px;  
+    }  
+  
+    /* =========================  
+       WHATSAPP  
+    ========================== */  
+  
+    .whatsapp-float{  
+      position:fixed;  
+      left:20px;  
+      bottom:20px;  
+      width:55px;  
+      height:55px;  
+      border-radius:50%;  
+      background:var(--green);  
+      color:#fff;  
+      display:flex;  
+      align-items:center;  
+      justify-content:center;  
+      z-index:4000;  
+      font-size:25px;  
+      box-shadow:0 12px 35px rgba(37,211,102,.22);  
+      transition:.25s;  
+    }  
+  
+    .whatsapp-float:hover{  
+      transform:scale(1.07);  
+    }  
+  
+    /* =========================  
+       CART  
+    ========================== */  
+  
+    .drawer{  
+      position:fixed;  
+      top:0;  
+      right:0;  
+      width:min(450px,94vw);  
+      height:100dvh;  
+      background:#0b0b0b;  
+      z-index:8500;  
+      transform:translateX(105%);  
+      transition:.35s ease;  
+      border-left:1px solid var(--line);  
+      box-shadow:var(--shadow);  
+      display:flex;  
+      flex-direction:column;  
+    }  
+  
+    .drawer.open{  
+      transform:translateX(0);  
+    }  
+  
+    .drawer-head{  
+      min-height:78px;  
+      padding:0 22px;  
+      display:flex;  
+      align-items:center;  
+      justify-content:space-between;  
+      border-bottom:1px solid var(--line);  
+    }  
+  
+    .drawer-head h3{  
+      font-family:"Playfair Display",serif;  
+      font-size:25px;  
+    }  
+  
+    .close-btn{  
+      width:40px;  
+      height:40px;  
+      border-radius:50%;  
+      border:1px solid var(--line);  
+      background:#111;  
+      color:#fff;  
+      font-size:18px;  
+    }  
+  
+    .cart-items{  
+      flex:1;  
+      overflow:auto;  
+      padding:18px;  
+    }  
+  
+    .cart-item{  
+      display:grid;  
+      grid-template-columns:70px 1fr auto;  
+      gap:12px;  
+      align-items:center;  
+      padding:12px 0;  
+      border-bottom:1px solid var(--line);  
+    }  
+  
+    .cart-item-img{  
+      width:70px;  
+      height:80px;  
+      border-radius:11px;  
+      object-fit:cover;  
+      background:#181818;  
+    }  
+  
+    .cart-item-name{  
+      font-size:11px;  
+      font-weight:700;  
+      margin-bottom:6px;  
+    }  
+  
+    .cart-item-price{  
+      color:var(--gold2);  
+      font-size:11px;  
+    }  
+  
+    .qty{  
+      display:flex;  
+      align-items:center;  
+      gap:5px;  
+      margin-top:8px;  
+    }  
+  
+    .qty button{  
+      width:26px;  
+      height:26px;  
+      border-radius:7px;  
+      border:1px solid var(--line);  
+      background:#151515;  
+      color:#fff;  
+    }  
+  
+    .qty span{  
+      min-width:20px;  
+      text-align:center;  
+      font-size:10px;  
+    }  
+  
+    .remove{  
+      color:#777;  
+      border:0;  
+      background:none;  
+      font-size:14px;  
+    }  
+  
+    .cart-empty{  
+      height:100%;  
+      display:flex;  
+      align-items:center;  
+      justify-content:center;  
+      text-align:center;  
+      color:#777;  
+      font-size:12px;  
+    }  
+  
+    .drawer-foot{  
+      padding:18px;  
+      border-top:1px solid var(--line);  
+      background:#090909;  
+    }  
+  
+    .total-row{  
+      display:flex;  
+      justify-content:space-between;  
+      align-items:center;  
+      margin-bottom:15px;  
+    }  
+  
+    .total-row span:first-child{  
+      color:#999;  
+      font-size:12px;  
+    }  
+  
+    .total-value{  
+      color:var(--gold2);  
+      font-size:20px;  
+      font-weight:800;  
+    }  
+  
+    .full-btn{  
+      width:100%;  
+    }  
+  
+    /* =========================  
+       MODALS  
+    ========================== */  
+  
+    .modal{  
+      position:fixed;  
+      inset:0;  
+      z-index:10000;  
+      display:flex;  
+      align-items:center;  
+      justify-content:center;  
+      padding:20px;  
+      background:rgba(0,0,0,.78);  
+      backdrop-filter:blur(8px);  
+      opacity:0;  
+      visibility:hidden;  
+      transition:.25s;  
+    }  
+  
+    .modal.show{  
+      opacity:1;  
+      visibility:visible;  
+    }  
+  
+    .modal-box{  
+      width:min(1050px,100%);  
+      max-height:92dvh;  
+      overflow:auto;  
+      background:#0c0c0c;  
+      border:1px solid var(--line);  
+      border-radius:25px;  
+      box-shadow:var(--shadow);  
+      position:relative;  
+    }  
+  
+    .modal-close{  
+      position:absolute;  
+      left:18px;  
+      top:18px;  
+      z-index:5;  
+    }  
+  
+    /* product modal */  
+  
+    .product-modal{  
+      display:grid;  
+      grid-template-columns:1fr 1fr;  
+    }  
+  
+    .modal-gallery{  
+      background:#111;  
+      padding:18px;  
+    }  
+  
+    .main-image{  
+      width:100%;  
+      aspect-ratio:1/1;  
+      border-radius:18px;  
+      object-fit:cover;  
+      background:#181818;  
+    }  
+  
+    .thumbs{  
+      display:flex;  
+      gap:8px;  
+      overflow:auto;  
+      margin-top:10px;  
+      padding-bottom:3px;  
+    }  
+  
+    .thumb{  
+      width:65px;  
+      height:65px;  
+      flex:none;  
+      border-radius:10px;  
+      overflow:hidden;  
+      border:1px solid var(--line);  
+      background:#181818;  
+      cursor:pointer;  
+    }  
+  
+    .thumb.active{  
+      border-color:var(--gold);  
+    }  
+  
+    .thumb img{  
+      width:100%;  
+      height:100%;  
+      object-fit:cover;  
+    }  
+  
+    .modal-info{  
+      padding:60px 45px 45px;  
+    }  
+  
+    .modal-category{  
+      color:var(--gold);  
+      font-size:10px;  
+      margin-bottom:10px;  
+    }  
+  
+    .modal-info h2{  
+      font-family:"Playfair Display",serif;  
+      font-size:38px;  
+      margin-bottom:12px;  
+    }  
+  
+    .modal-price{  
+      color:var(--gold2);  
+      font-size:23px;  
+      font-weight:800;  
+      margin-bottom:20px;  
+    }  
+  
+    .modal-description{  
+      color:#999;  
+      line-height:2;  
+      font-size:12px;  
+      margin-bottom:25px;  
+    }  
+  
+    .modal-info .btn{  
+      width:100%;  
+    }  
+  
+    /* checkout */  
+  
+    .checkout-box{  
+      width:min(650px,100%);  
+      padding:35px;  
+    }  
+  
+    .checkout-title{  
+      font-family:"Playfair Display",serif;  
+      font-size:35px;  
+      margin-bottom:6px;  
+    }  
+  
+    .checkout-sub{  
+      color:#777;  
+      font-size:10px;  
+      margin-bottom:25px;  
+    }  
+  
+    .form-grid{  
+      display:grid;  
+      grid-template-columns:1fr 1fr;  
+      gap:13px;  
+    }  
+  
+    .field.full{  
+      grid-column:1/-1;  
+    }  
+  
+    .field label{  
+      display:block;  
+      font-size:10px;  
+      color:#aaa;  
+      margin-bottom:6px;  
+    }  
+  
+    .field input,  
+    .field textarea,  
+    .field select{  
+      width:100%;  
+      border:1px solid var(--line);  
+      background:#121212;  
+      color:#fff;  
+      border-radius:11px;  
+      outline:none;  
+      padding:12px 13px;  
+      font-size:11px;  
+    }  
+  
+    .field textarea{  
+      min-height:85px;  
+      resize:vertical;  
+    }  
+  
+    .field input:focus,  
+    .field textarea:focus,  
+    .field select:focus{  
+      border-color:var(--gold);  
+    }  
+  
+    .form-error{  
+      display:none;  
+      color:#ff7777;  
+      font-size:9px;  
+      margin-top:5px;  
+    }  
+  
+    .form-error.show{  
+      display:block;  
+    }  
+  
+    .checkout-summary{  
+      margin:20px 0;  
+      border:1px solid var(--line);  
+      border-radius:14px;  
+      padding:15px;  
+      background:#101010;  
+    }  
+  
+    .summary-row{  
+      display:flex;  
+      justify-content:space-between;  
+      gap:15px;  
+      color:#999;  
+      font-size:10px;  
+      padding:5px 0;  
+    }  
+  
+    .summary-row strong{  
+      color:#fff;  
+    }  
+  
+    .summary-total{  
+      border-top:1px solid var(--line);  
+      margin-top:8px;  
+      padding-top:12px;  
+      color:var(--gold2);  
+      font-size:15px;  
+      font-weight:800;  
+    }  
+  
+    /* =========================  
+       TOAST  
+    ========================== */  
+  
+    #toast{  
+      position:fixed;  
+      right:50%;  
+      bottom:25px;  
+      transform:translate(50%,20px);  
+      background:#151515;  
+      border:1px solid var(--line2);  
+      color:#fff;  
+      padding:12px 18px;  
+      border-radius:12px;  
+      font-size:11px;  
+      z-index:20000;  
+      opacity:0;  
+      visibility:hidden;  
+      transition:.3s;  
+      box-shadow:var(--shadow);  
+    }  
+  
+    #toast.show{  
+      opacity:1;  
+      visibility:visible;  
+      transform:translate(50%,0);  
+    }  
+  
+    /* =========================  
+       REVEAL  
+    ========================== */  
+  
+    .reveal{  
+      opacity:0;  
+      transform:translateY(25px);  
+      transition:.7s ease;  
+    }  
+  
+    .reveal.visible{  
+      opacity:1;  
+      transform:none;  
+    }  
+  
+    /* =========================  
+       RESPONSIVE  
+    ========================== */  
+  
+    @media(max-width:1100px){  
+  
+      .nav-links{  
+        gap:17px;  
+      }  
+  
+      .products-grid{  
+        grid-template-columns:repeat(3,1fr);  
+      }  
+  
+      .collections{  
+        grid-template-columns:repeat(2,1fr);  
+      }  
+  
+      .trust{  
+        grid-template-columns:repeat(2,1fr);  
+      }  
+  
+      .footer-grid{  
+        grid-template-columns:1.5fr 1fr 1fr;  
+      }  
+    }  
+  
+    @media(max-width:800px){  
+  
+      :root{  
+        --header:68px;  
+      }  
+  
+      .nav{  
+        width:calc(100% - 24px);  
+      }  
+  
+      .nav-links{  
+        display:none;  
+      }  
+  
+      .menu-btn{  
+        display:flex;  
+      }  
+  
+      .brand-mark{  
+        width:38px;  
+        height:38px;  
+      }  
+  
+      .brand-name{  
+        font-size:19px;  
+      }  
+  
+      .hero{  
+        min-height:600px;  
+        margin-top:12px;  
+        width:calc(100% - 24px);  
+        border-radius:22px;  
+        background:  
+          linear-gradient(to top,rgba(0,0,0,.95) 5%,rgba(0,0,0,.45) 70%,rgba(0,0,0,.1)),  
+          url("بالغينة صيفية_1.jpg") center/cover no-repeat;  
+      }  
+  
+      .hero-content{  
+        padding:35px 25px;  
+        margin-top:auto;  
+      }  
+  
+      .hero h1{  
+        font-size:53px;  
+      }  
+  
+      .trust{  
+        width:calc(100% - 24px);  
+      }  
+  
+      .section{  
+        width:calc(100% - 24px);  
+        margin-top:75px;  
+      }  
+  
+      .section-head{  
+        display:block;  
+      }  
+  
+      .section-desc{  
+        margin-top:10px;  
+      }  
+  
+      .products-grid{  
+        grid-template-columns:repeat(2,minmax(0,1fr));  
+        gap:10px;  
+      }  
+  
+      .product-card{  
+        border-radius:15px;  
+      }  
+  
+      .product-body{  
+        padding:11px;  
+      }  
+  
+      .product-name{  
+        font-size:11px;  
+      }  
+  
+      .product-price{  
+        font-size:13px;  
+      }  
+  
+      .add-btn{  
+        width:36px;  
+        height:36px;  
+      }  
+  
+      .feature{  
+        grid-template-columns:1fr;  
+      }  
+  
+      .feature-image{  
+        min-height:390px;  
+      }  
+  
+      .feature-content{  
+        padding:35px 25px 45px;  
+      }  
+  
+      .about{  
+        grid-template-columns:1fr;  
+      }  
+  
+      .footer-grid{  
+        grid-template-columns:1fr 1fr;  
+      }  
+  
+      .product-modal{  
+        grid-template-columns:1fr;  
+      }  
+  
+      .modal-info{  
+        padding:30px 25px;  
+      }  
+  
+      .modal-info h2{  
+        font-size:31px;  
+      }  
+    }  
+  
+    @media(max-width:520px){  
+  
+      .announcement{  
+        font-size:9px;  
+      }  
+  
+      .brand-sub{  
+        display:none;  
+      }  
+  
+      .nav-actions .wishlist-nav{  
+        display:none;  
+      }  
+  
+      .hero{  
+        min-height:570px;  
+      }  
+  
+      .hero h1{  
+        font-size:47px;  
+      }  
+  
+      .hero p{  
+        font-size:12px;  
+      }  
+  
+      .hero-actions{  
+        display:grid;  
+        grid-template-columns:1fr;  
+      }  
+  
+      .hero-actions .btn{  
+        width:100%;  
+      }  
+  
+      .trust{  
+        grid-template-columns:1fr 1fr;  
+        gap:8px;  
+      }  
+  
+      .trust-item{  
+        padding:13px 9px;  
+        gap:8px;  
+      }  
+  
+      .trust-icon{  
+        width:34px;  
+        height:34px;  
+      }  
+  
+      .trust-text strong{  
+        font-size:9px;  
+      }  
+  
+      .trust-text span{  
+        font-size:8px;  
+      }  
+  
+      .collections{  
+        grid-template-columns:1fr 1fr;  
+        gap:9px;  
+      }  
+  
+      .collection,  
+      .collection img{  
+        min-height:190px;  
+      }  
+  
+      .collection-info{  
+        right:12px;  
+        bottom:12px;  
+      }  
+  
+      .collection-info h3{  
+        font-size:17px;  
+      }  
+  
+      .collection-info span{  
+        font-size:8px;  
+      }  
+  
+      .shop-toolbar{  
+        display:block;  
+      }  
+  
+      .filters{  
+        overflow-x:auto;  
+        flex-wrap:nowrap;  
+        padding-bottom:7px;  
+      }  
+  
+      .filter-btn{  
+        flex:none;  
+      }  
+  
+      .search-box{  
+        width:100%;  
+        margin-top:8px;  
+      }  
+  
+      .product-image{  
+        aspect-ratio:1/1.08;  
+      }  
+  
+      .product-wish{  
+        width:32px;  
+        height:32px;  
+        top:8px;  
+        left:8px;  
+        font-size:12px;  
+      }  
+  
+      .product-tag{  
+        top:8px;  
+        right:8px;  
+        font-size:7px;  
+      }  
+  
+      .product-category{  
+        font-size:7px;  
+      }  
+  
+      .product-name{  
+        margin-bottom:6px;  
+      }  
+  
+      .product-bottom{  
+        align-items:center;  
+      }  
+  
+      .product-price small{  
+        display:none;  
+      }  
+  
+      .add-btn{  
+        width:33px;  
+        height:33px;  
+        font-size:15px;  
+      }  
+  
+      .values{  
+        grid-template-columns:1fr;  
+      }  
+  
+      .about-card{  
+        padding:28px 22px;  
+      }  
+  
+      .cta{  
+        width:calc(100% - 24px);  
+        padding:50px 20px;  
+        margin-top:75px;  
+      }  
+  
+      .footer-grid{  
+        grid-template-columns:1fr 1fr;  
+        gap:25px 18px;  
+      }  
+  
+      .footer-brand{  
+        grid-column:1/-1;  
+      }  
+  
+      .footer-bottom{  
+        flex-direction:column;  
+        text-align:center;  
+      }  
+  
+      .whatsapp-float{  
+        width:50px;  
+        height:50px;  
+        left:15px;  
+        bottom:15px;  
+        font-size:22px;  
+      }  
+  
+      .modal{  
+        padding:8px;  
+      }  
+  
+      .modal-box{  
+        border-radius:18px;  
+        max-height:95dvh;  
+      }  
+  
+      .checkout-box{  
+        padding:25px 18px;  
+      }  
+  
+      .form-grid{  
+        grid-template-columns:1fr;  
+      }  
+  
+      .field.full{  
+        grid-column:auto;  
+      }  
+  
+      .modal-gallery{  
+        padding:10px;  
+      }  
+  
+      .main-image{  
+        border-radius:13px;  
+      }  
+  
+      .thumb{  
+        width:55px;  
+        height:55px;  
+      }  
+    }  
+  
+    @media(max-width:360px){  
+  
+      .brand-name{  
+        font-size:17px;  
+      }  
+  
+      .icon-btn{  
+        width:37px;  
+        height:37px;  
+      }  
+  
+      .hero h1{  
+        font-size:41px;  
+      }  
+  
+      .trust-item{  
+        flex-direction:column;  
+        align-items:flex-start;  
+      }  
+  
+      .product-body{  
+        padding:9px;  
+      }  
+  
+      .product-name{  
+        font-size:10px;  
+      }  
+    }  
+  
+    /* =========================  
+       REDUCED MOTION  
+    ========================== */  
+  
+    @media(prefers-reduced-motion:reduce){  
+      *,  
+      *::before,  
+      *::after{  
+        scroll-behavior:auto!important;  
+        animation-duration:.01ms!important;  
+        animation-iteration-count:1!important;  
+        transition-duration:.01ms!important;  
+      }  
+    }  
+  </style>  
+</head>  
+<body>    
+  <!-- LOADER -->    
+  <div id="loader">  
+    <div class="loader-inner">  
+      <div class="loader-logo">H7 NEO</div>  
+      <div class="loader-line"></div>  
+    </div>  
+  </div>    
+
+  <!-- ANNOUNCEMENT -->    
+  <div class="announcement">  
+    <span>  
+      <strong>H7 NEO</strong>  
+      — STYLE WITHOUT LIMITS • LUXURY IN EVERY DETAIL • التوصيل داخل المغرب  
+    </span>  
+  </div>    
+
+  <!-- HEADER -->    
+  <header class="header">  
+    <div class="nav">  
+      <a href="#home" class="brand" aria-label="H7 NEO">  
+        <div class="brand-mark">H7</div>  
+        <div class="brand-text">  
+          <div class="brand-name">H7 NEO</div>  
+          <div class="brand-sub">LUXE & ÉLÉGANCE</div>  
+        </div>  
+      </a>  
+
+      <nav class="nav-links">  
+        <a href="#home">الرئيسية</a>  
+        <a href="#collections">المجموعات</a>  
+        <a href="#shop">المتجر</a>  
+        <a href="#about">من نحن</a>  
+        <a href="#faq">الأسئلة</a>  
+      </nav>  
+
+      <div class="nav-actions">  
+        <button class="icon-btn wishlist-nav" id="wishlistBtn" type="button" aria-label="المفضلة">  
+          ♡  
+          <span class="badge" id="wishlistCount">0</span>  
+        </button>  
+
+        <button class="icon-btn" id="cartBtn" type="button" aria-label="السلة">  
+          🛍  
+          <span class="badge" id="cartCount">0</span>  
+        </button>  
+
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="فتح القائمة">  
+          ☰  
+        </button>  
+      </div>  
+    </div>
+  </header>    
+
+  <!-- MOBILE MENU -->    
+  <aside class="mobile-menu" id="mobileMenu">  
+    <button class="mobile-close" id="mobileClose" type="button" aria-label="إغلاق">  
+      ×  
+    </button>  
+
+    <div style="margin-bottom:30px;">  
+      <div style="color:var(--gold2); font-family:'Playfair Display',serif; font-size:27px; letter-spacing:2px;">  
+        H7 NEO  
+      </div>  
+      <div style="color:#777; font-size:9px; letter-spacing:2px; margin-top:5px;">  
+        LUXE & ÉLÉGANCE  
+      </div>  
+    </div>  
+
+    <nav>  
+      <a href="#home">الرئيسية</a>  
+      <a href="#collections">المجموعات</a>  
+      <a href="#shop">المتجر</a>  
+      <a href="#about">من نحن</a>  
+      <a href="#faq">الأسئلة الشائعة</a>  
+      <a href="https://www.instagram.com/h7_neo1?stkn=aDFua3E5anRtdjNh" target="_blank" rel="noopener">  
+        Instagram  
+      </a>  
+    </nav>
+  </aside>    
+
+  <!-- OVERLAY -->    
+  <div class="overlay" id="overlay"></div>    
+
+  <!-- HERO -->    
+  <main id="home">  
+    <section class="hero reveal">  
+      <div class="hero-content">  
+        <div class="eyebrow">  
+          H7 NEO COLLECTION  
+        </div>  
+        <h1>  
+          STYLE<br>  
+          <span>WITHOUT</span><br>  
+          LIMITS  
+        </h1>  
+        <p>  
+          اكتشف اختيارات H7 NEO المختارة بعناية —  
+          أزياء محتشمة، أحذية وإكسسوارات بتصميم أنيق  
+          يجمع بين الجودة، الراحة والأناقة.  
+        </p>  
+        <div class="hero-actions">  
+          <a href="#shop" class="btn btn-gold">  
+            اكتشف المجموعة  
+            <span>←</span>  
+          </a>  
+          <a href="#collections" class="btn btn-outline">  
+            تصفح التصنيفات  
+          </a>  
+        </div>  
+      </div>  
+    </section>  
+
+    <!-- TRUST -->  
+    <section class="trust reveal">  
+      <div class="trust-item">  
+        <div class="trust-icon">✓</div>  
+        <div class="trust-text">  
+          <strong>اختيارات مختارة</strong>  
+          <span>منتجات بتصاميم مميزة</span>  
+        </div>  
+      </div>  
+      <div class="trust-item">  
+        <div class="trust-icon">🚚</div>  
+        <div class="trust-text">  
+          <strong>التوصيل داخل المغرب</strong>  
+          <span>نوصلو لمدينتك</span>  
+        </div>  
+      </div>  
+      <div class="trust-item">  
+        <div class="trust-icon">💵</div>  
+        <div class="trust-text">  
+          <strong>الدفع عند الاستلام</strong>  
+          <span>COD متوفر</span>  
+        </div>  
+      </div>  
+      <div class="trust-item">  
+        <div class="trust-icon">✦</div>  
+        <div class="trust-text">  
+          <strong>H7 NEO</strong>  
+          <span>LUXURY IN EVERY DETAIL</span>  
+        </div>  
+      </div>  
+    </section>  
+
+    <!-- COLLECTIONS -->  
+    <section class="section reveal" id="collections">  
+      <div class="section-head">  
+        <div>  
+          <div class="section-kicker">Collections</div>  
+          <h2 class="section-title">اختار الستايل ديالك</h2>  
+        </div>  
+        <p class="section-desc">  
+          تصنيفات مختارة باش تلقى المنتج اللي مناسب ليك بسرعة.  
+        </p>  
+      </div>  
+      <div class="collections">  
+        <article class="collection" data-category-card="ملابس محجبات">  
+          <img src="حجاب هجار_1.jpg" alt="ملابس محجبات" loading="lazy" onerror="this.src='حجاب أنغام_1.jpg'">  
+          <div class="collection-info">  
+            <h3>ملابس محجبات</h3>  
+            <span>Elegance & Modesty</span>  
+          </div>  
+        </article>  
+        <article class="collection" data-category-card="أحذية رجالية">  
+          <img src="بالغينة صيفية_1.jpg" alt="أحذية رجالية" loading="lazy">  
+          <div class="collection-info">  
+            <h3>أحذية رجالية</h3>  
+            <span>Modern & Comfortable</span>  
+          </div>  
+        </article>  
+        <article class="collection" data-category-card="أحذية نسائية">  
+          <img src="صندالة نسائية صيفية_1.jpg" alt="أحذية نسائية" loading="lazy">  
+          <div class="collection-info">  
+            <h3>أحذية نسائية</h3>  
+            <span>Style & Comfort</span>  
+          </div>  
+        </article>  
+        <article class="collection" data-category-card="إكسسوارات">  
+          <img src="radgo_1.jpg" alt="إكسسوارات" loading="lazy">  
+          <div class="collection-info">  
+            <h3>إكسسوارات</h3>  
+            <span>Complete Your Look</span>  
+          </div>  
+        </article>  
+      </div>  
+    </section>  
+
+    <!-- SHOP -->  
+    <section class="section reveal" id="shop">  
+      <div class="section-head">  
+        <div>  
+          <div class="section-kicker">H7 NEO Shop</div>  
+          <h2 class="section-title">اكتشف المنتجات</h2>  
+        </div>  
+        <p class="section-desc">  
+          اختار المنتج، شوف التفاصيل، زيدو للسلة وكمّل الطلب بسهولة.  
+        </p>  
+      </div>  
+
+      <div class="shop-toolbar">  
+        <div class="filters" id="filters">  
+          <button class="filter-btn active" data-filter="all" type="button">الكل</button>  
+          <button class="filter-btn" data-filter="ملابس محجبات" type="button">ملابس محجبات</button>  
+          <button class="filter-btn" data-filter="أحذية رجالية" type="button">أحذية رجالية</button>  
+          <button class="filter-btn" data-filter="أحذية نسائية" type="button">أحذية نسائية</button>  
+          <button class="filter-btn" data-filter="إكسسوارات" type="button">إكسسوارات</button>  
+        </div>  
+        <div class="search-box">  
+          <span class="search-icon">⌕</span>  
+          <input id="searchInput" type="search" placeholder="قلب على منتج..." autocomplete="off">  
+        </div>  
+      </div>  
+
+      <div class="products-grid" id="productsGrid"></div>  
+    </section>  
+
+    <!-- FEATURE -->  
+    <section class="section reveal">  
+      <div class="feature">  
+        <div class="feature-image"></div>  
+        <div class="feature-content">  
+          <div class="eyebrow">H7 NEO EDIT</div>  
+          <h2>  
+            LUXURY<br>  
+            IN EVERY<br>  
+            DETAIL  
+          </h2>  
+          <p>  
+            لأن التفاصيل الصغيرة هي اللي كتفرق،  
+            H7 NEO كتقدم ليك اختيارات أنيقة ومميزة  
+            باش يكون الستايل ديالك مختلف.  
+          </p>  
+          <button class="btn btn-gold" type="button" data-feature-category="ملابس محجبات">  
+            اكتشف الأزياء  
+            <span>←</span>  
+          </button>  
+        </div>  
+      </div>  
+    </section>  
+
+    <!-- ABOUT -->  
+    <section class="section reveal" id="about">  
+      <div class="section-head">  
+        <div>  
+          <div class="section-kicker">About H7 NEO</div>  
+          <h2 class="section-title">أكثر من مجرد متجر</h2>  
+        </div>  
+      </div>  
+      <div class="about">  
+        <div class="about-card">  
+          <h3>H7 NEO</h3>  
+          <p>  
+            H7 NEO هي مساحة للاختيارات العصرية والأنيقة.  
+            كنحاولو نقدموا منتجات متنوعة بتصاميم جذابة،  
+            مع تجربة طلب بسيطة وسريعة للزبون.  
+            من الأزياء إلى الأحذية والإكسسوارات،  
+            الهدف ديالنا هو نخليو كل اختيار عندو قيمة خاصة.  
+          </p>  
+        </div>  
+        <div class="values">  
+          <div class="value">  
+            <div class="value-icon">✦</div>  
+            <strong>Style</strong>  
+            <span>اختيارات عصرية وأنيقة تناسب ستايلات مختلفة.</span>  
+          </div>  
+          <div class="value">  
+            <div class="value-icon">◇</div>  
+            <strong>Selection</strong>  
+            <span>منتجات مختارة بعناية بدل الاختيارات العشوائية.</span>  
+          </div>  
+          <div class="value">  
+            <div class="value-icon">⚡</div>  
+            <strong>Simplicity</strong>  
+            <span>تجربة طلب سهلة وواضحة من الهاتف أو الحاسوب.</span>  
+          </div>  
+          <div class="value">  
+            <div class="value-icon">♡</div>  
+            <strong>Experience</strong>  
+            <span>تجربة شراء منظمة من أول مشاهدة حتى تأكيد الطلب.</span>  
+          </div>  
+        </div>  
+      </div>  
+    </section>  
+
+    <!-- FAQ -->  
+    <section class="section reveal" id="faq">  
+      <div class="section-head">  
+        <div>  
+          <div class="section-kicker">FAQ</div>  
+          <h2 class="section-title">عندك شي سؤال؟</h2>  
+        </div>  
+      </div>  
+      <div class="faq">  
+        <div class="faq-item">  
+          <button class="faq-question" type="button">  
+            <span>كيفاش نقدر نطلب؟</span>  
+            <span>+</span>  
+          </button>  
+          <div class="faq-answer">  
+            اختار المنتج، زيدو للسلة، دخل معلوماتك وكمّل الطلب.  
+            من بعد غادي يتفتح WhatsApp باش يتبعت الطلب.  
+          </div>  
+        </div>  
+        <div class="faq-item">  
+          <button class="faq-question" type="button">  
+            <span>واش الدفع عند الاستلام متوفر؟</span>  
+            <span>+</span>  
+          </button>  
+          <div class="faq-answer">  
+            نعم، الدفع عند الاستلام متوفر.  
+          </div>  
+        </div>  
+        <div class="faq-item">  
+          <button class="faq-question" type="button">  
+            <span>فين كتوصلو؟</span>  
+            <span>+</span>  
+          </button>  
+          <div class="faq-answer">  
+            التوصيل متوفر داخل المغرب.  
+          </div>  
+        </div>  
+        <div class="faq-item">  
+          <button class="faq-question" type="button">  
+            <span>واش نقدر نطلب أكثر من منتج؟</span>  
+            <span>+</span>  
+          </button>  
+          <div class="faq-answer">  
+            أكيد. تقدر تزيد أكثر من منتج للسلة وتبعتهم كاملين فطلب واحد.  
+          </div>  
+        </div>  
+      </div>  
+    </section>  
+
+    <!-- CTA -->  
+    <section class="cta reveal">  
+      <div class="section-kicker">H7 NEO</div>  
+      <h2>FIND YOUR STYLE</h2>  
+      <p>اختار، جمع، وطلب بسهولة.</p>  
+      <a href="#shop" class="btn btn-gold">  
+        تسوق الآن  
+        <span>←</span>  
+      </a>  
+    </section>  
+  </main>    
+
+  <!-- FOOTER -->    
+  <footer>  
+    <div class="footer-inner">  
+      <div class="footer-grid">  
+        <div class="footer-brand">  
+          <div class="brand">  
+            <div class="brand-mark">H7</div>  
+            <div class="brand-text">  
+              <div class="brand-name">H7 NEO</div>  
+              <div class="brand-sub">LUXE & ÉLÉGANCE</div>  
+            </div>  
+          </div>  
+          <p>  
+            STYLE WITHOUT LIMITS — اختيارات عصرية وأنيقة  
+            لكل شخص كيقلب على الستايل ديالو.  
+          </p>  
+          <div class="socials">  
+            <a class="social" href="https://www.instagram.com/h7_neo1?stkn=aDFua3E5anRtdjNh" target="_blank" rel="noopener" aria-label="Instagram">IG</a>  
+            <a class="social" href="https://www.facebook.com/share/19brCcTQmz/" target="_blank" rel="noopener" aria-label="Facebook">FB</a>  
+            <a class="social" href="https://wa.me/212640419454" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>  
+          </div>  
+        </div>  
+        <div>  
+          <div class="footer-title">المتجر</div>  
+          <div class="footer-links">  
+            <a href="#shop">جميع المنتجات</a>  
+            <a href="#collections">التصنيفات</a>  
+            <a href="#shop">الجديد</a>  
+          </div>  
+        </div>  
+        <div>  
+          <div class="footer-title">المساعدة</div>  
+          <div class="footer-links">  
+            <a href="#faq">الأسئلة الشائعة</a>  
+            <a href="#about">من نحن</a>  
+            <a href="https://wa.me/212640419454" target="_blank" rel="noopener">تواصل معنا</a>  
+          </div>  
+        </div>  
+        <div>  
+          <div class="footer-title">H7 NEO</div>  
+          <div class="footer-links">  
+            <a href="#home">الرئيسية</a>  
+            <a href="#shop">تسوق</a>  
+            <a href="#about">قصتنا</a>  
+          </div>  
+        </div>  
+      </div>  
+      <div class="footer-bottom">  
+        <span>© <span id="year"></span> H7 NEO. All rights reserved.</span>  
+        <span>STYLE WITHOUT LIMITS</span>  
+      </div>  
+    </div>  
+  </footer>    
+
+  <!-- WHATSAPP -->  
+  <a href="https://wa.me/212640419454" target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">☎</a>    
+
+  <!-- CART DRAWER -->    
+  <aside class="drawer" id="cartDrawer">  
+    <div class="drawer-head">  
+      <h3>السلة</h3>  
+      <button class="close-btn" id="cartClose" type="button" aria-label="إغلاق">×</button>  
+    </div>  
+    <div class="cart-items" id="cartItems"></div>  
+    <div class="drawer-foot">  
+      <div class="total-row">  
+        <span>المجموع</span>  
+        <span class="total-value" id="cartTotal">0 DH</span>  
+      </div>  
+      <button class="btn btn-gold full-btn" id="checkoutBtn" type="button">  
+        إتمام الطلب  
+        <span>←</span>  
+      </button>  
+    </div>  
+  </aside>    
+
+  <!-- PRODUCT MODAL -->    
+  <div class="modal" id="productModal">  
+    <div class="modal-box product-modal">  
+      <button class="close-btn modal-close" id="productClose" type="button" aria-label="إغلاق">×</button>  
+      <div class="modal-gallery">  
+        <img id="modalMainImage" class="main-image" src="" alt="">  
+        <div class="thumbs" id="modalThumbs"></div>  
+      </div>  
+      <div class="modal-info">  
+        <div class="modal-category" id="modalCategory"></div>  
+        <h2 id="modalName"></h2>  
+        <div class="modal-price" id="modalPrice"></div>  
+        <p class="modal-description" id="modalDescription"></p>  
+        <button class="btn btn-gold" id="modalAddBtn" type="button">  
+          أضف للسلة  
+          <span>+</span>  
+        </button>  
+      </div>  
+    </div>  
+  </div>    
+
+  <!-- CHECKOUT MODAL (تتمة الفورم هنا) -->    
+  <div class="modal" id="checkoutModal">  
+    <div class="modal-box checkout-box">  
+      <button class="close-btn modal-close" id="checkoutClose" type="button" aria-label="إغلاق">×</button>  
+      <h2 class="checkout-title">تأكيد الطلب</h2>  
+      <p class="checkout-sub">دخل معلوماتك باش نوجهو الطلب ديالك عبر WhatsApp.</p>  
+      <form id="checkoutForm" novalidate>  
+        <div class="form-grid">  
+          <div class="field">  
+            <label for="customerName">الاسم الكامل *</label>  
+            <input id="customerName" name="name" type="text" placeholder="الاسم الكامل" maxlength="80" required>  
+            <div class="form-error" id="nameError">دخل الاسم الكامل.</div>  
+          </div>  
+          <div class="field">  
+            <label for="customerPhone">رقم الهاتف *</label>  
+            <input id="customerPhone" name="phone" type="tel" placeholder="رقم الهاتف" required>  
+            <div class="form-error" id="phoneError">دخل رقم الهاتف.</div>  
+          </div>  
+          <div class="field full">  
+            <label for="customerCity">المدينة *</label>  
+            <input id="customerCity" name="city" type="text" placeholder="المدينة" required>  
+            <div class="form-error" id="cityError">دخل المدينة.</div>  
+          </div>  
+          <div class="field full">  
+            <label for="customerAddress">العنوان *</label>  
+            <textarea id="customerAddress" name="address" placeholder="العنوان الكامل" required></textarea>  
+            <div class="form-error" id="addressError">دخل العنوان.</div>  
+          </div>  
+        </div>  
+        <div class="checkout-summary">  
+          <div class="summary-row">  
+            <span>المجموع:</span>  
+            <strong id="checkoutTotalVal">0 DH</strong>  
+          </div>  
+          <div class="summary-total">الدفع عند الاستلام</div>  
+        </div>  
+        <button class="btn btn-gold full-btn" type="submit">إرسال الطلب عبر واتساب</button>  
+      </form>  
+    </div>  
+  </div>
+
+  <div id="toast">تم الإضافة بنجاح</div>
+
+  <script>
+    // === إخفاء الـ Loader عند تحميل الصفحة ===
+    window.addEventListener("load", () => {
+      document.getElementById("loader").classList.add("hide");
+      document.getElementById("year").textContent = new Date().getFullYear();
+    });
+
+    // === دوال الـ Toast (رسائل التأكيد) ===
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      toast.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(() => { toast.classList.remove("show"); }, 3000);
+    }
+
+    // === القوائم والموديلز (Menu & Modals) ===
+    const overlay = document.getElementById("overlay");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const cartDrawer = document.getElementById("cartDrawer");
+    const productModal = document.getElementById("productModal");
+    const checkoutModal = document.getElementById("checkoutModal");
+
+    document.getElementById("menuBtn").addEventListener("click", () => {
+      mobileMenu.classList.add("open");
+      overlay.classList.add("show");
+    });
+    
+    document.getElementById("mobileClose").addEventListener("click", closeAll);
+    document.getElementById("cartBtn").addEventListener("click", () => {
+      cartDrawer.classList.add("open");
+      overlay.classList.add("show");
+    });
+    document.getElementById("cartClose").addEventListener("click", closeAll);
+    document.getElementById("productClose").addEventListener("click", closeAll);
+    document.getElementById("checkoutClose").addEventListener("click", closeAll);
+    overlay.addEventListener("click", closeAll);
+
+    function closeAll() {
+      mobileMenu.classList.remove("open");
+      cartDrawer.classList.remove("open");
+      productModal.classList.remove("show");
+      checkoutModal.classList.remove("show");
+      overlay.classList.remove("show");
+    }
+
+    // === إدارة الأسئلة الشائعة (FAQ) ===
+    document.querySelectorAll(".faq-question").forEach(button => {
+      button.addEventListener("click", () => {
+        button.parentElement.classList.toggle("open");
+      });
+    });
+
+    // === سلة المشتريات (Cart Logic) ===
+    let cart = JSON.parse(localStorage.getItem("h7_cart")) || [];
+
+    function updateCartUI() {
+      const cartItemsContainer = document.getElementById("cartItems");
+      cartItemsContainer.innerHTML = "";
+      let total = 0;
+      let count = 0;
+
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<div class="cart-empty">السلة فارغة حالياً</div>';
+      } else {
+        cart.forEach((item, index) => {
+          total += item.price * item.qty;
+          count += item.qty;
+          cartItemsContainer.innerHTML += `
+            <div class="cart-item">
+              <img class="cart-item-img" src="${item.img}" alt="${item.name}">
+              <div>
+                <div class="cart-item-name">${item.name}</div>
+                <div class="cart-item-price">${item.price} DH</div>
+                <div class="qty">
+                  <button type="button" onclick="updateQty(${index}, -1)">-</button>
+                  <span>${item.qty}</span>
+                  <button type="button" onclick="updateQty(${index}, 1)">+</button>
+                </div>
+              </div>
+              <button class="remove" onclick="removeFromCart(${index})">🗑</button>
+            </div>
+          `;
+        });
+      }
+
+      document.getElementById("cartCount").textContent = count;
+      document.getElementById("cartTotal").textContent = total + " DH";
+      document.getElementById("checkoutTotalVal").textContent = total + " DH";
+      localStorage.setItem("h7_cart", JSON.stringify(cart));
+    }
+
+    window.updateQty = (index, amount) => {
+      cart[index].qty += amount;
+      if (cart[index].qty <= 0) cart.splice(index, 1);
+      updateCartUI();
+    };
+
+    window.removeFromCart = (index) => {
+      cart.splice(index, 1);
+      updateCartUI();
+      showToast("تم حذف المنتج من السلة");
+    };
+
+    // === عرض نافذة الدفع ===
+    document.getElementById("checkoutBtn").addEventListener("click", () => {
+      if (cart.length === 0) {
+        showToast("السلة فارغة");
+        return;
+      }
+      closeAll();
+      checkoutModal.classList.add("show");
+      overlay.classList.add("show");
+    });
+
+    // === إرسال الطلب عبر واتساب بشكل احترافي جداً ===
+    document.getElementById("checkoutForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById("customerName").value.trim();
+      const phone = document.getElementById("customerPhone").value.trim();
+      const city = document.getElementById("customerCity").value.trim();
+      const address = document.getElementById("customerAddress").value.trim();
+
+      if(!name || !phone || !city || !address) {
+        showToast("المرجو إدخال جميع المعلومات");
+        return;
+      }
+
+      let total = 0;
+      
+      // تصميم الرسالة الاحترافية للواتساب
+      let waMessage = `*✨ طلب جديد من متجر H7 NEO ✨*\n`;
+      waMessage += `━━━━━━━━━━━━━━━━━━━\n\n`;
+      
+      waMessage += `*👤 معلومات الزبون:*\n`;
+      waMessage += `▪️ *الاسم:* ${name}\n`;
+      waMessage += `▪️ *الهاتف:* ${phone}\n`;
+      waMessage += `▪️ *المدينة:* ${city}\n`;
+      waMessage += `▪️ *العنوان:* ${address}\n\n`;
+      
+      waMessage += `*🛍️ المنتجات المطلوبة:*\n`;
+      cart.forEach((item, index) => {
+        const itemTotal = item.price * item.qty;
+        total += itemTotal;
+        waMessage += `${index + 1}. ${item.name} ➖ (x${item.qty})\n   السعر: ${itemTotal} DH\n`;
+      });
+      
+      waMessage += `\n━━━━━━━━━━━━━━━━━━━\n`;
+      waMessage += `*💰 المجموع الإجمالي: ${total} DH*\n`;
+      waMessage += `━━━━━━━━━━━━━━━━━━━\n\n`;
+      waMessage += `شكراً لاختياركم H7 NEO! 🤍`;
+
+      const encodedMessage = encodeURIComponent(waMessage);
+      const waLink = `https://wa.me/212640419454?text=${encodedMessage}`;
+
+      window.open(waLink, '_blank');
+      
+      // تفريغ السلة بعد الطلب
+      cart = [];
+      updateCartUI();
+      closeAll();
+      document.getElementById("checkoutForm").reset();
+      showToast("تم تحويلك للواتساب لإتمام الطلب!");
+    });
+
+    // تهيئة مبدئية للسلة
+    updateCartUI();
+  </script>
+</body>  
+</html>
