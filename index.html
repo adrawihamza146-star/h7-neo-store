@@ -110,7 +110,7 @@
     header {
       position: sticky;
       top: 0;
-      background: rgba(7, 7, 7, 0.9);
+      background: rgba(7, 7, 7, 0.95);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border-light);
       z-index: 1000;
@@ -189,14 +189,14 @@
 
     /* Hero Section */
     .hero {
-      padding: 100px 0 60px;
+      padding: 80px 0 40px;
       text-align: center;
       background: radial-gradient(circle at center, rgba(200, 169, 107, 0.1) 0%, transparent 70%);
     }
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 48px;
+      font-size: 38px;
       color: var(--accent-light);
       margin-bottom: 15px;
     }
@@ -205,7 +205,8 @@
       color: var(--text-muted);
       max-width: 600px;
       margin: 0 auto 30px;
-      font-size: 18px;
+      font-size: 16px;
+      padding: 0 10px;
     }
 
     /* Filters & Search */
@@ -214,8 +215,8 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
-      margin-bottom: 40px;
+      gap: 15px;
+      margin-bottom: 30px;
     }
 
     .filter-btn {
@@ -225,6 +226,7 @@
       background: var(--bg-card);
       font-weight: 600;
       transition: var(--transition);
+      font-size: 14px;
     }
 
     .filter-btn.active, .filter-btn:hover {
@@ -235,7 +237,8 @@
 
     .search-box {
       position: relative;
-      min-width: 250px;
+      width: 100%;
+      max-width: 300px;
     }
 
     .search-box input {
@@ -259,9 +262,9 @@
     /* Product Grid */
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 25px;
-      margin-bottom: 80px;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
     }
 
     .product-card {
@@ -274,22 +277,22 @@
     }
 
     .product-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-3px);
       border-color: var(--border);
     }
 
     .product-img {
       width: 100%;
-      height: 320px;
+      height: 280px;
       object-fit: cover;
     }
 
     .product-info {
-      padding: 20px;
+      padding: 15px;
     }
 
     .product-title {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 700;
       margin-bottom: 8px;
     }
@@ -297,13 +300,13 @@
     .product-price {
       color: var(--accent-light);
       font-weight: bold;
-      font-size: 16px;
-      margin-bottom: 15px;
+      font-size: 15px;
+      margin-bottom: 12px;
     }
 
     .card-actions {
       display: flex;
-      gap: 10px;
+      gap: 8px;
     }
 
     .btn-add {
@@ -314,6 +317,7 @@
       font-weight: bold;
       border-radius: 6px;
       transition: var(--transition);
+      font-size: 14px;
     }
 
     .btn-add:hover {
@@ -342,7 +346,7 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      max-width: 400px;
+      max-width: 380px;
       background: var(--bg-card);
       z-index: 2001;
       transform: translateX(-100%);
@@ -381,13 +385,14 @@
       right: 20px;
       background: var(--accent);
       color: #000;
-      padding: 12px 24px;
+      padding: 12px 20px;
       border-radius: 8px;
       font-weight: bold;
       z-index: 9999;
       transform: translateY(100px);
       opacity: 0;
       transition: var(--transition);
+      font-size: 14px;
     }
 
     #toast.show {
@@ -395,20 +400,10 @@
       opacity: 1;
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .hero h1 { font-size: 32px; }
+      #menuBtn { display: flex !important; }
+      .hero h1 { font-size: 28px; }
     }
   </style>
 </head>
@@ -433,11 +428,8 @@
       <ul class="nav-links">
         <li><a href="#hero">الرئيسية</a></li>
         <li><a href="#shop">المتجر</a></li>
-        <li><a href="#about">من نحن</a></li>
-        <li><a href="#faq">الأسئلة الشائعة</a></li>
       </ul>
       <div class="nav-icons">
-        <button id="menuBtn" class="icon-btn" style="display: none;"><i class="fa-solid fa-bars"></i></button>
         <button id="cartBtn" class="icon-btn">
           <i class="fa-solid fa-bag-shopping"></i>
           <span id="cartCount" class="badge">0</span>
@@ -447,7 +439,7 @@
   </header>
 
   <!-- Hero Section -->
-  <section id="hero" class="hero reveal">
+  <section id="hero" class="hero">
     <div class="container">
       <h1>تشكيلة الأناقة العصرية</h1>
       <p>اكتشفي أحدث صيحات الموضة والمنتجات الفاخرة المصممة خصيصاً لتناسب ذوقك الرفيع.</p>
@@ -455,12 +447,11 @@
   </section>
 
   <!-- Shop Section -->
-  <section id="shop" class="container reveal">
+  <section id="shop" class="container">
     <div class="shop-controls">
-      <div id="filters" style="display: flex; gap: 10px;">
+      <div id="filters" style="display: flex; gap: 8px; flex-wrap: wrap;">
         <button class="filter-btn active" data-filter="all">الكل</button>
         <button class="filter-btn" data-filter="hijab">حجاب</button>
-        <button class="filter-btn" data-filter="accessories">إكسسوارات</button>
       </div>
       <div class="search-box">
         <i class="fa-solid fa-magnifying-glass"></i>
@@ -477,7 +468,7 @@
   <div id="cartDrawer" class="drawer">
     <div class="drawer-header">
       <h3>سلة التسوق</h3>
-      <button id="cartClose"><i class="fa-solid fa-xmark"></i></button>
+      <button id="cartClose"><i class="fa-solid fa-xmark" style="font-size: 20px;"></i></button>
     </div>
     <div id="cartItems" class="drawer-body">
       <!-- Cart Items Dynamic -->
@@ -495,29 +486,29 @@
   <div id="checkoutModal" class="drawer" style="right: 0; left: auto; transform: translateX(100%);">
     <div class="drawer-header">
       <h3>معلومات الشحن</h3>
-      <button id="checkoutClose"><i class="fa-solid fa-xmark"></i></button>
+      <button id="checkoutClose" onclick="closeCheckout()"><i class="fa-solid fa-xmark" style="font-size: 20px;"></i></button>
     </div>
     <div class="drawer-body">
-      <form id="checkoutForm" style="display: flex; flex-direction: column; gap: 15px;">
+      <form id="checkoutForm" style="display: flex; flex-direction: column; gap: 12px;">
         <div>
-          <label>الاسم الكامل</label>
+          <label style="font-size: 13px; display: block; margin-bottom: 5px;">الاسم الكامل</label>
           <input type="text" id="customerName" required style="width: 100%; padding: 10px; background: var(--bg-elevated); border: 1px solid var(--border-light); color: #fff; border-radius: 6px;" />
         </div>
         <div>
-          <label>رقم الهاتف</label>
+          <label style="font-size: 13px; display: block; margin-bottom: 5px;">رقم الهاتف</label>
           <input type="tel" id="customerPhone" required style="width: 100%; padding: 10px; background: var(--bg-elevated); border: 1px solid var(--border-light); color: #fff; border-radius: 6px;" />
         </div>
         <div>
-          <label>المدينة</label>
+          <label style="font-size: 13px; display: block; margin-bottom: 5px;">المدينة</label>
           <input type="text" id="customerCity" required style="width: 100%; padding: 10px; background: var(--bg-elevated); border: 1px solid var(--border-light); color: #fff; border-radius: 6px;" />
         </div>
         <div>
-          <label>العنوان</label>
+          <label style="font-size: 13px; display: block; margin-bottom: 5px;">العنوان</label>
           <input type="text" id="customerAddress" style="width: 100%; padding: 10px; background: var(--bg-elevated); border: 1px solid var(--border-light); color: #fff; border-radius: 6px;" />
         </div>
         <div>
-          <label>ملاحظات إضافية</label>
-          <textarea id="customerNote" rows="3" style="width: 100%; padding: 10px; background: var(--bg-elevated); border: 1px solid var(--border-light); color: #fff; border-radius: 6px;"></textarea>
+          <label style="font-size: 13px; display: block; margin-bottom: 5px;">ملاحظات إضافية</label>
+          <textarea id="customerNote" rows="2" style="width: 100%; padding: 10px; background: var(--bg-elevated); border: 1px solid var(--border-light); color: #fff; border-radius: 6px;"></textarea>
         </div>
         <button type="submit" id="submitOrderBtn" class="btn-add" style="margin-top: 10px;">تأكيد الطلب واستلام الوصل</button>
       </form>
@@ -529,7 +520,7 @@
   /* =========================================================
      GLOBAL CONFIG & DATA
   ========================================================= */
-  const WHATSAPP_NUMBER = "212600000000"; // قم بتعديله لرقم الهاتف الخاص بك
+  const WHATSAPP_NUMBER = "212600000000"; 
 
   const PRODUCTS = [
     {
@@ -562,7 +553,6 @@
   let wishlist = JSON.parse(localStorage.getItem("h7_wishlist")) || [];
   let currentCategory = "all";
   let currentSearch = "";
-  let currentProduct = null;
 
   /* =========================================================
      HELPERS & UTILS
@@ -660,13 +650,7 @@
       toast("تمت إضافة المنتج إلى المفضلة");
     }
     saveStorage();
-    updateWishlistCount();
     renderProducts();
-  }
-
-  function updateWishlistCount() {
-    const el = $("#wishlistCount");
-    if (el) el.textContent = wishlist.length;
   }
 
   /* =========================================================
@@ -683,14 +667,14 @@
     });
 
     if (filtered.length === 0) {
-      grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px;">لا توجد منتجات مطابقة لجميع الفلاتر المختارة.</p>`;
+      grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px;">لا توجد منتجات مطابقة.</p>`;
       return;
     }
 
     grid.innerHTML = filtered.map(p => {
       const isWished = wishlist.includes(p.id);
       return `
-        <div class="product-card" data-product="${p.id}">
+        <div class="product-card">
           <img src="${p.image}" alt="${escapeHTML(p.name)}" class="product-img" />
           <div class="product-info">
             <h3 class="product-title">${escapeHTML(p.name)}</h3>
@@ -724,18 +708,18 @@
         const p = getProduct(item.id);
         if (!p) return "";
         return `
-          <div style="display: flex; gap: 15px; margin-bottom: 15px; background: var(--bg-elevated); padding: 10px; border-radius: 8px;">
-            <img src="${p.image}" alt="${escapeHTML(p.name)}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px;" />
+          <div style="display: flex; gap: 12px; margin-bottom: 12px; background: var(--bg-elevated); padding: 10px; border-radius: 8px; align-items: center;">
+            <img src="${p.image}" alt="${escapeHTML(p.name)}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 6px;" />
             <div style="flex: 1;">
-              <h4 style="font-size: 14px;">${escapeHTML(p.name)}</h4>
-              <p style="color: var(--accent-light); font-size: 13px;">${money(p.price)}</p>
-              <div style="display: flex; items-center; gap: 8px; margin-top: 5px;">
-                <button data-qty="${p.id}" data-change="-1" style="padding: 2px 8px; background: var(--bg-card); border-radius: 4px;">-</button>
-                <span>${item.qty}</span>
-                <button data-qty="${p.id}" data-change="1" style="padding: 2px 8px; background: var(--bg-card); border-radius: 4px;">+</button>
+              <h4 style="font-size: 13px;">${escapeHTML(p.name)}</h4>
+              <p style="color: var(--accent-light); font-size: 12px;">${money(p.price)}</p>
+              <div style="display: flex; align-items: center; gap: 8px; margin-top: 4px;">
+                <button data-qty="${p.id}" data-change="-1" style="padding: 2px 6px; background: var(--bg-card); border-radius: 4px;">-</button>
+                <span style="font-size: 13px;">${item.qty}</span>
+                <button data-qty="${p.id}" data-change="1" style="padding: 2px 6px; background: var(--bg-card); border-radius: 4px;">+</button>
               </div>
             </div>
-            <button data-remove="${p.id}" style="color: var(--text-muted); font-size: 16px;"><i class="fa-solid fa-trash"></i></button>
+            <button data-remove="${p.id}" style="color: var(--text-muted); font-size: 14px;"><i class="fa-solid fa-trash"></i></button>
           </div>
         `;
       }).join("");
@@ -774,20 +758,6 @@
     $("#checkoutModal")?.classList.remove("open");
   }
 
-  function openProduct(id) {
-    currentProduct = getProduct(id);
-    if (!currentProduct) return;
-    toast(`عرض تفاصيل: ${currentProduct.name}`);
-  }
-
-  function closeProduct() {
-    currentProduct = null;
-  }
-
-  function setModalImage(index) {
-    // Gallery Handler
-  }
-
   /* =========================================================
      MESSAGING & PDF GENERATION
   ========================================================= */
@@ -812,13 +782,9 @@
   }
 
   async function createOrderPDF(order, customer) {
-    if (!window.jspdf || !window.html2canvas) {
-      console.error("PDF generation libraries are missing.");
-      return false;
-    }
+    if (!window.jspdf || !window.html2canvas) return false;
 
     const { jsPDF } = window.jspdf;
-
     const wrapper = document.createElement("div");
     wrapper.style.position = "fixed";
     wrapper.style.left = "-9999px";
@@ -898,12 +864,7 @@
     document.body.appendChild(wrapper);
 
     try {
-      const canvas = await html2canvas(wrapper, {
-        scale: 2,
-        backgroundColor: "#070707",
-        useCORS: true
-      });
-
+      const canvas = await html2canvas(wrapper, { scale: 2, backgroundColor: "#070707", useCORS: true });
       const imgData = canvas.toDataURL("image/jpeg", 0.95);
       const pdf = new jsPDF("p", "mm", "a4");
       const pdfWidth = pdf.internal.pageSize.getWidth();
@@ -914,10 +875,7 @@
       document.body.removeChild(wrapper);
       return true;
     } catch (error) {
-      console.error("PDF generation failed:", error);
-      if (document.body.contains(wrapper)) {
-        document.body.removeChild(wrapper);
-      }
+      if (document.body.contains(wrapper)) document.body.removeChild(wrapper);
       return false;
     }
   }
@@ -954,7 +912,6 @@
 
     closeCheckout();
     closeCart();
-
     $("#checkoutForm").reset();
 
     submitBtn.disabled = false;
@@ -967,45 +924,25 @@
      EVENT LISTENERS
   ========================================================= */
   document.addEventListener("DOMContentLoaded", () => {
-
     const loader = $("#loader");
     if (loader) {
       setTimeout(() => {
         loader.classList.add("hide");
-      }, 600);
+      }, 400);
     }
 
     renderProducts();
     updateCartUI();
-    updateWishlistCount();
-
-    // Mobile Menu
-    $("#menuBtn")?.addEventListener("click", () => {
-      $("#mobileMenu")?.classList.add("open");
-      $("#overlay")?.classList.add("show");
-      document.body.classList.add("no-scroll");
-    });
-
-    const closeMobile = () => {
-      $("#mobileMenu")?.classList.remove("open");
-      if (!$("#cartDrawer")?.classList.contains("open")) {
-        $("#overlay")?.classList.remove("show");
-        document.body.classList.remove("no-scroll");
-      }
-    };
-
-    $("#mobileClose")?.addEventListener("click", closeMobile);
 
     // Drawers & Modals
     $("#cartBtn")?.addEventListener("click", openCart);
     $("#cartClose")?.addEventListener("click", closeCart);
     $("#checkoutBtn")?.addEventListener("click", openCheckout);
     $("#checkoutClose")?.addEventListener("click", closeCheckout);
-    $("#productClose")?.addEventListener("click", closeProduct);
 
     $("#overlay")?.addEventListener("click", () => {
-      closeMobile();
       closeCart();
+      closeCheckout();
     });
 
     // Filters & Search
@@ -1021,10 +958,8 @@
       renderProducts();
     });
 
-    // Delegated Clicks (Products / Cart / Wishlist)
+    // Delegated Clicks
     document.addEventListener("click", (e) => {
-
-      // Add to cart
       const addBtn = e.target.closest("[data-add]");
       if (addBtn) {
         e.stopPropagation();
@@ -1032,7 +967,6 @@
         return;
       }
 
-      // Wishlist toggle
       const wishBtn = e.target.closest("[data-wish]");
       if (wishBtn) {
         e.stopPropagation();
@@ -1040,41 +974,20 @@
         return;
       }
 
-      // Open product modal
-      const prodCard = e.target.closest("[data-product]");
-      if (prodCard) {
-        openProduct(prodCard.dataset.product);
-        return;
-      }
-
-      // Cart quantity change
       const qtyBtn = e.target.closest("[data-qty]");
       if (qtyBtn) {
         changeQty(qtyBtn.dataset.qty, Number(qtyBtn.dataset.change));
         return;
       }
 
-      // Remove from cart
       const removeBtn = e.target.closest("[data-remove]");
       if (removeBtn) {
         removeFromCart(removeBtn.dataset.remove);
         return;
       }
-
     });
 
-    // Checkout form submit
-    $("#checkoutForm")?.addEventListener("submit", handleOrderSubmit);      // Intersection Observer for Animations     const reveals = $$(".reveal");
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    }, { threshold: 0.1 });
-
-    reveals.forEach(el => observer.observe(el));
-
+    $("#checkoutForm")?.addEventListener("submit", handleOrderSubmit);
   });
   </script>
 </body>
