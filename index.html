@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>H7 NEO | Luxe & Élégance</title>
+    <title>H7 NEO | Luxe & Élégance - أزياء وحجابات فاخرة</title>
     
-    <!-- Google Fonts: Cairo for Arabic text and Playfair Display for accents -->
+    <!-- Google Fonts: Cairo & Playfair Display -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- jsPDF & html2canvas for PDF Invoice Generation -->
+    <!-- jsPDF & html2canvas for PDF Invoice Export -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
@@ -26,16 +26,16 @@
             theme: {
                 extend: {
                     colors: {
-                        obsidian: '#070707',
-                        cardDark: '#111111',
-                        cardHover: '#181818',
+                        obsidian: '#0d0d0f',
+                        cardDark: '#141418',
+                        cardHover: '#1a1a20',
                         gold: {
-                            DEFAULT: '#c8a96b',
-                            light: '#e5c98e',
-                            dark: '#9a7b3e',
-                            glow: 'rgba(200, 169, 107, 0.25)'
+                            DEFAULT: '#D4AF37',
+                            light: '#F3E5AB',
+                            dark: '#aa8c2c',
+                            glow: 'rgba(212, 175, 55, 0.25)'
                         },
-                        offwhite: '#f8f5ef'
+                        offwhite: '#f9f8f3'
                     },
                     fontFamily: {
                         cairo: ['Cairo', 'sans-serif'],
@@ -49,8 +49,8 @@
     <style>
         body {
             font-family: 'Cairo', sans-serif;
-            background-color: #070707;
-            color: #f8f5ef;
+            background-color: #0d0d0f;
+            color: #f9f8f3;
             overflow-x: hidden;
         }
 
@@ -59,45 +59,41 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #070707;
+            background: #0d0d0f;
         }
         ::-webkit-scrollbar-thumb {
-            background: #222;
+            background: #222228;
             border-radius: 4px;
-            border: 1px solid rgba(200, 169, 107, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.3);
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #c8a96b;
+            background: #D4AF37;
         }
 
-        /* Luxury Gold Gradients & Text Glow */
+        /* Gold Text Gradients & Glows */
         .text-gold-gradient {
-            background: linear-gradient(135deg, #fceabb 0%, #c8a96b 50%, #9a7b3e 100%);
+            background: linear-gradient(135deg, #FFF099 0%, #D4AF37 50%, #997A15 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .border-gold-gradient {
-            border-image: linear-gradient(to right, #c8a96b, #e5c98e, #9a7b3e) 1;
-        }
-
         .gold-glow {
-            box-shadow: 0 0 25px rgba(200, 169, 107, 0.15);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
         }
 
         .gold-glow-hover:hover {
-            box-shadow: 0 0 30px rgba(200, 169, 107, 0.3);
-            border-color: #c8a96b;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            border-color: #D4AF37;
         }
 
-        /* Glassmorphic effect */
+        /* Glassmorphic Header */
         .glass-header {
-            background: rgba(7, 7, 7, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(13, 13, 15, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
         }
 
-        /* Infinite Marquee */
+        /* Infinite Marquee Banner */
         @keyframes marquee {
             0% { transform: translateX(0%); }
             100% { transform: translateX(-50%); }
@@ -111,7 +107,7 @@
             animation-play-state: paused;
         }
 
-        /* Toast animations */
+        /* Toast Animation */
         @keyframes slideInUp {
             from { transform: translateY(100%); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
@@ -124,21 +120,21 @@
 <body class="selection:bg-gold selection:text-black">
 
     <!-- Top Announcement Bar -->
-    <div class="bg-gradient-to-r from-[#111111] via-[#1a160e] to-[#111111] border-b border-gold/20 py-2.5 text-xs tracking-wide overflow-hidden relative z-50">
+    <div class="bg-gradient-to-r from-[#141418] via-[#211d0e] to-[#141418] border-b border-gold/20 py-2 text-xs tracking-wide overflow-hidden relative z-50">
         <div class="animate-marquee whitespace-nowrap flex items-center gap-12 font-medium text-gold-light">
-            <span>✨ H7 NEO — STYLE WITHOUT LIMITS • LUXURY IN EVERY DETAIL • التوصيل مجاني لجميع مدن المغرب للطلبات الفوق 500 درهم ✨</span>
-            <span>✦ H7 NEO — STYLE WITHOUT LIMITS • LUXURY IN EVERY DETAIL • التوصيل داخل المغرب ✦</span>
-            <span>✨ H7 NEO — STYLE WITHOUT LIMITS • LUXURY IN EVERY DETAIL • التوصيل مجاني لجميع مدن المغرب للطلبات الفوق 500 درهم ✨</span>
-            <span>✦ H7 NEO — STYLE WITHOUT LIMITS • LUXURY IN EVERY DETAIL • التوصيل داخل المغرب ✦</span>
+            <span>✨ تشكيلة الحجابات الحصرية: حجاب هجار • حجاب نديم • حجاب بالبوني متوفرة الآن ✨</span>
+            <span>✦ توصيل مجاني وسريع لجميع مدن المغرب للطلبات الفوق 500 درهم ✦</span>
+            <span>✨ H7 NEO — STYLE WITHOUT LIMITS • LUXURY IN EVERY DETAIL ✨</span>
+            <span>✦ الدفع عند الاستلام مع إمكانية المعاينة قبل الدفع ✦</span>
         </div>
     </div>
 
     <!-- Navigation Header -->
-    <header class="sticky top-0 z-40 glass-header border-b border-white/5 transition-all duration-300">
+    <header class="sticky top-0 z-40 glass-header border-b border-white/10 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
-            <!-- Mobile Menu Toggle -->
-            <button id="mobileMenuBtn" class="lg:hidden text-gray-300 hover:text-gold p-2 transition-colors">
+            <!-- Mobile Menu Trigger -->
+            <button id="mobileMenuBtn" class="lg:hidden text-gray-300 hover:text-gold p-2 transition-colors" aria-label="القائمة">
                 <i class="fa-solid fa-bars text-xl"></i>
             </button>
 
@@ -153,29 +149,26 @@
                 </div>
             </a>
 
-            <!-- Desktop Navigation Links -->
+            <!-- Desktop Navigation -->
             <nav class="hidden lg:flex items-center gap-8 text-sm font-medium">
                 <a href="#hero" class="text-gold hover:text-gold-light transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:right-0 after:w-full after:h-0.5 after:bg-gold">الرئيسية</a>
+                <a href="#flagship" class="text-gray-300 hover:text-gold transition-colors py-1">مجموعة الحجابات</a>
                 <a href="#categories" class="text-gray-300 hover:text-gold transition-colors py-1">المجموعات</a>
-                <a href="#shop" class="text-gray-300 hover:text-gold transition-colors py-1">المتجر</a>
+                <a href="#shop" class="text-gray-300 hover:text-gold transition-colors py-1">المتجر الكامل</a>
                 <a href="#about" class="text-gray-300 hover:text-gold transition-colors py-1">من نحن</a>
-                <a href="#faq" class="text-gray-300 hover:text-gold transition-colors py-1">الأسئلة الشائعة</a>
             </nav>
 
-            <!-- Action Icons (Wishlist, Cart, Contact) -->
+            <!-- Action Controls -->
             <div class="flex items-center gap-3 sm:gap-4">
-                <!-- Search Button Toggle -->
-                <button onclick="scrollToShopAndSearch()" class="p-2.5 rounded-full bg-cardDark border border-white/10 text-gray-300 hover:text-gold hover:border-gold/50 transition-all">
+                <button onclick="scrollToShopAndSearch()" class="p-2.5 rounded-full bg-cardDark border border-white/10 text-gray-300 hover:text-gold hover:border-gold/50 transition-all" title="بحث في المتجر">
                     <i class="fa-solid fa-magnifying-glass text-sm"></i>
                 </button>
 
-                <!-- Wishlist Badge Button -->
-                <button id="wishlistBtn" class="p-2.5 rounded-full bg-cardDark border border-white/10 text-gray-300 hover:text-gold hover:border-gold/50 transition-all relative">
+                <button id="wishlistBtn" class="p-2.5 rounded-full bg-cardDark border border-white/10 text-gray-300 hover:text-gold hover:border-gold/50 transition-all relative" title="قائمة المفضلة">
                     <i class="fa-regular fa-heart text-sm"></i>
                     <span id="wishlistBadge" class="hidden absolute -top-1 -right-1 bg-gold text-obsidian text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
                 </button>
 
-                <!-- Cart Badge Button -->
                 <button id="cartDrawerBtn" class="flex items-center gap-2 px-3.5 py-2 rounded-full bg-gradient-to-r from-gold/20 to-gold/10 border border-gold/40 text-gold hover:bg-gold hover:text-obsidian transition-all duration-300">
                     <i class="fa-solid fa-bag-shopping text-sm"></i>
                     <span class="text-xs font-bold hidden sm:inline">السلة</span>
@@ -185,9 +178,9 @@
         </div>
     </header>
 
-    <!-- Mobile Drawer Navigation -->
+    <!-- Mobile Navigation Drawer -->
     <div id="mobileDrawer" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden transition-opacity duration-300">
-        <div class="w-4/5 max-w-sm bg-cardDark h-full p-6 flex flex-col justify-between border-l border-gold/20 transform transition-transform">
+        <div class="w-4/5 max-w-sm bg-cardDark h-full p-6 flex flex-col justify-between border-l border-gold/20 shadow-2xl">
             <div>
                 <div class="flex items-center justify-between pb-6 border-b border-white/10">
                     <div class="flex items-center gap-2">
@@ -199,64 +192,62 @@
                 </div>
                 <nav class="mt-8 flex flex-col gap-5 text-base font-medium">
                     <a href="#hero" class="mobile-nav-link text-gold hover:text-gold-light py-2">الرئيسية</a>
+                    <a href="#flagship" class="mobile-nav-link text-gray-300 hover:text-gold py-2">مجموعة الحجابات الحصرية</a>
                     <a href="#categories" class="mobile-nav-link text-gray-300 hover:text-gold py-2">المجموعات</a>
-                    <a href="#shop" class="mobile-nav-link text-gray-300 hover:text-gold py-2">المتجر</a>
+                    <a href="#shop" class="mobile-nav-link text-gray-300 hover:text-gold py-2">المتجر الكامل</a>
                     <a href="#about" class="mobile-nav-link text-gray-300 hover:text-gold py-2">من نحن</a>
-                    <a href="#faq" class="mobile-nav-link text-gray-300 hover:text-gold py-2">الأسئلة الشائعة</a>
                 </nav>
             </div>
             <div class="pt-6 border-t border-white/10">
                 <a href="https://wa.me/212640419454" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 rounded-xl hover:bg-emerald-600 hover:text-white transition-all text-sm font-semibold">
                     <i class="fa-brands fa-whatsapp text-lg"></i>
-                    تواصل معنا مباشرة
+                    تواصل معنا عبر الواتساب
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- Hero Banner Section -->
+    <!-- Hero Section -->
     <section id="hero" class="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-16 px-4">
-        <!-- Background Ambient Glows -->
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-gold/10 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="absolute -bottom-10 right-10 w-72 h-72 bg-gold/5 rounded-full blur-[90px] pointer-events-none"></div>
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-gold/10 rounded-full blur-[140px] pointer-events-none"></div>
 
         <div class="max-w-5xl mx-auto text-center relative z-10 space-y-8">
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cardDark border border-gold/30 text-gold text-xs sm:text-sm font-medium tracking-wide gold-glow">
                 <span class="w-2 h-2 rounded-full bg-gold animate-ping"></span>
-                تشكيلة 2026 الحصرية متوفرة الآن
+                التشكيلة الرسمية للمحجبات: هجار • نديم • بالبوني
             </div>
 
             <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight">
-                فخامة لا تُضاهى <br>
-                <span class="text-gold-gradient font-playfair italic">وأناقة تتعدى الحدود</span>
+                أناقة تليق بجمالك <br>
+                <span class="text-gold-gradient font-playfair italic">وفخامة بلا حدود</span>
             </h1>
 
             <p class="text-gray-300 max-w-2xl mx-auto text-base sm:text-lg font-light leading-relaxed">
-                اكتشف أرقى صيحات الموضة والأزياء الفاخرة المصممة خصيصاً لمن يرغب في التميز. تصاميم حصرية تجمع بين الجودة العالية واللمسة التراثية العصريّة.
+                اكتشفي التشكيلة الفاخرة من الحجابات الراعية المصممة بعناية فائقة. أقمشة حرير وكريب عالية الجودة تضمن لكِ الراحة والثبات طوال اليوم.
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                <a href="#shop" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-gold via-gold-light to-gold-dark text-obsidian font-bold text-base hover:shadow-lg hover:shadow-gold/20 hover:scale-[1.02] transition-all duration-300">
-                    <i class="fa-solid fa-gem ml-2"></i> تسوق الآن
+                <a href="#flagship" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-gold via-gold-light to-gold-dark text-obsidian font-bold text-base hover:shadow-lg hover:shadow-gold/20 hover:scale-[1.02] transition-all duration-300">
+                    <i class="fa-solid fa-gem ml-2"></i> استكشفي حجابات H7 NEO
                 </a>
-                <a href="#categories" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-cardDark border border-white/20 text-gray-200 font-semibold text-base hover:border-gold hover:text-gold transition-all duration-300">
-                    استكشف المجموعات
+                <a href="#shop" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-cardDark border border-white/20 text-gray-200 font-semibold text-base hover:border-gold hover:text-gold transition-all duration-300">
+                    تصفحي كافة المنتجات
                 </a>
             </div>
 
-            <!-- Stats strip -->
+            <!-- Stats Bar -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-12 max-w-3xl mx-auto text-center border-t border-white/10">
                 <div class="p-3">
                     <p class="text-2xl font-bold text-gold font-playfair">100%</p>
-                    <p class="text-xs text-gray-400 mt-1">جودة فاخرة ومضمونة</p>
+                    <p class="text-xs text-gray-400 mt-1">جودة وأقمشة راقية</p>
                 </div>
                 <div class="p-3">
                     <p class="text-2xl font-bold text-gold font-playfair">+5000</p>
-                    <p class="text-xs text-gray-400 mt-1">زبون سعيد بالمغرب</p>
+                    <p class="text-xs text-gray-400 mt-1">زبونة سعيدة بالمغرب</p>
                 </div>
                 <div class="p-3">
                     <p class="text-2xl font-bold text-gold font-playfair">24-48h</p>
-                    <p class="text-xs text-gray-400 mt-1">توصيل سريع للباب</p>
+                    <p class="text-xs text-gray-400 mt-1">توصيل لكل المدن</p>
                 </div>
                 <div class="p-3">
                     <p class="text-2xl font-bold text-gold font-playfair">COD</p>
@@ -266,111 +257,194 @@
         </div>
     </section>
 
-    <!-- Trust Badges -->
-    <section class="py-10 bg-cardDark/60 border-y border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                
-                <div class="flex items-center gap-4 p-4 rounded-2xl bg-cardDark border border-white/5 hover:border-gold/30 transition-colors">
-                    <div class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-xl shrink-0">
-                        <i class="fa-solid fa-hand-holding-dollar"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-white text-sm">الدفع عند الاستلام</h4>
-                        <p class="text-xs text-gray-400 mt-0.5">افحص طلبك وتأكد منه قبل الدفع</p>
+    <!-- Flagship Hijab Spotlight Section -->
+    <section id="flagship" class="py-20 px-4 max-w-7xl mx-auto border-t border-white/10 bg-cardDark/40 rounded-3xl my-8">
+        <div class="text-center space-y-3 mb-12">
+            <span class="text-gold text-xs font-bold tracking-widest uppercase">التشكيلة الحصرية 2026</span>
+            <h2 class="text-3xl sm:text-5xl font-bold">ثلاثية الحجابات الملكية</h2>
+            <p class="text-gray-400 text-sm max-w-xl mx-auto">تصاميم هجار، نديم، وبالبوني المصنوعة خصيصاً لتمنحكِ الراحة والأناقة الاستثنائية</p>
+            <div class="w-20 h-1 bg-gold mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Flagship 1: حجاب هجار -->
+            <div class="bg-cardDark border border-gold/30 rounded-2xl overflow-hidden hover:border-gold transition-all duration-300 gold-glow flex flex-col justify-between group">
+                <div class="relative aspect-[4/5] overflow-hidden cursor-pointer" onclick="openProductModal(1)">
+                    <span class="absolute top-3 right-3 bg-gold text-obsidian text-xs font-black px-3 py-1 rounded-full z-10 shadow-lg">الأكثر مبيعاً</span>
+                    <img src="assets/images/hijab-hajar.jpg" 
+                         onerror="handleProductImageError(this, 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&q=80&w=800', 'حجاب هجار')"
+                         alt="حجاب هجار" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span class="px-5 py-2.5 bg-gold text-obsidian text-xs font-bold rounded-xl shadow-lg">عرض التفاصيل</span>
                     </div>
                 </div>
-
-                <div class="flex items-center gap-4 p-4 rounded-2xl bg-cardDark border border-white/5 hover:border-gold/30 transition-colors">
-                    <div class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-xl shrink-0">
-                        <i class="fa-solid fa-truck-fast"></i>
+                <div class="p-6 space-y-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-xs text-gold font-semibold uppercase">ملابس محجبات</span>
+                            <h3 class="text-xl font-bold text-white mt-0.5">حجاب هجار</h3>
+                        </div>
+                        <span class="text-xl font-bold text-gold font-playfair">250 DH</span>
                     </div>
-                    <div>
-                        <h4 class="font-bold text-white text-sm">توصيل لجميع المدن</h4>
-                        <p class="text-xs text-gray-400 mt-0.5">خدمة توصيل آمنة وشاملة بالمغرب</p>
+                    <p class="text-xs text-gray-300 leading-relaxed font-light">
+                        مصنوع من الشيفون الحريري الفاخر مع حواف مطرزة بدقة عالية. انسيابية ساحرة تناسب كافة الإطلالات الرسمية واليومية.
+                    </p>
+                    <div class="pt-3 border-t border-white/10 flex gap-2">
+                        <button onclick="addToCart(1)" class="flex-1 py-3 rounded-xl bg-gold text-obsidian font-bold text-xs hover:bg-gold-light transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cart-plus"></i> إضافة للسلة
+                        </button>
+                        <button onclick="openProductModal(1)" class="p-3 rounded-xl bg-obsidian border border-white/10 text-gray-300 hover:text-gold hover:border-gold transition-colors">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
                     </div>
                 </div>
-
-                <div class="flex items-center gap-4 p-4 rounded-2xl bg-cardDark border border-white/5 hover:border-gold/30 transition-colors sm:col-span-2 md:col-span-1">
-                    <div class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-xl shrink-0">
-                        <i class="fa-solid fa-award"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-white text-sm">منتجات بعناية فائقة</h4>
-                        <p class="text-xs text-gray-400 mt-0.5">اختيار أرقى الخامات بأدق التفاصيل</p>
-                    </div>
-                </div>
-
             </div>
+
+            <!-- Flagship 2: حجاب نديم -->
+            <div class="bg-cardDark border border-gold/30 rounded-2xl overflow-hidden hover:border-gold transition-all duration-300 gold-glow flex flex-col justify-between group">
+                <div class="relative aspect-[4/5] overflow-hidden cursor-pointer" onclick="openProductModal(2)">
+                    <span class="absolute top-3 right-3 bg-gold text-obsidian text-xs font-black px-3 py-1 rounded-full z-10 shadow-lg">جديد 2026</span>
+                    <img src="assets/images/hijab-nadim.jpg" 
+                         onerror="handleProductImageError(this, 'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&q=80&w=800', 'حجاب نديم')"
+                         alt="حجاب نديم" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span class="px-5 py-2.5 bg-gold text-obsidian text-xs font-bold rounded-xl shadow-lg">عرض التفاصيل</span>
+                    </div>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-xs text-gold font-semibold uppercase">ملابس محجبات</span>
+                            <h3 class="text-xl font-bold text-white mt-0.5">حجاب نديم</h3>
+                        </div>
+                        <span class="text-xl font-bold text-gold font-playfair">250 DH</span>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed font-light">
+                        تصميم راقٍ بقماش الكريب المانع للانزلاق، يمنحكِ الثبات الكامل والأناقة الملكية دون الحاجة لإعادة التعديل.
+                    </p>
+                    <div class="pt-3 border-t border-white/10 flex gap-2">
+                        <button onclick="addToCart(2)" class="flex-1 py-3 rounded-xl bg-gold text-obsidian font-bold text-xs hover:bg-gold-light transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cart-plus"></i> إضافة للسلة
+                        </button>
+                        <button onclick="openProductModal(2)" class="p-3 rounded-xl bg-obsidian border border-white/10 text-gray-300 hover:text-gold hover:border-gold transition-colors">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flagship 3: حجاب بالبوني -->
+            <div class="bg-cardDark border border-gold/30 rounded-2xl overflow-hidden hover:border-gold transition-all duration-300 gold-glow flex flex-col justify-between group">
+                <div class="relative aspect-[4/5] overflow-hidden cursor-pointer" onclick="openProductModal(3)">
+                    <span class="absolute top-3 right-3 bg-gold text-obsidian text-xs font-black px-3 py-1 rounded-full z-10 shadow-lg">عملي ومريح</span>
+                    <img src="assets/images/hijab-bal-boni.jpg" 
+                         onerror="handleProductImageError(this, 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=800', 'حجاب بالبوني')"
+                         alt="حجاب بالبوني" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span class="px-5 py-2.5 bg-gold text-obsidian text-xs font-bold rounded-xl shadow-lg">عرض التفاصيل</span>
+                    </div>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-xs text-gold font-semibold uppercase">ملابس محجبات</span>
+                            <h3 class="text-xl font-bold text-white mt-0.5">حجاب بالبوني</h3>
+                        </div>
+                        <span class="text-xl font-bold text-gold font-playfair">220 DH</span>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed font-light">
+                        حجاب عصري مدمج مع بوني قطني مطاطي فائق النعومة لسهولة الارتداء السريع وأقصى درجات الراحة اليومية.
+                    </p>
+                    <div class="pt-3 border-t border-white/10 flex gap-2">
+                        <button onclick="addToCart(3)" class="flex-1 py-3 rounded-xl bg-gold text-obsidian font-bold text-xs hover:bg-gold-light transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cart-plus"></i> إضافة للسلة
+                        </button>
+                        <button onclick="openProductModal(3)" class="p-3 rounded-xl bg-obsidian border border-white/10 text-gray-300 hover:text-gold hover:border-gold transition-colors">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Categories Grid Section -->
-    <section id="categories" class="py-20 px-4 max-w-7xl mx-auto">
-        <div class="text-center space-y-3 mb-12">
+    <!-- Category Visual Grid -->
+    <section id="categories" class="py-16 px-4 max-w-7xl mx-auto">
+        <div class="text-center space-y-3 mb-10">
             <span class="text-gold text-xs font-bold tracking-widest uppercase">التشكيلات المتاحة</span>
-            <h2 class="text-3xl sm:text-4xl font-bold">تسوق حسب المجموعات</h2>
+            <h2 class="text-3xl sm:text-4xl font-bold">تسوق حسب الفئة</h2>
             <div class="w-16 h-1 bg-gold mx-auto rounded-full"></div>
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-            
-            <!-- Category Card 1 -->
-            <div onclick="filterByCategory('ملابس محجبات')" class="group relative rounded-2xl overflow-hidden cursor-pointer border border-white/10 hover:border-gold transition-all duration-300 h-64 sm:h-80">
-                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&q=80&w=800" alt="ملابس محجبات" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div onclick="filterByCategory('ملابس محجبات')" class="group relative rounded-2xl overflow-hidden cursor-pointer border border-white/10 hover:border-gold transition-all duration-300 h-64 sm:h-80 bg-cardDark">
+                <img src="assets/images/category-hijabs.jpg" 
+                     onerror="handleProductImageError(this, 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&q=80&w=800', 'ملابس محجبات')"
+                     alt="ملابس محجبات" 
+                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-5">
                     <span class="text-xs text-gold font-medium mb-1">H7 COLLECTION</span>
                     <h3 class="text-lg font-bold text-white group-hover:text-gold transition-colors">ملابس محجبات</h3>
-                    <p class="text-xs text-gray-300 mt-1">حجابات وأزياء راقية</p>
+                    <p class="text-xs text-gray-300 mt-1">هجار، نديم، عبايات وشالات</p>
                 </div>
             </div>
 
-            <!-- Category Card 2 -->
-            <div onclick="filterByCategory('أحذية نسائية')" class="group relative rounded-2xl overflow-hidden cursor-pointer border border-white/10 hover:border-gold transition-all duration-300 h-64 sm:h-80">
-                <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&q=80&w=800" alt="أحذية نسائية" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div onclick="filterByCategory('أحذية نسائية')" class="group relative rounded-2xl overflow-hidden cursor-pointer border border-white/10 hover:border-gold transition-all duration-300 h-64 sm:h-80 bg-cardDark">
+                <img src="assets/images/category-women-shoes.jpg" 
+                     onerror="handleProductImageError(this, 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&q=80&w=800', 'أحذية نسائية')"
+                     alt="أحذية نسائية" 
+                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-5">
                     <span class="text-xs text-gold font-medium mb-1">H7 COLLECTION</span>
                     <h3 class="text-lg font-bold text-white group-hover:text-gold transition-colors">أحذية نسائية</h3>
-                    <p class="text-xs text-gray-300 mt-1">صناديل وبالغينات صيفية</p>
+                    <p class="text-xs text-gray-300 mt-1">بالغينات وصنادل راقية</p>
                 </div>
             </div>
 
-            <!-- Category Card 3 -->
-            <div onclick="filterByCategory('أحذية رجالية')" class="group relative rounded-2xl overflow-hidden cursor-pointer border border-white/10 hover:border-gold transition-all duration-300 h-64 sm:h-80">
-                <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&q=80&w=800" alt="أحذية رجالية" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div onclick="filterByCategory('أحذية رجالية')" class="group relative rounded-2xl overflow-hidden cursor-pointer border border-white/10 hover:border-gold transition-all duration-300 h-64 sm:h-80 bg-cardDark">
+                <img src="assets/images/category-men-shoes.jpg" 
+                     onerror="handleProductImageError(this, 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&q=80&w=800', 'أحذية رجالية')"
+                     alt="أحذية رجالية" 
+                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-5">
                     <span class="text-xs text-gold font-medium mb-1">H7 COLLECTION</span>
                     <h3 class="text-lg font-bold text-white group-hover:text-gold transition-colors">أحذية رجالية</h3>
-                    <p class="text-xs text-gray-300 mt-1">أحذية رياضية وكلاسيكية</p>
+                    <p class="text-xs text-gray-300 mt-1">أحذية كلاسيك ورياضية</p>
                 </div>
             </div>
 
-            <!-- Category Card 4 -->
-            <div onclick="filterByCategory('إكسسوارات')" class="group relative rounded-2xl overflow-hidden cursor-pointer border border-white/10 hover:border-gold transition-all duration-300 h-64 sm:h-80">
-                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=800" alt="إكسسوارات" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div onclick="filterByCategory('إكسسوارات')" class="group relative rounded-2xl overflow-hidden cursor-pointer border border-white/10 hover:border-gold transition-all duration-300 h-64 sm:h-80 bg-cardDark">
+                <img src="assets/images/category-accessories.jpg" 
+                     onerror="handleProductImageError(this, 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=800', 'إكسسوارات')"
+                     alt="إكسسوارات" 
+                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-5">
                     <span class="text-xs text-gold font-medium mb-1">H7 COLLECTION</span>
                     <h3 class="text-lg font-bold text-white group-hover:text-gold transition-colors">إكسسوارات</h3>
-                    <p class="text-xs text-gray-300 mt-1">قطع مذهبة وحقائب</p>
+                    <p class="text-xs text-gray-300 mt-1">قطع مذهبة وحقائب يد</p>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- Shop Section -->
+    <!-- Main Catalog Section -->
     <section id="shop" class="py-16 px-4 max-w-7xl mx-auto border-t border-white/5">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
             <div>
-                <span class="text-gold text-xs font-bold tracking-widest uppercase">متجرنا الفاخر</span>
-                <h2 class="text-3xl sm:text-4xl font-bold mt-1">أحدث المنتجات</h2>
+                <span class="text-gold text-xs font-bold tracking-widest uppercase">متجر H7 NEO الفاخر</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mt-1">جميع المنتجات</h2>
             </div>
 
-            <!-- Search and Quick Controls Toolbar -->
+            <!-- Search and Sorting Controls -->
             <div class="w-full md:w-auto flex flex-col sm:flex-row items-center gap-3">
                 <div class="relative w-full sm:w-72">
                     <i class="fa-solid fa-magnifying-glass absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
-                    <input type="text" id="searchInput" placeholder="ابحث عن منتج..." class="w-full bg-cardDark border border-white/10 rounded-xl pr-10 pl-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold transition-colors">
+                    <input type="text" id="searchInput" placeholder="ابحثي عن حجاب هجار، نديم..." class="w-full bg-cardDark border border-white/10 rounded-xl pr-10 pl-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold transition-colors">
                 </div>
 
                 <select id="sortSelect" class="w-full sm:w-auto bg-cardDark border border-white/10 rounded-xl px-4 py-2.5 text-sm text-gray-200 focus:outline-none focus:border-gold transition-colors cursor-pointer">
@@ -381,8 +455,8 @@
             </div>
         </div>
 
-        <!-- Filter Category Tabs -->
-        <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
+        <!-- Filter Tabs -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8">
             <button onclick="filterByCategory('الكل')" class="cat-tab px-5 py-2.5 rounded-xl text-sm font-semibold border transition-all whitespace-nowrap bg-gold text-obsidian border-gold" data-category="الكل">
                 الكل
             </button>
@@ -400,12 +474,10 @@
             </button>
         </div>
 
-        <!-- Dynamic Products Grid -->
-        <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            <!-- JS dynamic content inject -->
-        </div>
+        <!-- Dynamic Product Grid -->
+        <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
 
-        <!-- No products found state -->
+        <!-- Empty Filter State -->
         <div id="noProductsState" class="hidden text-center py-16 space-y-4">
             <div class="w-16 h-16 rounded-full bg-cardDark border border-white/10 text-gold flex items-center justify-center mx-auto text-2xl">
                 <i class="fa-solid fa-box-open"></i>
@@ -417,97 +489,42 @@
         </div>
     </section>
 
-    <!-- About Us Section -->
+    <!-- Brand Philosophy -->
     <section id="about" class="py-20 px-4 bg-cardDark/40 border-t border-white/5">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div class="space-y-6">
                 <span class="text-gold text-xs font-bold tracking-widest uppercase">عالم H7 NEO</span>
                 <h2 class="text-3xl sm:text-5xl font-bold leading-tight">الأناقة المغربية بتصاميم <span class="text-gold-gradient font-playfair">عالمية رفيعة</span></h2>
                 <p class="text-gray-300 text-base leading-relaxed">
-                    علامة 'H7 NEO' هي تجسيد للرقي والشغف بالتفاصيل. نحن نسعى لتقديم تشكيلات ممتازة تعكس أصالة الذوق العالي وتجمع بين الراحة والأناقة المطلقة. كل قطعة في متجرنا يتم اختيارها بدقة لتلبي تطلعات عملاؤنا الكرام داخل المغرب وخارجه.
+                    علامة 'H7 NEO' هي تجسيد الفخامة والشغف بالتفاصيل. نسعى دائماً لتوفير أرقى قطع الحجابات كـ "هجار"، "نديم"، و"بالبوني" بالإضافة للأزياء والأحذية التي تعكس الذوق المغربي الرفيع.
                 </p>
                 <div class="grid grid-cols-2 gap-4 pt-4">
                     <div class="p-4 rounded-xl bg-cardDark border border-white/10">
                         <i class="fa-solid fa-gem text-gold text-xl mb-2"></i>
-                        <h4 class="font-bold text-white text-sm">خامات ممتازة</h4>
-                        <p class="text-xs text-gray-400 mt-1">أقمشة وجلود عالية الجودة</p>
+                        <h4 class="font-bold text-white text-sm">أقمشة فاخرة</h4>
+                        <p class="text-xs text-gray-400 mt-1">حرير وكريب ممتاز</p>
                     </div>
                     <div class="p-4 rounded-xl bg-cardDark border border-white/10">
                         <i class="fa-solid fa-headset text-gold text-xl mb-2"></i>
-                        <h4 class="font-bold text-white text-sm">خدمة متميزة</h4>
-                        <p class="text-xs text-gray-400 mt-1">دعم مباشر وإرضاء تام</p>
+                        <h4 class="font-bold text-white text-sm">تواصل مباشر</h4>
+                        <p class="text-xs text-gray-400 mt-1">دعم متواصل عبر الواتساب</p>
                     </div>
                 </div>
             </div>
             <div class="relative">
-                <div class="aspect-square rounded-2xl overflow-hidden border border-gold/30 gold-glow">
-                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=1000" alt="H7 NEO Luxury" class="w-full h-full object-cover">
-                </div>
-                <div class="absolute -bottom-6 -left-6 bg-obsidian border border-gold/40 p-5 rounded-2xl hidden sm:block">
-                    <p class="text-gold font-playfair font-bold text-xl">H7 NEO | 2026</p>
-                    <p class="text-xs text-gray-300">Style Without Limits</p>
+                <div class="aspect-square rounded-2xl overflow-hidden border border-gold/30 gold-glow bg-cardDark">
+                    <img src="assets/images/about-h7neo.jpg" 
+                         onerror="handleProductImageError(this, 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=1000', 'عالم H7 NEO')"
+                         alt="عالم H7 NEO" 
+                         class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="py-20 px-4 max-w-4xl mx-auto border-t border-white/5">
-        <div class="text-center space-y-3 mb-12">
-            <span class="text-gold text-xs font-bold tracking-widest uppercase">الأسئلة الشائعة</span>
-            <h2 class="text-3xl sm:text-4xl font-bold">كل ما تحتاج معرفته</h2>
-            <div class="w-16 h-1 bg-gold mx-auto rounded-full"></div>
-        </div>
-
-        <div class="space-y-4">
-            
-            <div class="border border-white/10 rounded-2xl bg-cardDark overflow-hidden">
-                <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-right font-bold text-white hover:text-gold transition-colors">
-                    <span>كم تستغرق مدة التوصيل؟</span>
-                    <i class="fa-solid fa-chevron-down text-gold text-sm transition-transform duration-300"></i>
-                </button>
-                <div class="hidden p-5 pt-0 text-sm text-gray-300 border-t border-white/5 leading-relaxed">
-                    تستغرق مدة التوصيل بين 24 إلى 48 ساعة في المدن الرئيسية بالمغرب، ومن 2 إلى 3 أيام لباقي المناطق.
-                </div>
-            </div>
-
-            <div class="border border-white/10 rounded-2xl bg-cardDark overflow-hidden">
-                <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-right font-bold text-white hover:text-gold transition-colors">
-                    <span>كيف يتم استلام وتأكيد الطلب؟</span>
-                    <i class="fa-solid fa-chevron-down text-gold text-sm transition-transform duration-300"></i>
-                </button>
-                <div class="hidden p-5 pt-0 text-sm text-gray-300 border-t border-white/5 leading-relaxed">
-                    بعد إتمام الطلب، يتم توجيهك مباشرة عبر الواتساب لتأكيد عنوانك وتفاصيل الطلب مع موظف خدمة العملاء.
-                </div>
-            </div>
-
-            <div class="border border-white/10 rounded-2xl bg-cardDark overflow-hidden">
-                <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-right font-bold text-white hover:text-gold transition-colors">
-                    <span>هل يمكنني معاينة المنتج قبل الدفع؟</span>
-                    <i class="fa-solid fa-chevron-down text-gold text-sm transition-transform duration-300"></i>
-                </button>
-                <div class="hidden p-5 pt-0 text-sm text-gray-300 border-t border-white/5 leading-relaxed">
-                    نعم بالتأكيد، نحن نوفر خدمة الدفع عند الاستلام (Cash On Delivery) مع إمكانية التأكد من طلبيتك مع موظف التوصيل.
-                </div>
-            </div>
-
-            <div class="border border-white/10 rounded-2xl bg-cardDark overflow-hidden">
-                <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-right font-bold text-white hover:text-gold transition-colors">
-                    <span>ما هي طريقة الاستبدال أو الاسترجاع؟</span>
-                    <i class="fa-solid fa-chevron-down text-gold text-sm transition-transform duration-300"></i>
-                </button>
-                <div class="hidden p-5 pt-0 text-sm text-gray-300 border-t border-white/5 leading-relaxed">
-                    في حال استلام مقاس غير مناسب أو رغبتك في تبديل المنتج، يمكنك التواصل مع فريقنا خلال 3 أيام من الاستلام ويتم التبديل بكل سهولة.
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer class="bg-cardDark border-t border-gold/20 pt-16 pb-8 px-4">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
-            
             <div class="space-y-4 md:col-span-1">
                 <div class="flex items-center gap-3">
                     <div class="w-9 h-9 rounded-full border border-gold/40 flex items-center justify-center bg-obsidian">
@@ -516,44 +533,34 @@
                     <span class="font-playfair text-xl font-bold text-gold-gradient">H7 NEO</span>
                 </div>
                 <p class="text-xs text-gray-400 leading-relaxed">
-                    العنوان الأول للفخامة والأناقة بالمغرب. أزياء وإكسسوارات فاخرة تناسب ذوقكم الرفيع.
+                    عنوان الفخامة والأناقة في المغرب. تشكيلات حجابات وأزياء مصممة خصيصاً للذوق الرفيع.
                 </p>
-                <div class="flex gap-3 text-gray-400 pt-2">
-                    <a href="#" class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:border-gold hover:text-gold transition-colors"><i class="fa-brands fa-instagram text-sm"></i></a>
-                    <a href="#" class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:border-gold hover:text-gold transition-colors"><i class="fa-brands fa-facebook-f text-sm"></i></a>
-                    <a href="https://wa.me/212640419454" target="_blank" class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:border-gold hover:text-gold transition-colors"><i class="fa-brands fa-whatsapp text-sm"></i></a>
-                </div>
             </div>
 
             <div>
                 <h4 class="text-gold text-sm font-bold mb-4">روابط سريعة</h4>
                 <ul class="space-y-2 text-xs text-gray-300">
                     <li><a href="#hero" class="hover:text-gold transition-colors">الرئيسية</a></li>
-                    <li><a href="#categories" class="hover:text-gold transition-colors">المجموعات</a></li>
-                    <li><a href="#shop" class="hover:text-gold transition-colors">المتجر</a></li>
-                    <li><a href="#about" class="hover:text-gold transition-colors">من نحن</a></li>
+                    <li><a href="#flagship" class="hover:text-gold transition-colors">مجموعة الحجابات</a></li>
+                    <li><a href="#shop" class="hover:text-gold transition-colors">المتجر الكامل</a></li>
                 </ul>
             </div>
 
             <div>
                 <h4 class="text-gold text-sm font-bold mb-4">خدمة العملاء</h4>
                 <ul class="space-y-2 text-xs text-gray-300">
-                    <li><a href="#faq" class="hover:text-gold transition-colors">الأسئلة الشائعة</a></li>
-                    <li><a href="https://wa.me/212640419454" target="_blank" class="hover:text-gold transition-colors">تتبع الطلب عبر الواتساب</a></li>
-                    <li><a href="#" class="hover:text-gold transition-colors">سياسة الشحن والاستبدال</a></li>
-                    <li><a href="#" class="hover:text-gold transition-colors">الشروط والأحكام</a></li>
+                    <li><a href="https://wa.me/212640419454" target="_blank" class="hover:text-gold transition-colors">طلب عبر الواتساب</a></li>
+                    <li><a href="#about" class="hover:text-gold transition-colors">عن المتجر</a></li>
                 </ul>
             </div>
 
             <div>
-                <h4 class="text-gold text-sm font-bold mb-4">اتصل بنا</h4>
+                <h4 class="text-gold text-sm font-bold mb-4">التواصل والطلب</h4>
                 <div class="space-y-3 text-xs text-gray-300">
                     <p class="flex items-center gap-2"><i class="fa-solid fa-phone text-gold"></i> +212 640 419 454</p>
-                    <p class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-gold"></i> المملكة المغربية - الدار البيضاء</p>
-                    <p class="flex items-center gap-2"><i class="fa-solid fa-envelope text-gold"></i> contact@h7neo.com</p>
+                    <p class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-gold"></i> الدار البيضاء، المملكة المغربية</p>
                 </div>
             </div>
-
         </div>
 
         <div class="max-w-7xl mx-auto pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
@@ -562,11 +569,10 @@
         </div>
     </footer>
 
-    <!-- Slide-Out Shopping Cart Drawer -->
+    <!-- Shopping Cart Drawer -->
     <div id="cartOverlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden transition-opacity duration-300">
         <div id="cartDrawer" class="fixed inset-y-0 left-0 w-full max-w-md bg-obsidian border-r border-gold/30 shadow-2xl flex flex-col justify-between transform -translate-x-full transition-transform duration-300">
             
-            <!-- Cart Header -->
             <div class="p-5 border-b border-white/10 flex items-center justify-between bg-cardDark">
                 <div class="flex items-center gap-3">
                     <i class="fa-solid fa-bag-shopping text-gold text-lg"></i>
@@ -577,40 +583,31 @@
                 </button>
             </div>
 
-            <!-- Cart Items List Container -->
-            <div id="cartItemsList" class="flex-1 overflow-y-auto p-5 space-y-4">
-                <!-- Injected via JS -->
-            </div>
+            <div id="cartItemsList" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
 
-            <!-- Empty Cart Placeholder -->
             <div id="emptyCartView" class="hidden flex-1 flex flex-col items-center justify-center p-8 text-center space-y-4">
                 <div class="w-20 h-20 rounded-full bg-cardDark border border-white/10 flex items-center justify-center text-gold text-3xl">
                     <i class="fa-solid fa-basket-shopping"></i>
                 </div>
                 <h4 class="font-bold text-gray-300 text-lg">سلة التسوق فارغة</h4>
-                <p class="text-xs text-gray-500">قم بإضافة بعض المنتجات الفاخرة للبدء في طلبك.</p>
+                <p class="text-xs text-gray-500">أضيفي حِجاب هجار، نديم أو بالبوني للبدء في طلبك.</p>
             </div>
 
-            <!-- Cart Footer Summary -->
             <div class="p-5 border-t border-white/10 bg-cardDark space-y-4">
                 <div class="space-y-2 text-sm">
                     <div class="flex justify-between text-gray-400">
                         <span>المجموع الفرعي</span>
                         <span id="cartSubtotal" class="text-white font-bold">0 DH</span>
                     </div>
-                    <div class="flex justify-between text-gray-400">
-                        <span>مصاريف التوصيل</span>
-                        <span id="shippingFee" class="text-gold font-semibold">تحدد عند الإتمام</span>
-                    </div>
                     <div class="flex justify-between text-lg font-bold text-white pt-2 border-t border-white/10">
-                        <span>الإجمالي</span>
+                        <span>الإجمالي المستحق</span>
                         <span id="cartTotal" class="text-gold font-playfair">0 DH</span>
                     </div>
                 </div>
 
                 <div class="space-y-2">
                     <button id="checkoutBtn" class="w-full py-3.5 bg-gradient-to-r from-gold via-gold-light to-gold-dark text-obsidian font-bold rounded-xl hover:shadow-lg hover:shadow-gold/20 transition-all flex items-center justify-center gap-2">
-                        <span>متابعة الطلب والشراء</span>
+                        <span>متابعة إتمام الطلب</span>
                         <i class="fa-solid fa-arrow-left text-sm"></i>
                     </button>
                     <button id="clearCartBtn" class="w-full py-2 text-xs text-red-400 hover:text-red-300 transition-colors">
@@ -618,7 +615,6 @@
                     </button>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -635,34 +631,28 @@
                 </button>
             </div>
             
-            <div id="wishlistItemsList" class="flex-1 overflow-y-auto p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <!-- JS dynamic inject -->
-            </div>
+            <div id="wishlistItemsList" class="flex-1 overflow-y-auto p-6 grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
 
             <div id="emptyWishlistView" class="hidden py-16 text-center space-y-3">
                 <i class="fa-regular fa-heart text-4xl text-gray-600"></i>
-                <p class="text-gray-400 text-sm">لم تقم بإضافة أي منتج إلى المفضلة بعد.</p>
+                <p class="text-gray-400 text-sm">لم تقمي بإضافة أي منتج إلى المفضلة بعد.</p>
             </div>
         </div>
     </div>
 
-    <!-- Product Detail Modal -->
+    <!-- Product Modal Gallery -->
     <div id="productModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-obsidian border border-gold/30 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl relative">
             <button id="closeProductModalBtn" class="absolute top-4 left-4 z-10 w-10 h-10 rounded-full bg-black/60 text-white hover:text-gold flex items-center justify-center text-xl transition-colors">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-
-            <div id="productModalContent" class="grid grid-cols-1 md:grid-cols-2">
-                <!-- JS injected content -->
-            </div>
+            <div id="productModalContent" class="grid grid-cols-1 md:grid-cols-2"></div>
         </div>
     </div>
 
-    <!-- Checkout Modal -->
+    <!-- Moroccan Checkout Modal -->
     <div id="checkoutModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-obsidian border border-gold/40 rounded-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto shadow-2xl p-6 sm:p-8 space-y-6">
-            
             <div class="flex items-center justify-between border-b border-white/10 pb-4">
                 <div class="flex items-center gap-3">
                     <div class="w-8 h-8 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center text-gold">
@@ -670,7 +660,7 @@
                     </div>
                     <div>
                         <h3 class="font-bold text-xl text-white">إتمام الطلب</h3>
-                        <p class="text-xs text-gray-400">الدفع عند الاستلام داخل جميع مدن المغرب</p>
+                        <p class="text-xs text-gray-400">الدفع عند الاستلام داخل المملكة المغربية</p>
                     </div>
                 </div>
                 <button id="closeCheckoutBtn" class="text-gray-400 hover:text-gold text-2xl">
@@ -678,45 +668,43 @@
                 </button>
             </div>
 
-            <!-- Order Summary Banner -->
             <div class="bg-cardDark p-4 rounded-xl border border-white/5 space-y-2 text-sm">
                 <div class="flex justify-between font-semibold">
-                    <span class="text-gray-300">عدد المنتجات:</span>
+                    <span class="text-gray-300">عدد القطع:</span>
                     <span id="checkoutItemCount" class="text-gold">0</span>
                 </div>
                 <div class="flex justify-between font-bold text-base border-t border-white/10 pt-2">
-                    <span class="text-white">المبلغ الإجمالي:</span>
+                    <span class="text-white">الإجمالي النهائي:</span>
                     <span id="checkoutTotalPrice" class="text-gold font-playfair">0 DH</span>
                 </div>
             </div>
 
-            <!-- Shipping Information Form -->
             <form id="checkoutForm" class="space-y-4">
                 <div>
                     <label class="block text-xs font-bold text-gray-300 mb-1.5">الاسم الكامل *</label>
-                    <input type="text" id="customerName" required placeholder="مثال: يوسف العلوي" class="w-full bg-cardDark border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold">
+                    <input type="text" id="customerName" required placeholder="مثال: خديجة العلمي" class="w-full bg-cardDark border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-gray-300 mb-1.5">رقم الهاتف (المغرب) *</label>
-                    <input type="tel" id="customerPhone" required placeholder="0612345678 أو 0712345678" class="w-full bg-cardDark border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold">
-                    <p id="phoneError" class="hidden text-xs text-red-400 mt-1">يرجى إدخال رقم هاتف مغربي صحيح (يبدأ بـ 06 أو 07 أو 05 وتتكون من 10 أرقام).</p>
+                    <label class="block text-xs font-bold text-gray-300 mb-1.5">رقم الهاتف المغربي *</label>
+                    <input type="tel" id="customerPhone" required placeholder="06XXXXXXXX أو 07XXXXXXXX" class="w-full bg-cardDark border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold">
+                    <p id="phoneError" class="hidden text-xs text-red-400 mt-1">يرجى إدخال رقم هاتف مغربي صحيح متكون من 10 أرقام (06/07/05).</p>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-bold text-gray-300 mb-1.5">المدينة *</label>
-                        <input type="text" id="customerCity" required placeholder="مثال: الدار البيضاء، الرباط..." class="w-full bg-cardDark border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold">
+                        <input type="text" id="customerCity" required placeholder="الدار البيضاء، الرباط..." class="w-full bg-cardDark border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-gray-300 mb-1.5">العنوان السكني *</label>
-                        <input type="text" id="customerAddress" required placeholder="الحي، رقم الشارع / العمارة" class="w-full bg-cardDark border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold">
+                        <input type="text" id="customerAddress" required placeholder="الحي، اسم الشارع، رقم المنزل" class="w-full bg-cardDark border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold">
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-xs font-bold text-gray-300 mb-1.5">ملاحظات إضافية (اختياري)</label>
-                    <textarea id="customerNote" rows="2" placeholder="أي تعليمات خاصة للتوصيل..." class="w-full bg-cardDark border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold"></textarea>
+                    <textarea id="customerNote" rows="2" placeholder="ألوان مفضلة أو توقيت التوصيل المناسب..." class="w-full bg-cardDark border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold"></textarea>
                 </div>
 
                 <div class="pt-2 space-y-3">
@@ -727,124 +715,201 @@
 
                     <button type="button" id="generatePdfBtn" class="w-full py-3 bg-cardDark border border-gold/40 text-gold hover:bg-gold hover:text-obsidian font-bold rounded-xl transition-all flex items-center justify-center gap-2 text-sm">
                         <i class="fa-solid fa-file-pdf"></i>
-                        تحميل الفاتورة PDF
+                        تحميل فاتورة PDF معتمدة
                     </button>
                 </div>
             </form>
-
         </div>
     </div>
 
-    <!-- Hidden Off-screen Invoice Container for PDF Rendering -->
-    <div id="pdfInvoiceContainer" class="fixed -left-[9999px] top-0 w-[700px] bg-white text-black p-8 font-cairo">
-        <!-- Rendered dynamically -->
-    </div>
+    <!-- Off-screen Receipt Container -->
+    <div id="pdfInvoiceContainer" class="fixed -left-[9999px] top-0 w-[700px] bg-white text-black p-8 font-cairo"></div>
 
-    <!-- Floating Toast Notification System -->
+    <!-- Notification Toasts -->
     <div id="toastContainer" class="fixed bottom-5 left-5 z-50 flex flex-col gap-2 max-w-sm pointer-events-none"></div>
 
+    <!-- JavaScript Application Logic -->
     <script>
+        /* Gold SVG Dynamic Placeholder Generator */
+        function createLuxurySvgFallback(title) {
+            const safeTitle = (title || 'H7 NEO Luxury').replace(/"/g, '&quot;');
+            const svgStr = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" fill="none">
+                <rect width="600" height="600" fill="#141418"/>
+                <circle cx="300" cy="270" r="140" fill="#D4AF37" fill-opacity="0.08" stroke="#D4AF37" stroke-width="2" stroke-dasharray="8 8"/>
+                <circle cx="300" cy="270" r="110" fill="#0d0d0f" stroke="#D4AF37" stroke-width="2"/>
+                <text x="300" y="260" font-family="'Playfair Display', Georgia, serif" font-size="48" font-weight="bold" fill="#D4AF37" text-anchor="middle">H7 NEO</text>
+                <text x="300" y="295" font-family="'Cairo', sans-serif" font-size="16" fill="#A1A1AA" text-anchor="middle">LUXE &amp; ÉLÉGANCE</text>
+                <rect x="80" y="440" width="440" height="70" rx="16" fill="#1f1f24" stroke="#D4AF37" stroke-opacity="0.3"/>
+                <text x="300" y="482" font-family="'Cairo', sans-serif" font-size="22" font-weight="bold" fill="#F3E5AB" text-anchor="middle">${safeTitle}</text>
+            </svg>`;
+            return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svgStr);
+        }
+
+        /* Dual-tier image fallback: local path -> online fallback -> gold SVG */
+        function handleProductImageError(imgElement, onlineFallbackUrl, title) {
+            if (!imgElement.dataset.triedOnline) {
+                imgElement.dataset.triedOnline = 'true';
+                imgElement.src = onlineFallbackUrl;
+            } else {
+                imgElement.onerror = null;
+                imgElement.src = createLuxurySvgFallback(title);
+            }
+        }
+
+        /* Master Products Database featuring user's Hijab Hajar, Hijab Nadim, and Hijab bal-Boni */
         const productsDatabase = [
             {
                 id: 1,
-                name: "حجاب أنغام",
+                name: "حجاب هجار",
                 price: 250,
                 category: "ملابس محجبات",
-                images: [
+                localImages: [
+                    "assets/images/hijab-hajar.jpg",
+                    "assets/images/hijab-hajar-2.jpg"
+                ],
+                onlineFallbacks: [
                     "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&q=80&w=800",
                     "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&q=80&w=800"
                 ],
                 badge: "الأكثر مبيعاً",
-                description: "حجاب فاخر مصنوع من شيفون حريري ناعم عالي الجودة، يتميز بلمس أنيق وانسيابية ممتازة تناسب كافة المناسبات الرسمية واليومية."
+                description: "حجاب هجار الفاخر المصنوع من أحدث خامات الشيفون الحريري الناعم مع مطرزات راقية على الأطراف. يمنحكِ سحراً واستثنائية في كل مناسبة."
             },
             {
                 id: 2,
                 name: "حجاب نديم",
                 price: 250,
                 category: "ملابس محجبات",
-                images: [
-                    "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&q=80&w=800",
-                    "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&q=80&w=800"
+                localImages: [
+                    "assets/images/hijab-nadim.jpg",
+                    "assets/images/hijab-nadim-2.jpg"
                 ],
-                badge: "جديد",
-                description: "تصميم ملكي راقي بقماش كريب ممتاز مصمم لراحة طوال اليوم ولمسة من الفخامة المتكاملة."
+                onlineFallbacks: [
+                    "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&q=80&w=800"
+                ],
+                badge: "جديد 2026",
+                description: "حجاب نديم المصنوع من قماش الكريب المانع للانزلاق، مصمم بعناية فائقة لتوفير التغطية الثابتة والراحة طوال اليوم."
             },
             {
                 id: 3,
-                name: "حجاب هجار",
-                price: 250,
+                name: "حجاب بالبوني",
+                price: 220,
                 category: "ملابس محجبات",
-                images: [
+                localImages: [
+                    "assets/images/hijab-bal-boni.jpg",
+                    "assets/images/hijab-bal-boni-2.jpg"
+                ],
+                onlineFallbacks: [
                     "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=800"
                 ],
-                badge: "حصري",
-                description: "حجاب مطرز بأسلوب عصري يجمع بين الأصالة والموضة الحديثة لإطلالة مميزة تجذب الأطراف."
+                badge: "عملي ومريح",
+                description: "حجاب بالبوني العملي المدمج مع بوني قطني مطاطي فائق المرونة. يسهل ارتداؤه بثوانٍ مع ضمان مظهر متناسق وجذاب."
             },
             {
                 id: 4,
-                name: "بالغينة صيفية",
-                price: 250,
-                category: "أحذية نسائية",
-                images: [
-                    "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&q=80&w=800",
-                    "https://images.unsplash.com/photo-1560343090-f0409e92791a?auto=format&fit=crop&q=80&w=800"
+                name: "عباية لوكس الملكية",
+                price: 550,
+                category: "ملابس محجبات",
+                localImages: [
+                    "assets/images/abaya-luxe.jpg"
                 ],
-                badge: "راحة ممتازة",
-                description: "حذاء نسائي بدون كعب خفيف ومريح للغاية مصنوع من الجلد الطبيعي الناعم للمشيات الصيفية."
+                onlineFallbacks: [
+                    "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=800"
+                ],
+                badge: "إصدار فاخر",
+                description: "عباية فاخرة بتفاصيل مذهبة وقصة انسيابية ساحرة تمزج بين الأصالة المغربية واللمسة العصرية."
             },
             {
                 id: 5,
-                name: "Radgo Accessory",
-                price: 300,
-                category: "إكسسوارات",
-                images: [
-                    "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=800",
-                    "https://images.unsplash.com/photo-1611591475111-e633d9c8491e?auto=format&fit=crop&q=80&w=800"
+                name: "شال الحرير الملكي",
+                price: 180,
+                category: "ملابس محجبات",
+                localImages: [
+                    "assets/images/silk-shawl.jpg"
                 ],
-                badge: "طلاء ذهبي",
-                description: "إكسسوار أنيق بتصميم عصري من الفولاذ المقاوم للصدأ ومطلي بلمسة ذهبية فاخرة تدوم طويلاً."
+                onlineFallbacks: [
+                    "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&q=80&w=800"
+                ],
+                badge: "حرير 100%",
+                description: "شال من الحرير الخالص ببريق خفيف ولمس ناعم جداً يناسب كافة الحفلات والسهرات."
             },
             {
                 id: 6,
-                name: "صندالة نسائية صيفية",
-                price: 150,
+                name: "بالغينة نسائية صيفية",
+                price: 250,
                 category: "أحذية نسائية",
-                images: [
-                    "https://images.unsplash.com/photo-1603808033192-082d6919d3e1?auto=format&fit=crop&q=80&w=800"
+                localImages: [
+                    "assets/images/balghina-shoes.jpg"
                 ],
-                badge: "خصم خاص",
-                description: "صندل صيفي أنيق بتفاصيل مذهبة وتصميم مريح للارتداء اليومي أو المناسبات الخاصة."
+                onlineFallbacks: [
+                    "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&q=80&w=800"
+                ],
+                badge: "جلد طبيعي",
+                description: "حذاء نسائي بدون كعب خفيف ومريح للغاية مصنع من الجلد الطبيعي الناعم للمشيات الصيفية."
             },
             {
                 id: 7,
-                name: "سبرديلا Air Force",
-                price: 200,
-                category: "أحذية رجالية",
-                images: [
-                    "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&q=80&w=800",
-                    "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=800"
+                name: "صندالة نسائية راقية",
+                price: 280,
+                category: "أحذية نسائية",
+                localImages: [
+                    "assets/images/women-sandals.jpg"
                 ],
-                badge: "رياضي فاخر",
-                description: "حذاء رياضي رجالي بتصميم أيقوني خفيف الوزن ومريح جداً للاستخدام اليومي والرياضي."
+                onlineFallbacks: [
+                    "https://images.unsplash.com/photo-1603808033192-082d6919d3e1?auto=format&fit=crop&q=80&w=800"
+                ],
+                badge: "أنظر العرض",
+                description: "صندل صيفي أنيق بتفاصيل مذهبة يمنح قدميك الانتعاش والراحة طوال اليوم."
             },
             {
                 id: 8,
-                name: "حقيبة H7 الملكية",
-                price: 450,
+                name: "سبرديلا Air Force الرجالية",
+                price: 320,
+                category: "أحذية رجالية",
+                localImages: [
+                    "assets/images/men-sneakers.jpg"
+                ],
+                onlineFallbacks: [
+                    "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&q=80&w=800"
+                ],
+                badge: "أكثر طلبًا",
+                description: "حذاء رياضي رجالي بتصميم أيقوني خفيف الوزن ومريح جداً للمشي والاستخدام اليومي."
+            },
+            {
+                id: 9,
+                name: "حقيبة H7 الذهبية",
+                price: 420,
                 category: "إكسسوارات",
-                images: [
+                localImages: [
+                    "assets/images/h7-gold-bag.jpg"
+                ],
+                onlineFallbacks: [
                     "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&q=80&w=800"
                 ],
-                badge: "إصدار محدود",
-                description: "حقيبة يد فاخرة بتفاصيل معدنية ذهبية وشعار H7 المذهب، مصممة للمرأة العصرية."
+                badge: "حصري",
+                description: "حقيبة يد فاخرة بتفاصيل معدنية ذهبية وشعار H7 المذهب لمظهر متألق دائماً."
+            },
+            {
+                id: 10,
+                name: "سوار Radgo المذهب",
+                price: 190,
+                category: "إكسسوارات",
+                localImages: [
+                    "assets/images/radgo-accessory.jpg"
+                ],
+                onlineFallbacks: [
+                    "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&q=80&w=800"
+                ],
+                badge: "مقاوم للصدأ",
+                description: "إكسسوار أنيق بتصميم عصري من الفولاذ المقاوم للصدأ والمطلي بطلاء ذهبي يدوم طويلاً."
             }
         ];
 
+        /* State Variables */
         let cart = JSON.parse(localStorage.getItem('h7_cart')) || [];
         let wishlist = JSON.parse(localStorage.getItem('h7_wishlist')) || [];
         let currentFilterCategory = 'الكل';
 
-        // DOM Loaded Init
+        /* App Initialization */
         document.addEventListener('DOMContentLoaded', () => {
             renderProducts();
             updateCartUI();
@@ -853,21 +918,17 @@
         });
 
         function setupEventListeners() {
-            // Cart drawer toggles
             document.getElementById('cartDrawerBtn').addEventListener('click', openCartDrawer);
             document.getElementById('closeCartBtn').addEventListener('click', closeCartDrawer);
             document.getElementById('cartOverlay').addEventListener('click', (e) => {
                 if (e.target.id === 'cartOverlay') closeCartDrawer();
             });
 
-            // Wishlist toggles
             document.getElementById('wishlistBtn').addEventListener('click', openWishlistModal);
             document.getElementById('closeWishlistBtn').addEventListener('click', closeWishlistModal);
 
-            // Product Modal Close
             document.getElementById('closeProductModalBtn').addEventListener('click', closeProductModal);
 
-            // Checkout Modal
             document.getElementById('checkoutBtn').addEventListener('click', () => {
                 if (cart.length === 0) {
                     showToast('سلة التسوق فارغة!', 'error');
@@ -878,7 +939,6 @@
             });
             document.getElementById('closeCheckoutBtn').addEventListener('click', closeCheckoutModal);
 
-            // Mobile menu drawer
             document.getElementById('mobileMenuBtn').addEventListener('click', () => {
                 document.getElementById('mobileDrawer').classList.remove('hidden');
             });
@@ -891,20 +951,15 @@
                 });
             });
 
-            // Search input live trigger
             document.getElementById('searchInput').addEventListener('input', filterProducts);
             document.getElementById('sortSelect').addEventListener('change', filterProducts);
 
-            // Clear Cart button
             document.getElementById('clearCartBtn').addEventListener('click', clearCart);
-
-            // Checkout Form submit (WhatsApp)
             document.getElementById('checkoutForm').addEventListener('submit', handleCheckoutSubmit);
-
-            // Generate PDF Invoice
             document.getElementById('generatePdfBtn').addEventListener('click', generatePDFInvoice);
         }
 
+        /* Render Catalog Items */
         function renderProducts(productsToRender = productsDatabase) {
             const grid = document.getElementById('productsGrid');
             const noProducts = document.getElementById('noProductsState');
@@ -919,25 +974,27 @@
 
             grid.innerHTML = productsToRender.map(product => {
                 const isWishlisted = wishlist.some(item => item.id === product.id);
+                const primaryImage = product.localImages[0];
+                const fallbackImage = product.onlineFallbacks[0];
+
                 return `
                 <div class="group bg-cardDark border border-white/10 rounded-2xl overflow-hidden hover:border-gold/50 transition-all duration-300 flex flex-col justify-between relative gold-glow-hover">
-                    <!-- Badge -->
-                    ${product.badge ? `<span class="absolute top-3 right-3 bg-gold text-obsidian text-[11px] font-black px-3 py-1 rounded-full z-10 font-cairo shadow-md">${product.badge}</span>` : ''}
+                    ${product.badge ? `<span class="absolute top-3 right-3 bg-gold text-obsidian text-[11px] font-black px-3 py-1 rounded-full z-10 shadow-md">${product.badge}</span>` : ''}
                     
-                    <!-- Wishlist Toggle Button -->
                     <button onclick="toggleWishlist(${product.id})" class="absolute top-3 left-3 z-10 w-9 h-9 rounded-full bg-black/60 border border-white/10 text-white hover:text-gold flex items-center justify-center transition-colors">
                         <i class="${isWishlisted ? 'fa-solid text-red-500' : 'fa-regular'} fa-heart text-sm"></i>
                     </button>
 
-                    <!-- Product Image Container -->
                     <div class="relative aspect-square overflow-hidden cursor-pointer bg-obsidian" onclick="openProductModal(${product.id})">
-                        <img src="${product.images[0]}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <img src="${primaryImage}" 
+                             onerror="handleProductImageError(this, '${fallbackImage}', '${product.name}')"
+                             alt="${product.name}" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span class="px-4 py-2 bg-gold text-obsidian text-xs font-bold rounded-xl shadow-lg">نظرة سريعة</span>
+                            <span class="px-4 py-2 bg-gold text-obsidian text-xs font-bold rounded-xl shadow-lg">معاينة تفاصيل القطعة</span>
                         </div>
                     </div>
 
-                    <!-- Product Info -->
                     <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
                         <div>
                             <span class="text-[11px] text-gold font-medium uppercase">${product.category}</span>
@@ -965,7 +1022,6 @@
         function filterByCategory(cat) {
             currentFilterCategory = cat;
             
-            // Update active category tab styling
             document.querySelectorAll('.cat-tab').forEach(tab => {
                 if (tab.dataset.category === cat) {
                     tab.className = "cat-tab px-5 py-2.5 rounded-xl text-sm font-semibold border transition-all whitespace-nowrap bg-gold text-obsidian border-gold";
@@ -1009,11 +1065,13 @@
             }, 500);
         }
 
+        /* Cart Operations */
         function addToCart(productId, selectedSize = null) {
             const product = productsDatabase.find(p => p.id === productId);
             if (!product) return;
 
-            const existingIndex = cart.findIndex(item => item.id === productId && item.size === selectedSize);
+            const size = selectedSize || (product.category.includes('أحذية') ? '40' : 'Standard');
+            const existingIndex = cart.findIndex(item => item.id === productId && item.size === size);
 
             if (existingIndex > -1) {
                 cart[existingIndex].quantity += 1;
@@ -1022,8 +1080,9 @@
                     id: product.id,
                     name: product.name,
                     price: product.price,
-                    image: product.images[0],
-                    size: selectedSize || (product.category.includes('أحذية') ? '41' : 'Standard'),
+                    image: product.localImages[0],
+                    fallbackImage: product.onlineFallbacks[0],
+                    size: size,
                     quantity: 1
                 });
             }
@@ -1082,7 +1141,10 @@
                 emptyView.classList.add('hidden');
                 cartList.innerHTML = cart.map(item => `
                     <div class="flex items-center gap-4 p-3 rounded-xl bg-cardDark border border-white/10">
-                        <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-lg border border-white/5">
+                        <img src="${item.image}" 
+                             onerror="handleProductImageError(this, '${item.fallbackImage}', '${item.name}')"
+                             alt="${item.name}" 
+                             class="w-16 h-16 object-cover rounded-lg border border-white/5 bg-obsidian">
                         <div class="flex-1">
                             <h4 class="font-bold text-sm text-white">${item.name}</h4>
                             <p class="text-xs text-gray-400">المقاس: ${item.size}</p>
@@ -1117,6 +1179,7 @@
             setTimeout(() => overlay.classList.add('hidden'), 300);
         }
 
+        /* Wishlist Operations */
         function toggleWishlist(productId) {
             const index = wishlist.findIndex(item => item.id === productId);
             const product = productsDatabase.find(p => p.id === productId);
@@ -1150,13 +1213,15 @@
                 emptyView.classList.add('hidden');
                 container.innerHTML = wishlist.map(item => `
                     <div class="p-3 bg-cardDark border border-white/10 rounded-xl flex items-center gap-3">
-                        <img src="${item.images[0]}" class="w-16 h-16 object-cover rounded-lg">
+                        <img src="${item.localImages[0]}" 
+                             onerror="handleProductImageError(this, '${item.onlineFallbacks[0]}', '${item.name}')"
+                             class="w-16 h-16 object-cover rounded-lg bg-obsidian">
                         <div class="flex-1">
                             <h4 class="font-bold text-sm text-white">${item.name}</h4>
-                            <span class="text-gold font-bold text-xs">${item.price} DH</span>
+                            <span class="text-gold font-bold text-xs font-playfair">${item.price} DH</span>
                         </div>
                         <button onclick="addToCart(${item.id}); toggleWishlist(${item.id});" class="px-3 py-1.5 bg-gold text-obsidian rounded-lg text-xs font-bold">
-                            إضافة بالسلة
+                            إضافة للسلة
                         </button>
                     </div>
                 `).join('');
@@ -1171,6 +1236,7 @@
             document.getElementById('wishlistModal').classList.add('hidden');
         }
 
+        /* Modal Gallery & Detailed View */
         function openProductModal(productId) {
             const product = productsDatabase.find(p => p.id === productId);
             if (!product) return;
@@ -1179,17 +1245,29 @@
             const content = document.getElementById('productModalContent');
 
             const isShoes = product.category.includes('أحذية');
-            const sizes = isShoes ? ['38', '39', '40', '41', '42', '43'] : ['Standard', 'S', 'M', 'L'];
+            const sizes = isShoes ? ['37', '38', '39', '40', '41', '42'] : ['Standard', 'مقاس طويل (Long)'];
+
+            const imagesList = product.localImages.map((localImg, idx) => ({
+                local: localImg,
+                online: product.onlineFallbacks[idx] || product.onlineFallbacks[0]
+            }));
 
             content.innerHTML = `
                 <div class="p-6 bg-cardDark flex flex-col items-center justify-center border-b md:border-b-0 md:border-l border-white/10">
-                    <div class="w-full aspect-square rounded-xl overflow-hidden mb-4 border border-gold/20">
-                        <img id="mainModalImg" src="${product.images[0]}" alt="${product.name}" class="w-full h-full object-cover">
+                    <div class="w-full aspect-square rounded-xl overflow-hidden mb-4 border border-gold/20 bg-obsidian">
+                        <img id="mainModalImg" 
+                             src="${imagesList[0].local}" 
+                             onerror="handleProductImageError(this, '${imagesList[0].online}', '${product.name}')"
+                             alt="${product.name}" 
+                             class="w-full h-full object-cover">
                     </div>
-                    ${product.images.length > 1 ? `
+                    ${imagesList.length > 1 ? `
                         <div class="flex gap-2">
-                            ${product.images.map(img => `
-                                <img src="${img}" onclick="document.getElementById('mainModalImg').src='${img}'" class="w-14 h-14 object-cover rounded-lg border border-white/20 cursor-pointer hover:border-gold transition-colors">
+                            ${imagesList.map((imgObj) => `
+                                <img src="${imgObj.local}" 
+                                     onerror="handleProductImageError(this, '${imgObj.online}', '${product.name}')"
+                                     onclick="document.getElementById('mainModalImg').src='${imgObj.local}'" 
+                                     class="w-14 h-14 object-cover rounded-lg border border-white/20 cursor-pointer hover:border-gold transition-colors bg-obsidian">
                             `).join('')}
                         </div>
                     ` : ''}
@@ -1202,7 +1280,6 @@
                         <p class="text-2xl font-bold text-gold font-playfair">${product.price} DH</p>
                         <p class="text-sm text-gray-300 font-light leading-relaxed pt-2 border-t border-white/10">${product.description}</p>
 
-                        <!-- Size Selector -->
                         <div class="pt-4">
                             <label class="block text-xs font-bold text-gray-300 mb-2">اختر المقاس:</label>
                             <div class="flex flex-wrap gap-2" id="modalSizeContainer">
@@ -1245,6 +1322,7 @@
             document.getElementById('productModal').classList.add('hidden');
         }
 
+        /* Moroccan Checkout & Phone Validation */
         function openCheckoutModal() {
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
@@ -1259,9 +1337,9 @@
         }
 
         function validateMoroccanPhone(phone) {
-            // Standard Moroccan Mobile Format: 06XXXXXXXX, 07XXXXXXXX, or 05XXXXXXXX
+            const cleanPhone = phone.replace(/\s+/g, '');
             const regex = /^(06|07|05)\d{8}$/;
-            return regex.test(phone.replace(/\s+/g, ''));
+            return regex.test(cleanPhone);
         }
 
         function generateOrderId() {
@@ -1295,7 +1373,7 @@
 
             let orderItemsMsg = cart.map((item, index) => `${index + 1}. ${item.name} (${item.size}) - ${item.quantity}x = ${item.price * item.quantity} DH`).join('\n');
 
-            const message = `✨ *طلب جديد من H7 NEO* ✨\n` +
+            const message = `✨ *طلب جديد من متجر H7 NEO* ✨\n` +
                 `------------------------------------\n` +
                 `*رقم الطلب:* ${orderId}\n` +
                 `*الاسم:* ${name}\n` +
@@ -1307,24 +1385,24 @@
                 `*المنتجات المطلوبة:*\n${orderItemsMsg}\n` +
                 `------------------------------------\n` +
                 `💰 *المبلغ الإجمالي:* ${total} DH (الدفع عند الاستلام)\n\n` +
-                `المرجو تأكيد الطلبية وشكراً لتسوقكم معنا! 👑`;
+                `المرجو تأكيد الطلبية وشكراً لتسوقكم مع H7 NEO! 👑`;
 
             const encodedMessage = encodeURIComponent(message);
             const waUrl = `https://wa.me/212640419454?text=${encodedMessage}`;
 
-            // Reset Cart
             cart = [];
             saveCart();
             updateCartUI();
             closeCheckoutModal();
 
-            showToast('جاري تحويلك إلى الواتساب لإتمام الطلب...', 'success');
+            showToast('جاري تحويلك إلى الواتساب لتأكيد الطلب...', 'success');
 
             setTimeout(() => {
                 window.open(waUrl, '_blank');
             }, 1000);
         }
 
+        /* PDF Receipt Generator */
         async function generatePDFInvoice() {
             const name = document.getElementById('customerName').value.trim() || "عميل مميز";
             const phone = document.getElementById('customerPhone').value.trim() || "-";
@@ -1332,7 +1410,7 @@
             const address = document.getElementById('customerAddress').value.trim() || "-";
 
             if (cart.length === 0) {
-                showToast('السلة فارغة!', 'error');
+                showToast('سلة التسوق فارغة!', 'error');
                 return;
             }
 
@@ -1341,20 +1419,20 @@
 
             const pdfContainer = document.getElementById('pdfInvoiceContainer');
             pdfContainer.innerHTML = `
-                <div style="font-family: 'Cairo', sans-serif; direction: rtl; text-align: right; border: 2px solid #c8a96b; padding: 30px; border-radius: 12px; background: #fff;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #c8a96b; padding-bottom: 15px;">
+                <div style="font-family: 'Cairo', sans-serif; direction: rtl; text-align: right; border: 2px solid #D4AF37; padding: 30px; border-radius: 12px; background: #fff;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #D4AF37; padding-bottom: 15px;">
                         <div>
-                            <h1 style="font-size: 26px; color: #070707; margin: 0; font-weight: bold;">H7 NEO | Luxe & Élégance</h1>
-                            <p style="font-size: 12px; color: #666; margin: 5px 0 0 0;">STYLE WITHOUT LIMITS</p>
+                            <h1 style="font-size: 24px; color: #0d0d0f; margin: 0; font-weight: bold;">H7 NEO | Luxe &amp; Élégance</h1>
+                            <p style="font-size: 11px; color: #666; margin: 3px 0 0 0;">STYLE WITHOUT LIMITS</p>
                         </div>
                         <div style="text-align: left;">
-                            <h3 style="margin: 0; color: #c8a96b; font-size: 18px;">فاتورة طلب</h3>
+                            <h3 style="margin: 0; color: #D4AF37; font-size: 18px;">فاتورة شرائية</h3>
                             <p style="margin: 3px 0 0 0; font-size: 12px; color: #444;">${orderId}</p>
                         </div>
                     </div>
 
                     <div style="margin-top: 20px; font-size: 13px; line-height: 1.6; color: #333;">
-                        <p><strong>اسم العميل:</strong> ${name}</p>
+                        <p><strong>الاسم:</strong> ${name}</p>
                         <p><strong>رقم الهاتف:</strong> ${phone}</p>
                         <p><strong>العنوان:</strong> ${city} - ${address}</p>
                         <p><strong>التاريخ:</strong> ${new Date().toLocaleDateString('ar-MA')}</p>
@@ -1362,7 +1440,7 @@
 
                     <table style="width: 100%; margin-top: 20px; border-collapse: collapse; font-size: 13px;">
                         <thead>
-                            <tr style="background: #070707; color: #c8a96b;">
+                            <tr style="background: #0d0d0f; color: #D4AF37;">
                                 <th style="padding: 10px; border: 1px solid #ddd; text-align: right;">المنتج</th>
                                 <th style="padding: 10px; border: 1px solid #ddd; text-align: center;">المقاس</th>
                                 <th style="padding: 10px; border: 1px solid #ddd; text-align: center;">الكمية</th>
@@ -1381,8 +1459,8 @@
                         </tbody>
                     </table>
 
-                    <div style="margin-top: 20px; text-align: left; font-size: 16px; font-weight: bold; color: #070707;">
-                        <p>المبلغ الإجمالي المستحق: <span style="color: #c8a96b;">${subtotal} DH</span></p>
+                    <div style="margin-top: 20px; text-align: left; font-size: 16px; font-weight: bold; color: #0d0d0f;">
+                        <p>الإجمالي المالي: <span style="color: #D4AF37;">${subtotal} DH</span></p>
                     </div>
 
                     <div style="margin-top: 30px; text-align: center; font-size: 11px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
@@ -1391,7 +1469,7 @@
                 </div>
             `;
 
-            showToast('جاري إنشاء فاتورة PDF...', 'info');
+            showToast('جاري إعداد فاتورة PDF...', 'info');
 
             try {
                 const canvas = await html2canvas(pdfContainer, { scale: 2 });
@@ -1404,21 +1482,22 @@
                 const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
                 doc.addImage(imgData, 'PNG', 0, 10, pdfWidth, pdfHeight);
-                doc.save(`Invoice_${orderId}.pdf`);
+                doc.save(`H7NEO_Invoice_${orderId}.pdf`);
 
                 showToast('تم تحميل الفاتورة بنجاح!', 'success');
             } catch (err) {
                 console.error(err);
-                showToast('حدث خطأ أثناء إنشاء PDF', 'error');
+                showToast('حدث خطأ أثناء تحميل الفاتورة.', 'error');
             }
         }
 
+        /* Toast Notifications Handler */
         function showToast(message, type = 'info') {
             const container = document.getElementById('toastContainer');
             const toast = document.createElement('div');
 
-            const bgClass = type === 'success' ? 'bg-emerald-900/90 border-emerald-500 text-emerald-200' :
-                            type === 'error' ? 'bg-red-900/90 border-red-500 text-red-200' :
+            const bgClass = type === 'success' ? 'bg-emerald-950/90 border-emerald-500 text-emerald-200' :
+                            type === 'error' ? 'bg-red-950/90 border-red-500 text-red-200' :
                             'bg-cardDark border-gold/40 text-gold-light';
 
             const iconClass = type === 'success' ? 'fa-circle-check text-emerald-400' :
@@ -1438,19 +1517,6 @@
                 toast.style.transition = 'opacity 0.3s ease';
                 setTimeout(() => toast.remove(), 300);
             }, 3000);
-        }
-
-        function toggleFaq(btn) {
-            const content = btn.nextElementSibling;
-            const icon = btn.querySelector('i');
-
-            if (content.classList.contains('hidden')) {
-                content.classList.remove('hidden');
-                icon.style.transform = 'rotate(180deg)';
-            } else {
-                content.classList.add('hidden');
-                icon.style.transform = 'rotate(0deg)';
-            }
         }
     </script>
 </body>
