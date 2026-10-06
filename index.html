@@ -1,23 +1,37 @@
 <!DOCTYPE html>  <html lang="ar" dir="rtl">  
 <head>  
   <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>H7 NEO | Luxe & Élégance</title>  <meta
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+
+  <title>H7 NEO | Luxe & Élégance</title>  
+
+  <meta
 name="description"
 content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزياء المحجبة، الأحذية والإكسسوارات. التوصيل داخل المغرب والدفع عند الاستلام."
 
 > 
 
-  <meta name="theme-color" content="#080808">    <link rel="preconnect" href="https://fonts.googleapis.com">  
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    <link  
+  <meta name="theme-color" content="#080808">  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+
+  <link  
     href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"  
     rel="stylesheet"  
-  >    <script  
+  >  
+
+  <script  
     src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"  
     defer  
-  ></script>    <script  
+  ></script>  
+
+  <script  
     src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"  
     defer  
-  ></script>    <style>  
+  ></script>  
+
+  <style>  
     :root{  
       --bg:#070707;  
       --bg2:#0d0d0d;  
@@ -39,18 +53,18 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       --header:78px;  
       --max:1380px;  
     }  
-  
+
     *{  
       margin:0;  
       padding:0;  
       box-sizing:border-box;  
     }  
-  
+
     html{  
       scroll-behavior:smooth;  
       background:var(--bg);  
     }  
-  
+
     body{  
       font-family:"Cairo",sans-serif;  
       background:  
@@ -60,62 +74,62 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       min-height:100vh;  
       overflow-x:hidden;  
     }  
-  
+
     body.no-scroll{  
       overflow:hidden;  
     }  
-  
+
     button,  
     input,  
     select,  
     textarea{  
       font-family:inherit;  
     }  
-  
+
     button{  
       cursor:pointer;  
     }  
-  
+
     a{  
       color:inherit;  
       text-decoration:none;  
     }  
-  
+
     img{  
       max-width:100%;  
       display:block;  
     }  
-  
+
     ::selection{  
       background:var(--gold);  
       color:#000;  
     }  
-  
+
     /* =========================  
        SCROLLBAR  
     ========================== */  
-  
+
     ::-webkit-scrollbar{  
       width:8px;  
     }  
-  
+
     ::-webkit-scrollbar-track{  
       background:#080808;  
     }  
-  
+
     ::-webkit-scrollbar-thumb{  
       background:#383838;  
       border-radius:20px;  
     }  
-  
+
     ::-webkit-scrollbar-thumb:hover{  
       background:var(--gold);  
     }  
-  
+
     /* =========================  
        LOADER  
     ========================== */  
-  
+
     #loader{  
       position:fixed;  
       inset:0;  
@@ -126,17 +140,17 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       justify-content:center;  
       transition:.5s ease;  
     }  
-  
+
     #loader.hide{  
       opacity:0;  
       visibility:hidden;  
       pointer-events:none;  
     }  
-  
+
     .loader-inner{  
       text-align:center;  
     }  
-  
+
     .loader-logo{  
       font-family:"Playfair Display",serif;  
       font-size:42px;  
@@ -144,7 +158,7 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       color:var(--gold2);  
       margin-bottom:18px;  
     }  
-  
+
     .loader-line{  
       width:160px;  
       height:2px;  
@@ -153,7 +167,7 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       overflow:hidden;  
       position:relative;  
     }  
-  
+
     .loader-line::after{  
       content:"";  
       position:absolute;  
@@ -162,16 +176,16 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       background:var(--gold);  
       animation:loaderMove 1.1s infinite ease-in-out;  
     }  
-  
+
     @keyframes loaderMove{  
       0%{transform:translateX(-100%)}  
       100%{transform:translateX(300%)}  
     }  
-  
+
     /* =========================  
        ANNOUNCEMENT  
     ========================== */  
-  
+
     .announcement{  
       min-height:34px;  
       background:#000;  
@@ -185,15 +199,15 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       color:#ddd;  
       letter-spacing:.3px;  
     }  
-  
+
     .announcement strong{  
       color:var(--gold2);  
     }  
-  
+
     /* =========================  
        HEADER  
     ========================== */  
-  
+
     .header{  
       position:sticky;  
       top:0;  
@@ -204,7 +218,7 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       -webkit-backdrop-filter:blur(18px);  
       border-bottom:1px solid var(--line);  
     }  
-  
+
     .nav{  
       width:min(var(--max),calc(100% - 36px));  
       height:100%;  
@@ -214,14 +228,14 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       justify-content:space-between;  
       gap:25px;  
     }  
-  
+
     .brand{  
       display:flex;  
       align-items:center;  
       gap:12px;  
       min-width:max-content;  
     }  
-  
+
     .brand-mark{  
       width:42px;  
       height:42px;  
@@ -235,39 +249,39 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       font-weight:700;  
       font-size:18px;  
     }  
-  
+
     .brand-text{  
       display:flex;  
       flex-direction:column;  
       line-height:1;  
     }  
-  
+
     .brand-name{  
       font-family:"Playfair Display",serif;  
       letter-spacing:2px;  
       font-size:22px;  
     }  
-  
+
     .brand-sub{  
       color:var(--gold);  
       font-size:8px;  
       letter-spacing:3px;  
       margin-top:6px;  
     }  
-  
+
     .nav-links{  
       display:flex;  
       align-items:center;  
       gap:28px;  
     }  
-  
+
     .nav-links a{  
       color:#d4d4d4;  
       font-size:13px;  
       position:relative;  
       transition:.25s;  
     }  
-  
+
     .nav-links a::after{  
       content:"";  
       position:absolute;  
@@ -278,21 +292,21 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       background:var(--gold);  
       transition:.25s;  
     }  
-  
+
     .nav-links a:hover{  
       color:var(--gold2);  
     }  
-  
+
     .nav-links a:hover::after{  
       width:100%;  
     }  
-  
+
     .nav-actions{  
       display:flex;  
       align-items:center;  
       gap:9px;  
     }  
-  
+
     .icon-btn{  
       width:42px;  
       height:42px;  
@@ -307,13 +321,13 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       position:relative;  
       font-size:17px;  
     }  
-  
+
     .icon-btn:hover{  
       border-color:var(--gold);  
       color:var(--gold2);  
       transform:translateY(-2px);  
     }  
-  
+
     .badge{  
       position:absolute;  
       top:-3px;  
@@ -330,15 +344,15 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       font-weight:800;  
       padding:0 4px;  
     }  
-  
+
     .menu-btn{  
       display:none;  
     }  
-  
+
     /* =========================  
        MOBILE MENU  
     ========================== */  
-  
+
     .mobile-menu{  
       position:fixed;  
       top:0;  
@@ -353,11 +367,11 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       box-shadow:var(--shadow);  
       padding:90px 25px 30px;  
     }  
-  
+
     .mobile-menu.open{  
       transform:translateX(0);  
     }  
-  
+
     .mobile-close{  
       position:absolute;  
       top:22px;  
@@ -370,23 +384,23 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       color:#fff;  
       font-size:20px;  
     }  
-  
+
     .mobile-menu nav{  
       display:flex;  
       flex-direction:column;  
       gap:7px;  
     }  
-  
+
     .mobile-menu nav a{  
       padding:15px;  
       border-bottom:1px solid var(--line);  
       color:#eee;  
     }  
-  
+
     .mobile-menu nav a:hover{  
       color:var(--gold2);  
     }  
-  
+
     .overlay{  
       position:fixed;  
       inset:0;  
@@ -397,16 +411,16 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       transition:.3s;  
       backdrop-filter:blur(4px);  
     }  
-  
+
     .overlay.show{  
       opacity:1;  
       visibility:visible;  
     }  
-  
+
     /* =========================  
        HERO  
     ========================== */  
-  
+
     .hero{  
       width:min(var(--max),calc(100% - 36px));  
       min-height:650px;  
@@ -421,7 +435,7 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
         linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.66) 42%,rgba(0,0,0,.15) 100%),  
         url("بالغينة صيفية_1.jpg") center/cover no-repeat;  
     }  
-  
+
     .hero::after{  
       content:"";  
       position:absolute;  
@@ -431,14 +445,14 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
         linear-gradient(to top,rgba(0,0,0,.6),transparent 50%);  
       pointer-events:none;  
     }  
-  
+
     .hero-content{  
       position:relative;  
       z-index:2;  
       width:min(650px,100%);  
       padding:70px;  
     }  
-  
+
     .eyebrow{  
       display:inline-flex;  
       align-items:center;  
@@ -449,14 +463,14 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       text-transform:uppercase;  
       margin-bottom:20px;  
     }  
-  
+
     .eyebrow::before{  
       content:"";  
       width:32px;  
       height:1px;  
       background:var(--gold);  
     }  
-  
+
     .hero h1{  
       font-family:"Playfair Display",serif;  
       font-size:clamp(48px,7vw,88px);  
@@ -465,11 +479,11 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       letter-spacing:-2px;  
       margin-bottom:25px;  
     }  
-  
+
     .hero h1 span{  
       color:var(--gold2);  
     }  
-  
+
     .hero p{  
       color:#d0d0d0;  
       line-height:2;  
@@ -477,13 +491,13 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       max-width:560px;  
       margin-bottom:32px;  
     }  
-  
+
     .hero-actions{  
       display:flex;  
       gap:12px;  
       flex-wrap:wrap;  
     }  
-  
+
     .btn{  
       min-height:48px;  
       padding:0 23px;  
@@ -497,34 +511,34 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       font-weight:700;  
       transition:.25s;  
     }  
-  
+
     .btn-gold{  
       background:var(--gold);  
       color:#050505;  
     }  
-  
+
     .btn-gold:hover{  
       background:var(--gold2);  
       transform:translateY(-2px);  
       box-shadow:0 10px 30px rgba(200,169,107,.2);  
     }  
-  
+
     .btn-outline{  
       border-color:rgba(255,255,255,.2);  
       background:rgba(0,0,0,.25);  
       color:#fff;  
     }  
-  
+
     .btn-outline:hover{  
       border-color:var(--gold);  
       color:var(--gold2);  
       transform:translateY(-2px);  
     }  
-  
+
     /* =========================  
        TRUST STRIP  
     ========================== */  
-  
+
     .trust{  
       width:min(var(--max),calc(100% - 36px));  
       margin:16px auto 0;  
@@ -532,7 +546,7 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       grid-template-columns:repeat(4,1fr);  
       gap:12px;  
     }  
-  
+
     .trust-item{  
       background:#0d0d0d;  
       border:1px solid var(--line);  
@@ -542,7 +556,7 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       align-items:center;  
       gap:13px;  
     }  
-  
+
     .trust-icon{  
       width:40px;  
       height:40px;  
@@ -554,27 +568,27 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       color:var(--gold2);  
       flex:none;  
     }  
-  
+
     .trust-text strong{  
       display:block;  
       font-size:12px;  
       margin-bottom:3px;  
     }  
-  
+
     .trust-text span{  
       color:var(--muted);  
       font-size:10px;  
     }  
-  
+
     /* =========================  
        SECTIONS  
     ========================== */  
-  
+
     .section{  
       width:min(var(--max),calc(100% - 36px));  
       margin:100px auto 0;  
     }  
-  
+
     .section-head{  
       display:flex;  
       align-items:end;  
@@ -582,7 +596,7 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       gap:20px;  
       margin-bottom:28px;  
     }  
-  
+
     .section-kicker{  
       color:var(--gold);  
       font-size:11px;  
@@ -590,30 +604,30 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       text-transform:uppercase;  
       margin-bottom:8px;  
     }  
-  
+
     .section-title{  
       font-family:"Playfair Display",serif;  
       font-size:clamp(30px,4vw,46px);  
       font-weight:600;  
     }  
-  
+
     .section-desc{  
       color:var(--muted);  
       max-width:470px;  
       font-size:12px;  
       line-height:1.9;  
     }  
-  
+
     /* =========================  
        COLLECTIONS  
     ========================== */  
-  
+
     .collections{  
       display:grid;  
       grid-template-columns:repeat(4,1fr);  
       gap:14px;  
     }  
-  
+
     .collection{  
       min-height:250px;  
       border:1px solid var(--line);  
@@ -623,7 +637,7 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       background:#111;  
       cursor:pointer;  
     }  
-  
+
     .collection::before{  
       content:"";  
       position:absolute;  
@@ -631,7 +645,7 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       background:linear-gradient(to top,rgba(0,0,0,.9),rgba(0,0,0,.05));  
       z-index:1;  
     }  
-  
+
     .collection img{  
       width:100%;  
       height:100%;  
@@ -639,33 +653,33 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       object-fit:cover;  
       transition:.5s;  
     }  
-  
+
     .collection:hover img{  
       transform:scale(1.06);  
     }  
-  
+
     .collection-info{  
       position:absolute;  
       right:20px;  
       bottom:18px;  
       z-index:2;  
     }  
-  
+
     .collection-info h3{  
       font-family:"Playfair Display",serif;  
       font-size:22px;  
       margin-bottom:3px;  
     }  
-  
+
     .collection-info span{  
       color:#bbb;  
       font-size:10px;  
     }  
-  
+
     /* =========================  
        SHOP TOOLBAR  
     ========================== */  
-  
+
     .shop-toolbar{  
       display:flex;  
       gap:10px;  
@@ -674,13 +688,13 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       justify-content:space-between;  
       margin-bottom:25px;  
     }  
-  
+
     .filters{  
       display:flex;  
       gap:8px;  
       flex-wrap:wrap;  
     }  
-  
+
     .filter-btn{  
       height:42px;  
       padding:0 16px;  
@@ -691,19 +705,19 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       font-size:11px;  
       transition:.2s;  
     }  
-  
+
     .filter-btn:hover,  
     .filter-btn.active{  
       background:var(--gold);  
       border-color:var(--gold);  
       color:#000;  
     }  
-  
+
     .search-box{  
       width:280px;  
       position:relative;  
     }  
-  
+
     .search-box input{  
       width:100%;  
       height:44px;  
@@ -715,11 +729,11 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       padding:0 45px 0 15px;  
       font-size:11px;  
     }  
-  
+
     .search-box input:focus{  
       border-color:var(--gold);  
     }  
-  
+
     .search-icon{  
       position:absolute;  
       right:15px;  
@@ -727,17 +741,17 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       transform:translateY(-50%);  
       color:#888;  
     }  
-  
+
     /* =========================  
        PRODUCTS  
     ========================== */  
-  
+
     .products-grid{  
       display:grid;  
       grid-template-columns:repeat(4,1fr);  
       gap:18px;  
     }  
-  
+
     .product-card{  
       background:linear-gradient(145deg,#131313,#0d0d0d);  
       border:1px solid var(--line);  
@@ -747,13 +761,13 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       transition:.3s;  
       min-width:0;  
     }  
-  
+
     .product-card:hover{  
       transform:translateY(-5px);  
       border-color:rgba(200,169,107,.35);  
       box-shadow:0 20px 50px rgba(0,0,0,.3);  
     }  
-  
+
     .product-image{  
       position:relative;  
       aspect-ratio:1 / 1.08;  
@@ -761,18 +775,18 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       background:#191919;  
       cursor:pointer;  
     }  
-  
+
     .product-image img{  
       width:100%;  
       height:100%;  
       object-fit:cover;  
       transition:.45s;  
     }  
-  
+
     .product-card:hover .product-image img{  
       transform:scale(1.035);  
     }  
-  
+
     .product-wish{  
       position:absolute;  
       top:12px;  
@@ -789,12 +803,12 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       z-index:2;  
       backdrop-filter:blur(8px);  
     }  
-  
+
     .product-wish.active{  
       color:#ff6d6d;  
       border-color:rgba(255,109,109,.35);  
     }  
-  
+
     .product-tag{  
       position:absolute;  
       top:12px;  
@@ -807,17 +821,17 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       font-weight:800;  
       z-index:2;  
     }  
-  
+
     .product-body{  
       padding:16px;  
     }  
-  
+
     .product-category{  
       color:var(--gold);  
       font-size:9px;  
       margin-bottom:7px;  
     }  
-  
+
     .product-name{  
       font-size:14px;  
       font-weight:700;  
@@ -826,26 +840,26 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       text-overflow:ellipsis;  
       margin-bottom:8px;  
     }  
-  
+
     .product-bottom{  
       display:flex;  
       align-items:center;  
       justify-content:space-between;  
       gap:8px;  
     }  
-  
+
     .product-price{  
       color:var(--gold2);  
       font-size:16px;  
       font-weight:800;  
     }  
-  
+
     .product-price small{  
       color:#888;  
       font-size:9px;  
       font-weight:500;  
     }  
-  
+
     .add-btn{  
       width:40px;  
       height:40px;  
@@ -856,12 +870,12 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       font-size:18px;  
       transition:.2s;  
     }  
-  
+
     .add-btn:hover{  
       background:var(--gold);  
       color:#000;  
     }  
-  
+
     .empty-products{  
       grid-column:1/-1;  
       padding:70px 20px;  
@@ -870,11 +884,11 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       border-radius:20px;  
       color:#777;  
     }  
-  
+
     /* =========================  
        FEATURE BANNER  
     ========================== */  
-  
+
     .feature{  
       display:grid;  
       grid-template-columns:1fr 1fr;  
@@ -884,30 +898,30 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       border:1px solid var(--line);  
       background:#101010;  
     }  
-  
+
     .feature-image{  
       min-height:480px;  
       background:url("حجاب هجار_14.jpg") center/cover no-repeat;  
     }  
-  
+
     .feature-content{  
       display:flex;  
       flex-direction:column;  
       justify-content:center;  
       padding:65px;  
     }  
-  
+
     .feature-content .eyebrow{  
       margin-bottom:15px;  
     }  
-  
+
     .feature-content h2{  
       font-family:"Playfair Display",serif;  
       font-size:clamp(35px,4vw,58px);  
       line-height:1.05;  
       margin-bottom:20px;  
     }  
-  
+
     .feature-content p{  
       color:#aaa;  
       line-height:2;  
@@ -915,80 +929,80 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       margin-bottom:25px;  
       max-width:500px;  
     }  
-  
+
     /* =========================  
        ABOUT  
     ========================== */  
-  
+
     .about{  
       display:grid;  
       grid-template-columns:1fr 1fr;  
       gap:18px;  
     }  
-  
+
     .about-card{  
       border:1px solid var(--line);  
       border-radius:22px;  
       padding:45px;  
       background:linear-gradient(145deg,#111,#0b0b0b);  
     }  
-  
+
     .about-card h3{  
       font-family:"Playfair Display",serif;  
       font-size:32px;  
       margin-bottom:17px;  
     }  
-  
+
     .about-card p{  
       color:#aaa;  
       line-height:2;  
       font-size:13px;  
     }  
-  
+
     .values{  
       display:grid;  
       grid-template-columns:1fr 1fr;  
       gap:12px;  
     }  
-  
+
     .value{  
       padding:22px;  
       border:1px solid var(--line);  
       border-radius:17px;  
       background:#101010;  
     }  
-  
+
     .value-icon{  
       color:var(--gold);  
       font-size:22px;  
       margin-bottom:12px;  
     }  
-  
+
     .value strong{  
       display:block;  
       font-size:13px;  
       margin-bottom:6px;  
     }  
-  
+
     .value span{  
       color:#888;  
       font-size:10px;  
       line-height:1.8;  
     }  
-  
+
     /* =========================  
        FAQ  
     ========================== */  
-  
+
     .faq{  
       max-width:900px;  
       margin:auto;  
     }  
-  
+
     .faq-item{  
       border-bottom:1px solid var(--line);  
     }  
-  
+
     .faq-question{  
       width:100%;  
       min-height:65px;  
@@ -998,7 +1012,767 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
       display:flex;  
       align-items:center;  
       justify-content:space-between;  
+      gap:15px;  
       text-align:right;  
+      font-size:13px;  
+      font-weight:700;  
+    }  
+
+    .faq-icon{  
+      width:30px;  
+      height:30px;  
+      border-radius:50%;  
+      border:1px solid var(--line);  
+      display:flex;  
+      align-items:center;  
+      justify-content:center;  
+      color:var(--gold);  
+      flex:none;  
+      transition:.25s;  
+    }  
+
+    .faq-item.open .faq-icon{  
+      transform:rotate(45deg);  
+      background:var(--gold);  
+      color:#000;  
+    }  
+
+    .faq-answer{  
+      max-height:0;  
+      overflow:hidden;  
+      transition:.35s ease;  
+    }  
+
+    .faq-answer p{  
+      color:#888;  
+      font-size:11px;  
+      line-height:2;  
+      padding:0 0 18px;  
+    }  
+
+    /* =========================  
+       CTA  
+    ========================== */  
+
+    .cta{  
+      position:relative;  
+      border:1px solid var(--line2);  
+      border-radius:25px;  
+      overflow:hidden;  
+      padding:75px 50px;  
+      text-align:center;  
+      background:  
+        radial-gradient(circle at center,rgba(200,169,107,.12),transparent 50%),  
+        #0d0d0d;  
+    }  
+
+    .cta::before,  
+    .cta::after{  
+      content:"";  
+      position:absolute;  
+      width:180px;  
+      height:180px;  
+      border:1px solid rgba(200,169,107,.12);  
+      border-radius:50%;  
+      pointer-events:none;  
+    }  
+
+    .cta::before{  
+      right:-70px;  
+      top:-70px;  
+    }  
+
+    .cta::after{  
+      left:-70px;  
+      bottom:-70px;  
+    }  
+
+    .cta h2{  
+      position:relative;  
+      z-index:2;  
+      font-family:"Playfair Display",serif;  
+      font-size:clamp(35px,5vw,60px);  
+      margin-bottom:13px;  
+    }  
+
+    .cta p{  
+      position:relative;  
+      z-index:2;  
+      color:#999;  
+      font-size:12px;  
+      margin-bottom:25px;  
+    }  
+
+    .cta .btn{  
+      position:relative;  
+      z-index:2;  
+    }  
+
+    /* =========================  
+       FOOTER  
+    ========================== */  
+
+    footer{  
+      margin-top:100px;  
+      border-top:1px solid var(--line);  
+      background:#050505;  
+    }  
+
+    .footer-inner{  
+      width:min(var(--max),calc(100% - 36px));  
+      margin:auto;  
+      padding:60px 0 25px;  
+    }  
+
+    .footer-grid{  
+      display:grid;  
+      grid-template-columns:2fr 1fr 1fr 1.2fr;  
+      gap:35px;  
+      padding-bottom:45px;  
+    }  
+
+    .footer-brand p{  
+      color:#777;  
+      font-size:11px;  
+      line-height:2;  
+      max-width:400px;  
+      margin-top:15px;  
+    }  
+
+    .footer-title{  
+      font-size:12px;  
+      font-weight:800;  
+      margin-bottom:17px;  
+      color:#ddd;  
+    }  
+
+    .footer-links{  
+      display:flex;  
+      flex-direction:column;  
+      gap:10px;  
+    }  
+
+    .footer-links a{  
+      color:#777;  
+      font-size:10px;  
+      transition:.2s;  
+    }  
+
+    .footer-links a:hover{  
+      color:var(--gold2);  
+    }  
+
+    .footer-contact{  
+      display:flex;  
+      flex-direction:column;  
+      gap:11px;  
+    }  
+
+    .contact-line{  
+      display:flex;  
+      align-items:center;  
+      gap:9px;  
+      color:#777;  
+      font-size:10px;  
+    }  
+
+    .contact-line i{  
+      color:var(--gold);  
+      width:18px;  
+      text-align:center;  
+    }  
+
+    .socials{  
+      display:flex;  
+      gap:8px;  
+      margin-top:17px;  
+    }  
+
+    .social{  
+      width:38px;  
+      height:38px;  
+      border-radius:11px;  
+      border:1px solid var(--line);  
+      background:#101010;  
+      display:flex;  
+      align-items:center;  
+      justify-content:center;  
+      color:#bbb;  
+      transition:.2s;  
+    }  
+
+    .social:hover{  
+      color:var(--gold2);  
+      border-color:var(--gold);  
+      transform:translateY(-2px);  
+    }  
+
+    .footer-bottom{  
+      border-top:1px solid var(--line);  
+      padding-top:20px;  
+      display:flex;  
+      align-items:center;  
+      justify-content:space-between;  
+      gap:15px;  
+      color:#555;  
+      font-size:9px;  
+    }  
+
+    /* =========================  
+       WHATSAPP FLOAT  
+    ========================== */  
+
+    .whatsapp-float{  
+      position:fixed;  
+      left:20px;  
+      bottom:20px;  
+      width:58px;  
+      height:58px;  
+      border-radius:50%;  
+      background:var(--green);  
+      color:#fff;  
+      display:flex;  
+      align-items:center;  
+      justify-content:center;  
+      font-size:28px;  
+      z-index:6000;  
+      box-shadow:0 15px 35px rgba(37,211,102,.25);  
+      transition:.25s;  
+    }  
+
+    .whatsapp-float:hover{  
+      transform:translateY(-4px) scale(1.04);  
+    }  
+
+    /* =========================  
+       CART DRAWER  
+    ========================== */  
+
+    .drawer{  
+      position:fixed;  
+      top:0;  
+      left:0;  
+      width:min(430px,94vw);  
+      height:100dvh;  
+      background:#0b0b0b;  
+      z-index:8500;  
+      transform:translateX(-105%);  
+      transition:.35s ease;  
+      border-right:1px solid var(--line);  
+      box-shadow:var(--shadow);  
+      display:flex;  
+      flex-direction:column;  
+    }  
+
+    .drawer.open{  
+      transform:translateX(0);  
+    }  
+
+    .drawer-head{  
+      min-height:78px;  
+      padding:0 22px;  
+      display:flex;  
+      align-items:center;  
+      justify-content:space-between;  
+      border-bottom:1px solid var(--line);  
+    }  
+
+    .drawer-head h3{  
+      font-family:"Playfair Display",serif;  
+      font-size:25px;  
+    }  
+
+    .close-btn{  
+      width:40px;  
+      height:40px;  
+      border-radius:50%;  
+      border:1px solid var(--line);  
+      background:#111;  
+      color:#fff;  
+      font-size:18px;  
+    }  
+
+    .cart-items{  
+      flex:1;  
+      overflow:auto;  
+      padding:18px;  
+    }  
+
+    .cart-item{  
+      display:grid;  
+      grid-template-columns:70px 1fr auto;  
+      gap:12px;  
+      align-items:center;  
+      padding:12px 0;  
+      border-bottom:1px solid var(--line);  
+    }  
+
+    .cart-item-img{  
+      width:70px;  
+      height:80px;  
+      border-radius:11px;  
+      object-fit:cover;  
+      background:#181818;  
+    }  
+
+    .cart-item-name{  
+      font-size:11px;  
+      font-weight:700;  
+      margin-bottom:6px;  
+    }  
+
+    .cart-item-price{  
+      color:var(--gold2);  
+      font-size:11px;  
+    }  
+
+    .qty{  
+      display:flex;  
+      align-items:center;  
+      gap:5px;  
+      margin-top:8px;  
+    }  
+
+    .qty button{  
+      width:26px;  
+      height:26px;  
+      border-radius:7px;  
+      border:1px solid var(--line);  
+      background:#151515;  
+      color:#fff;  
+    }  
+
+    .qty span{  
+      min-width:20px;  
+      text-align:center;  
+      font-size:10px;  
+    }  
+
+    .remove{  
+      color:#777;  
+      border:0;  
+      background:none;  
+      font-size:14px;  
+    }  
+
+    .cart-empty{  
+      height:100%;  
+      display:flex;  
+      align-items:center;  
+      justify-content:center;  
+      text-align:center;  
+      color:#777;  
+      font-size:12px;  
+    }  
+
+    .drawer-foot{  
+      padding:18px;  
+      border-top:1px solid var(--line);  
+      background:#090909;  
+    }  
+
+    .total-row{  
+      display:flex;  
+      justify-content:space-between;  
+      align-items:center;  
+      margin-bottom:15px;  
+    }  
+
+    .total-row span:first-child{  
+      color:#999;  
+      font-size:12px;  
+    }  
+
+    .total-value{  
+      color:var(--gold2);  
+      font-size:20px;  
+      font-weight:800;  
+    }  
+
+    .full-btn{  
+      width:100%;  
+    }  
+
+    /* =========================  
+       MODALS  
+    ========================== */  
+
+    .modal{  
+      position:fixed;  
+      inset:0;  
+      z-index:10000;  
+      display:flex;  
+      align-items:center;  
+      justify-content:center;  
+      padding:20px;  
+      background:rgba(0,0,0,.78);  
+      backdrop-filter:blur(8px);  
+      opacity:0;  
+      visibility:hidden;  
+      transition:.25s;  
+    }  
+
+    .modal.show{  
+      opacity:1;  
+      visibility:visible;  
+    }  
+
+    .modal-box{  
+      width:min(1050px,100%);  
+      max-height:92dvh;  
+      overflow:auto;  
+      background:#0c0c0c;  
+      border:1px solid var(--line);  
+      border-radius:25px;  
+      box-shadow:var(--shadow);  
+      position:relative;  
+    }  
+
+    .modal-close{  
+      position:absolute;  
+      left:18px;  
+      top:18px;  
+      z-index:5;  
+    }  
+
+    /* product modal */  
+
+    .product-modal{  
+      display:grid;  
+      grid-template-columns:1fr 1fr;  
+    }  
+
+    .modal-gallery{  
+      background:#111;  
+      padding:18px;  
+    }  
+
+    .main-image{  
+      width:100%;  
+      aspect-ratio:1/1;  
+      border-radius:18px;  
+      object-fit:cover;  
+      background:#181818;  
+    }  
+
+    .thumbs{  
+      display:flex;  
+      gap:8px;  
+      overflow:auto;  
+      margin-top:10px;  
+      padding-bottom:3px;  
+    }  
+
+    .thumb{  
+      width:65px;  
+      height:65px;  
+      flex:none;  
+      border-radius:10px;  
+      overflow:hidden;  
+      border:1px solid var(--line);  
+      background:#181818;  
+      cursor:pointer;  
+    }  
+
+    .thumb.active{  
+      border-color:var(--gold);  
+    }  
+
+    .thumb img{  
+      width:100%;  
+      height:100%;  
+      object-fit:cover;  
+    }  
+
+    .modal-info{  
+      padding:60px 45px 45px;  
+    }  
+
+    .modal-category{  
+      color:var(--gold);  
+      font-size:10px;  
+      margin-bottom:10px;  
+    }  
+
+    .modal-info h2{  
+      font-family:"Playfair Display",serif;  
+      font-size:38px;  
+      margin-bottom:12px;  
+    }  
+
+    .modal-price{  
+      color:var(--gold2);  
+      font-size:23px;  
+      font-weight:800;  
+      margin-bottom:20px;  
+    }  
+
+    .modal-description{  
+      color:#999;  
+      line-height:2;  
+      font-size:12px;  
+      margin-bottom:25px;  
+    }  
+
+    .modal-info .btn{  
+      width:100%;  
+    }  
+
+    /* checkout */  
+
+    .checkout-box{  
+      width:min(650px,100%);  
+      padding:35px;  
+    }  
+
+    .checkout-title{  
+      font-family:"Playfair Display",serif;  
+      font-size:35px;  
+      margin-bottom:6px;  
+    }  
+
+    .checkout-sub{  
+      color:#777;  
+      font-size:10px;  
+      margin-bottom:25px;  
+    }  
+
+    .form-grid{  
+      display:grid;  
+      grid-template-columns:1fr 1fr;  
+      gap:13px;  
+    }  
+
+    .field.full{  
+      grid-column:1/-1;  
+    }  
+
+    .field label{  
+      display:block;  
+      font-size:10px;  
+      color:#aaa;  
+      margin-bottom:6px;  
+    }  
+
+    .field input,  
+    .field textarea,  
+    .field select{  
+      width:100%;  
+      border:1px solid var(--line);  
+      background:#121212;  
+      color:#fff;  
+      border-radius:11px;  
+      outline:none;  
+      padding:12px 13px;  
+      font-size:11px;  
+    }  
+
+    .field textarea{  
+      min-height:85px;  
+      resize:vertical;  
+    }  
+
+    .field input:focus,  
+    .field textarea:focus,  
+    .field select:focus{  
+      border-color:var(--gold);  
+    }  
+
+    .form-error{  
+      display:none;  
+      color:#ff7777;  
+      font-size:9px;  
+      margin-top:5px;  
+    }  
+
+    .form-error.show{  
+      display:block;  
+    }  
+
+    .checkout-summary{  
+      margin:20px 0;  
+      border:1px solid var(--line);  
+      border-radius:14px;  
+      padding:15px;  
+      background:#101010;  
+    }  
+
+    .summary-row{  
+      display:flex;  
+      justify-content:space-between;  
+      gap:15px;  
+      color:#999;  
+      font-size:10px;  
+      padding:5px 0;  
+    }  
+
+    .summary-row strong{  
+      color:#fff;  
+    }  
+
+    .summary-total{  
+      border-top:1px solid var(--line);  
+      margin-top:8px;  
+      padding-top:12px;  
+      color:var(--gold2);  
+      font-size:15px;  
+      font-weight:800;  
+    }  
+
+    /* =========================  
+       TOAST  
+    ========================== */  
+
+    #toast{  
+      position:fixed;  
+      right:50%;  
+      bottom:25px;  
+      transform:translate(50%,20px);  
+      background:#151515;  
+      border:1px solid var(--line2);  
+      color:#fff;  
+      padding:12px 18px;  
+      border-radius:12px;  
+      font-size:11px;  
+      z-index:20000;  
+      opacity:0;  
+      visibility:hidden;  
+      transition:.3s;  
+      box-shadow:var(--shadow);  
+    }  
+
+    #toast.show{  
+      opacity:1;  
+      visibility:visible;  
+      transform:translate(50%,0);  
+    }  
+
+    /* =========================  
+       REVEAL  
+    ========================== */  
+
+    .reveal{  
+      opacity:0;  
+      transform:translateY(25px);  
+      transition:.7s ease;  
+    }  
+
+    .reveal.visible{  
+      opacity:1;  
+      transform:none;  
+    }  
+
+    /* =========================  
+       RESPONSIVE  
+    ========================== */  
+
+    @media(max-width:1100px){  
+
+      .nav-links{  
+        gap:17px;  
+      }  
+
+      .products-grid{  
+        grid-template-columns:repeat(3,1fr);  
+      }  
+
+      .collections{  
+        grid-template-columns:repeat(2,1fr);  
+      }  
+
+      .trust{  
+        grid-template-columns:repeat(2,1fr);  
+      }  
+
+      .footer-grid{  
+        grid-template-columns:1.5fr 1fr 1fr;  
+      }  
+    }  
+
+    @media(max-width:800px){  
+
+      :root{  
+        --header:68px;  
+      }  
+
+      .nav{  
+        width:calc(100% - 24px);  
+      }  
+
+      .nav-links{  
+        display:none;  
+      }  
+
+      .menu-btn{  
+        display:flex;  
+      }  
+
+      .brand-mark{  
+        width:38px;  
+        height:38px;  
+      }  
+
+      .brand-name{  
+        font-size:19px;  
+      }  
+
+      .hero{  
+        min-height:600px;  
+        margin-top:12px;  
+        width:calc(100% - 24px);  
+        border-radius:22px;  
+        background:  
+          linear-gradient(to top,rgba(0,0,0,.95) 5%,rgba(0,0,0,.45) 70%,rgba(0,0,0,.1)),  
+          url("بالغينة صيفية_1.jpg") center/cover no-repeat;  
+      }  
+
+      .hero-content{  
+        padding:35px 25px;  
+        margin-top:auto;  
+      }  
+
+      .hero h1{  
+        font-size:53px;  
+      }  
+
+      .trust{  
+        width:calc(100% - 24px);  
+      }  
+
+      .section{  
+        width:calc(100% - 24px);  
+        margin-top:75px;  
+      }  
+
+      .section-head{  
+        display:block;  
+      }  
+
+      .section-desc{  
+        margin-top:10px;  
+      }  
+
+      .products-grid{  
+        grid-template-columns:repeat(2,minmax(0,1fr));  
+        gap:10px;  
+      }  
+
+      .product-card{  
+        border-radius:15px;  
+      }  
+
+      .product-body{  
+        padding:11px;  
+      }  
+
+      .product-name{  
+        font-size:11px;  
+      }  
+
+      .product-price{  
+        font-size:13px;  
+      }  
+          text-align:right;  
       font-size:13px;  
       gap:20px;  
     }  
@@ -1991,14 +2765,23 @@ content="H7 NEO — اكتشف تشكيلتنا المختارة من الأزي
         transition-duration:.01ms!important;  
       }  
     }  
-  </style>  </head>  
-<body>    <!-- LOADER -->    <div id="loader">  
-    <div class="loader-inner">  
-      <div class="loader-logo">H7 NEO</div>  
-      <div class="loader-line"></div>  
-    </div>  
-  </div>    <!-- ANNOUNCEMENT -->    <div class="announcement">  
-    <span>  
+  </style>  
+</head>  
+<body>  
+
+<!-- LOADER -->  
+
+<div id="loader">  
+  <div class="loader-inner">  
+    <div class="loader-logo">H7 NEO</div>  
+    <div class="loader-line"></div>  
+  </div>  
+</div>  
+
+<!-- ANNOUNCEMENT -->  
+
+<div class="announcement">  
+      <span>  
       <strong>H7 NEO</strong>  
       — STYLE WITHOUT LIMITS • LUXURY IN EVERY DETAIL • التوصيل داخل المغرب  
     </span>  
@@ -2998,8 +3781,7 @@ aria-label="WhatsApp"
       if(!value){  
         return fallback;  
       }  
-  
-      const parsed = JSON.parse(value);  
+          const parsed = JSON.parse(value);  
   
       return parsed;  
   
@@ -3195,7 +3977,6 @@ aria-label="WhatsApp"
       `;  
   
       return;  
-  
     }  
   
   
@@ -3997,7 +4778,8 @@ aria-label="WhatsApp"
     });  
   
   
-    wrapper.innerHTML = `  
+    wrapper.innerHTML = `
+      wrapper.innerHTML = `  
   
       <div style="  
         direction:rtl;  
@@ -4376,6 +5158,7 @@ aria-label="WhatsApp"
       closeCheckout();  
   
       closeCart();  
+  
   
     }catch(error){  
   
